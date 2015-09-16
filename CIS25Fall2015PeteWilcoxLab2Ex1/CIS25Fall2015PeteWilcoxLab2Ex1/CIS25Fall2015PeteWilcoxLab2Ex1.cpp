@@ -111,32 +111,38 @@ void displayDigits(int *integerArray, int numIntegers, int modeSelection) {
 		}
 
 		do {
-			if (modeSelection == 0) {
-				thisDigit = tempNum % 10;
+			thisDigit = tempNum % 10;
+			switch (modeSelection) {
+			case 2:
+				if (thisDigit % 2 == 0) {
+					digitCounter[thisDigit]++;
+				}
+				break;
+			case 1:
+				if (thisDigit % 2 != 0) {
+					digitCounter[thisDigit]++;
+				}
+				break;
+			default:
 				digitCounter[thisDigit]++;
-			} else if ((modeSelection == 2) && (thisDigit % 2 == 0)) {
-				thisDigit = tempNum % 10;
-				digitCounter[thisDigit]++;
-			} else if ((modeSelection == 1) && (thisDigit % 2 != 0)) {
-				thisDigit = tempNum % 10;
-				digitCounter[thisDigit]++;
-			} else {			
-				// nothing
 			}
+
 			tempNum /= 10;
 		} while (tempNum != 0);
 	}
 
+	cout << endl;
 	// Display results
-	cout << "\n  Occurrence of all existing ";
-
-	if (modeSelection == 2) {
-		cout << "even ";
-	} else if (modeSelection == 1) {
-		cout << "odd ";
-	} else {
-		// all
-	} cout << "digits --";
+	switch (modeSelection) {
+	case 2:
+		cout << "\n Occurrence of all existing even digits --";
+		break;
+	case 1:
+		cout << "\n Occurrence of all existing odd digits --";
+		break;
+	default:
+		cout << "\n Occurrence of all existing digits --";
+	}
 
 	for (i = 0; i < 10; i++) {
 		if (digitCounter[i] != 0) {
@@ -151,7 +157,7 @@ void displayDigits(int *integerArray, int numIntegers, int modeSelection) {
 	return;
 }
 
-void displayMostDigit(int digitCounter[], int numIntegers, int modeSelection) {
+void displayMostDigit(int* digitCounter, int numIntegers, int modeSelection) {
 	int countSmall = 50;
 	int countLarge = 0;
 	int i;
@@ -159,11 +165,11 @@ void displayMostDigit(int digitCounter[], int numIntegers, int modeSelection) {
 	// Count digit frequency
 
 	for (i = 0; i < 10; i++) {
-		if (digitCounter[i] > countLarge) {
-			countLarge = digitCounter[i];
+		if (*(digitCounter + i) > countLarge) {
+			countLarge = *(digitCounter + i);
 		}
-		if ((digitCounter[i] < countSmall) && (digitCounter[i] != 0)) {
-			countSmall = digitCounter[i];
+		if ((*(digitCounter + i) < countSmall) && (*(digitCounter + i) != 0)) {
+			countSmall = *(digitCounter + i);
 		}
 	}
 
@@ -174,7 +180,7 @@ void displayMostDigit(int digitCounter[], int numIntegers, int modeSelection) {
 	}
 
 	for (i = 0; i < 10; i++) {
-		if (digitCounter[i] == countLarge) {
+		if (*(digitCounter + i) == countLarge) {
 			cout << "\n    " << i;
 		}
 	}
@@ -187,7 +193,7 @@ void displayMostDigit(int digitCounter[], int numIntegers, int modeSelection) {
 		cout << "\n\n  The odd digit(s) that has/have the smallest occurrence --";
 	}
 	for (i = 0; i < 10; i++) {
-		if (digitCounter[i] == countSmall) {
+		if (*(digitCounter + i) == countSmall) {
 			cout << "\n    " << i;
 		}
 	}
