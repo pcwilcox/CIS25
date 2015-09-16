@@ -408,6 +408,11 @@ Having fun...
 
 /* COMMENTS:
 
-
+2015/09/17:
+My first version of this program used a separate function for each
+desired output - displayMostDigitEven() and so on. I decided to 
+simplify the code by condensing it and adding an argument to the
+functions that sets whether it is operating in even/odd/all mode.
+This cleans up the code significantly and makes it easier to read.
 
 */
