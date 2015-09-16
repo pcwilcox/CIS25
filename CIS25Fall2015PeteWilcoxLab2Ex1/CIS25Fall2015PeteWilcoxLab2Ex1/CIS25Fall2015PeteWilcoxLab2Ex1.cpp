@@ -6,7 +6,6 @@ using namespace std;
 void header(void);
 void menu(void);
 void displayDigitInfoUpdatePeteWilcox(void);
-int *makeIntegerArrays(int);
 void displayDigits(int*, int, int);
 void displayMostDigit(int*, int, int);
 
@@ -204,8 +203,211 @@ void displayMostDigit(int* digitCounter, int numIntegers, int modeSelection) {
 
 /* PROGRAM OUTPUT:
 
+Class Information --
+  CIS 25 - C++ Programming
+  Laney College
+
+Assignment Information --
+  Assignment Number:  Lab 02 - Exercise #1
+  Written by:         Pete Wilcox
+  Submitted Date:     2015/09/17
+
+
+***************************************************
+*               MENU 02 -- Arrays & Digits        *
+*  (1) Calling displayDigitInfoUpdatePeteWilcox() *
+*  (2) Quit                                       *
+***************************************************
+Select an option (1 or 2): 4
+
+WRONG OPTION!
+
+
+***************************************************
+*               MENU 02 -- Arrays & Digits        *
+*  (1) Calling displayDigitInfoUpdatePeteWilcox() *
+*  (2) Quit                                       *
+***************************************************
+Select an option (1 or 2): 1
+
+Calling displayDigitInfoUpdatePeteWilcox() --
+  How many integers (to be worked on)? 2
+    Enter integer #1: 1230476
+    Enter integer #2: 10034850
+
+
+ Occurrence of all existing digits --
+    Digit 0 : 4
+    Digit 1 : 2
+    Digit 2 : 1
+    Digit 3 : 2
+    Digit 4 : 2
+    Digit 5 : 1
+    Digit 6 : 1
+    Digit 7 : 1
+    Digit 8 : 1
+
+ Occurrence of all existing even digits --
+    Digit 0 : 4
+    Digit 2 : 1
+    Digit 4 : 2
+    Digit 6 : 1
+    Digit 8 : 1
+
+  The even digit(s) that has/have the largest occurrence --
+    0
+  With the number of occurrence(s): 4
+
+  The even digit(s) that has/have the smallest occurrence --
+    2
+    6
+    8
+  With the number of occurrence(s) : 1
+
+ Occurrence of all existing odd digits --
+    Digit 1 : 2
+    Digit 3 : 2
+    Digit 5 : 1
+    Digit 7 : 1
+
+  The odd digit(s) that has/have the largest occurrence --
+    1
+    3
+  With the number of occurrence(s): 2
+
+  The odd digit(s) that has/have the smallest occurrence --
+    5
+    7
+  With the number of occurrence(s) : 1
+
+***************************************************
+*               MENU 02 -- Arrays & Digits        *
+*  (1) Calling displayDigitInfoUpdatePeteWilcox() *
+*  (2) Quit                                       *
+***************************************************
+Select an option (1 or 2): 1
+
+Calling displayDigitInfoUpdatePeteWilcox() --
+  How many integers (to be worked on)? 3
+    Enter integer #1: 1230476
+    Enter integer #2: 10434950
+    Enter integer #3: 9023497
+
+
+ Occurrence of all existing digits --
+    Digit 0 : 4
+    Digit 1 : 2
+    Digit 2 : 2
+    Digit 3 : 3
+    Digit 4 : 4
+    Digit 5 : 1
+    Digit 6 : 1
+    Digit 7 : 2
+    Digit 9 : 3
+
+ Occurrence of all existing even digits --
+    Digit 0 : 4
+    Digit 2 : 2
+    Digit 4 : 4
+    Digit 6 : 1
+
+  The even digit(s) that has/have the largest occurrence --
+    0
+    4
+  With the number of occurrence(s): 4
+
+  The even digit(s) that has/have the smallest occurrence --
+    6
+  With the number of occurrence(s) : 1
+
+ Occurrence of all existing odd digits --
+    Digit 1 : 2
+    Digit 3 : 3
+    Digit 5 : 1
+    Digit 7 : 2
+    Digit 9 : 3
+
+  The odd digit(s) that has/have the largest occurrence --
+    3
+    9
+  With the number of occurrence(s): 3
+
+  The odd digit(s) that has/have the smallest occurrence --
+    5
+  With the number of occurrence(s) : 1
+
+***************************************************
+*               MENU 02 -- Arrays & Digits        *
+*  (1) Calling displayDigitInfoUpdatePeteWilcox() *
+*  (2) Quit                                       *
+***************************************************
+Select an option (1 or 2): 1
+
+Calling displayDigitInfoUpdatePeteWilcox() --
+  How many integers (to be worked on)? 4
+    Enter integer #1: 1230476
+    Enter integer #2: 10434950
+    Enter integer #3: 9023497
+    Enter integer #4: 5084624
+
+
+ Occurrence of all existing digits --
+    Digit 0 : 5
+    Digit 1 : 2
+    Digit 2 : 3
+    Digit 3 : 3
+    Digit 4 : 6
+    Digit 5 : 2
+    Digit 6 : 2
+    Digit 7 : 2
+    Digit 8 : 1
+    Digit 9 : 3
+
+ Occurrence of all existing even digits --
+    Digit 0 : 5
+    Digit 2 : 3
+    Digit 4 : 6
+    Digit 6 : 2
+    Digit 8 : 1
+
+  The even digit(s) that has/have the largest occurrence --
+    4
+  With the number of occurrence(s): 6
+
+  The even digit(s) that has/have the smallest occurrence --
+    8
+  With the number of occurrence(s) : 1
+
+ Occurrence of all existing odd digits --
+    Digit 1 : 2
+    Digit 3 : 3
+    Digit 5 : 2
+    Digit 7 : 2
+    Digit 9 : 3
+
+  The odd digit(s) that has/have the largest occurrence --
+    3
+    9
+  With the number of occurrence(s): 3
+
+  The odd digit(s) that has/have the smallest occurrence --
+    1
+    5
+    7
+  With the number of occurrence(s) : 2
+
+***************************************************
+*               MENU 02 -- Arrays & Digits        *
+*  (1) Calling displayDigitInfoUpdatePeteWilcox() *
+*  (2) Quit                                       *
+***************************************************
+Select an option (1 or 2): 2
+
+Having fun...
 */
 
 /* COMMENTS:
+
+
 
 */
