@@ -68,21 +68,20 @@ void menu() {
 
 void displayDigitInfoUpdatePeteWilcox() {
 	int numIntegers = 0;
-	int* integerArray = nullptr;
+	int* integerArray;
 	int i;
 
 	cout << "\n  How many integers (to be worked on)? ";
 	cin >> numIntegers;
 
-	// Call function to create array
-	integerArray = makeIntegerArrays(numIntegers);
-
+	integerArray = new int[numIntegers];
+	
 	for (i = 0; i < numIntegers; i++) {
 		cout << "    Enter integer #" << (i + 1) << ": ";
 		cin >> *(integerArray + i);
 	}
 
-	// Call the display funtions to display required information
+	// Call the functions to display required information
 	displayDigits(integerArray, numIntegers, 0);
 	displayDigits(integerArray, numIntegers, 2);
 	displayDigits(integerArray, numIntegers, 1);
@@ -91,15 +90,6 @@ void displayDigitInfoUpdatePeteWilcox() {
 	delete integerArray;
 
 	return;
-}
-
-int *makeIntegerArrays(int numArrays) {
-	// Function to create arrays as needed for user input
-	int *newArray = nullptr;
-	
-	newArray = new int[numArrays];
-
-	return newArray;
 }
 
 void displayDigits(int *integerArray, int numIntegers, int modeSelection) {
