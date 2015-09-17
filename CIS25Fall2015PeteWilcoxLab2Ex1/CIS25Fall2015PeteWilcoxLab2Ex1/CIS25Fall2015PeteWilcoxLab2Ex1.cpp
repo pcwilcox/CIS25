@@ -100,7 +100,7 @@ void displayDigits(int *integerArray, int numIntegers, int modeSelection) {
 	int tempNum;
 	int i;
 
-	// Add digits to the digitCounter array
+	// Count digit frequency
 	for (i = 0; i < numIntegers; i++) {
 		
 		tempNum = *(integerArray + i);
@@ -112,17 +112,17 @@ void displayDigits(int *integerArray, int numIntegers, int modeSelection) {
 		do {
 			thisDigit = tempNum % 10;
 			switch (modeSelection) {
-			case 2:
+			case 2: // even
 				if (thisDigit % 2 == 0) {
 					digitCounter[thisDigit]++;
 				}
 				break;
-			case 1:
+			case 1: // odd
 				if (thisDigit % 2 != 0) {
 					digitCounter[thisDigit]++;
 				}
 				break;
-			default:
+			default: // all
 				digitCounter[thisDigit]++;
 			}
 
@@ -149,6 +149,7 @@ void displayDigits(int *integerArray, int numIntegers, int modeSelection) {
 		}
 	}
 
+	// In even or odd mode, call displayMostDigit()
 	if ((modeSelection == 1) || (modeSelection == 2)) {
 		displayMostDigit(digitCounter, numIntegers, modeSelection);
 	}
@@ -187,10 +188,10 @@ void displayMostDigit(int* digitCounter, int numIntegers, int modeSelection) {
 
 	if (modeSelection == 2) {
 		cout << "\n\n  The even digit(s) that has/have the smallest occurrence --";
-	}
-	else {
+	} else {
 		cout << "\n\n  The odd digit(s) that has/have the smallest occurrence --";
 	}
+
 	for (i = 0; i < 10; i++) {
 		if (*(digitCounter + i) == countSmall) {
 			cout << "\n    " << i;
