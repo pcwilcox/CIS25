@@ -5,6 +5,7 @@ using namespace std;
 // Function prototypes
 void header(void);
 void menu(void);
+void arrangeArrayPeteWilcox(void);
 
 int main() {
 
@@ -34,21 +35,18 @@ void menu() {
 	// Create a loop for the main menu function.
 	do {
 		cout << "\n";
-		cout << "\n***************************************************";
-		cout << "\n*               MENU 02 -- Arrays & Digits        *";
-		cout << "\n*  (1) Calling displayDigitInfoUpdatePeteWilcox() *";
-		cout << "\n*  (2) Quit                                       *";
-		cout << "\n***************************************************";
+		cout << "\n*****************************************";
+		cout << "\n*            MENU 03 -- Arrays          *";
+		cout << "\n*  (1) Calling arrangeArrayPeteWilcox() *";
+		cout << "\n*  (2) Quit                             *";
+		cout << "\n*****************************************";
 		cout << "\nSelect an option (1 or 2): ";
 		cin >> menuChoice;
 
-		// Get input from user if option (1) is chosen, then call 
-		// getMostOccurredDigit function and display result.
 		switch (menuChoice) {
 		case 1:
-			cout << "\nCalling displayDigitInfoUpdatePeteWilcox() --";
 
-			displayDigitInfoUpdatePeteWilcox();
+			arrangeArrayPeteWilcox();
 			break;
 		case 2:
 			// Quit message.
@@ -61,6 +59,45 @@ void menu() {
 
 	return;
 }
+
+void arrangeArrayPeteWilcox(void) {
+	int* firstArray = nullptr;
+	int* secondArray = nullptr;
+	int arraySize;
+	int i, j;
+
+	// Create arrays
+	cout << "\nCreating the first array -";
+	cout << "\nEnter the array size: ";
+	cin >> arraySize;
+	
+	firstArray = new int[arraySize];
+	
+	cout << "\nEnter value for";
+	for (i = 0; i < arraySize; i++) {
+		cout << "\n  Index " << i << " : ";
+		cin >> firstArray[i];
+	}
+
+	cout << "\nCreating the second array -";
+	cout << "\nEnter the array size: ";
+	cin >> arraySize;
+
+	secondArray = new int[arraySize];
+
+	cout << "\nEnter value for";
+	for (i = 0; i < arraySize; i++) {
+		cout << "\n  Index " << i << " : ";
+		cin >> secondArray[i];
+	}
+
+
+	delete firstArray;
+	delete secondArray;
+
+	return;
+}
+
 
 /* PROGRAM OUTPUT:
 
