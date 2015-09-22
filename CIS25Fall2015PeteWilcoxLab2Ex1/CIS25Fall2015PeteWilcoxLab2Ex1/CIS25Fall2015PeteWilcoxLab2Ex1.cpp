@@ -85,7 +85,7 @@ void displayDigitInfoUpdatePeteWilcox() {
 	displayDigits(integerArray, numIntegers, 2);
 	displayDigits(integerArray, numIntegers, 1);
 	
-	// Free up memory
+	// Cleanup
 	delete integerArray;
 
 	return;
@@ -94,7 +94,6 @@ void displayDigitInfoUpdatePeteWilcox() {
 void displayDigits(int *integerArray, int numIntegers, int modeSelection) {
 	// Function to display total occurrence of each digit
 
-	// Declare variables
 	int digitCounter[10] = {0};
 	int thisDigit;
 	int tempNum;
