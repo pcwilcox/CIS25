@@ -25,7 +25,7 @@ void header() {
 	cout << "\nAssignment Information -- ";
 	cout << "\n  Assignment Number:  Lab 02 - Exercise #1";
 	cout << "\n  Written by:         Pete Wilcox";
-	cout << "\n  Submitted Date:     2015/09/17";
+	cout << "\n  Submitted Date:     2015/09/22";
 	cout << "\n";
 	return;
 }
@@ -210,7 +210,7 @@ Class Information --
 Assignment Information --
   Assignment Number:  Lab 02 - Exercise #1
   Written by:         Pete Wilcox
-  Submitted Date:     2015/09/17
+  Submitted Date:     2015/09/22
 
 
 ***************************************************
@@ -408,7 +408,7 @@ Having fun...
 
 /* COMMENTS:
 
-2015/09/17:
+2015/09/22:
 My first version of this program used a separate function for each
 desired output - displayMostDigitEven() and so on. I decided to 
 simplify the code by condensing it and adding an argument to the
