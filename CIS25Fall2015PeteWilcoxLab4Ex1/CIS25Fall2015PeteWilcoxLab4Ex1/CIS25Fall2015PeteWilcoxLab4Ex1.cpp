@@ -1,12 +1,14 @@
-/* 
-
+/**
+* Program Name: cis25Fall2015PeteWilcoxLab4Ex1.cpp
+* Discussion:   Lab #4 Exercise #1
+* Written by:   Pete Wilcox
+* Date:         2015/10/08
 */
 
 #include <iostream>
 
 using namespace std;
 
-// Function prototypes
 void header(void);
 void menu(void);
 void arrangeArrayPeteWilcox(int*, int, int*, int);
@@ -14,8 +16,8 @@ void createArrays(void);
 
 int main() {
 
-	header(); // Display program header information.
-	menu();   // Display user interface.
+	header(); 
+	menu();   
 
 	return 0;
 }
@@ -26,9 +28,9 @@ void header() {
 	cout << "\n  Laney College";
 	cout << "\n";
 	cout << "\nAssignment Information -- ";
-	cout << "\n  Assignment Number:  Lab 03 - Exercise #1";
+	cout << "\n  Assignment Number:  Lab 04 - Exercise #1";
 	cout << "\n  Written by:         Pete Wilcox";
-	cout << "\n  Submitted Date:     2015/09/29";
+	cout << "\n  Submitted Date:     2015/10/08";
 	cout << "\n";
 	return;
 }
@@ -40,11 +42,11 @@ void menu() {
 	// Create a loop for the main menu function.
 	do {
 		cout << "\n";
-		cout << "\n*****************************************";
-		cout << "\n*            MENU 03 -- Arrays          *";
-		cout << "\n*  (1) Calling arrangeArrayPeteWilcox() *";
-		cout << "\n*  (2) Quit                             *";
-		cout << "\n*****************************************";
+		cout << "\n*************************************************";
+		cout << "\n*                MENU 04 -- Arrays              *";
+		cout << "\n*  (1) Calling arrangeMultipleArrayPeteWilcox() *";
+		cout << "\n*  (2) Quit                                     *";
+		cout << "\n*************************************************";
 		cout << "\nSelect an option (1 or 2): ";
 		cin >> menuChoice;
 
