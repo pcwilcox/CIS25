@@ -65,6 +65,57 @@ void menu() {
 	return;
 }
 
+void start() {
+	int** userArray;
+	int userArraySize;
+	int i, j;
+
+	cout << "\nSetting up data before calling ArrangeMultipleArrayPeteWilcox() --";
+	cout << "\n\nHow many arrays of int (treating these as arrays of int?";
+	cin >> userArraySize;
+
+	int** userArray = new int*[userArraySize];
+
+	for (i = 0; i < userArraySize; i++) {
+		cout << "\nCreating array index # " << i;
+		*(userArray + i) = createArray();
+
+		cout << "\nFor array index #" << i;
+		for (j = 0; j < *(*(userArray + i)); j++) {
+			cout << "\n  Element index #" << j << " : " << *(*(userArray + i) + j);
+		}
+	}
+
+
+//	arrangeMultipleArrayPeteWilcox(userArray, userArraySize);
+
+
+	for (i = 0; i < userArraySize; i++) {
+		delete *(userArray + i);
+	}
+
+	delete userArray;
+	return;
+}
+
+int* createArray() {
+	int* newArray;
+	int newArraySize;
+	int i;
+
+	cout << "\n  How many value(s)?";
+	cin >> newArraySize;
+	newArray = new int[newArraySize + 1];
+	*(newArray) = newArraySize;
+
+	for (i = 1; i < newArraySize; i++) {
+		cout << "\n    Enter the value for element at index " << i;
+		cin >> *(newArray + i);
+	}
+
+	return newArray;
+}
+
 /*
 void createArrays() {
 	// Create arrays and pass their information to arrangeArray()
