@@ -81,7 +81,7 @@ void start() {
 		*(userArray + i) = createArray();
 
 		cout << "\nFor array index #" << i;
-		for (j = 0; j < *(*(userArray + i)); j++) {
+		for (j = 0; j < (*(*(userArray + i)) + 1); j++) {
 			cout << "\n  Element index #" << j << " : " << *(*(userArray + i) + j);
 		}
 	}
@@ -105,62 +105,16 @@ int* createArray() {
 
 	cout << "\n  How many value(s)?";
 	cin >> newArraySize;
-	newArray = new int[newArraySize + 1];
-	*(newArray) = newArraySize;
+	newArray = new int[++newArraySize];
+	*(newArray) = (newArraySize - 1);
 
 	for (i = 1; i < newArraySize; i++) {
-		cout << "\n    Enter the value for element at index " << i;
+		cout << "\n    Enter the value for element at index " << i << " : ";
 		cin >> *(newArray + i);
 	}
 
 	return newArray;
 }
-
-/*
-void createArrays() {
-	// Create arrays and pass their information to arrangeArray()
-	int* firstArray = nullptr;
-	int* secondArray = nullptr;
-	int firstArraySize;
-	int secondArraySize;
-	int i;
-
-	// Get user data and assign to arrays
-	cout << "\nCreating the first array -";
-	cout << "\nEnter the array size: ";
-	cin >> firstArraySize;
-
-	firstArray = new int[firstArraySize];
-
-	cout << "\nEnter value for";
-	for (i = 0; i < firstArraySize; i++) {
-		cout << "  Index " << i << " : ";
-		cin >> *(firstArray + i);
-	}
-
-	cout << "\nCreating the second array -";
-	cout << "\nEnter the array size: ";
-	cin >> secondArraySize;
-
-	secondArray = new int[secondArraySize];
-
-	cout << "\nEnter value for";
-	for (i = 0; i < secondArraySize; i++) {
-		cout << "  Index " << i << " : ";
-		cin >> *(secondArray + i);
-	}
-
-	// Call arrangeArray() with user data
-	cout << "\nCalling arrangeArraysPeteWilcox() --";
-	arrangeArrayPeteWilcox(firstArray, firstArraySize, secondArray, secondArraySize);
-
-	// Cleanup
-	delete firstArray;
-	delete secondArray;
-	return;
-}
-
-*/
 
 /*
 void arrangeArrayPeteWilcox(int* firstArray, int firstArraySize,
