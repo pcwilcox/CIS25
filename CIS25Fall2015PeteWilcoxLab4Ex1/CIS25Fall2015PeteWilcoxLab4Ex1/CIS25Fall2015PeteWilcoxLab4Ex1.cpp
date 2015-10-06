@@ -87,7 +87,7 @@ void start() {
 	}
 
 
-//	arrangeMultipleArrayPeteWilcox(userArray, userArraySize);
+	arrangeMultipleArrayPeteWilcox(userArray, userArraySize);
 
 
 	for (i = 0; i < userArraySize; i++) {
@@ -116,11 +116,37 @@ int* createArray() {
 	return newArray;
 }
 
-/*
-void arrangeArrayPeteWilcox(int* firstArray, int firstArraySize,
-	int* secondArray, int secondArraySize) {
+
+void arrangeMultipleArrayPeteWilcox(int** userArray, int userArraySize) {
 	// Arrange arrays
 
+	int* swapValues = new int[(userArraySize * 3)];
+	int i, j;
+
+	cout << "\nConfirming before working through with swapping --";
+	cout << "\n\nThere is/are " << userArraySize << " array(s).";
+	
+	for (i = 0; i < userArraySize; i++) {
+		cout << "\n\nThe current array #" << (i + 1) << " has " << *(*(userArray + i)) << " element(s).\n..";
+
+		for (j = 0; j < *(*(userArray + i)); j++) {
+			cout << "  Element index #" << j << " : " << *(*(userArray + i) + j) << "\n  ";
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	//old stuff
 	int* swapFromFirst = new int[firstArraySize];
 	int* swapFromSecond = new int[secondArraySize];
 	int numSwaps = 0;
@@ -204,7 +230,7 @@ void arrangeArrayPeteWilcox(int* firstArray, int firstArraySize,
 	return;
 }
 
-*/
+
 
 /* PROGRAM OUTPUT:
 
