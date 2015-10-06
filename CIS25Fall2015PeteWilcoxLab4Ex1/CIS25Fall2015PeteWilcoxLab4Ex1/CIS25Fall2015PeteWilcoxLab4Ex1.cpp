@@ -11,8 +11,10 @@ using namespace std;
 
 void header(void);
 void menu(void);
-void arrangeArrayPeteWilcox(int*, int, int*, int);
-void createArrays(void);
+void arrangeMultipleArrayPeteWilcox(int**, int);
+void start(void);
+int* createArray(void);
+
 
 int main() {
 
@@ -36,10 +38,8 @@ void header() {
 }
 
 void menu() {
-	// Declare variables for the menu and for the integer input.
 	int menuChoice = 0;
 
-	// Create a loop for the main menu function.
 	do {
 		cout << "\n";
 		cout << "\n*************************************************";
@@ -52,10 +52,9 @@ void menu() {
 
 		switch (menuChoice) {
 		case 1:
-			createArrays();
+			start();
 			break;
 		case 2:
-			// Quit message.
 			cout << "\nHaving fun..." << endl;
 			break;
 		default:
@@ -66,6 +65,7 @@ void menu() {
 	return;
 }
 
+/*
 void createArrays() {
 	// Create arrays and pass their information to arrangeArray()
 	int* firstArray = nullptr;
@@ -109,6 +109,9 @@ void createArrays() {
 	return;
 }
 
+*/
+
+/*
 void arrangeArrayPeteWilcox(int* firstArray, int firstArraySize,
 	int* secondArray, int secondArraySize) {
 	// Arrange arrays
@@ -196,6 +199,7 @@ void arrangeArrayPeteWilcox(int* firstArray, int firstArraySize,
 	return;
 }
 
+*/
 
 /* PROGRAM OUTPUT:
 
