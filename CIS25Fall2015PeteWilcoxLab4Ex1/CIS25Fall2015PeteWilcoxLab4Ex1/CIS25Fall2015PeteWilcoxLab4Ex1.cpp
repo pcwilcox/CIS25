@@ -74,7 +74,7 @@ void start() {
 	cout << "\n\nHow many arrays of int (treating these as arrays of int?";
 	cin >> userArraySize;
 
-	int** userArray = new int*[userArraySize];
+	userArray = new int*[userArraySize];
 
 	for (i = 0; i < userArraySize; i++) {
 		cout << "\nCreating array index # " << i;
