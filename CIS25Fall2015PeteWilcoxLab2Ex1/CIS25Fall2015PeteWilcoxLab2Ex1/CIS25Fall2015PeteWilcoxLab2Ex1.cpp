@@ -1,3 +1,10 @@
+/**
+* Program Name: cis25Fall2015PeteWilcoxLab2Ex1.cpp
+* Discussion:   Lab #2 Exercise #1
+* Written by:   Pete Wilcox
+* Date:         2015/09/22
+*/
+
 #include <iostream>
 
 using namespace std;
@@ -11,8 +18,8 @@ void displayMostDigit(int*, int, int);
 
 int main() {
 
-	header(); // Display program header information.
-	menu();   // Display user interface.
+	header(); 
+	menu();   
 
 	return 0;
 }
@@ -31,10 +38,8 @@ void header() {
 }
 
 void menu() {
-	// Declare variables for the menu and for the integer input.
 	int menuChoice = 0;
 
-	// Create a loop for the main menu function.
 	do {
 		cout << "\n";
 		cout << "\n***************************************************";
@@ -45,8 +50,6 @@ void menu() {
 		cout << "\nSelect an option (1 or 2): ";
 		cin >> menuChoice;
 
-		// Get input from user if option (1) is chosen, then call 
-		// getMostOccurredDigit function and display result.
 		switch (menuChoice) {
 		case 1:
 			cout << "\nCalling displayDigitInfoUpdatePeteWilcox() --";
@@ -54,7 +57,6 @@ void menu() {
 			displayDigitInfoUpdatePeteWilcox();
 			break;
 		case 2:
-			// Quit message.
 			cout << "\nHaving fun..." << endl;
 			break;
 		default:
@@ -85,7 +87,6 @@ void displayDigitInfoUpdatePeteWilcox() {
 	displayDigits(integerArray, numIntegers, 2);
 	displayDigits(integerArray, numIntegers, 1);
 	
-	// Cleanup
 	delete integerArray;
 
 	return;
@@ -130,7 +131,6 @@ void displayDigits(int *integerArray, int numIntegers, int modeSelection) {
 	}
 
 	cout << endl;
-	// Display results
 	switch (modeSelection) {
 	case 2:
 		cout << "\n Occurrence of all existing even digits --";
@@ -415,4 +415,6 @@ simplify the code by condensing it and adding an argument to the
 functions that sets whether it is operating in even/odd/all mode.
 This cleans up the code significantly and makes it easier to read.
 
+2015/10/08:
+Fixed comment block at top of source code.
 */
