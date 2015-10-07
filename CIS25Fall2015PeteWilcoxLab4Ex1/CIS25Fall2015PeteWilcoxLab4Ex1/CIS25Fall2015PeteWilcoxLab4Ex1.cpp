@@ -166,50 +166,47 @@ int arrangeMultipleArrayPeteWilcox(int** userArray, int userArraySize) {
 
 	cout << "\n  Displaying inside arrangeMultipleArrayPeteWilcox()-";
 
-	//while (swapFromArrayPointer < userArraySize) {
-		// For each user array
-		swapFromPointer = 1;
-		while (swapFromPointer <= *(*(userArray + swapFromArrayPointer))) {
-			// For each element in the array (not including index 0)
-			swapped = false;
+	swapFromPointer = 1;
+	while (swapFromPointer <= *(*(userArray + swapFromArrayPointer))) {
+		// For each element in the array (not including index 0)
+		swapped = false;
 
-			if (*(*(userArray + swapFromArrayPointer) + swapFromPointer) % 2 == 0) {
-				// If it's even, look for a value to swap with
-				swapToArrayPointer = swapFromArrayPointer + 1;
-				
-				while ((swapToArrayPointer < userArraySize) && (swapped == false)) {
-					// For each remaining array
-					swapToPointer = 1;
-					while ((swapToPointer <= *(*(userArray + swapToArrayPointer))) && (swapped == false)) {
-						//For each element in that array (not including index 0)
-						if (*(*(userArray + swapToArrayPointer) + swapToPointer) % 2 != 0) {
-							// If it's odd
+		if (*(*(userArray + swapFromArrayPointer) + swapFromPointer) % 2 == 0) {
+			// If it's even, look for a value to swap with
+			swapToArrayPointer = swapFromArrayPointer + 1;
+			
+			while ((swapToArrayPointer < userArraySize) && (swapped == false)) {
+				// For each remaining array
+				swapToPointer = 1;
+				while ((swapToPointer <= *(*(userArray + swapToArrayPointer))) && (swapped == false)) {
+					//For each element in that array (not including index 0)
+					if (*(*(userArray + swapToArrayPointer) + swapToPointer) % 2 != 0) {
+						// If it's odd
 
-							*(swapValueLeft + numSwaps) = swapFromArrayPointer;
-							*(swapValueLeft + numSwaps + 1) = swapFromPointer;
-							*(swapValueLeft + numSwaps + 2) = *(*(userArray + swapFromArrayPointer) + swapFromPointer);
+						*(swapValueLeft + numSwaps) = swapFromArrayPointer;
+						*(swapValueLeft + numSwaps + 1) = swapFromPointer;
+						*(swapValueLeft + numSwaps + 2) = *(*(userArray + swapFromArrayPointer) + swapFromPointer);
 
-							*(swapValueRight + numSwaps) = swapToArrayPointer;
-							*(swapValueRight + numSwaps + 1) = swapToPointer;
-							*(swapValueRight + numSwaps + 2) = *(*(userArray + swapToArrayPointer) + swapToPointer);
+						*(swapValueRight + numSwaps) = swapToArrayPointer;
+						*(swapValueRight + numSwaps + 1) = swapToPointer;
+						*(swapValueRight + numSwaps + 2) = *(*(userArray + swapToArrayPointer) + swapToPointer);
 
-							numSwaps += 3;
+						numSwaps += 3;
 
-							swapNum = *(*(userArray + swapFromArrayPointer) + swapFromPointer);
-							*(*(userArray + swapFromArrayPointer) + swapFromPointer) = *(*(userArray + swapToArrayPointer) + swapToPointer);
-							*(*(userArray + swapToArrayPointer) + swapToPointer) = swapNum;
+						swapNum = *(*(userArray + swapFromArrayPointer) + swapFromPointer);
+						*(*(userArray + swapFromArrayPointer) + swapFromPointer) = *(*(userArray + swapToArrayPointer) + swapToPointer);
+						*(*(userArray + swapToArrayPointer) + swapToPointer) = swapNum;
 
-							swapped = true;
-						}
-						swapToPointer++;
+						swapped = true;
 					}
-					swapToArrayPointer++;
+					swapToPointer++;
 				}
+				swapToArrayPointer++;
 			}
-			swapFromPointer++;
 		}
-		//swapFromArrayPointer++;
-	//}
+		swapFromPointer++;
+	}
+	
 
 	cout << "\n\n  Displaying inside arrangeMultipleArrayPeteWilcox()-";
 	for (i = 0; i < numSwaps; i += 3) {
