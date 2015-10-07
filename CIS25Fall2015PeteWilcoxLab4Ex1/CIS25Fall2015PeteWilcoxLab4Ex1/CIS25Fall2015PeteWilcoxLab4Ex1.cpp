@@ -92,9 +92,9 @@ void start() {
 	cout << "\n\nThere is/are " << userArraySize << " array(s).";
 
 	for (i = 0; i < userArraySize; i++) {
-		cout << "\n\nThe current array #" << (i + 1) << " has " << *(*(userArray + i)) << " element(s).\n..";
+		cout << "\n\nThe current array #" << (i + 1) << " has " << ((*(*(userArray + i))) + 1) << " element(s).\n..";
 
-		for (j = 0; j < *(*(userArray + i)); j++) {
+		for (j = 0; j < ((*(*(userArray + i))) + 1); j++) {
 			cout << "Element index #" << j << " : " << *(*(userArray + i) + j) << "\n  ";
 		}
 
@@ -152,6 +152,7 @@ int arrangeMultipleArrayPeteWilcox(int** userArray, int userArraySize) {
 	int swapToArrayPointer = 0;
 	int numSwaps = 0;
 	int swapNum;
+	bool swapped = false;
 	int i;
 
 	for (i = 0; i < userArraySize; i++) {
@@ -170,13 +171,16 @@ int arrangeMultipleArrayPeteWilcox(int** userArray, int userArraySize) {
 		swapFromPointer = 1;
 		while (swapFromPointer <= *(*(userArray + swapFromArrayPointer))) {
 			// For each element in the array (not including index 0)
+			swapped = false;
+
 			if (*(*(userArray + swapFromArrayPointer) + swapFromPointer) % 2 == 0) {
 				// If it's even, look for a value to swap with
 				swapToArrayPointer = swapFromArrayPointer + 1;
-				while (swapToArrayPointer < userArraySize) {
+				
+				while ((swapToArrayPointer < userArraySize) && (swapped == false)) {
 					// For each remaining array
 					swapToPointer = 1;
-					while (swapToPointer <= *(*(userArray + swapToArrayPointer))) {
+					while ((swapToPointer <= *(*(userArray + swapToArrayPointer))) && (swapped == false)) {
 						//For each element in that array (not including index 0)
 						if (*(*(userArray + swapToArrayPointer) + swapToPointer) % 2 != 0) {
 							// If it's odd
@@ -195,8 +199,7 @@ int arrangeMultipleArrayPeteWilcox(int** userArray, int userArraySize) {
 							*(*(userArray + swapFromArrayPointer) + swapFromPointer) = *(*(userArray + swapToArrayPointer) + swapToPointer);
 							*(*(userArray + swapToArrayPointer) + swapToPointer) = swapNum;
 
-							swapToArrayPointer = userArraySize;
-							swapToPointer = *(*(userArray + swapToArrayPointer)) + 1;
+							swapped = true;
 						}
 						swapToPointer++;
 					}
