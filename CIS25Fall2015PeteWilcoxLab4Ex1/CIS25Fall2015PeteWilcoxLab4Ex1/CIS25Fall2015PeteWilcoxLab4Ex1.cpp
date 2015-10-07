@@ -196,7 +196,7 @@ int arrangeMultipleArrayPeteWilcox(int** userArray, int userArraySize) {
 							*(*(userArray + swapToArrayPointer) + swapToPointer) = swapNum;
 
 							swapToArrayPointer = userArraySize;
-							swapToPointer = *(*(userArray + swapToArrayPointer)) + 1;
+							swapToPointer = (*(*(userArray + swapToArrayPointer))) + 1;
 						}
 						swapToPointer++;
 					}
