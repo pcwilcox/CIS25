@@ -92,9 +92,9 @@ void start() {
 	cout << "\n\nThere is/are " << userArraySize << " array(s).";
 
 	for (i = 0; i < userArraySize; i++) {
-		cout << "\n\nThe current array #" << (i + 1) << " has " << *(*(userArray + i)) << " element(s).\n..";
+		cout << "\n\nThe current array #" << (i + 1) << " has " << ((*(*(userArray + i))) + 1) << " element(s).\n..";
 
-		for (j = 0; j < *(*(userArray + i)); j++) {
+		for (j = 0; j < ((*(*(userArray + i))) + 1); j++) {
 			cout << "Element index #" << j << " : " << *(*(userArray + i) + j) << "\n  ";
 		}
 
@@ -152,6 +152,7 @@ int arrangeMultipleArrayPeteWilcox(int** userArray, int userArraySize) {
 	int swapToArrayPointer = 0;
 	int numSwaps = 0;
 	int swapNum;
+	bool swapped = false;
 	int i;
 
 	for (i = 0; i < userArraySize; i++) {
@@ -165,18 +166,21 @@ int arrangeMultipleArrayPeteWilcox(int** userArray, int userArraySize) {
 
 	cout << "\n  Displaying inside arrangeMultipleArrayPeteWilcox()-";
 
-	while (swapFromArrayPointer < userArraySize) {
+	//while (swapFromArrayPointer < userArraySize) {
 		// For each user array
 		swapFromPointer = 1;
 		while (swapFromPointer <= *(*(userArray + swapFromArrayPointer))) {
 			// For each element in the array (not including index 0)
+			swapped = false;
+
 			if (*(*(userArray + swapFromArrayPointer) + swapFromPointer) % 2 == 0) {
 				// If it's even, look for a value to swap with
 				swapToArrayPointer = swapFromArrayPointer + 1;
-				while (swapToArrayPointer < userArraySize) {
+				
+				while ((swapToArrayPointer < userArraySize) && (swapped == false)) {
 					// For each remaining array
 					swapToPointer = 1;
-					while (swapToPointer <= *(*(userArray + swapToArrayPointer))) {
+					while ((swapToPointer <= *(*(userArray + swapToArrayPointer))) && (swapped == false)) {
 						//For each element in that array (not including index 0)
 						if (*(*(userArray + swapToArrayPointer) + swapToPointer) % 2 != 0) {
 							// If it's odd
@@ -195,8 +199,7 @@ int arrangeMultipleArrayPeteWilcox(int** userArray, int userArraySize) {
 							*(*(userArray + swapFromArrayPointer) + swapFromPointer) = *(*(userArray + swapToArrayPointer) + swapToPointer);
 							*(*(userArray + swapToArrayPointer) + swapToPointer) = swapNum;
 
-							swapToArrayPointer = userArraySize;
-							swapToPointer = (*(*(userArray + swapToArrayPointer))) + 1;
+							swapped = true;
 						}
 						swapToPointer++;
 					}
@@ -205,8 +208,8 @@ int arrangeMultipleArrayPeteWilcox(int** userArray, int userArraySize) {
 			}
 			swapFromPointer++;
 		}
-		swapFromArrayPointer++;
-	}
+		//swapFromArrayPointer++;
+	//}
 
 	cout << "\n\n  Displaying inside arrangeMultipleArrayPeteWilcox()-";
 	for (i = 0; i < numSwaps; i += 3) {
@@ -220,6 +223,151 @@ int arrangeMultipleArrayPeteWilcox(int** userArray, int userArraySize) {
 
 
 /* PROGRAM OUTPUT:
+
+*****************************************UPDATE THIS***************************************
+
+
+Class Information --
+  CIS 25 - C++ Programming
+  Laney College
+
+Assignment Information --
+  Assignment Number:  Lab 04 - Exercise #1
+  Written by:         Pete Wilcox
+  Submitted Date:     2015/10/08
+
+
+*************************************************
+*                MENU 04 -- Arrays              *
+*  (1) Calling arrangeMultipleArrayPeteWilcox() *
+*  (2) Quit                                     *
+*************************************************
+Select an option (1 or 2): 4
+
+WRONG OPTION!
+
+
+*************************************************
+*                MENU 04 -- Arrays              *
+*  (1) Calling arrangeMultipleArrayPeteWilcox() *
+*  (2) Quit                                     *
+*************************************************
+Select an option (1 or 2): 1
+
+Setting up data before calling ArrangeMultipleArrayPeteWilcox() --
+
+How many arrays of int (treating these as arrays of int?3
+
+Creating array index # 0
+  How many value(s)?6
+
+    Enter the value for element at index 1 : 1
+
+    Enter the value for element at index 2 : -23
+
+    Enter the value for element at index 3 : 18
+
+    Enter the value for element at index 4 : 27
+
+    Enter the value for element at index 5 : -36
+
+    Enter the value for element at index 6 : 45
+
+For array index #0
+  Element index #0 : 6
+  Element index #1 : 1
+  Element index #2 : -23
+  Element index #3 : 18
+  Element index #4 : 27
+  Element index #5 : -36
+  Element index #6 : 45
+Creating array index # 1
+  How many value(s)?3
+
+    Enter the value for element at index 1 : 4
+
+    Enter the value for element at index 2 : -17
+
+    Enter the value for element at index 3 : 8
+
+For array index #1
+  Element index #0 : 3
+  Element index #1 : 4
+  Element index #2 : -17
+  Element index #3 : 8
+Creating array index # 2
+  How many value(s)?2
+
+    Enter the value for element at index 1 : -1
+
+    Enter the value for element at index 2 : -3
+
+For array index #2
+  Element index #0 : 2
+  Element index #1 : -1
+  Element index #2 : -3
+Confirming before working through with swapping --
+
+There is/are 3 array(s).
+
+The current array #1 has 7 element(s).
+..Element index #0 : 6
+  Element index #1 : 1
+  Element index #2 : -23
+  Element index #3 : 18
+  Element index #4 : 27
+  Element index #5 : -36
+  Element index #6 : 45
+
+
+The current array #2 has 4 element(s).
+..Element index #0 : 3
+  Element index #1 : 4
+  Element index #2 : -17
+  Element index #3 : 8
+
+
+The current array #3 has 3 element(s).
+..Element index #0 : 2
+  Element index #1 : -1
+  Element index #2 : -3
+
+Calling arrangeMultipleArrayPeteWilcox() --
+  Displaying inside arrangeMultipleArrayPeteWilcox()-
+
+  Displaying inside arrangeMultipleArrayPeteWilcox()-
+  Array #0 value 18 is swapped with Array #1 value -17
+  Array #0 value -36 is swapped with Array #2 value -1
+Displaying outside of arrangeMultipleArrayYourName() -
+
+The updated array #0 has 6 element(s).
+  Element index #0 : 6
+  Element index #0 : 1
+  Element index #0 : -23
+  Element index #0 : -17
+  Element index #0 : 27
+  Element index #0 : -1
+  Element index #0 : 45
+The updated array #1 has 3 element(s).
+  Element index #1 : 3
+  Element index #1 : 4
+  Element index #1 : 18
+  Element index #1 : 8
+The updated array #2 has 2 element(s).
+  Element index #2 : 2
+  Element index #2 : -36
+  Element index #2 : -3
+
+*************************************************
+*                MENU 04 -- Arrays              *
+*  (1) Calling arrangeMultipleArrayPeteWilcox() *
+*  (2) Quit                                     *
+*************************************************
+Select an option (1 or 2): 2
+
+Having fun...
+
+
 
 */
 

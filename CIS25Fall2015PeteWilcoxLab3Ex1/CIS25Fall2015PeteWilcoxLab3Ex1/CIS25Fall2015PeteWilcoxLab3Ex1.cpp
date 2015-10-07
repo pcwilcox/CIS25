@@ -1,8 +1,14 @@
+/**
+* Program Name: cis25Fall2015PeteWilcoxLab3Ex1.cpp
+* Discussion:   Lab #4 Exercise #1
+* Written by:   Pete Wilcox
+* Date:         2015/09/29
+*/
+
 #include <iostream>
 
 using namespace std;
 
-// Function prototypes
 void header(void);
 void menu(void);
 void arrangeArrayPeteWilcox(int*, int, int*, int);
@@ -10,8 +16,8 @@ void createArrays(void);
 
 int main() {
 
-	header(); // Display program header information.
-	menu();   // Display user interface.
+	header(); 
+	menu();   
 
 	return 0;
 }
@@ -30,10 +36,8 @@ void header() {
 }
 
 void menu() {
-	// Declare variables for the menu and for the integer input.
 	int menuChoice = 0;
 
-	// Create a loop for the main menu function.
 	do {
 		cout << "\n";
 		cout << "\n*****************************************";
@@ -49,7 +53,6 @@ void menu() {
 			createArrays();
 			break;
 		case 2:
-			// Quit message.
 			cout << "\nHaving fun..." << endl;
 			break;
 		default:
@@ -97,7 +100,6 @@ void createArrays() {
 	cout << "\nCalling arrangeArraysPeteWilcox() --";
 	arrangeArrayPeteWilcox(firstArray, firstArraySize, secondArray, secondArraySize);
 
-	// Cleanup
 	delete firstArray;
 	delete secondArray;
 	return;
@@ -183,7 +185,6 @@ void arrangeArrayPeteWilcox(int* firstArray, int firstArraySize,
 
 	cout << "\n\nThere is/are " << numSwaps << " swap(s)." << endl;
 
-	// Cleanup
 	delete swapFromFirst;
 	delete swapFromSecond;
 	
@@ -388,4 +389,6 @@ unnecessarily complicated. I'm not sure I see the difference
 between firstArray[i] and *(firstArray + i) except that one
 has a more complicated notation.
 
+2015/10/06:
+Fixed formatting and comment block at head of cpp file.
 */
