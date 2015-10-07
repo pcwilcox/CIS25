@@ -256,8 +256,6 @@ int arrangeMultipleArrayPeteWilcox(int** userArray,
 
 /* PROGRAM OUTPUT:
 
-*****************************************UPDATE THIS***************************************
-
 
 Class Information --
   CIS 25 - C++ Programming
@@ -288,10 +286,11 @@ Select an option (1 or 2): 1
 
 Setting up data before calling ArrangeMultipleArrayPeteWilcox() --
 
-How many arrays of int (treating these as arrays of int?3
+How many arrays of int (treating these as arrays of int? 3
 
 Creating array index # 0
-  How many value(s)?6
+
+  How many value(s)? 6
 
     Enter the value for element at index 1 : 1
 
@@ -313,8 +312,10 @@ For array index #0
   Element index #4 : 27
   Element index #5 : -36
   Element index #6 : 45
+
 Creating array index # 1
-  How many value(s)?3
+
+  How many value(s)? 3
 
     Enter the value for element at index 1 : 4
 
@@ -327,8 +328,10 @@ For array index #1
   Element index #1 : 4
   Element index #2 : -17
   Element index #3 : 8
+
 Creating array index # 2
-  How many value(s)?2
+
+  How many value(s)? 2
 
     Enter the value for element at index 1 : -1
 
@@ -338,6 +341,7 @@ For array index #2
   Element index #0 : 2
   Element index #1 : -1
   Element index #2 : -3
+
 Confirming before working through with swapping --
 
 There is/are 3 array(s).
@@ -365,30 +369,245 @@ The current array #3 has 3 element(s).
   Element index #2 : -3
 
 Calling arrangeMultipleArrayPeteWilcox() --
+
   Displaying inside arrangeMultipleArrayPeteWilcox()-
 
   Displaying inside arrangeMultipleArrayPeteWilcox()-
-  Array #0 value 18 is swapped with Array #1 value -17
-  Array #0 value -36 is swapped with Array #2 value -1
+    Array #1 value 18 is swapped with Array #2 value -17
+    Array #1 value -36 is swapped with Array #3 value -1
+
 Displaying outside of arrangeMultipleArrayYourName() -
 
-The updated array #0 has 6 element(s).
+
+The updated array #1 has 6 element(s).
   Element index #0 : 6
-  Element index #0 : 1
-  Element index #0 : -23
-  Element index #0 : -17
-  Element index #0 : 27
-  Element index #0 : -1
-  Element index #0 : 45
-The updated array #1 has 3 element(s).
-  Element index #1 : 3
+  Element index #1 : 1
+  Element index #2 : -23
+  Element index #3 : -17
+  Element index #4 : 27
+  Element index #5 : -1
+  Element index #6 : 45
+
+The updated array #2 has 3 element(s).
+  Element index #0 : 3
   Element index #1 : 4
-  Element index #1 : 18
-  Element index #1 : 8
-The updated array #2 has 2 element(s).
-  Element index #2 : 2
-  Element index #2 : -36
+  Element index #2 : 18
+  Element index #3 : 8
+
+The updated array #3 has 2 element(s).
+  Element index #0 : 2
+  Element index #1 : -36
   Element index #2 : -3
+
+*************************************************
+*                MENU 04 -- Arrays              *
+*  (1) Calling arrangeMultipleArrayPeteWilcox() *
+*  (2) Quit                                     *
+*************************************************
+Select an option (1 or 2): 1
+
+Setting up data before calling ArrangeMultipleArrayPeteWilcox() --
+
+How many arrays of int (treating these as arrays of int? 4
+
+Creating array index # 0
+
+  How many value(s)? 10
+
+    Enter the value for element at index 1 : 853
+
+    Enter the value for element at index 2 : 4594
+
+    Enter the value for element at index 3 : 819198
+
+    Enter the value for element at index 4 : 48941
+
+    Enter the value for element at index 5 : 8941874
+
+    Enter the value for element at index 6 : 54156
+
+    Enter the value for element at index 7 : 549841
+
+    Enter the value for element at index 8 : 6541879
+
+    Enter the value for element at index 9 : 5484
+
+    Enter the value for element at index 10 : 8186
+
+For array index #0
+  Element index #0 : 10
+  Element index #1 : 853
+  Element index #2 : 4594
+  Element index #3 : 819198
+  Element index #4 : 48941
+  Element index #5 : 8941874
+  Element index #6 : 54156
+  Element index #7 : 549841
+  Element index #8 : 6541879
+  Element index #9 : 5484
+  Element index #10 : 8186
+
+Creating array index # 1
+
+  How many value(s)? 5
+
+    Enter the value for element at index 1 : 891891
+
+    Enter the value for element at index 2 : 81879165
+
+    Enter the value for element at index 3 : 56489
+
+    Enter the value for element at index 4 : 156481
+
+    Enter the value for element at index 5 : 1891
+
+For array index #1
+  Element index #0 : 5
+  Element index #1 : 891891
+  Element index #2 : 81879165
+  Element index #3 : 56489
+  Element index #4 : 156481
+  Element index #5 : 1891
+
+Creating array index # 2
+
+  How many value(s)? 5
+
+    Enter the value for element at index 1 : 891876
+
+    Enter the value for element at index 2 : 8941895
+
+    Enter the value for element at index 3 : 564981
+
+    Enter the value for element at index 4 : 654198
+
+    Enter the value for element at index 5 : 65419871
+
+For array index #2
+  Element index #0 : 5
+  Element index #1 : 891876
+  Element index #2 : 8941895
+  Element index #3 : 564981
+  Element index #4 : 654198
+  Element index #5 : 65419871
+
+Creating array index # 3
+
+  How many value(s)? 5
+
+    Enter the value for element at index 1 : 89198
+
+    Enter the value for element at index 2 : 6541987
+
+    Enter the value for element at index 3 : 561987
+
+    Enter the value for element at index 4 : 651879
+
+    Enter the value for element at index 5 : 65189
+
+For array index #3
+  Element index #0 : 5
+  Element index #1 : 89198
+  Element index #2 : 6541987
+  Element index #3 : 561987
+  Element index #4 : 651879
+  Element index #5 : 65189
+
+Confirming before working through with swapping --
+
+There is/are 4 array(s).
+
+The current array #1 has 11 element(s).
+..Element index #0 : 10
+  Element index #1 : 853
+  Element index #2 : 4594
+  Element index #3 : 819198
+  Element index #4 : 48941
+  Element index #5 : 8941874
+  Element index #6 : 54156
+  Element index #7 : 549841
+  Element index #8 : 6541879
+  Element index #9 : 5484
+  Element index #10 : 8186
+
+
+The current array #2 has 6 element(s).
+..Element index #0 : 5
+  Element index #1 : 891891
+  Element index #2 : 81879165
+  Element index #3 : 56489
+  Element index #4 : 156481
+  Element index #5 : 1891
+
+
+The current array #3 has 6 element(s).
+..Element index #0 : 5
+  Element index #1 : 891876
+  Element index #2 : 8941895
+  Element index #3 : 564981
+  Element index #4 : 654198
+  Element index #5 : 65419871
+
+
+The current array #4 has 6 element(s).
+..Element index #0 : 5
+  Element index #1 : 89198
+  Element index #2 : 6541987
+  Element index #3 : 561987
+  Element index #4 : 651879
+  Element index #5 : 65189
+
+Calling arrangeMultipleArrayPeteWilcox() --
+
+  Displaying inside arrangeMultipleArrayPeteWilcox()-
+
+  Displaying inside arrangeMultipleArrayPeteWilcox()-
+    Array #1 value 4594 is swapped with Array #2 value 891891
+    Array #1 value 819198 is swapped with Array #2 value 81879165
+    Array #1 value 8941874 is swapped with Array #2 value 56489
+    Array #1 value 54156 is swapped with Array #2 value 156481
+    Array #1 value 5484 is swapped with Array #2 value 1891
+    Array #1 value 8186 is swapped with Array #3 value 8941895
+
+Displaying outside of arrangeMultipleArrayYourName() -
+
+
+The updated array #1 has 10 element(s).
+  Element index #0 : 10
+  Element index #1 : 853
+  Element index #2 : 891891
+  Element index #3 : 81879165
+  Element index #4 : 48941
+  Element index #5 : 56489
+  Element index #6 : 156481
+  Element index #7 : 549841
+  Element index #8 : 6541879
+  Element index #9 : 1891
+  Element index #10 : 8941895
+
+The updated array #2 has 5 element(s).
+  Element index #0 : 5
+  Element index #1 : 4594
+  Element index #2 : 819198
+  Element index #3 : 8941874
+  Element index #4 : 54156
+  Element index #5 : 5484
+
+The updated array #3 has 5 element(s).
+  Element index #0 : 5
+  Element index #1 : 891876
+  Element index #2 : 8186
+  Element index #3 : 564981
+  Element index #4 : 654198
+  Element index #5 : 65419871
+
+The updated array #4 has 5 element(s).
+  Element index #0 : 5
+  Element index #1 : 89198
+  Element index #2 : 6541987
+  Element index #3 : 561987
+  Element index #4 : 651879
+  Element index #5 : 65189
 
 *************************************************
 *                MENU 04 -- Arrays              *
@@ -398,8 +617,6 @@ The updated array #2 has 2 element(s).
 Select an option (1 or 2): 2
 
 Having fun...
-
-
 
 */
 
