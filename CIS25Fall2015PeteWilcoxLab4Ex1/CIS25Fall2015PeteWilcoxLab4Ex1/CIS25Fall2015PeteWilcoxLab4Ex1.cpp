@@ -621,5 +621,7 @@ Having fun...
 */
 
 /* COMMENTS:
-
+2015/10/08:
+The scope seems limited - why not move all the odd values to
+one side with all the even values moved to the other side?
 */
