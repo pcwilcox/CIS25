@@ -83,7 +83,7 @@ void getInput() {
 		cout << "\nCreating array index # " << i;
 		*(userArray + i) = createArray();
 
-		cout << "\nFor array index #" << i << endl;;
+		cout << "\nFor array index #" << i << endl;
 		for (j = 0; j < (*(*(userArray + i)) + 1); j++) {
 			cout << "  Element index #" << j << " : " <<
 				*(*(userArray + i) + j) << endl;
