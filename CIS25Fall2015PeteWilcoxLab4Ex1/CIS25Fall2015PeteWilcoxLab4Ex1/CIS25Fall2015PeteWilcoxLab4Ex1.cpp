@@ -133,6 +133,10 @@ void getInput() {
 		cout << "\n\nThere is/are " << numSwaps << " swap(s).";
 	}
 
+	for (i = 0; i < arraySize; i++) {
+		delete[] *(userArray + i);
+	}
+
 	delete[] userArray;
 
 	return;
