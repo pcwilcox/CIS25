@@ -143,9 +143,8 @@ void getInput() {
 }
 
 int* createArray() {
-	/* Creates an array of user-specified size and returns the
-	 * address.
-	 */
+	// Creates array of specified size and returns the address.
+	 
 	int* newArray;
 	int newArraySize;
 	int i;
