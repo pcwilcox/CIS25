@@ -1,4 +1,4 @@
-/**                                                             
+/**
 * Program Name: cis25Fall2015PeteWilcoxLab4Ex1.cpp
 * Discussion:   Lab #4 Exercise #1
 * Written by:   Pete Wilcox
@@ -18,8 +18,8 @@ int* createArray(void);
 
 int main() {
 
-	header(); 
-	menu();   
+	header();
+	menu();
 
 	return 0;
 }
@@ -83,11 +83,11 @@ void start() {
 		cout << "\nCreating array index # " << i;
 		*(userArray + i) = createArray();
 
-cout << "\nFor array index #" << i << endl;;
-for (j = 0; j < (*(*(userArray + i)) + 1); j++) {
-	cout << "  Element index #" << j << " : " <<
-		*(*(userArray + i) + j) << endl;
-}
+		cout << "\nFor array index #" << i << endl;;
+		for (j = 0; j < (*(*(userArray + i)) + 1); j++) {
+			cout << "  Element index #" << j << " : " <<
+				*(*(userArray + i) + j) << endl;
+		}
 	}
 
 
@@ -101,10 +101,10 @@ for (j = 0; j < (*(*(userArray + i)) + 1); j++) {
 			<< ((*(*(userArray + i))) + 1) <<
 			" element(s).\n..";
 
-for (j = 0; j < ((*(*(userArray + i))) + 1); j++) {
-	cout << "Element index #" << j << " : " <<
-		*(*(userArray + i) + j) << "\n  ";
-}
+		for (j = 0; j < ((*(*(userArray + i))) + 1); j++) {
+			cout << "Element index #" << j << " : " <<
+				*(*(userArray + i) + j) << "\n  ";
+		}
 
 	}
 
@@ -157,7 +157,7 @@ int* createArray() {
 }
 
 
-int arrangeMultipleArrayPeteWilcox(int** input,	int size) {
+int arrangeMultipleArrayPeteWilcox(int** input, int size) {
 	// Arrange arrays
 
 	int numSwaps = 0;
@@ -186,11 +186,11 @@ int arrangeMultipleArrayPeteWilcox(int** input,	int size) {
 					while ((k <= *(*(input + j))) && (!swapped)) {
 
 						if (*(*(input + j) + k) % 2 != 0) {
-							cout << "\n    Array #1 value " << 
-									*((*input) + i) << 
-									" is swapped with Array #" 
-									<< (j + 1) << " value " <<
-									*(*(input + j) + k);
+							cout << "\n    Array #1 value " <<
+								*((*input) + i) <<
+								" is swapped with Array #"
+								<< (j + 1) << " value " <<
+								*(*(input + j) + k);
 
 							temp = *((*input) + i);
 							*((*input) + i) = *(*(input + j) + k);
@@ -251,17 +251,17 @@ Creating array index # 0
 
   How many value(s)? 6
 
-    Enter the value for element at index 1 : 1
+	Enter the value for element at index 1 : 1
 
-    Enter the value for element at index 2 : -23
+	Enter the value for element at index 2 : -23
 
-    Enter the value for element at index 3 : 18
+	Enter the value for element at index 3 : 18
 
-    Enter the value for element at index 4 : 27
+	Enter the value for element at index 4 : 27
 
-    Enter the value for element at index 5 : -36
+	Enter the value for element at index 5 : -36
 
-    Enter the value for element at index 6 : 45
+	Enter the value for element at index 6 : 45
 
 For array index #0
   Element index #0 : 6
@@ -276,11 +276,11 @@ Creating array index # 1
 
   How many value(s)? 3
 
-    Enter the value for element at index 1 : 4
+	Enter the value for element at index 1 : 4
 
-    Enter the value for element at index 2 : -17
+	Enter the value for element at index 2 : -17
 
-    Enter the value for element at index 3 : 8
+	Enter the value for element at index 3 : 8
 
 For array index #1
   Element index #0 : 3
@@ -292,9 +292,9 @@ Creating array index # 2
 
   How many value(s)? 2
 
-    Enter the value for element at index 1 : -1
+	Enter the value for element at index 1 : -1
 
-    Enter the value for element at index 2 : -3
+	Enter the value for element at index 2 : -3
 
 For array index #2
   Element index #0 : 2
@@ -330,8 +330,8 @@ The current array #3 has 3 element(s).
 Calling arrangeMultipleArrayPeteWilcox() --
 
   Displaying inside arrangeMultipleArrayPeteWilcox()-
-    Array #1 value 18 is swapped with Array #2 value -17
-    Array #1 value -36 is swapped with Array #3 value -1
+	Array #1 value 18 is swapped with Array #2 value -17
+	Array #1 value -36 is swapped with Array #3 value -1
 
 Displaying outside of arrangeMultipleArrayYourName() -
 
@@ -373,29 +373,29 @@ Creating array index # 0
 
   How many value(s)? 12
 
-    Enter the value for element at index 1 : 4894848
+	Enter the value for element at index 1 : 4894848
 
-    Enter the value for element at index 2 : 848425886
+	Enter the value for element at index 2 : 848425886
 
-    Enter the value for element at index 3 : 6518486
+	Enter the value for element at index 3 : 6518486
 
-    Enter the value for element at index 4 : 23153483
+	Enter the value for element at index 4 : 23153483
 
-    Enter the value for element at index 5 : 1984869
+	Enter the value for element at index 5 : 1984869
 
-    Enter the value for element at index 6 : 35435484
+	Enter the value for element at index 6 : 35435484
 
-    Enter the value for element at index 7 : 53484
+	Enter the value for element at index 7 : 53484
 
-    Enter the value for element at index 8 : 354388
+	Enter the value for element at index 8 : 354388
 
-    Enter the value for element at index 9 : -6158
+	Enter the value for element at index 9 : -6158
 
-    Enter the value for element at index 10 : -44
+	Enter the value for element at index 10 : -44
 
-    Enter the value for element at index 11 : -6843848
+	Enter the value for element at index 11 : -6843848
 
-    Enter the value for element at index 12 : 35138
+	Enter the value for element at index 12 : 35138
 
 For array index #0
   Element index #0 : 12
@@ -416,13 +416,13 @@ Creating array index # 1
 
   How many value(s)? 4
 
-    Enter the value for element at index 1 : 13235
+	Enter the value for element at index 1 : 13235
 
-    Enter the value for element at index 2 : 4864865
+	Enter the value for element at index 2 : 4864865
 
-    Enter the value for element at index 3 : 32154
+	Enter the value for element at index 3 : 32154
 
-    Enter the value for element at index 4 : 35889
+	Enter the value for element at index 4 : 35889
 
 For array index #1
   Element index #0 : 4
@@ -435,11 +435,11 @@ Creating array index # 2
 
   How many value(s)? 3
 
-    Enter the value for element at index 1 : 35486
+	Enter the value for element at index 1 : 35486
 
-    Enter the value for element at index 2 : 354834845
+	Enter the value for element at index 2 : 354834845
 
-    Enter the value for element at index 3 : 35153185
+	Enter the value for element at index 3 : 35153185
 
 For array index #2
   Element index #0 : 3
@@ -451,15 +451,15 @@ Creating array index # 3
 
   How many value(s)? 5
 
-    Enter the value for element at index 1 : 35486
+	Enter the value for element at index 1 : 35486
 
-    Enter the value for element at index 2 : 3518655
+	Enter the value for element at index 2 : 3518655
 
-    Enter the value for element at index 3 : 3515229
+	Enter the value for element at index 3 : 3515229
 
-    Enter the value for element at index 4 : 321848
+	Enter the value for element at index 4 : 321848
 
-    Enter the value for element at index 5 : 315377
+	Enter the value for element at index 5 : 315377
 
 For array index #3
   Element index #0 : 5
@@ -515,14 +515,14 @@ The current array #4 has 6 element(s).
 Calling arrangeMultipleArrayPeteWilcox() --
 
   Displaying inside arrangeMultipleArrayPeteWilcox()-
-    Array #1 value 4894848 is swapped with Array #2 value 13235
-    Array #1 value 848425886 is swapped with Array #2 value 4864865
-    Array #1 value 6518486 is swapped with Array #2 value 35889
-    Array #1 value 35435484 is swapped with Array #3 value 354834845
-    Array #1 value 53484 is swapped with Array #3 value 35153185
-    Array #1 value 354388 is swapped with Array #4 value 3518655
-    Array #1 value -6158 is swapped with Array #4 value 3515229
-    Array #1 value -44 is swapped with Array #4 value 315377
+	Array #1 value 4894848 is swapped with Array #2 value 13235
+	Array #1 value 848425886 is swapped with Array #2 value 4864865
+	Array #1 value 6518486 is swapped with Array #2 value 35889
+	Array #1 value 35435484 is swapped with Array #3 value 354834845
+	Array #1 value 53484 is swapped with Array #3 value 35153185
+	Array #1 value 354388 is swapped with Array #4 value 3518655
+	Array #1 value -6158 is swapped with Array #4 value 3515229
+	Array #1 value -44 is swapped with Array #4 value 315377
 
 Displaying outside of arrangeMultipleArrayYourName() -
 
