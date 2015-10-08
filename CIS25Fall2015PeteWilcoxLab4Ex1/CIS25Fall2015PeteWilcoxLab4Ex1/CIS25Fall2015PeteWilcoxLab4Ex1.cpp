@@ -25,7 +25,7 @@ int main() {
 }
 
 void header() {
-	cout << "\nClass Information --";
+	cout << "\nClass Information --"
 		"\n  CIS 25 - C++ Programming"
 		"\n  Laney College"
 		"\n"
