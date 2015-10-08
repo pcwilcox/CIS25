@@ -164,7 +164,8 @@ int arrangeMultipleArrayPeteWilcox(int** userArray,
 	int numSwaps = 0;
 	int swapNum;
 	bool swapped = false;
-	int swapFromPointer, swapToArrayPointer;
+	int swapFromPointer;
+	int swapToArrayPointer = 1;
 	int swapToPointer = 1;
 	int i;
 
@@ -177,35 +178,36 @@ int arrangeMultipleArrayPeteWilcox(int** userArray,
 	if (numSwaps > 0) {
 		cout << "\n  Displaying inside "
 			"arrangeMultipleArrayPeteWilcox()-";
-	}
 
-	for (swapFromPointer = 1, swapToArrayPointer = 1, swapToPointer = 1; swapFromPointer <= **userArray; swapFromPointer++) {
-		swapped = false;
 
-		if (*(*(userArray + swapFromPointer)) % 2 == 0) {
-			while ((swapToArrayPointer < userArraySize) && (swapped == false)) {
-				while ((swapToPointer <= *(*userArray + swapToArrayPointer)) && (swapped == false)) {
+		for (swapFromPointer = 1; swapFromPointer <= **userArray; swapFromPointer++) {
+			swapped = false;
 
-					if (*(*(userArray + swapToPointer) + swapToArrayPointer) % 2 != 0) {
-						cout << "\n    Array #1 value " << *(*userArray + swapFromPointer) << " is swapped with Array #" << (swapToArrayPointer + 1) << " value " << *(*(userArray + swapToPointer) + swapToArrayPointer);
+			if (*(*(userArray + swapFromPointer)) % 2 == 0) {
+				while ((swapToArrayPointer < userArraySize) && (swapped == false)) {
+					while ((swapToPointer <= (*(*userArray) + swapToArrayPointer)) && (swapped == false)) {
 
-						swapNum = *(*(userArray) + swapToArrayPointer);
-						*(*(userArray) + swapToArrayPointer) = *(*(userArray + swapToPointer) + swapToArrayPointer);
-						*(*(userArray + swapToPointer) + swapToArrayPointer) = swapNum;
+						if (*(*(userArray + swapToPointer) + swapToArrayPointer) % 2 != 0) {
+							cout << "\n    Array #1 value " << *(*(userArray + swapFromPointer)) << " is swapped with Array #" << (swapToArrayPointer + 1) << " value " << 
+								*(*(userArray + swapToPointer) + swapToArrayPointer);
 
-						swapped = true;
+							swapNum = *(*(userArray) + swapToArrayPointer);
+							*(*(userArray) + swapToArrayPointer) = *(*(userArray + swapToPointer) + swapToArrayPointer);
+							*(*(userArray + swapToPointer) + swapToArrayPointer) = swapNum;
+
+							swapped = true;
+						}
+						swapToPointer++;
 					}
-					swapToPointer++;
+					swapToPointer = 1;
+					swapToArrayPointer++;
 				}
-				swapToPointer = 1;
-				swapToArrayPointer++;
+
 			}
 
-		}
-			
 
+		}
 	}
-	
 	return numSwaps;
 }
 
