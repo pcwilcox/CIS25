@@ -83,45 +83,45 @@ void start() {
 		cout << "\nCreating array index # " << i;
 		*(userArray + i) = createArray();
 
-		cout << "\nFor array index #" << i << endl;;
-		for (j = 0; j < (*(*(userArray + i)) + 1); j++) {
-			cout << "  Element index #" << j << " : " <<
-				*(*(userArray + i) + j) << endl;
-		}
+cout << "\nFor array index #" << i << endl;;
+for (j = 0; j < (*(*(userArray + i)) + 1); j++) {
+	cout << "  Element index #" << j << " : " <<
+		*(*(userArray + i) + j) << endl;
+}
 	}
 
 
 	cout << "\nConfirming before working through with "
 		"swapping --";
-	cout << "\n\nThere is/are " << userArraySize << 
+	cout << "\n\nThere is/are " << userArraySize <<
 		" array(s).";
 
 	for (i = 0; i < userArraySize; i++) {
-		cout << "\n\nThe current array #" << (i + 1) << " has " 
-			<< ((*(*(userArray + i))) + 1) << 
+		cout << "\n\nThe current array #" << (i + 1) << " has "
+			<< ((*(*(userArray + i))) + 1) <<
 			" element(s).\n..";
 
 		for (j = 0; j < ((*(*(userArray + i))) + 1); j++) {
-			cout << "Element index #" << j << " : " << 
+			cout << "Element index #" << j << " : " <<
 				*(*(userArray + i) + j) << "\n  ";
 		}
 
 	}
 
 	cout << "\nCalling arrangeMultipleArrayPeteWilcox() --\n";
-	numSwaps = 
-		arrangeMultipleArrayPeteWilcox(userArray, 
+	numSwaps =
+		arrangeMultipleArrayPeteWilcox(userArray,
 			userArraySize);
 
 	cout << "\n\nDisplaying outside of "
 		"arrangeMultipleArrayYourName() -\n";
 
 	for (i = 0; i < userArraySize; i++) {
-		cout << "\n\nThe updated array #" << (i + 1) << " has " 
+		cout << "\n\nThe updated array #" << (i + 1) << " has "
 			<< *(*(userArray + i)) << " element(s).";
 
 		for (j = 0; j <= *(*(userArray + i)); j++) {
-			cout << "\n  Element index #" << j << " : " << 
+			cout << "\n  Element index #" << j << " : " <<
 				*(*(userArray + i) + j);
 		}
 	}
@@ -148,7 +148,7 @@ int* createArray() {
 	*(newArray) = (newArraySize - 1);
 
 	for (i = 1; i < newArraySize; i++) {
-		cout << "\n    Enter the value for element at index " 
+		cout << "\n    Enter the value for element at index "
 			<< i << " : ";
 		cin >> *(newArray + i);
 	}
@@ -157,16 +157,16 @@ int* createArray() {
 }
 
 
-int arrangeMultipleArrayPeteWilcox(int** userArray, 
+int arrangeMultipleArrayPeteWilcox(int** userArray,
 	int userArraySize) {
 	// Arrange arrays
-	
+
 	int numSwaps = 0;
 	int swapNum;
 	bool swapped = false;
-	int i, j;
-	int k = 1;
-	int m = 1;
+	int swapFromPointer, swapToArrayPointer;
+	int swapToPointer = 1;
+	int i;
 
 	for (i = 1; i <= **userArray; i++) {
 		if (*(*userArray + i) % 2 == 0) {
@@ -179,42 +179,33 @@ int arrangeMultipleArrayPeteWilcox(int** userArray,
 			"arrangeMultipleArrayPeteWilcox()-";
 	}
 
-	for (j = 1; j <= **userArray; j++) {
-		// For each element in the array
+	for (swapFromPointer = 1, swapToArrayPointer = 1, swapToPointer = 1; swapFromPointer <= **userArray; swapFromPointer++) {
 		swapped = false;
-	
-		if (*(*userArray + j) % 2 == 0) {
-			// If it's even, look for a value to swap with
-				m++;
-				
-				while ((m < userArraySize) && 
-						(swapped == false)) {
-					// For each remaining array
-					k = 1;
-					while ((k <= *(*(userArray + m)))
-							&& (swapped == false)) {
-						//For each element in that array
-						if (*(*(userArray + m) + k) % 2 != 0) {
-							// If it's odd
-							cout << "\n    Array #1 value " << 
-								*(*userArray + j) 
-								<< " is swapped with Array #" <<
-								*(*(userArray + m)) << " value "
-								<< *(*(userArray + m) + k);
 
-							swapNum = *(*(userArray) + j);
-							*(*(userArray) + j) = 
-								*(*(userArray + m) + k);
-							*(*(userArray + m) + k) = swapNum;
-	
-							swapped = true;
-						}
-						k++;
+		if (*(*(userArray + swapFromPointer)) % 2 == 0) {
+			while ((swapToArrayPointer < userArraySize) && (swapped == false)) {
+				while ((swapToPointer <= *(*userArray + swapToArrayPointer)) && (swapped == false)) {
+
+					if (*(*(userArray + swapToPointer) + swapToArrayPointer) % 2 != 0) {
+						cout << "\n    Array #1 value " << *(*userArray + swapFromPointer) << " is swapped with Array #" << (swapToArrayPointer + 1) << " value " << *(*(userArray + swapToPointer) + swapToArrayPointer);
+
+						swapNum = *(*(userArray) + swapToArrayPointer);
+						*(*(userArray) + swapToArrayPointer) = *(*(userArray + swapToPointer) + swapToArrayPointer);
+						*(*(userArray + swapToPointer) + swapToArrayPointer) = swapNum;
+
+						swapped = true;
 					}
-					m++;
+					swapToPointer++;
 				}
+				swapToPointer = 1;
+				swapToArrayPointer++;
 			}
+
+		}
+			
+
 	}
+	
 	return numSwaps;
 }
 
