@@ -26,14 +26,14 @@ int main() {
 
 void header() {
 	cout << "\nClass Information --";
-	cout << "\n  CIS 25 - C++ Programming";
-	cout << "\n  Laney College";
-	cout << "\n";
-	cout << "\nAssignment Information -- ";
-	cout << "\n  Assignment Number:  Lab 04 - Exercise #1";
-	cout << "\n  Written by:         Pete Wilcox";
-	cout << "\n  Submitted Date:     2015/10/08";
-	cout << "\n";
+		"\n  CIS 25 - C++ Programming"
+		"\n  Laney College"
+		"\n"
+		"\nAssignment Information -- "
+		"\n  Assignment Number:  Lab 04 - Exercise #1"
+		"\n  Written by:         Pete Wilcox"
+		"\n  Submitted Date:     2015/10/08"
+		"\n";
 	return;
 }
 
@@ -91,12 +91,15 @@ void start() {
 	}
 
 
-	cout << "\nConfirming before working through with swapping --";
-	cout << "\n\nThere is/are " << userArraySize << " array(s).";
+	cout << "\nConfirming before working through with "
+		"swapping --";
+	cout << "\n\nThere is/are " << userArraySize << 
+		" array(s).";
 
 	for (i = 0; i < userArraySize; i++) {
 		cout << "\n\nThe current array #" << (i + 1) << " has " 
-			<< ((*(*(userArray + i))) + 1) << " element(s).\n..";
+			<< ((*(*(userArray + i))) + 1) << 
+			" element(s).\n..";
 
 		for (j = 0; j < ((*(*(userArray + i))) + 1); j++) {
 			cout << "Element index #" << j << " : " << 
@@ -107,19 +110,24 @@ void start() {
 
 	cout << "\nCalling arrangeMultipleArrayPeteWilcox() --\n";
 	numSwaps = 
-		arrangeMultipleArrayPeteWilcox(userArray, userArraySize);
+		arrangeMultipleArrayPeteWilcox(userArray, 
+			userArraySize);
 
 	cout << "\n\nDisplaying outside of "
 		"arrangeMultipleArrayYourName() -\n";
 
 	for (i = 0; i < userArraySize; i++) {
-		cout << "\n\nThe updated array #" << (i + 1) << " has " << 
-			*(*(userArray + i)) << " element(s).";
+		cout << "\n\nThe updated array #" << (i + 1) << " has " 
+			<< *(*(userArray + i)) << " element(s).";
 
 		for (j = 0; j <= *(*(userArray + i)); j++) {
 			cout << "\n  Element index #" << j << " : " << 
 				*(*(userArray + i) + j);
 		}
+	}
+
+	if (numSwaps > 0) {
+		cout << "\n\nThere is/are " << numSwaps << " swap(s).";
 	}
 
 	for (i = 0; i < userArraySize; i++) {
@@ -153,104 +161,61 @@ int arrangeMultipleArrayPeteWilcox(int** userArray,
 	int userArraySize) {
 	// Arrange arrays
 	
-	int* swapValueLeft; 
-	int* swapValueRight;
-	int maxSwaps = 0;
-	int swapFromPointer = 1;
-	int swapToPointer = 1;
-	int swapFromArrayPointer = 0;
-	int swapToArrayPointer = 0;
 	int numSwaps = 0;
 	int swapNum;
 	bool swapped = false;
-	int i;
+	int i, j;
+	int k = 1;
+	int m = 1;
 
-	for (i = 0; i < userArraySize; i++) {
-		maxSwaps += *(*(userArray + i));
+	for (i = 1; i <= **userArray; i++) {
+		if (*(*userArray + i) % 2 == 0) {
+			numSwaps++;
+		}
 	}
 
-	maxSwaps *= 3;
+	if (numSwaps > 0) {
+		cout << "\n  Displaying inside "
+			"arrangeMultipleArrayPeteWilcox()-";
+	}
 
-	swapValueLeft = new int[maxSwaps];
-	swapValueRight = new int[maxSwaps];
-
-	cout << "\n  Displaying inside "
-		"arrangeMultipleArrayPeteWilcox()-";
-
-	swapFromPointer = 1;
-	while (swapFromPointer <= *(*(userArray 
-			+ swapFromArrayPointer))) {
+	for (j = 1; j <= **userArray; j++) {
 		// For each element in the array
 		swapped = false;
-
-		if (*(*(userArray + swapFromArrayPointer) 
-				+ swapFromPointer) % 2 == 0) {
-			// If it's even, look for a value to swap with
-			swapToArrayPointer = swapFromArrayPointer + 1;
-			
-			while ((swapToArrayPointer < userArraySize) && 
-					(swapped == false)) {
-				// For each remaining array
-				swapToPointer = 1;
-				while ((swapToPointer <= *(*(userArray 
-						+ swapToArrayPointer))) 
-						&& (swapped == false)) {
-					//For each element in that array
-					if (*(*(userArray + swapToArrayPointer) 
-							+ swapToPointer) % 2 != 0) {
-						// If it's odd
-
-						*(swapValueLeft + numSwaps) = 
-							swapFromArrayPointer;
-						*(swapValueLeft + numSwaps + 1) = 
-							swapFromPointer;
-						*(swapValueLeft + numSwaps + 2) = 
-							*(*(userArray + swapFromArrayPointer) 
-								+ swapFromPointer);
-
-						*(swapValueRight + numSwaps) = 
-							swapToArrayPointer;
-						*(swapValueRight + numSwaps + 1) = 
-							swapToPointer;
-						*(swapValueRight + numSwaps + 2) = 
-							*(*(userArray + swapToArrayPointer) 
-								+ swapToPointer);
-
-						numSwaps += 3;
-
-						swapNum = *(*(userArray 
-							+ swapFromArrayPointer) 
-							+ swapFromPointer);
-						*(*(userArray + swapFromArrayPointer) 
-							+ swapFromPointer) = 
-							*(*(userArray + swapToArrayPointer) 
-								+ swapToPointer);
-						*(*(userArray + swapToArrayPointer) 
-							+ swapToPointer) = swapNum;
-
-						swapped = true;
-					}
-					swapToPointer++;
-				}
-				swapToArrayPointer++;
-			}
-		}
-		swapFromPointer++;
-	}
 	
+		if (*(*userArray + j) % 2 == 0) {
+			// If it's even, look for a value to swap with
+				m++;
+				
+				while ((m < userArraySize) && 
+						(swapped == false)) {
+					// For each remaining array
+					k = 1;
+					while ((k <= *(*(userArray + m)))
+							&& (swapped == false)) {
+						//For each element in that array
+						if (*(*(userArray + m) + k) % 2 != 0) {
+							// If it's odd
+							cout << "\n    Array #1 value " << 
+								*(*userArray + j) 
+								<< " is swapped with Array #" <<
+								*(*(userArray + m)) << " value "
+								<< *(*(userArray + m) + k);
 
-	cout << "\n\n  Displaying inside "
-		"arrangeMultipleArrayPeteWilcox()-";
-	for (i = 0; i < numSwaps; i += 3) {
-		cout << "\n    Array #" << ((*(swapValueLeft + i)) + 1) << 
-			" value " << *(swapValueLeft + i + 2) << " is "
-			"swapped with Array #" << (*(swapValueRight + i) + 1) << 
-			" value " << *(swapValueRight + i + 2);
+							swapNum = *(*(userArray) + j);
+							*(*(userArray) + j) = 
+								*(*(userArray + m) + k);
+							*(*(userArray + m) + k) = swapNum;
+	
+							swapped = true;
+						}
+						k++;
+					}
+					m++;
+				}
+			}
 	}
-
-	delete swapValueLeft;
-	delete swapValueRight;
-	return (numSwaps / 3);
+	return numSwaps;
 }
 
 
