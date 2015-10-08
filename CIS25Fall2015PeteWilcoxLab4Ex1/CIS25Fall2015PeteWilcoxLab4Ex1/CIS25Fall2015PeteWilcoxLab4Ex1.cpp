@@ -194,7 +194,8 @@ int arrangeMultipleArrayPeteWilcox(int** input, int size) {
 				while ((j < size) && (!swapped)) {
 					// Iterate through each other array
 					k = 1;
-					while ((k <= *(*(input + j))) && (!swapped)) {
+					while ((k <= *(*(input + j))) && 
+							(!swapped)) {
 
 						if (*(*(input + j) + k) % 2 != 0) {
 							// Until an odd value is found
@@ -207,7 +208,8 @@ int arrangeMultipleArrayPeteWilcox(int** input, int size) {
 
 							// And swap it
 							temp = *((*input) + i);
-							*((*input) + i) = *(*(input + j) + k);
+							*((*input) + i) = 
+									*(*(input + j) + k);
 							*(*(input + j) + k) = temp;
 
 							swapped = true;
