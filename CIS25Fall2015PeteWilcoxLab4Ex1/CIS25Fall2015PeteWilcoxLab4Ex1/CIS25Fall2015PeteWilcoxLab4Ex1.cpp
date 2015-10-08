@@ -42,11 +42,11 @@ void displayMenu() {
 
 	do {
 		cout << "\n"
-			"\n*************************************************"
-			"\n*                MENU 04 -- Arrays              *"
-			"\n*  (1) Calling arrangeMultipleArrayPeteWilcox() *"
-			"\n*  (2) Quit                                     *"
-			"\n*************************************************"
+			"\n************************************************"
+			"\n*               MENU 04 -- Arrays              *"
+			"\n* (1) Calling arrangeMultipleArrayPeteWilcox() *"
+			"\n* (2) Quit                                     *"
+			"\n************************************************"
 			"\nSelect an option (1 or 2): ";
 		cin >> menuChoice;
 
@@ -66,6 +66,10 @@ void displayMenu() {
 }
 
 void getInput() {
+	/* Takes user input to create specified arrays, then
+	 * calls arrangeMultiple() with the required information
+	 */
+
 	int** userArray;
 	int userArraySize;
 	int numSwaps;
@@ -130,20 +134,22 @@ void getInput() {
 		cout << "\n\nThere is/are " << numSwaps << " swap(s).";
 	}
 
-	for (i = 0; i < userArraySize; i++) {
-		delete *(userArray + i);
-	}
+	delete[] userArray;
 
 	return;
 }
 
 int* createArray() {
+	/* Creates an array of user-specified size and returns the
+	 * address.
+	 */
 	int* newArray;
 	int newArraySize;
 	int i;
 
 	cout << "\n\n  How many value(s)? ";
 	cin >> newArraySize;
+
 	newArray = new int[++newArraySize];
 	*(newArray) = (newArraySize - 1);
 
@@ -166,6 +172,7 @@ int arrangeMultipleArrayPeteWilcox(int** input, int size) {
 	int i, k;
 	int j = 1;
 
+	// Count the number of swaps to be made
 	for (i = 1; i <= **input; i++) {
 		if ((*(*input) + i) % 2 == 0) {
 			numSwaps++;
@@ -179,19 +186,26 @@ int arrangeMultipleArrayPeteWilcox(int** input, int size) {
 
 		for (i = 1; i <= **input; i++) {
 			swapped = false;
+			// For each value in Array #1
 
 			if (*((*input) + i) % 2 == 0) {
+				// If it's even
+
 				while ((j < size) && (!swapped)) {
+					// Iterate through each other array
 					k = 1;
 					while ((k <= *(*(input + j))) && (!swapped)) {
 
 						if (*(*(input + j) + k) % 2 != 0) {
+							// Until an odd value is found
+
 							cout << "\n    Array #1 value " <<
 								*((*input) + i) <<
 								" is swapped with Array #"
 								<< (j + 1) << " value " <<
 								*(*(input + j) + k);
 
+							// And swap it
 							temp = *((*input) + i);
 							*((*input) + i) = *(*(input + j) + k);
 							*(*(input + j) + k) = temp;
@@ -200,7 +214,9 @@ int arrangeMultipleArrayPeteWilcox(int** input, int size) {
 						}
 						k++;
 					}
+					// If we've looked through every value
 					if (k > *(*(input + j))) {
+						// Move to the next array
 						j++;
 					}
 				}
