@@ -9,22 +9,22 @@
 
 using namespace std;
 
-void header(void);
-void menu(void);
+void displayHeader(void);
+void displayMenu(void);
 int arrangeMultipleArrayPeteWilcox(int**, int);
-void start(void);
+void getInput(void);
 int* createArray(void);
 
 
 int main() {
 
-	header();
-	menu();
+	displayHeader();
+	displayMenu();
 
 	return 0;
 }
 
-void header() {
+void displayHeader() {
 	cout << "\nClass Information --"
 		"\n  CIS 25 - C++ Programming"
 		"\n  Laney College"
@@ -37,7 +37,7 @@ void header() {
 	return;
 }
 
-void menu() {
+void displayMenu() {
 	int menuChoice = 0;
 
 	do {
@@ -52,7 +52,7 @@ void menu() {
 
 		switch (menuChoice) {
 		case 1:
-			start();
+			getInput();
 			break;
 		case 2:
 			cout << "\nHaving fun..." << endl;
@@ -65,7 +65,7 @@ void menu() {
 	return;
 }
 
-void start() {
+void getInput() {
 	int** userArray;
 	int userArraySize;
 	int numSwaps;
