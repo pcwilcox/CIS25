@@ -71,7 +71,7 @@ void getInput() {
 	 */
 
 	int** userArray;
-	int userArraySize;
+	int arraySize;
 	int numSwaps;
 	int i, j;
 
@@ -79,11 +79,11 @@ void getInput() {
 		" ArrangeMultipleArrayPeteWilcox() --";
 	cout << "\n\nHow many arrays of int (treating these as "
 		"arrays of int? ";
-	cin >> userArraySize;
+	cin >> arraySize;
 
-	userArray = new int*[userArraySize];
+	userArray = new int*[arraySize];
 
-	for (i = 0; i < userArraySize; i++) {
+	for (i = 0; i < arraySize; i++) {
 		cout << "\nCreating array index # " << i;
 		*(userArray + i) = createArray();
 
@@ -97,10 +97,10 @@ void getInput() {
 
 	cout << "\nConfirming before working through with "
 		"swapping --";
-	cout << "\n\nThere is/are " << userArraySize <<
+	cout << "\n\nThere is/are " << arraySize <<
 		" array(s).";
 
-	for (i = 0; i < userArraySize; i++) {
+	for (i = 0; i < arraySize; i++) {
 		cout << "\n\nThe current array #" << (i + 1) << " has "
 			<< ((*(*(userArray + i))) + 1) <<
 			" element(s).\n..";
@@ -114,13 +114,12 @@ void getInput() {
 
 	cout << "\nCalling arrangeMultipleArrayPeteWilcox() --\n";
 	numSwaps =
-		arrangeMultipleArrayPeteWilcox(userArray,
-			userArraySize);
+		arrangeMultipleArrayPeteWilcox(userArray, arraySize);
 
 	cout << "\n\nDisplaying outside of "
 		"arrangeMultipleArrayYourName() -\n";
 
-	for (i = 0; i < userArraySize; i++) {
+	for (i = 0; i < arraySize; i++) {
 		cout << "\n\nThe updated array #" << (i + 1) << " has "
 			<< *(*(userArray + i)) << " element(s).";
 
