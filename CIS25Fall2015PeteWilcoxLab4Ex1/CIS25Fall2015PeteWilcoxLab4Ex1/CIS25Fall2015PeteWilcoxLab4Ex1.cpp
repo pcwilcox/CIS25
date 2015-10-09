@@ -168,6 +168,7 @@ int* createArray() {
 int arrangeMultipleArrayPeteWilcox(int** input, int size) {
 	// Arrange arrays
 
+	int maxSwaps = 0;
 	int numSwaps = 0;
 	int temp;
 	bool swapped = false;
@@ -177,11 +178,11 @@ int arrangeMultipleArrayPeteWilcox(int** input, int size) {
 	// Count the number of swaps to be made
 	for (i = 1; i <= **input; i++) {
 		if ((*(*input) + i) % 2 == 0) {
-			numSwaps++;
+			maxSwaps++;
 		}
 	}
 
-	if (numSwaps > 0) {
+	if (maxSwaps > 0) {
 		cout << "\n  Displaying inside "
 			"arrangeMultipleArrayPeteWilcox()-";
 
@@ -214,6 +215,7 @@ int arrangeMultipleArrayPeteWilcox(int** input, int size) {
 									*(*(input + j) + k);
 							*(*(input + j) + k) = temp;
 
+							numSwaps++;
 							swapped = true;
 						}
 						k++;
