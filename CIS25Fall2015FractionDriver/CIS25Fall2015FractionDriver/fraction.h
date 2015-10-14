@@ -13,6 +13,7 @@ class Fraction {
 	Fraction(); // default constructor
 	Fraction(int); // convert constructor
 	Fraction(const Fraction&); // copy constructor
+	Fraction(int, int, bool);
 
 	int getNum(void); // Return numerator
 	void setNum(int); // Set numerator

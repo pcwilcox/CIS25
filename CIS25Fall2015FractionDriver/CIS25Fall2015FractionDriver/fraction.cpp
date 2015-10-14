@@ -14,6 +14,11 @@ Fraction::Fraction(int input) : num(input), denom(1), isPositive(true) {
 Fraction::Fraction(const Fraction& input) : num(input.num), denom(input.denom), isPositive(input.isPositive) {
 }
 
+Fraction::Fraction(int inputNum, int inputDenom, bool inputSign) {
+	num = inputNum;
+	denom = inputDenom;
+	isPositive = inputSign;
+}
 int Fraction::getNum(void) {
 	return num;
 }
@@ -26,6 +31,7 @@ void Fraction::setNum(int input) {
 		num = input;
 		isPositive = true;
 	}
+	reduce();
 }
 
 int Fraction::getDenom(void) {
@@ -42,6 +48,7 @@ void Fraction::setDenom(int input) {
 	} else {
 		// denominator can't be 0
 	}
+	reduce();
 }
 
 void Fraction::print() {

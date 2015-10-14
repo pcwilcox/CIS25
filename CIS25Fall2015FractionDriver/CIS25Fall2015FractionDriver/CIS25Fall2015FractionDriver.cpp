@@ -21,7 +21,38 @@ int main() {
 	cout << endl << "Fraction 3: ";
 	fr3.print();
 	cout << endl;
+	cout << "Testing new fraction stuff: ";
 
+	int inputNum;
+	int inputDenom;
+	char inputSign;
+	bool inputPositive;
+	
+
+	cout << endl << "Input numerator: ";
+	cin >> inputNum;
+	cout << "Input denominator: ";
+	cin >> inputDenom;
+	cout << "Input sign: ";
+	cin >> inputSign;
+
+	Fraction frTest;
+	
+	if (inputSign == '+') {
+		inputPositive = true;
+	} else {
+		inputPositive = false;
+	}
+
+	frTest.setNum(inputNum);
+	frTest.setDenom(inputDenom);
+	frTest.setPositive(inputPositive);
+
+	cout << endl;
+
+	frTest.print();
+
+	cout << endl;
 
 
 	return 0;
