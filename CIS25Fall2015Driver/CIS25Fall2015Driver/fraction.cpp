@@ -72,7 +72,7 @@ char Fraction::printSign() {
 	if (isNegative == true) {
 		return '-';
 	} else {
-		return '+';
+		return '\0';
 	}
 }
 
