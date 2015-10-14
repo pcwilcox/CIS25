@@ -85,3 +85,17 @@ void Fraction::reduce() {
 		}
 	}
 }
+
+void Fraction::add(const Fraction& arg) {
+	int inputNum = arg.num;
+	int inputDenom = arg.denom;
+	bool inputSign = arg.isPositive;
+	int workingNum = num;
+	int workingDenom = denom;
+
+	workingNum *= inputDenom;
+	workingDenom *= inputDenom;
+	inputNum *= workingDenom;
+	inputDenom *= workingDenom;
+	
+}

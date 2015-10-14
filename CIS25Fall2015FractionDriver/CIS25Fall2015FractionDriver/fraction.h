@@ -29,6 +29,8 @@ class Fraction {
 
 	void print(void); // Display fraction
 
+	void add(const Fraction&); // Add arg fraction to this fraction
+
 	private:
 	int num;
 	int denom;
