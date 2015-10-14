@@ -5,31 +5,13 @@ using namespace std;
 
 
 
-Fraction::Fraction() {
-	num = 0;
-	denom = 1;
-	isNegative = false;
+Fraction::Fraction() : num(0), denom(1) {
 }
 
-Fraction::Fraction(int input) {
-	if (input < 0) {
-		input = -input;
-		isNegative = true;
-	} else {
-		isNegative = false;
-	}
-	num = input;
-	denom = 1;
+Fraction::Fraction(int input) : num(input), denom(1) {
 }
 
-Fraction::Fraction(const Fraction& input) {
-	if (input.getSign == true) {
-		num = -input.getNum;
-	} else {
-		num = input.getNum;
-	}
-
-	denom = input.getDenom;
+Fraction::Fraction(const Fraction& input) : num(input.num), denom(input.denom) {
 }
 
 int Fraction::getNum(void) {
@@ -37,11 +19,7 @@ int Fraction::getNum(void) {
 }
 
 void Fraction::setNum(int input) {
-	if (input < 0) {
-		num = -input;
-	} else {
-		num = input;
-	}
+	num = input;
 }
 
 int Fraction::getDenom(void) {
@@ -49,33 +27,9 @@ int Fraction::getDenom(void) {
 }
 
 void Fraction::setDenom(int input) {
-	if (input != 0) {
-		denom = input;
-	} else if (input < 0) {
-		denom = -input;
-		isNegative = true;
-	} else {
-		denom = input;
-	}
-}
-
-// Returns true if negative
-bool Fraction::getSign(void) {
-	return isNegative;
-}
-
-void Fraction::setSign(bool input) {
-	isNegative = input;
-}
-
-char Fraction::printSign() {
-	if (isNegative == true) {
-		return '-';
-	} else {
-		return '\0';
-	}
+	denom = input;
 }
 
 void Fraction::print() {
-	cout << printSign() << num << "/" << denom;
+	cout << num << "/" << denom;
 }
