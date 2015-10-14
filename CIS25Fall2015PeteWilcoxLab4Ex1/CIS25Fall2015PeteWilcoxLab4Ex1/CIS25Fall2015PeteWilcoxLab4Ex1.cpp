@@ -121,7 +121,7 @@ void getInput() {
 
 	for (i = 0; i < arraySize; i++) {
 		cout << "\n\nThe updated array #" << (i + 1) << " has "
-			<< *(*(userArray + i)) << " element(s).";
+			<< (*(*(userArray + i)) + 1) << " element(s).";
 
 		for (j = 0; j <= *(*(userArray + i)); j++) {
 			cout << "\n  Element index #" << j << " : " <<
@@ -248,21 +248,21 @@ Assignment Information --
   Submitted Date:     2015/10/08
 
 
-*************************************************
-*                MENU 04 -- Arrays              *
-*  (1) Calling arrangeMultipleArrayPeteWilcox() *
-*  (2) Quit                                     *
-*************************************************
+************************************************
+*               MENU 04 -- Arrays              *
+* (1) Calling arrangeMultipleArrayPeteWilcox() *
+* (2) Quit                                     *
+************************************************
 Select an option (1 or 2): 4
 
 WRONG OPTION!
 
 
-*************************************************
-*                MENU 04 -- Arrays              *
-*  (1) Calling arrangeMultipleArrayPeteWilcox() *
-*  (2) Quit                                     *
-*************************************************
+************************************************
+*               MENU 04 -- Arrays              *
+* (1) Calling arrangeMultipleArrayPeteWilcox() *
+* (2) Quit                                     *
+************************************************
 Select an option (1 or 2): 1
 
 Setting up data before calling ArrangeMultipleArrayPeteWilcox() --
@@ -273,17 +273,17 @@ Creating array index # 0
 
   How many value(s)? 6
 
-	Enter the value for element at index 1 : 1
+    Enter the value for element at index 1 : 1
 
-	Enter the value for element at index 2 : -23
+    Enter the value for element at index 2 : -23
 
-	Enter the value for element at index 3 : 18
+    Enter the value for element at index 3 : 18
 
-	Enter the value for element at index 4 : 27
+    Enter the value for element at index 4 : 27
 
-	Enter the value for element at index 5 : -36
+    Enter the value for element at index 5 : -36
 
-	Enter the value for element at index 6 : 45
+    Enter the value for element at index 6 : 45
 
 For array index #0
   Element index #0 : 6
@@ -298,11 +298,11 @@ Creating array index # 1
 
   How many value(s)? 3
 
-	Enter the value for element at index 1 : 4
+    Enter the value for element at index 1 : 4
 
-	Enter the value for element at index 2 : -17
+    Enter the value for element at index 2 : -17
 
-	Enter the value for element at index 3 : 8
+    Enter the value for element at index 3 : 8
 
 For array index #1
   Element index #0 : 3
@@ -314,9 +314,9 @@ Creating array index # 2
 
   How many value(s)? 2
 
-	Enter the value for element at index 1 : -1
+    Enter the value for element at index 1 : -1
 
-	Enter the value for element at index 2 : -3
+    Enter the value for element at index 2 : -3
 
 For array index #2
   Element index #0 : 2
@@ -352,13 +352,13 @@ The current array #3 has 3 element(s).
 Calling arrangeMultipleArrayPeteWilcox() --
 
   Displaying inside arrangeMultipleArrayPeteWilcox()-
-	Array #1 value 18 is swapped with Array #2 value -17
-	Array #1 value -36 is swapped with Array #3 value -1
+    Array #1 value 18 is swapped with Array #2 value -17
+    Array #1 value -36 is swapped with Array #3 value -1
 
 Displaying outside of arrangeMultipleArrayYourName() -
 
 
-The updated array #1 has 6 element(s).
+The updated array #1 has 7 element(s).
   Element index #0 : 6
   Element index #1 : 1
   Element index #2 : -23
@@ -367,24 +367,24 @@ The updated array #1 has 6 element(s).
   Element index #5 : -1
   Element index #6 : 45
 
-The updated array #2 has 3 element(s).
+The updated array #2 has 4 element(s).
   Element index #0 : 3
   Element index #1 : 4
   Element index #2 : 18
   Element index #3 : 8
 
-The updated array #3 has 2 element(s).
+The updated array #3 has 3 element(s).
   Element index #0 : 2
   Element index #1 : -36
   Element index #2 : -3
 
-There is/are 3 swap(s).
+There is/are 2 swap(s).
 
-*************************************************
-*                MENU 04 -- Arrays              *
-*  (1) Calling arrangeMultipleArrayPeteWilcox() *
-*  (2) Quit                                     *
-*************************************************
+************************************************
+*               MENU 04 -- Arrays              *
+* (1) Calling arrangeMultipleArrayPeteWilcox() *
+* (2) Quit                                     *
+************************************************
 Select an option (1 or 2): 1
 
 Setting up data before calling ArrangeMultipleArrayPeteWilcox() --
@@ -549,7 +549,7 @@ Calling arrangeMultipleArrayPeteWilcox() --
 Displaying outside of arrangeMultipleArrayYourName() -
 
 
-The updated array #1 has 12 element(s).
+The updated array #1 has 13 element(s).
   Element index #0 : 12
   Element index #1 : 13235
   Element index #2 : 4864865
@@ -564,20 +564,20 @@ The updated array #1 has 12 element(s).
   Element index #11 : -6843848
   Element index #12 : 35138
 
-The updated array #2 has 4 element(s).
+The updated array #2 has 5 element(s).
   Element index #0 : 4
   Element index #1 : 4894848
   Element index #2 : 848425886
   Element index #3 : 32154
   Element index #4 : 6518486
 
-The updated array #3 has 3 element(s).
+The updated array #3 has 4 element(s).
   Element index #0 : 3
   Element index #1 : 35486
   Element index #2 : 35435484
   Element index #3 : 53484
 
-The updated array #4 has 5 element(s).
+The updated array #4 has 6 element(s).
   Element index #0 : 5
   Element index #1 : 35486
   Element index #2 : 354388
