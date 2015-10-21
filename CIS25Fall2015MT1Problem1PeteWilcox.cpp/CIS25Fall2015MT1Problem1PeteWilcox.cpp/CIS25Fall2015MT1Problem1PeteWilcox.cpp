@@ -1,9 +1,9 @@
 /**
-* Program Name: cis25Fall2015MTProblem1PeteWilcox.cpp
-* Discussion:   Mid-Term 1 Problem 1
-* Written by:   Pete Wilcox
-* Date:         2015/10/20
-*/
+  * Program Name: cis25Fall2015MTProblem1PeteWilcox.cpp
+  * Discussion:   Mid-Term 1 Problem 1
+  * Written by:   Pete Wilcox
+  * Date:         2015/10/20
+  */
 
 #include <iostream>
 
@@ -72,12 +72,19 @@ void getInfo() {
 
 	cout << "\n\n  Displaying after returning the array -- The "
 		"uncommon digits:";
-	cout << "\n    There is/are " << *(returnedArray) <<
-		" uncommon digit(s)";
+	cout << "\n    There is/are ";
+	if (*(returnedArray) > 0) {
+		cout << *(returnedArray);
+	} else {
+		cout << "no";
+	}
+		cout << " uncommon digit(s)";
 
 	for (i = 0; i < *(returnedArray); i++) {
 		cout << "\n    " << (*(returnedArray + i + 1));
 	}
+
+	cout << endl;
 
 	delete[] userArray;
 	delete[] returnedArray;
@@ -202,10 +209,33 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 	*/
 
 
+	// Modified code:
+	for (i = 1; i < evens; i++) {
+		for (j = i + 1; j <= evens; j++) {
+			if (*(uncommonArray + i) > *(uncommonArray + j)) {
+				currentDigit = *(uncommonArray + i);
+				*(uncommonArray + i) = *(uncommonArray + j);
+				*(uncommonArray + j) = currentDigit;
+			}
+		}
+	}
+
+	for (i = evens + 1; i < uncommonCount; i++) {
+		for (j = i + 1; j <= uncommonCount; j++) {
+			if (*(uncommonArray + i) > *(uncommonArray + j)) {
+				currentDigit = *(uncommonArray + i);
+				*(uncommonArray + i) = *(uncommonArray + j);
+				*(uncommonArray + j) = currentDigit;
+			}
+		}
+	}
+
+	/* Original code:
 	for (i = 1; i < evens; i++) { 
 		// Sort evens
 		j = i + 1;
-		while (*(uncommonArray + i) < *(uncommonArray + j) && (j <= evens)) {
+		while (*(uncommonArray + i) < *(uncommonArray + j) 
+		&& (j <= evens)) {
 			currentDigit = *(uncommonArray + i);
 			*(uncommonArray + i) = *(uncommonArray + j);
 			*(uncommonArray + j) = currentDigit;
@@ -216,14 +246,15 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 	for (i = evens + 1; i < uncommonCount; i++) {
 		// Sort odds
 		j = i + 1;
-		while ((*(uncommonArray + i) < *(uncommonArray + j)) && (j <= uncommonCount)) {
+		while ((*(uncommonArray + i) < *(uncommonArray + j)) 
+		&& (j <= uncommonCount)) {
 			currentDigit = *(uncommonArray + i);
 			*(uncommonArray + i) = *(uncommonArray + j);
 			*(uncommonArray + j) = currentDigit;
 			j++;
 		}
 	}
-
+	*/
 
 	return uncommonArray;
 
@@ -286,7 +317,8 @@ for the test.
 
 After changing the variable names to the original values, the
 expected output is close but not quite correct - the sort is
-not performed correctly.
+not performed correctly because I used the incorrect comparison
+operator.
 
 
 */
