@@ -25,7 +25,8 @@ void displayMenu() {
 			"\n*                     MENU                    *"
 			"\n* 1. Calling ExtractUncommonDigitPeteWilcox() *"
 			"\n* 2. Quit                                     *"
-			"\n***********************************************";
+			"\n***********************************************"
+			"\nSelect an option (1 or 2): ";
 		cin >> menuChoice;
 
 		switch (menuChoice) {
@@ -72,7 +73,7 @@ void getInfo() {
 	cout << "\n\n  Displaying after returning the array -- The "
 		"uncommon digits:";
 	cout << "\n    There is/are " << *(returnedArray) <<
-		"uncommon digit(s)";
+		" uncommon digit(s)";
 
 	for (i = 0; i < *(returnedArray); i++) {
 		cout << "\n    " << (*(returnedArray + i + 1));
@@ -138,7 +139,7 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 					// Don't look for this value again
 			}
 
-			searchInt /= 10;
+			currentInt /= 10;
 
 		} while (currentInt > 0);
 	}
@@ -146,10 +147,22 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 	uncommonArray = new int[uncommonCount + 1];
 	*(uncommonArray) = uncommonCount;
 
+	// Modified code
+	for (i = 1; i < (uncommonCount + 1); i++) {
+		*(uncommonArray + i) = uncommon % 10;
+		uncommon /= 10;
+	}
+
+
+	/* Original version:
 	for (i = 1; i < (uncommonCount + 1); i++) {
 		*(uncommonArray + i) = uncommonDigits % 10;
 		uncommonDigits /= 10;
 	}
+
+	Changed variable name.
+	*/
+
 
 	for (i = 1; i < (uncommonCount + 1); i++) {
 		if (*(uncommonArray + i) % 2 == 0) {
@@ -157,6 +170,21 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 		}
 	}
 
+	// Modified code
+	for (i = 1; i <= evens; i++) {
+		// Sort for evens/odds
+		while (*(uncommonArray + i) % 2 != 0) {
+			j = i + 1;
+			if (*(uncommonArray + j) % 2 == 0) {
+				currentDigit = *(uncommonArray + i);
+				*(uncommonArray + i) = *(uncommonArray + j);
+				*(uncommonArray + j) = currentDigit;
+			}
+			j++;
+		}
+	}
+
+	/* Original version:
 	for (i = 1; i <= evens; i++) { 
 		// Sort for evens/odds
 		while (*(uncommonDigits + i) % 2 != 0) {
@@ -169,6 +197,9 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 			j++;
 		}
 	}
+
+	Changed variable name.
+	*/
 
 	for (i = 1; i < evens; i++) { 
 		// Sort evens
@@ -198,6 +229,48 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 
 /* PROGRAM OUTPUT:
 
+Original version doesn't compile.
+
+After fixing the variable name errors:
+
+
+***********************************************
+*                     MENU                    *
+* 1. Calling ExtractUncommonDigitPeteWilcox() *
+* 2. Quit                                     *
+***********************************************
+Select an option (1 or 2): 1
+
+How many integers? 3
+Enter integer #1: 32965
+Enter integer #2: -275721
+Enter integer #3: 3028063
+
+The original array:
+32965
+-275721
+3028063
+Calling extractUncommonDigitPeteWilcox() -
+
+Displaying after returning the array -- The uncommon digits:
+There is/are 5 uncommon digit(s)
+8
+0
+7
+9
+1
+***********************************************
+*                     MENU                    *
+* 1. Calling ExtractUncommonDigitPeteWilcox() *
+* 2. Quit                                     *
+***********************************************
+Select an option (1 or 2): 2
+
+Fun exercize ...
+
+**************************************************
+
+
 */
 
 /* COMMENTS:
@@ -208,5 +281,10 @@ inadvertently used the variable name 'uncommonDigits' instead of
 'uncommons' - this is because at the time I was writing this,
 you pointed out that we had used up an hour of the allotted time
 for the test. 
+
+After changing the variable names to the original values, the
+expected output is close but not quite correct - the sort is
+not performed correctly.
+
 
 */
