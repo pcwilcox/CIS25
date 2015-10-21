@@ -60,14 +60,14 @@ void getInfo() {
 	}
 
 	cout << "\n  The original array:";
-	
+
 	for (i = 0; i < arraySize; i++) {
 		cout << "\n    " << *(userArray + i);
 	}
 
 	cout << "\n  Calling extractUncommonDigitPeteWilcox() -";
 
-	returnedArray = extractUncommonDigitPeteWilcox(userArray, 
+	returnedArray = extractUncommonDigitPeteWilcox(userArray,
 		arraySize);
 
 	cout << "\n\n  Displaying after returning the array -- The "
@@ -78,7 +78,7 @@ void getInfo() {
 	} else {
 		cout << "no";
 	}
-		cout << " uncommon digit(s)";
+	cout << " uncommon digit(s)";
 
 	for (i = 0; i < *(returnedArray); i++) {
 		cout << "\n    " << (*(returnedArray + i + 1));
@@ -104,7 +104,7 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 
 	for (i = 0; i < size; i++) { // For each int
 		currentInt = *(userArray + i);
-		
+
 		if (currentInt < 0) {
 			currentInt = -currentInt;
 		}
@@ -114,6 +114,7 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 
 			if (isCommon[currentDigit] == false) {
 				// if it's uncommon
+
 
 				for (j = 0; j < size; j++) {
 					if (j != i) {
@@ -126,24 +127,25 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 						do {
 							searchDigit = searchInt % 10;
 
+
 							if (currentDigit == searchDigit) {
 								// Found it
 								isCommon[currentDigit] = true;
 							}
 
 							searchInt /= 10;
-						} while ((isCommon[currentDigit] == false) 
+						} while ((isCommon[currentDigit] == false)
 							&& (searchInt > 0));
 					}
 				}
 			}
-			
+
 			if (isCommon[currentDigit] == false) {
 				uncommonCount++;
 				uncommon *= 10;
 				uncommon += currentDigit;
 				isCommon[currentDigit] = true;
-					// Don't look for this value again
+				// Don't look for this value again
 			}
 
 			currentInt /= 10;
@@ -178,21 +180,22 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 	}
 
 	// Modified code
-	for (i = 1; i <= evens; i++) {
-		// Sort for evens/odds
-		while (*(uncommonArray + i) % 2 != 0) {
-			j = i + 1;
-			if (*(uncommonArray + j) % 2 == 0) {
-				currentDigit = *(uncommonArray + i);
-				*(uncommonArray + i) = *(uncommonArray + j);
-				*(uncommonArray + j) = currentDigit;
+	if (evens > 0) {
+		for (i = 1; i <= evens; i++) {
+			// Sort for evens/odds
+			while (*(uncommonArray + i) % 2 != 0) {
+				j = i + 1;
+				if (*(uncommonArray + j) % 2 == 0) {
+					currentDigit = *(uncommonArray + i);
+					*(uncommonArray + i) = *(uncommonArray + j);
+					*(uncommonArray + j) = currentDigit;
+				}
+				j++;
 			}
-			j++;
 		}
 	}
-
 	/* Original version:
-	for (i = 1; i <= evens; i++) { 
+	for (i = 1; i <= evens; i++) {
 		// Sort for evens/odds
 		while (*(uncommonDigits + i) % 2 != 0) {
 			j = i + 1;
@@ -210,12 +213,14 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 
 
 	// Modified code:
-	for (i = 1; i < evens; i++) {
-		for (j = i + 1; j <= evens; j++) {
-			if (*(uncommonArray + i) > *(uncommonArray + j)) {
-				currentDigit = *(uncommonArray + i);
-				*(uncommonArray + i) = *(uncommonArray + j);
-				*(uncommonArray + j) = currentDigit;
+	if (evens > 0) {
+		for (i = 1; i < evens; i++) {
+			for (j = i + 1; j <= evens; j++) {
+				if (*(uncommonArray + i) > *(uncommonArray + j)) {
+					currentDigit = *(uncommonArray + i);
+					*(uncommonArray + i) = *(uncommonArray + j);
+					*(uncommonArray + j) = currentDigit;
+				}
 			}
 		}
 	}
@@ -231,10 +236,10 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 	}
 
 	/* Original code:
-	for (i = 1; i < evens; i++) { 
+	for (i = 1; i < evens; i++) {
 		// Sort evens
 		j = i + 1;
-		while (*(uncommonArray + i) < *(uncommonArray + j) 
+		while (*(uncommonArray + i) < *(uncommonArray + j)
 		&& (j <= evens)) {
 			currentDigit = *(uncommonArray + i);
 			*(uncommonArray + i) = *(uncommonArray + j);
@@ -246,7 +251,7 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 	for (i = evens + 1; i < uncommonCount; i++) {
 		// Sort odds
 		j = i + 1;
-		while ((*(uncommonArray + i) < *(uncommonArray + j)) 
+		while ((*(uncommonArray + i) < *(uncommonArray + j))
 		&& (j <= uncommonCount)) {
 			currentDigit = *(uncommonArray + i);
 			*(uncommonArray + i) = *(uncommonArray + j);
@@ -302,7 +307,91 @@ Select an option (1 or 2): 2
 Fun exercize ...
 
 **************************************************
+After modifications:
 
+
+***********************************************
+*                     MENU                    *
+* 1. Calling ExtractUncommonDigitPeteWilcox() *
+* 2. Quit                                     *
+***********************************************
+Select an option (1 or 2): 1
+
+  How many integers? 3
+    Enter integer #1: 32965
+    Enter integer #2: -275721
+    Enter integer #3: 3028063
+
+  The original array:
+    32965
+    -275721
+    3028063
+  Calling extractUncommonDigitPeteWilcox() -
+
+  Displaying after returning the array -- The uncommon digits:
+    There is/are 5 uncommon digit(s)
+    0
+    8
+    1
+    7
+    9
+
+***********************************************
+*                     MENU                    *
+* 1. Calling ExtractUncommonDigitPeteWilcox() *
+* 2. Quit                                     *
+***********************************************
+Select an option (1 or 2): 1
+
+  How many integers? 4
+    Enter integer #1: 32965
+    Enter integer #2: -275721
+    Enter integer #3: 3028063
+    Enter integer #4: 10789
+
+  The original array:
+    32965
+    -275721
+    3028063
+    10789
+  Calling extractUncommonDigitPeteWilcox() -
+
+  Displaying after returning the array -- The uncommon digits:
+    There is/are no uncommon digit(s)
+
+***********************************************
+*                     MENU                    *
+* 1. Calling ExtractUncommonDigitPeteWilcox() *
+* 2. Quit                                     *
+***********************************************
+Select an option (1 or 2): 1
+
+  How many integers? 4
+    Enter integer #1: 2965
+    Enter integer #2: -7571
+    Enter integer #3: 2806
+    Enter integer #4: 789
+
+  The original array:
+    2965
+    -7571
+    2806
+    789
+  Calling extractUncommonDigitPeteWilcox() -
+
+  Displaying after returning the array -- The uncommon digits:
+    There is/are 2 uncommon digit(s)
+    0
+    1
+
+***********************************************
+*                     MENU                    *
+* 1. Calling ExtractUncommonDigitPeteWilcox() *
+* 2. Quit                                     *
+***********************************************
+Select an option (1 or 2): 2
+
+  Fun exercize ...
 
 */
 
@@ -313,12 +402,14 @@ The version I wrote in class will not compile, because I
 inadvertently used the variable name 'uncommonDigits' instead of
 'uncommons' - this is because at the time I was writing this,
 you pointed out that we had used up an hour of the allotted time
-for the test. 
+for the test.
 
 After changing the variable names to the original values, the
 expected output is close but not quite correct - the sort is
 not performed correctly because I used the incorrect comparison
 operator.
 
-
+I added some further checks in case there were no even uncommon
+digits, as I was getting unexpected behavior without them - I'm
+not sure why.
 */
