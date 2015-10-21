@@ -201,6 +201,7 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 	Changed variable name.
 	*/
 
+
 	for (i = 1; i < evens; i++) { 
 		// Sort evens
 		j = i + 1;
@@ -222,6 +223,7 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 			j++;
 		}
 	}
+
 
 	return uncommonArray;
 
