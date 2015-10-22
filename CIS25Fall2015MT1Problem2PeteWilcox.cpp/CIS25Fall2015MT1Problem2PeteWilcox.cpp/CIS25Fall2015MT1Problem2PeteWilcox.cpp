@@ -78,26 +78,26 @@ void getInfo() {
 	}
 	cout << "\n";
 
-	cout << "\n\n  Displaying after returning the array -- "
-		"\n    There is/are ";
+	
+
 	if (*(returnedArray) > 0) {
 		if (*(returnedArray + 1) > 0) {
 			evens = *(returnedArray + 1);
-			oddStart = evens * 3;
-			if (*(returnedArray + oddStart) > 0) {
-				odds = *(returnedArray + oddStart);
-			}
+			oddStart = (evens * 2) + 2;
 		} else {
 			evens = 0;
 			oddStart = 2;
-			if (*(returnedArray + oddStart) > 0) {
-				odds = *(returnedArray + oddStart);
-			} else {
-				odds = 0;
-			}
+		}
+
+		if (*(returnedArray + oddStart) > 0) {
+			odds = *(returnedArray + oddStart);
+		} else {
+			odds = 0;
 		}
 	}
 
+	cout << "\n\n  Displaying after returning the array -- "
+		"\n    There is/are ";
 	if (odds + evens > 0) {
 		cout << (odds + evens);
 	} else {
@@ -107,12 +107,12 @@ void getInfo() {
 
 
 
-	if (*(returnedArray + 1) > 0) {
+	if (evens > 0) {
 		evens = *(returnedArray + 1);
 		oddStart = evens * 3;
 		cout << "\n\n    There is/are " << evens << " even uncommon digits.";
 
-		for (i = 2; i < (2 + (evens * 2)); i += 2) {
+		for (i = 2; i < oddStart; i += 2) {
 			cout << "\n    The digit " << *(returnedArray + i) << " occurs " << *(returnedArray + i + 1) << " time(s).";
 		}
 	} else {
@@ -121,11 +121,9 @@ void getInfo() {
 
 
 
-	if (*(returnedArray + oddStart) > 0) {
-		odds = *(returnedArray + oddStart);
+	if (odds > 0) {
 		cout << "\n\n    There is/are " << odds <<
 			" odd uncommon digits.";
-
 		for (i = oddStart + 1; i < *(returnedArray); i += 2) {
 			cout << "\n    The digit " << *(returnedArray + i) << " occurs " << *(returnedArray + i + 1) << " time(s).";
 		}
