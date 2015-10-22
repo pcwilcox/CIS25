@@ -385,4 +385,8 @@ I did not implement even/odd tracking correctly. In my haste I
 was incrementing the evens/odds counters based on the occurrence
 of a particular digit, rather than the digit itself. That has
 been corrected.
+
+I also forgot to set the first element of the array to actually
+contain the number of elements - I created the variable but
+neglected to assign it.
 */
