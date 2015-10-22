@@ -84,14 +84,6 @@ void getInfo() {
 
 	returnedArray = getUncommonDigitStatsticsPeteWilcox(userArray,
 		arraySize);
-	/*
-	cout << "\nRETURNED ARRAY: ";
-	for (i = 0; i < *(returnedArray); i++) {
-		cout << " " <<  *(returnedArray + i);
-	}
-	cout << "\n";
-	*/
-	
 
 	if (*(returnedArray) > 0) {
 		if (*(returnedArray + 1) > 0) {
@@ -162,20 +154,17 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 
 	for (i = 0; i < size; i++) {
 		currentInt = *(input + i);
-//		cout << "\nCURRENT INT: " << currentInt;
 		if (currentInt < 0) {
 			currentInt = -currentInt;
 		}
 
 		do {
 			currentDigit = currentInt % 10;
-//			cout << "\nCURRENT DIGIT: " << currentDigit;
 			if (digitCounter[currentDigit] == 0) {
 				if (isCommon[currentDigit] == false) {
 					for (j = 0; j < size && isCommon[currentDigit] == false; j++) {
 						if (j != i) {
 							searchInt = *(input + j);
-//							cout << "\nSEARCH INT: " << searchInt;
 							if (searchInt < 0) {
 								searchInt = -searchInt;
 							}
