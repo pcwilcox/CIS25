@@ -72,6 +72,11 @@ void getInfo() {
 
 	returnedArray = getUncommonDigitStatsticsPeteWilcox(userArray,
 		arraySize);
+	cout << "\nRETURNED ARRAY: ";
+	for (i = 0; i < *(returnedArray); i++) {
+		cout << " " <<  *(returnedArray + i);
+	}
+	cout << "\n";
 
 	cout << "\n\n  Displaying after returning the array -- "
 		"\n    There is/are ";
@@ -87,6 +92,8 @@ void getInfo() {
 			oddStart = 2;
 			if (*(returnedArray + oddStart) > 0) {
 				odds = *(returnedArray + oddStart);
+			} else {
+				odds = 0;
 			}
 		}
 	}
@@ -105,7 +112,7 @@ void getInfo() {
 		oddStart = evens * 3;
 		cout << "\n\n    There is/are " << evens << " even uncommon digits.";
 
-		for (i = 2; i < (evens * 3); i += 2) {
+		for (i = 2; i < (2 + (evens * 2)); i += 2) {
 			cout << "\n    The digit " << *(returnedArray + i) << " occurs " << *(returnedArray + i + 1) << " time(s).";
 		}
 	} else {
