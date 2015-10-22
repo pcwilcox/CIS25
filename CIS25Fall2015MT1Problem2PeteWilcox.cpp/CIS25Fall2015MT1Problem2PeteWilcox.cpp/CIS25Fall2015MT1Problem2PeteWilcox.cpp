@@ -15,6 +15,7 @@ void displayMenu(void);
 void getInfo(void);
 
 int main() {
+	displayHeader();
 	displayMenu();
 	return 0;
 }
@@ -24,7 +25,7 @@ void displayHeader() {
 		"  CIS 25 - C++ Programming\n"
 		"  Laney College\n\n"
 		"Assignment Information --\n"
-		"  Assignment Number:  Midterm #1 – Exercise #2\n"
+		"  Assignment Number:  Midterm #1 – Problem #2\n"
 		"  Written by:         Pete Wilcox\n"
 		"  Due Date:           2015/10/22\n\n";
 }
@@ -181,10 +182,8 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 
 							do {
 								searchDigit = searchInt % 10;
-//								cout << "\nSEARCH DIGIT: " << searchDigit;
 								if (currentDigit == searchDigit) {
 									isCommon[currentDigit] = true;
-//									cout << " - COMMON";
 								}
 
 								searchInt /= 10;
@@ -196,11 +195,9 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 
 				if (isCommon[currentDigit] == false) {
 					digitCounter[currentDigit]++;
-//					cout << "\nCURRENT DIGIT IS UNCOMMON AND HAS OCCURRED " << digitCounter[currentDigit] << " TIMES";
 				}
 			} else {
 				digitCounter[currentDigit]++;
-//				cout << "\nCURRENT DIGIT IS UNCOMMON AND HAS OCCURRED " << digitCounter[currentDigit] << " TIMES";
 			}
 			currentInt /= 10;
 		} while (currentInt > 0);
@@ -208,13 +205,10 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 
 	for (i = 0; i < 10; i++) {
 		if (digitCounter[i] > 0) {
-//			cout << "\n DIGITCOUNTER[" << i << "]: ";
 			if (i % 2 == 0) {
 				evens++;
-//				cout << " - EVEN";
 			} else {
 				odds++;
-//				cout << " - ODD";
 			}
 		}
 	}
@@ -254,7 +248,113 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 }
 
 /* PROGRAM OUTPUT:
+Class Information --
+  CIS 25 - C++ Programming
+  Laney College
 
+Assignment Information --
+  Assignment Number:  Midterm #1 û Problem #2
+  Written by:         Pete Wilcox
+  Due Date:           2015/10/22
+
+
+****************************************************
+*                     MENU                         *
+* 1. Calling getUncommonDigitStatsticsPeteWilcox() *
+* 2. Quit                                          *
+****************************************************
+Select an option (1 or 2): 1
+
+  How many integers? 3
+    Enter integer #1: 32965
+    Enter integer #2: -275721
+    Enter integer #3: 3028063
+
+  The original array:
+    32965
+    -275721
+    3028063
+  Calling getUncommonDigitStatsticsPeteWilcox() -
+
+  Displaying after returning the array --
+    There is/are 5 uncommon digit(s)
+
+    There is/are 2 even uncommon digits.
+    The digit 0 occurs 2 time(s).
+    The digit 8 occurs 1 time(s).
+
+    There is/are 3 odd uncommon digits.
+    The digit 1 occurs 1 time(s).
+    The digit 7 occurs 2 time(s).
+    The digit 9 occurs 1 time(s).
+****************************************************
+*                     MENU                         *
+* 1. Calling getUncommonDigitStatsticsPeteWilcox() *
+* 2. Quit                                          *
+****************************************************
+Select an option (1 or 2): 1
+
+  How many integers? 4
+    Enter integer #1: 32965
+    Enter integer #2: -275721
+    Enter integer #3: 3028063
+    Enter integer #4: 10789
+
+  The original array:
+    32965
+    -275721
+    3028063
+    10789
+  Calling getUncommonDigitStatsticsPeteWilcox() -
+
+  Displaying after returning the array --
+    There is/are no uncommon digit(s)
+****************************************************
+*                     MENU                         *
+* 1. Calling getUncommonDigitStatsticsPeteWilcox() *
+* 2. Quit                                          *
+****************************************************
+Select an option (1 or 2): 1
+
+  How many integers? 3
+    Enter integer #1: 12548
+    Enter integer #2: 336548
+    Enter integer #3: 7789954
+
+  The original array:
+    12548
+    336548
+    7789954
+  Calling getUncommonDigitStatsticsPeteWilcox() -
+
+  Displaying after returning the array --
+    There is/are 6 uncommon digit(s)
+
+    There is/are 2 even uncommon digits.
+    The digit 2 occurs 1 time(s).
+    The digit 6 occurs 1 time(s).
+
+    There is/are 4 odd uncommon digits.
+    The digit 1 occurs 1 time(s).
+    The digit 3 occurs 2 time(s).
+    The digit 7 occurs 2 time(s).
+    The digit 9 occurs 2 time(s).
+****************************************************
+*                     MENU                         *
+* 1. Calling getUncommonDigitStatsticsPeteWilcox() *
+* 2. Quit                                          *
+****************************************************
+Select an option (1 or 2): 4
+
+  WRONG OPTION!
+****************************************************
+*                     MENU                         *
+* 1. Calling getUncommonDigitStatsticsPeteWilcox() *
+* 2. Quit                                          *
+****************************************************
+Select an option (1 or 2): 2
+
+  Fun exercize ...
 */
 
 /* COMMENTS:
