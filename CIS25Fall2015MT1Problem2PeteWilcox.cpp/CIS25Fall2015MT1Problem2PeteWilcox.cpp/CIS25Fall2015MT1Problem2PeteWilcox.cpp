@@ -86,6 +86,7 @@ void getInfo() {
 		arraySize);
 
 	if (*(returnedArray) > 0) {
+		// Assign evens, odds, oddstart values accordingly
 		if (*(returnedArray + 1) > 0) {
 			evens = *(returnedArray + 1);
 			oddStart = (evens * 2) + 2;
@@ -115,10 +116,13 @@ void getInfo() {
 	if (evens > 0) {
 		evens = *(returnedArray + 1);
 		oddStart = evens * 3;
-		cout << "\n\n    There is/are " << evens << " even uncommon digits.";
+		cout << "\n\n    There is/are " << evens << 
+			" even uncommon digits.";
 
 		for (i = 2; i < oddStart; i += 2) {
-			cout << "\n    The digit " << *(returnedArray + i) << " occurs " << *(returnedArray + i + 1) << " time(s).";
+			cout << "\n    The digit " << *(returnedArray + i) 
+				<< " occurs " << *(returnedArray + i + 1) 
+				<< " time(s).";
 		}
 	} else {
 		oddStart = 2;
@@ -130,7 +134,9 @@ void getInfo() {
 		cout << "\n\n    There is/are " << odds <<
 			" odd uncommon digits.";
 		for (i = oddStart + 1; i < *(returnedArray); i += 2) {
-			cout << "\n    The digit " << *(returnedArray + i) << " occurs " << *(returnedArray + i + 1) << " time(s).";
+			cout << "\n    The digit " << *(returnedArray + i) 
+				<< " occurs " << *(returnedArray + i + 1) 
+				<< " time(s).";
 		}
 	}
 
@@ -153,6 +159,7 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 	int i, j;
 
 	for (i = 0; i < size; i++) {
+		// For each integer
 		currentInt = *(input + i);
 		if (currentInt < 0) {
 			currentInt = -currentInt;
@@ -160,10 +167,16 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 
 		do {
 			currentDigit = currentInt % 10;
+			// Search each digit
 			if (digitCounter[currentDigit] == 0) {
+				// If we haven't looked already
 				if (isCommon[currentDigit] == false) {
-					for (j = 0; j < size && isCommon[currentDigit] == false; j++) {
+					// If it has not already been found common
+					for (j = 0; j < size && 
+						isCommon[currentDigit] == false; j++) {
+						//Search each other integer
 						if (j != i) {
+							// Don't search the same one!
 							searchInt = *(input + j);
 							if (searchInt < 0) {
 								searchInt = -searchInt;
@@ -171,21 +184,26 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 
 							do {
 								searchDigit = searchInt % 10;
+								// Check each digit
 								if (currentDigit == searchDigit) {
 									isCommon[currentDigit] = true;
 								}
 
 								searchInt /= 10;
 
-							} while ((searchInt > 0) && (isCommon[currentDigit] == false));
+							} while ((searchInt > 0) && 
+								(isCommon[currentDigit] == 
+									false));
 						}
 					}
 				}
 
 				if (isCommon[currentDigit] == false) {
+					// We didn't find it
 					digitCounter[currentDigit]++;
 				}
 			} else {
+				// We've already determined it's uncommon
 				digitCounter[currentDigit]++;
 			}
 			currentInt /= 10;
@@ -193,6 +211,8 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 	}
 
 	for (i = 0; i < 10; i++) {
+		// Count evens/odds. This should have been done in the
+		// previous step.
 		if (digitCounter[i] > 0) {
 			if (i % 2 == 0) {
 				evens++;
@@ -208,6 +228,7 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 
 	j = 2;
 	if (evens > 0) {
+		// Assign values for even digits
 		*(uncommonArray + 1) = evens;
 		for (i = 0; i < 10; i += 2) {
 			if (digitCounter[i] > 0) {
@@ -224,6 +245,7 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 	j++;
 
 	if (odds > 0) {
+		// Assign values for odd digits
 		for (i = 1; i < 10; i += 2) {
 			if (digitCounter[i] > 0) {
 				*(uncommonArray + j) = i;
