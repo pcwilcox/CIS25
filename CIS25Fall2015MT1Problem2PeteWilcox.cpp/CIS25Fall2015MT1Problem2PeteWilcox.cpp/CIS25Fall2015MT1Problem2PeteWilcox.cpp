@@ -47,6 +47,9 @@ void getInfo() {
 	int* userArray;
 	int* returnedArray;
 	int arraySize;
+	int evens;
+	int odds;
+	int oddStart;
 	int i = 0;
 
 	cout << "\n  How many integers? ";
@@ -70,41 +73,57 @@ void getInfo() {
 	returnedArray = getUncommonDigitStatsticsPeteWilcox(userArray,
 		arraySize);
 
-	cout << "\n\n  Displaying after returning the array -- The "
-		"uncommon digits:";
-	cout << "\n    There is/are ";
+	cout << "\n\n  Displaying after returning the array -- "
+		"\n    There is/are ";
 	if (*(returnedArray) > 0) {
-		cout << *(returnedArray);
+		if (*(returnedArray + 1) > 0) {
+			evens = *(returnedArray + 1);
+			oddStart = evens * 3;
+			if (*(returnedArray + oddStart) > 0) {
+				odds = *(returnedArray + oddStart);
+			}
+		} else {
+			evens = 0;
+			oddStart = 2;
+			if (*(returnedArray + oddStart) > 0) {
+				odds = *(returnedArray + oddStart);
+			}
+		}
+	}
+
+	if (odds + evens > 0) {
+		cout << (odds + evens);
 	} else {
 		cout << "no";
 	}
 	cout << " uncommon digit(s)";
 
-	if (*(returnedArray + 1) > 0) {
-		cout << "    There is/are " << *(returnedArray + 1) <<
-			" even uncommon digits.";
 
-		for (i = 2; i < ((*(returnedArray + 1)) * 2); i += 2) {
+
+	if (*(returnedArray + 1) > 0) {
+		evens = *(returnedArray + 1);
+		oddStart = evens * 3;
+		cout << "\n\n    There is/are " << evens << " even uncommon digits.";
+
+		for (i = 2; i < (evens * 3); i += 2) {
 			cout << "\n    The digit " << *(returnedArray + i) << " occurs " << *(returnedArray + i + 1) << " time(s).";
 		}
+	} else {
+		oddStart = 2;
 	}
 
-	cout << endl;
 
-	if (((*(returnedArray + 1)) * 2) > 0) {
-		cout << "    There is/are " << *(returnedArray + 1) <<
+
+	if (*(returnedArray + oddStart) > 0) {
+		odds = *(returnedArray + oddStart);
+		cout << "\n\n    There is/are " << odds <<
 			" odd uncommon digits.";
 
-		for (i = 2; i < ((*(returnedArray + 1)) * 2); i += 2) {
+		for (i = oddStart + 1; i < *(returnedArray); i += 2) {
 			cout << "\n    The digit " << *(returnedArray + i) << " occurs " << *(returnedArray + i + 1) << " time(s).";
 		}
 	}
 
-	for (i = 0; i < *(returnedArray); i++) {
-		cout << "\n    " << (*(returnedArray + i + 1));
-	}
-
-	cout << endl;
 
 	delete[] userArray;
 	delete[] returnedArray;
@@ -134,7 +153,7 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 			currentDigit = currentInt % 10;
 			if (digitCounter[currentDigit] == 0) {
 				if (isCommon[currentDigit] == false) {
-					for (j = 0; j < size; j++) {
+					for (j = 0; j < size && isCommon[currentDigit] == false; j++) {
 						if (j != i) {
 							searchInt = *(input + j);
 							if (searchInt < 0) {
@@ -143,7 +162,6 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 
 							do {
 								searchDigit = searchInt % 10;
-
 								if (currentDigit == searchDigit) {
 									isCommon[currentDigit] = true;
 								}
@@ -154,7 +172,7 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 						}
 					}
 				}
-				
+
 				if (isCommon[currentDigit] == false) {
 					digitCounter[currentDigit]++;
 				}
@@ -177,6 +195,7 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 
 	newSize = (3 + (evens * 2) + (odds * 2));
 	uncommonArray = new int[newSize];
+	*(uncommonArray) = newSize;
 
 	j = 2;
 	if (evens > 0) {
@@ -222,5 +241,6 @@ labs is grueling and the number of students who did not even
 complete the assignment is shameful.
 
 When I compiled this program I got an uninitialized variable
-error. I initialized evens and odds to fix it.
+error. I initialized evens and odds to fix it. After that, the
+program compiles.
 */
