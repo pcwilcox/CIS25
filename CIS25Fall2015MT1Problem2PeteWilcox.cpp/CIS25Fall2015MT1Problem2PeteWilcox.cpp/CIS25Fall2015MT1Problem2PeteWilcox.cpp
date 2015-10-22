@@ -10,12 +10,23 @@
 using namespace std;
 
 int* getUncommonDigitStatsticsPeteWilcox(int*, int);
+void displayHeader(void);
 void displayMenu(void);
 void getInfo(void);
 
 int main() {
 	displayMenu();
 	return 0;
+}
+
+void displayHeader() {
+	cout << "Class Information --\n"
+		"  CIS 25 - C++ Programming\n"
+		"  Laney College\n\n"
+		"Assignment Information --\n"
+		"  Assignment Number:  Midterm #1 – Exercise #2\n"
+		"  Written by:         Pete Wilcox\n"
+		"  Due Date:           2015/10/22\n\n";
 }
 
 void displayMenu() {
@@ -72,12 +83,13 @@ void getInfo() {
 
 	returnedArray = getUncommonDigitStatsticsPeteWilcox(userArray,
 		arraySize);
+	/*
 	cout << "\nRETURNED ARRAY: ";
 	for (i = 0; i < *(returnedArray); i++) {
 		cout << " " <<  *(returnedArray + i);
 	}
 	cout << "\n";
-
+	*/
 	
 
 	if (*(returnedArray) > 0) {
@@ -149,26 +161,30 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 
 	for (i = 0; i < size; i++) {
 		currentInt = *(input + i);
-
+//		cout << "\nCURRENT INT: " << currentInt;
 		if (currentInt < 0) {
 			currentInt = -currentInt;
 		}
 
 		do {
 			currentDigit = currentInt % 10;
+//			cout << "\nCURRENT DIGIT: " << currentDigit;
 			if (digitCounter[currentDigit] == 0) {
 				if (isCommon[currentDigit] == false) {
 					for (j = 0; j < size && isCommon[currentDigit] == false; j++) {
 						if (j != i) {
 							searchInt = *(input + j);
+//							cout << "\nSEARCH INT: " << searchInt;
 							if (searchInt < 0) {
 								searchInt = -searchInt;
 							}
 
 							do {
 								searchDigit = searchInt % 10;
+//								cout << "\nSEARCH DIGIT: " << searchDigit;
 								if (currentDigit == searchDigit) {
 									isCommon[currentDigit] = true;
+//									cout << " - COMMON";
 								}
 
 								searchInt /= 10;
@@ -180,9 +196,11 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 
 				if (isCommon[currentDigit] == false) {
 					digitCounter[currentDigit]++;
+//					cout << "\nCURRENT DIGIT IS UNCOMMON AND HAS OCCURRED " << digitCounter[currentDigit] << " TIMES";
 				}
 			} else {
 				digitCounter[currentDigit]++;
+//				cout << "\nCURRENT DIGIT IS UNCOMMON AND HAS OCCURRED " << digitCounter[currentDigit] << " TIMES";
 			}
 			currentInt /= 10;
 		} while (currentInt > 0);
@@ -190,10 +208,13 @@ int* getUncommonDigitStatsticsPeteWilcox(int* input, int size) {
 
 	for (i = 0; i < 10; i++) {
 		if (digitCounter[i] > 0) {
-			if (digitCounter[i] % 2 == 0) {
+//			cout << "\n DIGITCOUNTER[" << i << "]: ";
+			if (i % 2 == 0) {
 				evens++;
+//				cout << " - EVEN";
 			} else {
 				odds++;
+//				cout << " - ODD";
 			}
 		}
 	}
@@ -248,4 +269,9 @@ complete the assignment is shameful.
 When I compiled this program I got an uninitialized variable
 error. I initialized evens and odds to fix it. After that, the
 program compiles.
+
+I did not implement even/odd tracking correctly. In my haste I
+was incrementing the evens/odds counters based on the occurrence
+of a particular digit, rather than the digit itself. That has
+been corrected.
 */
