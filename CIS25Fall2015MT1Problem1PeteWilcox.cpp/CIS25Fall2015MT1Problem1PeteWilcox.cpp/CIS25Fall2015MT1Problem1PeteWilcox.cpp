@@ -12,10 +12,22 @@ using namespace std;
 int* extractUncommonDigitPeteWilcox(int*, int);
 void displayMenu(void);
 void getInfo(void);
+void displayHeader(void);
 
 int main() {
+	displayHeader();
 	displayMenu();
 	return 0;
+}
+
+void displayHeader() {
+	cout << "Class Information --\n"
+		"  CIS 25 - C++ Programming\n"
+		"  Laney College\n\n"
+		"Assignment Information --\n"
+		"  Assignment Number:  Midterm #1 – Problem #1\n"
+		"  Written by:         Pete Wilcox\n"
+		"  Due Date:           2015/10/22\n\n";
 }
 
 void displayMenu() {
@@ -216,7 +228,8 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 	if (evens > 0) {
 		for (i = 1; i < evens; i++) {
 			for (j = i + 1; j <= evens; j++) {
-				if (*(uncommonArray + i) > *(uncommonArray + j)) {
+				if (*(uncommonArray + i) > 
+						*(uncommonArray + j)) {
 					currentDigit = *(uncommonArray + i);
 					*(uncommonArray + i) = *(uncommonArray + j);
 					*(uncommonArray + j) = currentDigit;
@@ -307,7 +320,16 @@ Select an option (1 or 2): 2
 Fun exercize ...
 
 **************************************************
-After modifications:
+*After modifications:                            *
+**************************************************
+Class Information --
+  CIS 25 - C++ Programming
+  Laney College
+
+Assignment Information --
+  Assignment Number:  Midterm #1 û Problem #1
+  Written by:         Pete Wilcox
+  Due Date:           2015/10/22
 
 
 ***********************************************
