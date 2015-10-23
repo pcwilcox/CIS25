@@ -435,3 +435,21 @@ I added some further checks in case there were no even uncommon
 digits, as I was getting unexpected behavior without them - I'm
 not sure why.
 */
+
+
+/* fix this input
+
+Select an option (1 or 2): 1
+
+How many integers? 3
+Enter integer #1: 112564
+Enter integer #2: 325412
+Enter integer #3: 518894
+
+The original array:
+112564
+325412
+518894
+Calling extractUncommonDigitPeteWilcox() -
+
+*/
