@@ -106,7 +106,7 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 	int* uncommonArray;         // Return array
 	int uncommonCount = 0;		// # of uncommon digits
 	int uncommon = 0;			// Holder for digits
-	int evens = 0;				// Number of evens
+	int odds = 0;				// Number of evens
 	int currentDigit;			// Temps used for search
 	int currentInt;
 	int searchInt;
@@ -116,29 +116,26 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 
 	for (i = 0; i < size; i++) { // For each int
 		currentInt = *(userArray + i);
-
 		if (currentInt < 0) {
 			currentInt = -currentInt;
 		}
 
 		do {
 			currentDigit = currentInt % 10; // Search each digit
-
 			if (isCommon[currentDigit] == false) {
 				// if it's uncommon
 
 
-				for (j = 0; j < size; j++) {
+				for (j = 0; (j < size) && (isCommon[currentDigit] == false); j++) {
 					if (j != i) {
 						searchInt = *(userArray + j);
-
 						if (searchInt < 0) {
 							searchInt = -searchInt;
 						}
 
 						do {
 							searchDigit = searchInt % 10;
-
+							cout << " " << searchDigit;
 
 							if (currentDigit == searchDigit) {
 								// Found it
@@ -168,32 +165,20 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 	uncommonArray = new int[uncommonCount + 1];
 	*(uncommonArray) = uncommonCount;
 
-	// Modified code
 	for (i = 1; i < (uncommonCount + 1); i++) {
 		*(uncommonArray + i) = uncommon % 10;
 		uncommon /= 10;
 	}
 
 
-	/* Original version:
-	for (i = 1; i < (uncommonCount + 1); i++) {
-		*(uncommonArray + i) = uncommonDigits % 10;
-		uncommonDigits /= 10;
-	}
-
-	Changed variable name.
-	*/
-
-
 	for (i = 1; i < (uncommonCount + 1); i++) {
 		if (*(uncommonArray + i) % 2 == 0) {
-			evens++; // Count evens
+			odds++; // Count evens
 		}
 	}
 
-	// Modified code
-	if (evens > 0) {
-		for (i = 1; i <= evens; i++) {
+	if (odds > 0) {
+		for (i = 1; i <= odds; i++) {
 			// Sort for evens/odds
 			while (*(uncommonArray + i) % 2 != 0) {
 				j = i + 1;
@@ -206,28 +191,10 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 			}
 		}
 	}
-	/* Original version:
-	for (i = 1; i <= evens; i++) {
-		// Sort for evens/odds
-		while (*(uncommonDigits + i) % 2 != 0) {
-			j = i + 1;
-			if (*(uncommonArray + j) % 2 == 0) {
-				currentDigit = *(uncommonArray + i);
-				*(uncommonArray + i) = *(uncommonArray + j);
-				*(uncommonArray + j) = currentDigit;
-			}
-			j++;
-		}
-	}
 
-	Changed variable name.
-	*/
-
-
-	// Modified code:
-	if (evens > 0) {
-		for (i = 1; i < evens; i++) {
-			for (j = i + 1; j <= evens; j++) {
+	if (odds > 0) {
+		for (i = 1; i < odds; i++) {
+			for (j = i + 1; j <= odds; j++) {
 				if (*(uncommonArray + i) > 
 						*(uncommonArray + j)) {
 					currentDigit = *(uncommonArray + i);
@@ -238,7 +205,7 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 		}
 	}
 
-	for (i = evens + 1; i < uncommonCount; i++) {
+	for (i = odds + 1; i < uncommonCount; i++) {
 		for (j = i + 1; j <= uncommonCount; j++) {
 			if (*(uncommonArray + i) > *(uncommonArray + j)) {
 				currentDigit = *(uncommonArray + i);
@@ -248,80 +215,12 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 		}
 	}
 
-	/* Original code:
-	for (i = 1; i < evens; i++) {
-		// Sort evens
-		j = i + 1;
-		while (*(uncommonArray + i) < *(uncommonArray + j)
-		&& (j <= evens)) {
-			currentDigit = *(uncommonArray + i);
-			*(uncommonArray + i) = *(uncommonArray + j);
-			*(uncommonArray + j) = currentDigit;
-			j++;
-		}
-	}
-
-	for (i = evens + 1; i < uncommonCount; i++) {
-		// Sort odds
-		j = i + 1;
-		while ((*(uncommonArray + i) < *(uncommonArray + j))
-		&& (j <= uncommonCount)) {
-			currentDigit = *(uncommonArray + i);
-			*(uncommonArray + i) = *(uncommonArray + j);
-			*(uncommonArray + j) = currentDigit;
-			j++;
-		}
-	}
-	*/
-
 	return uncommonArray;
 
 }
 
 /* PROGRAM OUTPUT:
 
-Original version doesn't compile.
-
-After fixing the variable name errors:
-
-
-***********************************************
-*                     MENU                    *
-* 1. Calling ExtractUncommonDigitPeteWilcox() *
-* 2. Quit                                     *
-***********************************************
-Select an option (1 or 2): 1
-
-How many integers? 3
-Enter integer #1: 32965
-Enter integer #2: -275721
-Enter integer #3: 3028063
-
-The original array:
-32965
--275721
-3028063
-Calling extractUncommonDigitPeteWilcox() -
-
-Displaying after returning the array -- The uncommon digits:
-There is/are 5 uncommon digit(s)
-8
-0
-7
-9
-1
-***********************************************
-*                     MENU                    *
-* 1. Calling ExtractUncommonDigitPeteWilcox() *
-* 2. Quit                                     *
-***********************************************
-Select an option (1 or 2): 2
-
-Fun exercize ...
-
-**************************************************
-*After modifications:                            *
-**************************************************
 Class Information --
   CIS 25 - C++ Programming
   Laney College
@@ -451,5 +350,107 @@ The original array:
 325412
 518894
 Calling extractUncommonDigitPeteWilcox() -
+
+*/
+
+/* ORIGINAL CODE:
+int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
+	int* uncommonArray;
+	int uncommonCount = 0;
+	int uncommon = 0;
+	int evens = 0;
+	int currentDigit;
+	int currentInt;
+	int searchInt;
+	int searchDigit;
+	int i, j;
+	bool isCommon[10] = {false};
+
+	for (i = 0; i < size; i++) {
+		currentInt = *(userArray + i);
+		
+		if (currentInt < 0) {
+			currentInt = -currentInt;
+		}
+
+		do {
+			currentDigit = currentInt % 10;
+			if (isCommon[currentDigit] == false) {
+				for (j = 0; j < size; j++) {
+					if (j != i) {
+						searchInt = *(userArray + j);
+						if (searchInt < 0) {
+							searchInt = -searchInt;
+						}
+
+						do {
+							searchDigit = searchInt % 10;
+							if (currentDigit == searchDigit) {
+								isCommon[currentDigit] = true;
+							}
+							searchInt /= 10;
+						} while ((isCommon[currentDigit] == false) && (searchInt > 0));
+					}
+				}
+			}
+
+			if (isCommon[currentDigit] == false) {
+				uncommonCount++;
+				uncommon *= 10;
+				uncommon += currentDigit;
+				isCommon[currentDigit] = true;
+			}
+			currentInt /= 10;
+		} while (currentInt > 0);
+	}
+
+	uncommonArray = new int[uncommonCount + 1];
+	*(uncommonArray) = uncommonCount;
+
+	for (i = 1; i < (uncommonCount + 1); i++) {
+		*(uncommonArray + i) = uncommonDigits % 10;
+		uncommonDigits /= 10;
+	}
+
+	for (i = 1; i < (uncommonCount + 1); i++) {
+		if (*(uncommonArray + i) % 2 == 0) {
+			evens++;
+		}
+	}
+
+	for (i = 1; i <= evens; i++) {
+		while (*(uncommonDigits + i) % 2 != 0) {
+			j = i + 1;
+			if (*(uncommonArray + j) % 2 == 0) {
+				currentDigit = *(uncommonArray + i);
+				*(uncommonArray + i) = *(uncommonArray + j);
+				*(uncommonArray + j) = currentDigit;
+			}
+		}
+		j++;
+	}
+
+	for (i = 1; i < evens; i++) {
+		j = i + 1;
+		while ((*(uncommonArray + i) < *(uncommonArray + j)) && (j <= evens)) {
+			currentDigit = *(uncommonArray + i);
+			*(uncommonArray + i) = *(uncommonArray + j);
+			*(uncommonArray + j) = currentDigit;
+			j++;
+		}
+	}
+
+	for (i = evens; i < uncommonCount; i++) {
+		j = i + 1;
+		while ((*(uncommonArray + i) < *(uncommonArray + j)) && (j <= evens)) {
+			currentDigit = *(uncommonArray + i);
+			*(uncommonArray + i) = *(uncommonArray + j);
+			*(uncommonArray + j) = currentDigit;
+			j++;
+		}
+	}
+
+	return uncommonArray;
+}
 
 */
