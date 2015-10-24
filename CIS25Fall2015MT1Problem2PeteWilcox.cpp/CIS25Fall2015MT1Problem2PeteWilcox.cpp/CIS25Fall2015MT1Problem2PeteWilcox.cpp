@@ -396,17 +396,17 @@ labs is grueling and the number of students who did not even
 complete the assignment is shameful.
 
 When I compiled this program I got an uninitialized variable
-error. I initialized evens and odds to fix it. After that, the
-program compiles.
+error. I initialized evens and odds on line 419/420 to fix it. 
+After that, the program compiles.
 
 I did not implement even/odd tracking correctly. In my haste I
 was incrementing the evens/odds counters based on the occurrence
 of a particular digit, rather than the digit itself. That has
-been corrected.
+been corrected at line 470.
 
 I also forgot to set the first element of the array to actually
 contain the number of elements - I created the variable but
-neglected to assign it.
+neglected to assign it. It is assigned directly after line 479.
 */
 
 /* ORIGINAL CODE:
@@ -449,7 +449,8 @@ neglected to assign it.
 									 isCommon[currentDigit] = true;
 								 }
 								 searchInt /= 10;
-							 } while ((searchInt > 0) && (isCommon[currentDigit] == true));
+							 } while ((searchInt > 0) && 
+							 (isCommon[currentDigit] == true));
 
 						 }
 					 }
