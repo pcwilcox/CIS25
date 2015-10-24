@@ -39,7 +39,8 @@ int main() {
 			userArray = new int[arraySize];
 
 			for (i = 0; i < arraySize; i++) {
-				cout << "    Enter integer #" << (i + 1) << ": ";
+				cout << "    Enter integer #" << (i + 1) 
+					<< ": ";
 				cin >> *(userArray + i);
 			}
 
@@ -49,13 +50,15 @@ int main() {
 				cout << "\n    " << *(userArray + i);
 			}
 
-			cout << "\n\n  Calling getUncommonDigitStatsticsPeteWilcox() -";
+			cout << "\n\n  Calling "
+				"getUncommonDigitStatsticsPeteWilcox() -";
 
-			returnedArray = getUncommonDigitStatsticsPeteWilcox(userArray,
+			returnedArray = 
+				getUncommonDigitStatsticsPeteWilcox(userArray,
 				arraySize);
 
 			if (*(returnedArray) > 0) {
-				// Assign evens, odds, oddstart values accordingly
+				// Assign evens, odds, oddstart values 
 				if (*(returnedArray + 1) > 0) {
 					evens = *(returnedArray + 1);
 					oddStart = (evens * 2) + 2;
@@ -71,8 +74,8 @@ int main() {
 				}
 			}
 
-			cout << "\n\n  Displaying after returning the array "
-				"-- The statistics:\n    There is/are ";
+			cout << "\n\n  Displaying after returning the array"
+				" -- The statistics:\n    There is/are ";
 			if (odds + evens > 0) {
 				cout << (odds + evens);
 			} else {
@@ -89,12 +92,13 @@ int main() {
 			if (evens > 0) {
 				evens = *(returnedArray + 1);
 				oddStart = evens * 3;
-				cout << "\n\n      Number of odd uncommon digits: " << evens;
+				cout << "\n\n      Number of odd uncommon "
+					"digits: " << evens;
 
 				for (i = 2; i < oddStart; i += 2) {
-					cout << "\n        Digit " << *(returnedArray + i)
-						<< " occurs " << *(returnedArray + i + 1)
-						<< " time(s)";
+					cout << "\n        Digit " << 
+						*(returnedArray + i) << " occurs " << 
+						*(returnedArray + i + 1) << " time(s)";
 				}
 			} else {
 				oddStart = 2;
@@ -103,11 +107,14 @@ int main() {
 
 
 			if (odds > 0) {
-				cout << "\n\n      Number of odd uncommon digits: " << odds;
-				for (i = oddStart + 1; i < *(returnedArray); i += 2) {
-					cout << "\n        Digit " << *(returnedArray + i)
-						<< " occurs " << *(returnedArray + i + 1)
-						<< " time(s)";
+				cout << "\n\n      Number of odd uncommon "
+					"digits: " << odds;
+				for (i = oddStart + 1; i < *(returnedArray); 
+					i += 2) {
+					
+					cout << "\n        Digit " << 
+						*(returnedArray + i) << " occurs " << 
+						*(returnedArray + i + 1) << " time(s)";
 				}
 			}
 
@@ -138,7 +145,8 @@ void displayHeader() {
 }
 
 void displayMenu() {
-	cout << "\n\n****************************************************"
+	cout << "\n\n********************************"
+		"********************"
 		"\n*                     MENU                         *"
 		"\n* 1. Calling getUncommonDigitStatsticsPeteWilcox() *"
 		"\n* 2. Quit                                          *"
