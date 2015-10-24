@@ -45,14 +45,15 @@ int main() {
 				cout << "\n    " << *(userArray + i);
 			}
 
-			cout << "\n\n  Calling extractUncommonDigitPeteWilcox() -";
+			cout << "\n\n  Calling "
+				"extractUncommonDigitPeteWilcox() -";
 
-			returnedArray = extractUncommonDigitPeteWilcox(userArray,
+			returnedArray = 
+				extractUncommonDigitPeteWilcox(userArray,
 				arraySize);
 
-			cout << "\n\n  Displaying after returning the array -- The "
-				"uncommon digits:";
-			cout << "\n    There is/are ";
+			cout << "\n\n  Displaying after returning the array"
+				" -- The uncommon digits:\n    There is/are ";
 			if (*(returnedArray) > 0) {
 				cout << *(returnedArray);
 			} else {
@@ -125,7 +126,9 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 				// if it's uncommon
 
 
-				for (j = 0; (j < size) && (isCommon[currentDigit] == false); j++) {
+				for (j = 0; (j < size) && 
+					(isCommon[currentDigit] == false); j++) {
+					
 					if (j != i) {
 						searchInt = *(userArray + j);
 						if (searchInt < 0) {
@@ -335,34 +338,20 @@ The version I wrote in class will not compile, because I
 inadvertently used the variable name 'uncommonDigits' instead of
 'uncommons' - this is because at the time I was writing this,
 you pointed out that we had used up an hour of the allotted time
-for the test.
+for the test. This is corrected at lines 413, 414, and 424.
 
 After changing the variable names to the original values, the
 expected output is close but not quite correct - the sort is
 not performed correctly because I used the incorrect comparison
-operator.
+operator. This is corrected at lines 437 and 449.
 
 I added some further checks in case there were no even uncommon
 digits, as I was getting unexpected behavior without them - I'm
 not sure why.
-*/
 
-
-/* fix this input
-
-Select an option (1 or 2): 1
-
-How many integers? 3
-Enter integer #1: 112564
-Enter integer #2: 325412
-Enter integer #3: 518894
-
-The original array:
-112564
-325412
-518894
-Calling extractUncommonDigitPeteWilcox() -
-
+I adjusted the sort to go odds > evens. This involved renaming
+the variable at line 363 and reversing the sort algorithms to
+match. 
 */
 
 /* ORIGINAL CODE:
@@ -401,7 +390,8 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 								isCommon[currentDigit] = true;
 							}
 							searchInt /= 10;
-						} while ((isCommon[currentDigit] == false) && (searchInt > 0));
+						} while ((isCommon[currentDigit] == 
+							false) && (searchInt > 0));
 					}
 				}
 			}
@@ -444,7 +434,9 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 
 	for (i = 1; i < evens; i++) {
 		j = i + 1;
-		while ((*(uncommonArray + i) < *(uncommonArray + j)) && (j <= evens)) {
+		while ((*(uncommonArray + i) < *(uncommonArray + j)) && 
+			(j <= evens)) {
+			
 			currentDigit = *(uncommonArray + i);
 			*(uncommonArray + i) = *(uncommonArray + j);
 			*(uncommonArray + j) = currentDigit;
@@ -454,7 +446,9 @@ int* extractUncommonDigitPeteWilcox(int* userArray, int size) {
 
 	for (i = evens; i < uncommonCount; i++) {
 		j = i + 1;
-		while ((*(uncommonArray + i) < *(uncommonArray + j)) && (j <= evens)) {
+		while ((*(uncommonArray + i) < *(uncommonArray + j)) && 
+			(j <= evens)) {
+			
 			currentDigit = *(uncommonArray + i);
 			*(uncommonArray + i) = *(uncommonArray + j);
 			*(uncommonArray + j) = currentDigit;
