@@ -62,7 +62,7 @@ int main() {
 			cout << " uncommon digit(s)";
 
 			for (i = 0; i < *(returnedArray); i++) {
-				cout << "\n    " << (*(returnedArray + i + 1));
+				cout << "\n      " << (*(returnedArray + i + 1));
 			}
 
 			cout << endl;
@@ -88,7 +88,7 @@ void displayHeader() {
 		"  CIS 25 - C++ Programming\n"
 		"  Laney College\n\n"
 		"Assignment Information --\n"
-		"  Assignment Number:  Midterm #1 – Problem #1\n"
+		"  Assignment Number:  Midterm #1 - Problem #1\n"
 		"  Written by:         Pete Wilcox\n"
 		"  Due Date:           2015/10/23\n\n";
 }
@@ -254,11 +254,11 @@ Select an option (1 or 2): 1
 
   Displaying after returning the array -- The uncommon digits:
 	There is/are 5 uncommon digit(s)
-	1
-	7
-	9
-	0
-	8
+      1
+	  7
+	  9
+	  0
+	  8
 
 ***********************************************
 *                     MENU                    *
@@ -305,12 +305,12 @@ Select an option (1 or 2): 1
 
   Displaying after returning the array -- The uncommon digits:
 	There is/are 6 uncommon digit(s)
-	1
-	3
-	5
-	9
-	0
-	6
+	  1
+	  3
+	  5
+	  9
+	  0
+	  6
 
 ***********************************************
 *                     MENU                    *
