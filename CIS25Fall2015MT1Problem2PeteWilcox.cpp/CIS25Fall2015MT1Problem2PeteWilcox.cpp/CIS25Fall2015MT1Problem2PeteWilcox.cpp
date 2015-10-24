@@ -71,8 +71,8 @@ int main() {
 				}
 			}
 
-			cout << "\n\n  Displaying after returning the array -- "
-				"\n    There is/are ";
+			cout << "\n\n  Displaying after returning the array "
+				"-- The statistics:\n    There is/are ";
 			if (odds + evens > 0) {
 				cout << (odds + evens);
 			} else {
@@ -80,18 +80,21 @@ int main() {
 			}
 			cout << " uncommon digit(s)";
 
+			if (odds + evens > 0) {
+				cout << " with";
+			}
+
 
 
 			if (evens > 0) {
 				evens = *(returnedArray + 1);
 				oddStart = evens * 3;
-				cout << "\n\n    There is/are " << evens <<
-					" even uncommon digits.";
+				cout << "\n\n      Number of odd uncommon digits: " << evens;
 
 				for (i = 2; i < oddStart; i += 2) {
-					cout << "\n      The digit " << *(returnedArray + i)
+					cout << "\n        Digit " << *(returnedArray + i)
 						<< " occurs " << *(returnedArray + i + 1)
-						<< " time(s).";
+						<< " time(s)";
 				}
 			} else {
 				oddStart = 2;
@@ -100,12 +103,11 @@ int main() {
 
 
 			if (odds > 0) {
-				cout << "\n\n    There is/are " << odds <<
-					" odd uncommon digits.";
+				cout << "\n\n      Number of odd uncommon digits: " << odds;
 				for (i = oddStart + 1; i < *(returnedArray); i += 2) {
-					cout << "\n      The digit " << *(returnedArray + i)
+					cout << "\n        Digit " << *(returnedArray + i)
 						<< " occurs " << *(returnedArray + i + 1)
-						<< " time(s).";
+						<< " time(s)";
 				}
 			}
 
@@ -130,7 +132,7 @@ void displayHeader() {
 		"  CIS 25 - C++ Programming\n"
 		"  Laney College\n\n"
 		"Assignment Information --\n"
-		"  Assignment Number:  Midterm #1 – Problem #2\n"
+		"  Assignment Number:  Midterm #1 - Problem #2\n"
 		"  Written by:         Pete Wilcox\n"
 		"  Due Date:           2015/10/23\n\n";
 }
@@ -264,7 +266,7 @@ Class Information --
   Laney College
 
 Assignment Information --
-  Assignment Number:  Midterm #1 û Problem #2
+  Assignment Number:  Midterm #1 - Problem #2
   Written by:         Pete Wilcox
   Due Date:           2015/10/23
 
@@ -289,17 +291,17 @@ Select an option (1 or 2): 1
 
   Calling getUncommonDigitStatsticsPeteWilcox() -
 
-  Displaying after returning the array --
-    There is/are 5 uncommon digit(s)
+  Displaying after returning the array -- The statistics:
+    There is/are 5 uncommon digit(s) with
 
-    There is/are 2 even uncommon digits.
-      The digit 0 occurs 2 time(s).
-      The digit 8 occurs 1 time(s).
+      Number of odd uncommon digits: 2
+        Digit 0 occurs 2 time(s)
+        Digit 8 occurs 1 time(s)
 
-    There is/are 3 odd uncommon digits.
-      The digit 1 occurs 1 time(s).
-      The digit 7 occurs 2 time(s).
-      The digit 9 occurs 1 time(s).
+      Number of odd uncommon digits: 3
+        Digit 1 occurs 1 time(s)
+        Digit 7 occurs 2 time(s)
+        Digit 9 occurs 1 time(s)
 
 ****************************************************
 *                     MENU                         *
@@ -322,7 +324,7 @@ Select an option (1 or 2): 1
 
   Calling getUncommonDigitStatsticsPeteWilcox() -
 
-  Displaying after returning the array --
+  Displaying after returning the array -- The statistics:
     There is/are no uncommon digit(s)
 
 ****************************************************
@@ -344,18 +346,18 @@ Select an option (1 or 2): 1
 
   Calling getUncommonDigitStatsticsPeteWilcox() -
 
-  Displaying after returning the array --
-    There is/are 6 uncommon digit(s)
+  Displaying after returning the array -- The statistics:
+    There is/are 6 uncommon digit(s) with
 
-    There is/are 2 even uncommon digits.
-      The digit 0 occurs 1 time(s).
-      The digit 6 occurs 1 time(s).
+      Number of odd uncommon digits: 2
+        Digit 0 occurs 1 time(s)
+        Digit 6 occurs 1 time(s)
 
-    There is/are 4 odd uncommon digits.
-      The digit 1 occurs 1 time(s).
-      The digit 3 occurs 1 time(s).
-      The digit 5 occurs 1 time(s).
-      The digit 9 occurs 1 time(s).
+      Number of odd uncommon digits: 4
+        Digit 1 occurs 1 time(s)
+        Digit 3 occurs 1 time(s)
+        Digit 5 occurs 1 time(s)
+        Digit 9 occurs 1 time(s)
 
 ****************************************************
 *                     MENU                         *
