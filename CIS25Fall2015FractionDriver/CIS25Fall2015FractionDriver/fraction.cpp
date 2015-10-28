@@ -167,3 +167,18 @@ Fraction& Fraction::operator+(const Fraction& arg) {
 	add(arg);
 	return *this;
 }
+
+Fraction& Fraction::operator-(const Fraction& arg) {
+	subtract(arg);
+	return *this;
+}
+
+Fraction& Fraction::operator*(const Fraction& arg) {
+	multiply(arg);
+	return *this;
+}
+
+Fraction& Fraction::operator/(const Fraction& arg) {
+	divide(arg);
+	return *this;
+}
