@@ -20,8 +20,9 @@ Fraction::Fraction(int inputNum, int inputDenom, bool inputSign) {
 	isPositive = inputSign;
 }
 
-~Fraction::Fraction() {
+Fraction::~Fraction() {
 	// idk do stuff
+	cout << "\nCalling ~Fraction()";
 }
 
 int Fraction::getNum(void) {
@@ -141,4 +142,27 @@ void Fraction::subtract(const Fraction& arg) {
 
 	cout << "\nFinal num = " << num;
 	cout << "\nFinal denom = " << denom;
+}
+
+void Fraction::multiply(const Fraction& arg) {
+	num *= arg.num;
+	denom *= arg.denom;
+	reduce();
+}
+
+void Fraction::divide(const Fraction& arg) {
+	num *= arg.denom;
+	denom *= arg.num;
+}
+
+Fraction& Fraction::operator=(const Fraction& arg) {
+	num = arg.num;
+	denom = arg.denom;
+	isPositive = arg.isPositive;
+
+	return *this;
+}
+
+Fraction Fraction::operator+(const Fraction& arg) {
+
 }

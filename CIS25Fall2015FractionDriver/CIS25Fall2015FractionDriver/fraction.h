@@ -33,6 +33,14 @@ class Fraction {
 
 	void add(const Fraction&); // Add arg fraction to this fraction
 	void subtract(const Fraction&); // subtract ^^
+	void multiply(const Fraction&);
+	void divide(const Fraction&);
+
+	Fraction& operator=(const Fraction&);
+	Fraction operator+(const Fraction&);
+	Fraction operator-(const Fraction&);
+	Fraction operator*(const Fraction&);
+	Fraction operator/(const Fraction&);
 
 	private:
 	int num;
