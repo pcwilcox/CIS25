@@ -77,5 +77,19 @@ int main() {
 
 	cout << endl;
 
+	cout << "Operator testing, let's add 1/2 and 3/4" << endl;
+
+	Fraction half;
+	half.setNum(1);
+	half.setDenom(2);
+
+	Fraction twothird;
+	twothird.setNum(3);
+	twothird.setDenom(4);
+
+	Fraction result = half + twothird;
+
+	cout << "Result: " << result.getNum() << "/" << result.getDenom();
+
 	return 0;
 }

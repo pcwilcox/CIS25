@@ -163,6 +163,7 @@ Fraction& Fraction::operator=(const Fraction& arg) {
 	return *this;
 }
 
-Fraction Fraction::operator+(const Fraction& arg) {
-
+Fraction& Fraction::operator+(const Fraction& arg) {
+	add(arg);
+	return *this;
 }

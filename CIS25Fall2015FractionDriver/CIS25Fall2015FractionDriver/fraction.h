@@ -37,11 +37,11 @@ class Fraction {
 	void divide(const Fraction&);
 
 	Fraction& operator=(const Fraction&);
-	Fraction operator+(const Fraction&);
-	Fraction operator-(const Fraction&);
-	Fraction operator*(const Fraction&);
-	Fraction operator/(const Fraction&);
-
+	Fraction& operator+(const Fraction&);
+/*	Fraction& operator-(const Fraction&);
+	Fraction& operator*(const Fraction&);
+	Fraction& operator/(const Fraction&);
+	*/
 	private:
 	int num;
 	int denom;
