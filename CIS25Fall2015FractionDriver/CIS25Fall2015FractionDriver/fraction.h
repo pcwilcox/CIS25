@@ -15,6 +15,8 @@ class Fraction {
 	Fraction(const Fraction&); // copy constructor
 	Fraction(int, int, bool);
 
+	~Fraction();
+
 	int getNum(void); // Return numerator
 	void setNum(int); // Set numerator
 
@@ -30,6 +32,7 @@ class Fraction {
 	void print(void); // Display fraction
 
 	void add(const Fraction&); // Add arg fraction to this fraction
+	void subtract(const Fraction&); // subtract ^^
 
 	private:
 	int num;

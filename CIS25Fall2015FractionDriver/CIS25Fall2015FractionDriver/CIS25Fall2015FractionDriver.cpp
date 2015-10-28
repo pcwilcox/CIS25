@@ -28,7 +28,6 @@ int main() {
 	char inputSign;
 	bool inputPositive;
 	
-
 	cout << endl << "Input numerator: ";
 	cin >> inputNum;
 	cout << "Input denominator: ";
@@ -51,9 +50,32 @@ int main() {
 	cout << endl;
 
 	frTest.print();
+	
+	cout << endl;
+	Fraction frAddTest;
+	Fraction frAddTest2;
+
+	cout << "Add test. Enter a fraction num: ";
+	cin >> inputNum;
+
+	cout << "Denom: ";
+	cin >> inputDenom;
+
+	frAddTest.setNum(inputNum);
+	frAddTest.setDenom(inputDenom);
+
+	cout << "Enter second fraction num: ";
+	cin >> inputNum;
+
+	cout << "Denom: ";
+	cin >> inputDenom;
+	
+	frAddTest2.setNum(inputNum);
+	frAddTest2.setDenom(inputDenom);
+
+	frAddTest.add(frAddTest2);
 
 	cout << endl;
-
 
 	return 0;
 }
