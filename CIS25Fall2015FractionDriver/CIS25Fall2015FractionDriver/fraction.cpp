@@ -5,27 +5,26 @@ using namespace std;
 
 
 
-Fraction::Fraction() : num(0), denom(1), isPositive(true) {
+Fraction::Fraction() : num(0), denom(1) {
 	cout << "\nCalling Fraction()";
 }
 
-Fraction::Fraction(int input) : num(input), denom(1), isPositive(true) {
+Fraction::Fraction(int input) : num(input), denom(1) {
 	cout << "\nCalling Fraction()";
 }
 
-Fraction::Fraction(const Fraction& input) : num(input.num), denom(input.denom), isPositive(input.isPositive) {
+Fraction::Fraction(const Fraction& input) : num(input.num), denom(input.denom) {
 	cout << "\nCalling Fraction()";
 }
 
-Fraction::Fraction(int inputNum, int inputDenom) : num(inputNum), denom(inputDenom), isPositive(true) {
+Fraction::Fraction(int inputNum, int inputDenom) : num(inputNum), denom(inputDenom) {
 	cout << "\nCalling Fraction()";
 }
 
-Fraction::Fraction(int inputNum, int inputDenom, bool inputSign) {
+Fraction::Fraction(int inputNum, int inputDenom) {
 	cout << "\nCalling Fraction()";
 	num = inputNum;
 	denom = inputDenom;
-	isPositive = inputSign;
 }
 
 Fraction::~Fraction() {
@@ -37,12 +36,7 @@ int Fraction::getNum(void) {
 }
 
 void Fraction::setNum(int input) {
-	if (input < 0) {
-		num = -input;
-		isPositive = -isPositive;
-	} else {
-		num = input;
-	}
+	num = input;
 	reduce();
 }
 
@@ -53,33 +47,18 @@ int Fraction::getDenom(void) {
 void Fraction::setDenom(int input) {
 	if (input < 0) {
 		denom = -input;
-		isPositive = -isPositive;
+		num = -num;
 	} else if (input > 0) {
 		denom = input;
 	} else {
-		// denominator can't be 0, put an error message here
+		cout << "\nDenominator cannot be 0!";
 	}
+
 	reduce();
 }
 
-bool Fraction::getPositive() {
-	return isPositive;
-}
-
-void Fraction::setPositive(bool input) {
-	isPositive = input;
-}
-
-char Fraction::printPositive() {
-	if (isPositive == false) {
-		return '-';
-	} else {
-		return '\0';
-	}
-}
-
 void Fraction::print() {
-	cout << printPositive() << num << "/" << denom;
+	cout << num << "/" << denom;
 }
 
 void Fraction::reduce() {
@@ -95,12 +74,16 @@ void Fraction::reduce() {
 			n++;
 		}
 	}
+
+	if (denom < 0) {
+		num = -num;
+		denom = -denom;
+	}
 }
 
 void Fraction::add(const Fraction& arg) {
 	int inputNum = arg.num;
 	int inputDenom = arg.denom;
-	bool inputSign = arg.isPositive;
 	int workingNum = num;
 	int workingDenom = denom;
 
@@ -118,15 +101,11 @@ void Fraction::add(const Fraction& arg) {
 	}
 
 	reduce();
-
-//	cout << "\nFinal num = " << num;
-//	cout << "\nFinal denom = " << denom;
 }
 
 void Fraction::subtract(const Fraction& arg) {
 	int inputNum = arg.num;
 	int inputDenom = arg.denom;
-	bool inputSign = arg.isPositive;
 	int workingNum = num;
 	int workingDenom = denom;
 
@@ -144,9 +123,6 @@ void Fraction::subtract(const Fraction& arg) {
 	}
 
 	reduce();
-
-//	cout << "\nFinal num = " << num;
-//	cout << "\nFinal denom = " << denom;
 }
 
 void Fraction::multiply(const Fraction& arg) {
@@ -158,13 +134,12 @@ void Fraction::multiply(const Fraction& arg) {
 void Fraction::divide(const Fraction& arg) {
 	num *= arg.denom;
 	denom *= arg.num;
+	reduce();
 }
 
 Fraction& Fraction::operator=(const Fraction& arg) {
 	num = arg.num;
 	denom = arg.denom;
-	isPositive = arg.isPositive;
-
 	return *this;
 }
 
