@@ -13,6 +13,7 @@ class Fraction {
 	Fraction(); // default constructor
 	Fraction(int); // convert constructor
 	Fraction(const Fraction&); // copy constructor
+	Fraction(int, int);
 	Fraction(int, int, bool);
 
 	~Fraction();
@@ -37,7 +38,7 @@ class Fraction {
 	void divide(const Fraction&);
 
 	Fraction& operator=(const Fraction&);
-	Fraction& operator+(const Fraction&);
+	Fraction operator+(const Fraction&);
 	Fraction& operator-(const Fraction&);
 	Fraction& operator*(const Fraction&);
 	Fraction& operator/(const Fraction&);

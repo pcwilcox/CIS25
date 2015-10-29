@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int main() {
+int main() {/*
 	Fraction fr1; //fr1 is built by default constructor
 
 	Fraction fr2(5); //fr1 is built by convert constructor
@@ -89,7 +89,16 @@ int main() {
 
 	Fraction result = half + twothird;
 
-	cout << "Result: " << result.getNum() << "/" << result.getDenom();
+	cout << "Result: " << result.getNum() << "/" << result.getDenom();*/
 
+	cout << "Operator testing: frac 1 starts as 1/2, frac2 starts as 3/4. frac3 = frac1 + frac2? ";
+
+	Fraction frac1 = Fraction(1, 2);
+	Fraction frac2 = Fraction(3, 4);
+	Fraction frac3 = frac1 + frac2;
+
+	cout << "Frac1: " << frac1.getNum() << "/" << frac1.getDenom() << endl;
+	cout << "Frac2: " << frac2.getNum() << "/" << frac2.getDenom() << endl;
+	cout << "Frac3: " << frac3.getNum() << "/" << frac3.getDenom() << endl;
 	return 0;
 }
