@@ -27,9 +27,7 @@ class Fraction {
 	void setPositive(bool); // set true for positive
 	bool getPositive(void); // return true if positive
 	char printPositive(void); // return - if negative
-
-	void reduce(void); // Helper function to reduce fraction
-
+	
 	void print(void); // Display fraction
 
 	void add(const Fraction&); // Add arg fraction to this fraction
@@ -39,14 +37,15 @@ class Fraction {
 
 	Fraction& operator=(const Fraction&);
 	Fraction operator+(const Fraction&);
-	Fraction& operator-(const Fraction&);
-	Fraction& operator*(const Fraction&);
-	Fraction& operator/(const Fraction&);
+	Fraction operator-(const Fraction&);
+	Fraction operator*(const Fraction&);
+	Fraction operator/(const Fraction&);
 
 	private:
 	int num;
 	int denom;
 	bool isPositive;
+	void reduce(void); // Helper function to reduce fraction
 };
 
 #endif

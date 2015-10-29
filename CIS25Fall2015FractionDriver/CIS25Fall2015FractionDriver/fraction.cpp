@@ -6,25 +6,29 @@ using namespace std;
 
 
 Fraction::Fraction() : num(0), denom(1), isPositive(true) {
+	cout << "\nCalling Fraction()";
 }
 
 Fraction::Fraction(int input) : num(input), denom(1), isPositive(true) {
+	cout << "\nCalling Fraction()";
 }
 
 Fraction::Fraction(const Fraction& input) : num(input.num), denom(input.denom), isPositive(input.isPositive) {
+	cout << "\nCalling Fraction()";
 }
 
 Fraction::Fraction(int inputNum, int inputDenom) : num(inputNum), denom(inputDenom), isPositive(true) {
+	cout << "\nCalling Fraction()";
 }
 
 Fraction::Fraction(int inputNum, int inputDenom, bool inputSign) {
+	cout << "\nCalling Fraction()";
 	num = inputNum;
 	denom = inputDenom;
 	isPositive = inputSign;
 }
 
 Fraction::~Fraction() {
-	// idk do stuff
 	cout << "\nCalling ~Fraction()\n";
 }
 
@@ -35,10 +39,9 @@ int Fraction::getNum(void) {
 void Fraction::setNum(int input) {
 	if (input < 0) {
 		num = -input;
-		isPositive = false;
+		isPositive = -isPositive;
 	} else {
 		num = input;
-		isPositive = true;
 	}
 	reduce();
 }
@@ -50,26 +53,21 @@ int Fraction::getDenom(void) {
 void Fraction::setDenom(int input) {
 	if (input < 0) {
 		denom = -input;
-		isPositive = false;
+		isPositive = -isPositive;
 	} else if (input > 0) {
 		denom = input;
-		isPositive = true;
 	} else {
 		// denominator can't be 0, put an error message here
 	}
 	reduce();
 }
 
-void Fraction::print() {
-	cout << printPositive() << num << "/" << denom;
+bool Fraction::getPositive() {
+	return isPositive;
 }
 
 void Fraction::setPositive(bool input) {
 	isPositive = input;
-}
-
-bool Fraction::getPositive() {
-	return isPositive;
 }
 
 char Fraction::printPositive() {
@@ -78,6 +76,10 @@ char Fraction::printPositive() {
 	} else {
 		return '\0';
 	}
+}
+
+void Fraction::print() {
+	cout << printPositive() << num << "/" << denom;
 }
 
 void Fraction::reduce() {
@@ -172,17 +174,20 @@ Fraction Fraction::operator+(const Fraction& arg) {
 	return foo;
 }
 
-Fraction& Fraction::operator-(const Fraction& arg) {
-	subtract(arg);
-	return *this;
+Fraction Fraction::operator-(const Fraction& arg) {
+	Fraction foo = *this;
+	foo.subtract(arg);
+	return foo;
 }
 
-Fraction& Fraction::operator*(const Fraction& arg) {
-	multiply(arg);
-	return *this;
+Fraction Fraction::operator*(const Fraction& arg) {
+	Fraction foo = *this;
+	foo.multiply(arg);
+	return foo;
 }
 
-Fraction& Fraction::operator/(const Fraction& arg) {
-	divide(arg);
-	return *this;
+Fraction Fraction::operator/(const Fraction& arg) {
+	Fraction foo = *this;
+	foo.divide(arg);
+	return foo;
 }

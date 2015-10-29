@@ -7,6 +7,8 @@
 
 using namespace std;
 
+void init()
+
 int main() {/*
 	Fraction fr1; //fr1 is built by default constructor
 
