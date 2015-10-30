@@ -28,17 +28,11 @@ Fraction::Fraction(int inputNum, int inputDenom) : num(inputNum), denom(inputDen
 	cout << "\nCalling Fraction()";
 }
 
-Fraction::Fraction(int inputNum, int inputDenom) {
-	cout << "\nCalling Fraction()";
-	num = inputNum;
-	denom = inputDenom;
-}
-
 Fraction::~Fraction() {
 	cout << "\nCalling ~Fraction()\n";
 }
 
-int Fraction::getNum(void) {
+int Fraction::getNum() {
 	return num;
 }
 
@@ -47,7 +41,7 @@ void Fraction::setNum(int input) {
 	reduce();
 }
 
-int Fraction::getDenom(void) {
+int Fraction::getDenom() {
 	return denom;
 }
 
@@ -173,3 +167,8 @@ Fraction Fraction::operator/(const Fraction& arg) {
 	foo.divide(arg);
 	return foo;
 }
+
+/*ostream& operator<<(ostream& os, const Fraction& f) {
+	os << f.getNum() << "/" << f.getDenom();
+	return os;
+}*/

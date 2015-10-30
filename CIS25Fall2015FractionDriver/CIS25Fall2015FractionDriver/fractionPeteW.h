@@ -7,8 +7,8 @@
 
 #pragma once
 
-#ifndef FRACTION_H
-#define FRACTION_H
+#ifndef FRACTIONPETEW_H
+#define FRACTIONPETEW_H
 
 
 class Fraction {
@@ -16,7 +16,6 @@ class Fraction {
 	Fraction(); // default constructor
 	Fraction(int); // convert constructor
 	Fraction(const Fraction&); // copy constructor
-	Fraction(int, int);
 	Fraction(int, int);
 
 	~Fraction();
@@ -40,11 +39,16 @@ class Fraction {
 	Fraction operator*(const Fraction&);
 	Fraction operator/(const Fraction&);
 
+//	friend ostream& operator<<(ostream&, const Fraction&);
+	//what the actual fuck
+
 	private:
 	int num;
 	int denom;
 	void reduce(void); // Helper function to reduce fraction
 };
+
+
 
 #endif
 
