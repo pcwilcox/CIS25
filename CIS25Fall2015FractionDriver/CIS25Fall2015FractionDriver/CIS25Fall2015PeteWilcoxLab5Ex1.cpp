@@ -6,7 +6,7 @@
   */
 
 
-/* At some point, refactor the error message somehow */
+  /* At some point, refactor the error message somehow */
 
 #include <iostream>
 #include "fractionPeteW.h"
@@ -42,14 +42,14 @@ int main() {
 		switch (menuChoice) {
 		case 1:
 			cout << "\n  Initializing option --";
-			
+
 			initFraction(&fracLeft, &fracRight);
 
 			break;
 		case 2:
 			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
 				cout << "\n\n  ADDING option -";
-				add(&fracLeft, &fracRight, &fracResult);
+				displayMenuAdd(&fracLeft, &fracRight, &fracResult);
 			} else {
 				initBothError();
 			}
@@ -133,31 +133,19 @@ void initFraction(FractionPeteW** fracLeft, FractionPeteW** fracRight) {
 	int newNum;
 	int newDenom;
 	int choice;
-	bool finished = false;
 
-	while (finished == false) {
-		cout << "\n\nCurrent fractions:"
-			"\n  Fraction 1: ";
-		if ((*fracLeft) == nullptr) {
-			cout << "null";
-		} else {
-			(*fracLeft)->print();
-		}
-		cout << "\n  Fraction 2: ";
-
-		if ((*fracRight) == nullptr) {
-			cout << "null";
-		} else {
-			(*fracRight)->print();
-		}
-
-		cout << "\nWhich fraction would you like to initialize?"
-			"\n  1. Initialize Fraction 1."
-			"\n  2. Initialize Fraction 2."
-			"\n  3. Return to previous menu."
-			"\n\nPlease enter your choice: ";
+	do {
+		cout << "\n\n********************************"
+			"\n*           INIT MENU          *"
+			"\n*                              *"
+			"\n*  1. Initialize Fraction 1.   *"
+			"\n*  2. Initialize Fraction 2.   *"
+			"\n*  3. Print fractions.         *"
+			"\n*  4. Return to Previous MENU  *"
+			"\n********************************"
+			"\n\nPlease enter your choice (1, 2, 3, or 4): ";
 		cin >> choice;
-		
+
 		switch (choice) {
 		case 1:
 			cout << "\nPlease enter the numerator: ";
@@ -186,14 +174,29 @@ void initFraction(FractionPeteW** fracLeft, FractionPeteW** fracRight) {
 			}
 			break;
 		case 3:
+			cout << "\n\nCurrent fractions:"
+				"\n  Fraction 1: ";
+			if ((*fracLeft) == nullptr) {
+				cout << "null";
+			} else {
+				(*fracLeft)->print();
+			}
+			cout << "\n  Fraction 2: ";
+
+			if ((*fracRight) == nullptr) {
+				cout << "null";
+			} else {
+				(*fracRight)->print();
+			}
+
+		case 4:
 			cout << "\nReturning to main menu.";
-			finished = true;
 			break;
 		default:
-			cout << "\nInvalid option.";
+			cout << "\nWRONG OPTION!";
 		}
 
-	}
+	} while (choice != 4);
 
 }
 
@@ -204,6 +207,7 @@ void displayMenuAdd(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	do {
 		cout << "\n\n********************************"
 			"\n*          ADDING MENU         *"
+			"\n*                              *"
 			"\n*  1. add() - Member           *"
 			"\n*  2. add() - Stand Alone      *"
 			"\n*  3. operator+() - Member     *"
@@ -240,25 +244,78 @@ void displayMenuAdd(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 		}
 
 	} while (menuChoice != 5);
-	
+
+}
+
+void add(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+	FractionPeteW** fracResult) {
+	if (fracResult == nullptr) {
+		(*fracResult) = new FractionPeteW((*fracLeft)->getNum() * (*fracRight)->getDenom() + (*fracRight)->getNum() * (*fracLeft)->getDenom(), (*fracLeft)->getDenom() * (*fracRight)->getDenom());
+	} else {
+		(*fracResult)->setNum((*fracLeft)->getNum() * (*fracRight)->getDenom() + (*fracRight)->getNum() * (*fracLeft)->getDenom());
+		(*fracResult)->setDenom((*fracLeft)->getDenom() * (*fracRight)->getDenom());
+	}
 }
 
 void subtract(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	FractionPeteW** fracResult) {
-
+	if (fracResult == nullptr) {
+		(*fracResult) = new FractionPeteW((*fracLeft)->getNum() * (*fracRight)->getDenom() - (*fracRight)->getNum() * (*fracLeft)->getDenom(), (*fracLeft)->getDenom() * (*fracRight)->getDenom());
+	} else {
+		(*fracResult)->setNum((*fracLeft)->getNum() * (*fracRight)->getDenom() - (*fracRight)->getNum() * (*fracLeft)->getDenom());
+		(*fracResult)->setDenom((*fracLeft)->getDenom() * (*fracRight)->getDenom());
+	}
 }
 
 void multiply(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	FractionPeteW** fracResult) {
-
+	if (fracResult == nullptr) {
+		(*fracResult) = new FractionPeteW((*fracLeft)->getNum() * (*fracRight)->getNum(), (*fracLeft)->getDenom() * (*fracRight)->getDenom());
+	} else {
+		(*fracResult)->setNum((*fracLeft)->getNum() * (*fracRight)->getNum());
+		(*fracResult)->setDenom((*fracLeft)->getDenom() * (*fracRight)->getDenom());
+	}
 }
 
 void divide(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	FractionPeteW** fracResult) {
-
+	if (fracResult == nullptr) {
+		(*fracResult) = new FractionPeteW((*fracLeft)->getNum() * (*fracRight)->getDenom(), (*fracLeft)->getDenom() * (*fracRight)->getNum());
+	} else {
+		(*fracResult)->setNum((*fracLeft)->getNum() * (*fracRight)->getDenom());
+		(*fracResult)->setDenom((*fracLeft)->getDenom() * (*fracRight)->getNum());
+	}
 }
 
 void print(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	FractionPeteW** fracResult) {
+	int menuChoice;
+
+	do {
+		cout << "\n\n********************************"
+			"\n*         PRINTING MENU        *"
+			"\n*  (leftOp, rightOp, result)   *"
+			"\n*  1. print() - Member         *"
+			"\n*  2. print() - Stand Alone    *"
+			"\n*  3. ostream << - Stand Alone *"
+			"\n*  4. Return to Previous MENU  *"
+			"\n********************************"
+			"\nSelect an option *1, 2, 3, or 4): ";
+		cin >> menuChoice;
+
+		switch (menuChoice) {
+		case 1:
+			cout << "\n\n Calling member print()";
+				"\n  leftOp: ";
+			(*fracLeft)->print();
+			cout << "\n  rightOp: ";
+			(*fracRight)->print();
+			cout << "\n  result: ";
+			(*fracResult)->print();
+			break;
+		case 2:
+
+		}
+	}
 
 }

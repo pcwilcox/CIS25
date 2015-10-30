@@ -22,10 +22,12 @@ FractionPeteW::FractionPeteW(int input) : num(input), denom(1) {
 
 FractionPeteW::FractionPeteW(const FractionPeteW& input) : num(input.num), denom(input.denom) {
 	cout << "\nCalling Fraction()";
+	reduce();
 }
 
 FractionPeteW::FractionPeteW(int inputNum, int inputDenom) : num(inputNum), denom(inputDenom) {
 	cout << "\nCalling Fraction()";
+	reduce();
 }
 
 FractionPeteW::~FractionPeteW() {
