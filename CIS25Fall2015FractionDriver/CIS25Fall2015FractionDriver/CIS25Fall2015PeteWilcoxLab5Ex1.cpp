@@ -17,6 +17,10 @@ void displayHeader(void);
 void displayMenu(void);
 void initFraction(Fraction**, Fraction**);
 void initBothError(void);
+void displayMenuAdd(Fraction**, Fraction**, Fraction**);
+void displayMenuSubtract(Fraction**, Fraction**, Fraction**);
+void displayMenuDivide(Fraction**, Fraction**, Fraction**);
+void displayMenuMultiply(Fraction**, Fraction**, Fraction**);
 void add(Fraction**, Fraction**, Fraction**);
 void subtract(Fraction**, Fraction**, Fraction**);
 void multiply(Fraction**, Fraction**, Fraction**);
@@ -193,12 +197,46 @@ void initFraction(Fraction** fracLeft, Fraction** fracRight) {
 
 }
 
-void add(Fraction** fracLeft, Fraction** fracRight,
+void displayMenuAdd(Fraction** fracLeft, Fraction** fracRight,
 	Fraction** fracResult) {
 	int menuChoice;
 
 	do {
+		cout << "\n\n********************************"
+			"\n*          ADDING MENU         *"
+			"\n*  1. add() - Member           *"
+			"\n*  2. add() - Stand Alone      *"
+			"\n*  3. operator+() - Member     *"
+			"\n*  4. Print                    *"
+			"\n*  5. Return to Previous MENU  *"
+			"\n********************************"
+			"\n Select an option (1, 2, 3, 4, or 5): ";
+		cin >> menuChoice;
 
-	} while (menuChoice != 4);
+		switch (menuChoice) {
+		case 1:
+
+		}
+	} while (menuChoice != 5);
+	
+}
+
+void subtract(Fraction** fracLeft, Fraction** fracRight,
+	Fraction** fracResult) {
+
+}
+
+void multiply(Fraction** fracLeft, Fraction** fracRight,
+	Fraction** fracResult) {
+
+}
+
+void divide(Fraction** fracLeft, Fraction** fracRight,
+	Fraction** fracResult) {
+
+}
+
+void print(Fraction** fracLeft, Fraction** fracRight,
+	Fraction** fracResult) {
 
 }

@@ -10,6 +10,7 @@
 #ifndef FRACTIONPETEW_H
 #define FRACTIONPETEW_H
 
+#include <iostream>
 
 class Fraction {
 
@@ -29,32 +30,38 @@ class Fraction {
 
 	void print(void); // Display fraction
 
-	void add(const Fraction&); // Add arg fraction to this fraction
+	void add(Fraction&, Fraction&);
+	void add(const Fraction&);
+	void subtract(Fraction&, Fraction&);
 	void subtract(const Fraction&); // subtract ^^
+	void multiply(Fraction&, Fraction&);
 	void multiply(const Fraction&);
+	void divide(Fraction&, Fraction&);
 	void divide(const Fraction&);
 
 	Fraction& operator=(const Fraction&);
-	Fraction operator+(const Fraction&);
-	Fraction operator-(const Fraction&);
-	Fraction operator*(const Fraction&);
-	Fraction operator/(const Fraction&);
+	Fraction operator+(Fraction&);
+	Fraction operator-(Fraction&);
+	Fraction operator*(Fraction&);
+	Fraction operator/(Fraction&);
+
+	friend std::ostream& operator<<(std::ostream& os, const Fraction& f) {
+		os << f.getNum() << "/" << f.getDenom();
+		return os;
+	}
+	friend Fraction operator+(const int& left, const Fraction& right) {
+		return Fraction(left * right.denom + right.num, right.denom);
+	}
 
 	private:
 	int num;
 	int denom;
 	void reduce(void); // Helper function to reduce fraction
-	friend ostream& operator<<(ostream&, const Fraction&);
-	friend Fraction operator+(const int&, const Fraction&);
+
 };
 
-ostream& operator<<(ostream& os, const Fraction& f) {
-	os << f.getNum() << "/" << f.getDenom();
-	return os;
-}
 
-Fraction operator+(const int& left, const Fraction& right) {
-	return Fraction(left * right.denom + right.num, right.denom);
-}
+
+
 #endif
 

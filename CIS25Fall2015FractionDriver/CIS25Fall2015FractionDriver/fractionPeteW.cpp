@@ -82,6 +82,11 @@ void Fraction::reduce() {
 	}
 }
 
+void Fraction::add(Fraction& left, Fraction& right) {
+	(*this) = left + right;
+	reduce();
+}
+
 void Fraction::add(const Fraction& arg) {
 	int inputNum = arg.num;
 	int inputDenom = arg.denom;
@@ -101,6 +106,11 @@ void Fraction::add(const Fraction& arg) {
 		denom = workingDenom;
 	}
 
+	reduce();
+}
+
+void Fraction::subtract(Fraction& left, Fraction& right) {
+	(*this) = left - right;
 	reduce();
 }
 
@@ -126,9 +136,19 @@ void Fraction::subtract(const Fraction& arg) {
 	reduce();
 }
 
+void Fraction::multiply(Fraction& left, Fraction& right) {
+	(*this) = left * right;
+	reduce();
+}
+
 void Fraction::multiply(const Fraction& arg) {
 	num *= arg.num;
 	denom *= arg.denom;
+	reduce();
+}
+
+void Fraction::divide(Fraction& left, Fraction& right) {
+	(*this) = left / right;
 	reduce();
 }
 
@@ -144,27 +164,19 @@ Fraction& Fraction::operator=(const Fraction& arg) {
 	return *this;
 }
 
-Fraction Fraction::operator+(const Fraction& arg) {
-	Fraction foo = *this;
-	foo.add(arg);
-	return foo;
+Fraction Fraction::operator+(Fraction& arg) {
+	return Fraction((*this).num * arg.denom + ((*this).denom * arg.num), (*this).denom * arg.denom);
 }
 
-Fraction Fraction::operator-(const Fraction& arg) {
-	Fraction foo = *this;
-	foo.subtract(arg);
-	return foo;
+Fraction Fraction::operator-(Fraction& arg) {
+	return Fraction((*this).num * arg.denom - ((*this).denom * arg.num), (*this).denom * arg.denom);
 }
 
-Fraction Fraction::operator*(const Fraction& arg) {
-	Fraction foo = *this;
-	foo.multiply(arg);
-	return foo;
+Fraction Fraction::operator*(Fraction& arg) {
+	return Fraction((*this).num * arg.num, (*this).denom * arg.denom);
 }
 
-Fraction Fraction::operator/(const Fraction& arg) {
-	Fraction foo = *this;
-	foo.divide(arg);
-	return foo;
+Fraction Fraction::operator/(Fraction& arg) {
+	return Fraction((*this).num * arg.denom, (*this).denom * arg.num);
 }
 
