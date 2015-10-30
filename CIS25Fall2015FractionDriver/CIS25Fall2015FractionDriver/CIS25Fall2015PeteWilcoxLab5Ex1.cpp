@@ -169,7 +169,7 @@ void initFraction(Fraction** fracLeft, Fraction** fracRight) {
 			finished = true;
 			break;
 		default:
-			cout << "\nInvalid option."
+			cout << "\nInvalid option.";
 		}
 
 	}

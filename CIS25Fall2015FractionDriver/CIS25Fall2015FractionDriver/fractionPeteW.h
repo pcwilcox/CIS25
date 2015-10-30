@@ -39,7 +39,7 @@ class Fraction {
 	Fraction operator*(const Fraction&);
 	Fraction operator/(const Fraction&);
 
-//	friend ostream& operator<<(ostream&, const Fraction&);
+	friend ostream& operator<<(ostream&, const Fraction&);
 	//what the actual fuck
 
 	private:
@@ -48,7 +48,10 @@ class Fraction {
 	void reduce(void); // Helper function to reduce fraction
 };
 
-
+ostream& operator<<(ostream& os, const Fraction& f) {
+	os << f.getNum() << "/" << f.getDenom();
+	return os;
+}
 
 #endif
 
