@@ -14,29 +14,29 @@
 using namespace std;
 
 void displayHeader(void);
-void displayMenu(void);
-void initFraction(Fraction**, Fraction**);
+void displayMenuMain(void);
+void initFraction(FractionPeteW**, FractionPeteW**);
 void initBothError(void);
-void displayMenuAdd(Fraction**, Fraction**, Fraction**);
-void displayMenuSubtract(Fraction**, Fraction**, Fraction**);
-void displayMenuDivide(Fraction**, Fraction**, Fraction**);
-void displayMenuMultiply(Fraction**, Fraction**, Fraction**);
-void add(Fraction**, Fraction**, Fraction**);
-void subtract(Fraction**, Fraction**, Fraction**);
-void multiply(Fraction**, Fraction**, Fraction**);
-void divide(Fraction**, Fraction**, Fraction**);
-void print(Fraction**, Fraction**, Fraction**);
+void displayMenuAdd(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void displayMenuSubtract(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void displayMenuDivide(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void displayMenuMultiply(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void add(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void subtract(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void multiply(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void divide(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void print(FractionPeteW**, FractionPeteW**, FractionPeteW**);
 
 int main() {
 	int menuChoice;
-	Fraction* fracLeft = nullptr;
-	Fraction* fracRight = nullptr;
-	Fraction* fracResult = nullptr;
+	FractionPeteW* fracLeft = nullptr;
+	FractionPeteW* fracRight = nullptr;
+	FractionPeteW* fracResult = nullptr;
 
 	displayHeader();
 
 	do {
-		displayMenu();
+		displayMenuMain();
 		cin >> menuChoice;
 
 		switch (menuChoice) {
@@ -114,7 +114,7 @@ void displayHeader() {
 		"\n  Due Date: 2015/11/06";
 }
 
-void displayMenu() {
+void displayMenuMain() {
 	cout << "\n*********************"
 		"\n*        MENU       *"
 		"\n*                   *"
@@ -129,7 +129,7 @@ void displayMenu() {
 		"\nSelect an option (use integer value only): ";
 }
 
-void initFraction(Fraction** fracLeft, Fraction** fracRight) {
+void initFraction(FractionPeteW** fracLeft, FractionPeteW** fracRight) {
 	int newNum;
 	int newDenom;
 	int choice;
@@ -166,7 +166,7 @@ void initFraction(Fraction** fracLeft, Fraction** fracRight) {
 			cin >> newDenom;
 
 			if ((*fracLeft) == nullptr) {
-				(*fracLeft) = new Fraction(newNum, newDenom);
+				(*fracLeft) = new FractionPeteW(newNum, newDenom);
 			} else {
 				(*fracLeft)->setNum(newNum);
 				(*fracRight)->setDenom(newDenom);
@@ -179,7 +179,7 @@ void initFraction(Fraction** fracLeft, Fraction** fracRight) {
 			cin >> newDenom;
 
 			if ((*fracRight) == nullptr) {
-				(*fracRight) = new Fraction(newNum, newDenom);
+				(*fracRight) = new FractionPeteW(newNum, newDenom);
 			} else {
 				(*fracRight)->setNum(newNum);
 				(*fracRight)->setDenom(newDenom);
@@ -197,8 +197,8 @@ void initFraction(Fraction** fracLeft, Fraction** fracRight) {
 
 }
 
-void displayMenuAdd(Fraction** fracLeft, Fraction** fracRight,
-	Fraction** fracResult) {
+void displayMenuAdd(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+	FractionPeteW** fracResult) {
 	int menuChoice;
 
 	do {
@@ -215,28 +215,50 @@ void displayMenuAdd(Fraction** fracLeft, Fraction** fracRight,
 
 		switch (menuChoice) {
 		case 1:
+			cout << "\n\n  Calling member add()";
+			if (*fracResult == nullptr) {
+				*fracResult = new FractionPeteW();
+			}
 
+			(*fracResult)->add(**fracLeft, **fracRight);
+			break;
+		case 2:
+			cout << "\n\n  Calling stand alone add()";
+			add(fracLeft, fracRight, fracResult);
+			break;
+		case 3:
+			cout << "\n\n  Calling operator+()";
+			**fracResult = **fracLeft + **fracRight;
+			break;
+		case 4:
+			cout << endl << **fracResult;
+			break;
+		case 5:
+			break;
+		default:
+			cout << "\n\n  WRONG OPTION";
 		}
+
 	} while (menuChoice != 5);
 	
 }
 
-void subtract(Fraction** fracLeft, Fraction** fracRight,
-	Fraction** fracResult) {
+void subtract(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+	FractionPeteW** fracResult) {
 
 }
 
-void multiply(Fraction** fracLeft, Fraction** fracRight,
-	Fraction** fracResult) {
+void multiply(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+	FractionPeteW** fracResult) {
 
 }
 
-void divide(Fraction** fracLeft, Fraction** fracRight,
-	Fraction** fracResult) {
+void divide(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+	FractionPeteW** fracResult) {
 
 }
 
-void print(Fraction** fracLeft, Fraction** fracRight,
-	Fraction** fracResult) {
+void print(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+	FractionPeteW** fracResult) {
 
 }

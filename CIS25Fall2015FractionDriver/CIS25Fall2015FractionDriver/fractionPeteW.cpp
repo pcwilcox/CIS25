@@ -12,40 +12,40 @@ using namespace std;
 
 
 
-Fraction::Fraction() : num(0), denom(1) {
+FractionPeteW::FractionPeteW() : num(0), denom(1) {
 	cout << "\nCalling Fraction()";
 }
 
-Fraction::Fraction(int input) : num(input), denom(1) {
+FractionPeteW::FractionPeteW(int input) : num(input), denom(1) {
 	cout << "\nCalling Fraction()";
 }
 
-Fraction::Fraction(const Fraction& input) : num(input.num), denom(input.denom) {
+FractionPeteW::FractionPeteW(const FractionPeteW& input) : num(input.num), denom(input.denom) {
 	cout << "\nCalling Fraction()";
 }
 
-Fraction::Fraction(int inputNum, int inputDenom) : num(inputNum), denom(inputDenom) {
+FractionPeteW::FractionPeteW(int inputNum, int inputDenom) : num(inputNum), denom(inputDenom) {
 	cout << "\nCalling Fraction()";
 }
 
-Fraction::~Fraction() {
+FractionPeteW::~FractionPeteW() {
 	cout << "\nCalling ~Fraction()\n";
 }
 
-int Fraction::getNum() const {
+int FractionPeteW::getNum() const {
 	return num;
 }
 
-void Fraction::setNum(int input) {
+void FractionPeteW::setNum(int input) {
 	num = input;
 	reduce();
 }
 
-int Fraction::getDenom() const {
+int FractionPeteW::getDenom() const {
 	return denom;
 }
 
-void Fraction::setDenom(int input) {
+void FractionPeteW::setDenom(int input) {
 	if (input < 0) {
 		denom = -input;
 		num = -num;
@@ -58,11 +58,11 @@ void Fraction::setDenom(int input) {
 	reduce();
 }
 
-void Fraction::print() {
+void FractionPeteW::print() {
 	cout << num << "/" << denom;
 }
 
-void Fraction::reduce() {
+void FractionPeteW::reduce() {
 	bool finished = false;
 	int n = 2;
 	while (finished == false) {
@@ -82,12 +82,12 @@ void Fraction::reduce() {
 	}
 }
 
-void Fraction::add(Fraction& left, Fraction& right) {
+void FractionPeteW::add(FractionPeteW& left, FractionPeteW& right) {
 	(*this) = left + right;
 	reduce();
 }
 
-void Fraction::add(const Fraction& arg) {
+void FractionPeteW::add(const FractionPeteW& arg) {
 	int inputNum = arg.num;
 	int inputDenom = arg.denom;
 	int workingNum = num;
@@ -109,12 +109,12 @@ void Fraction::add(const Fraction& arg) {
 	reduce();
 }
 
-void Fraction::subtract(Fraction& left, Fraction& right) {
+void FractionPeteW::subtract(FractionPeteW& left, FractionPeteW& right) {
 	(*this) = left - right;
 	reduce();
 }
 
-void Fraction::subtract(const Fraction& arg) {
+void FractionPeteW::subtract(const FractionPeteW& arg) {
 	int inputNum = arg.num;
 	int inputDenom = arg.denom;
 	int workingNum = num;
@@ -136,47 +136,47 @@ void Fraction::subtract(const Fraction& arg) {
 	reduce();
 }
 
-void Fraction::multiply(Fraction& left, Fraction& right) {
+void FractionPeteW::multiply(FractionPeteW& left, FractionPeteW& right) {
 	(*this) = left * right;
 	reduce();
 }
 
-void Fraction::multiply(const Fraction& arg) {
+void FractionPeteW::multiply(const FractionPeteW& arg) {
 	num *= arg.num;
 	denom *= arg.denom;
 	reduce();
 }
 
-void Fraction::divide(Fraction& left, Fraction& right) {
+void FractionPeteW::divide(FractionPeteW& left, FractionPeteW& right) {
 	(*this) = left / right;
 	reduce();
 }
 
-void Fraction::divide(const Fraction& arg) {
+void FractionPeteW::divide(const FractionPeteW& arg) {
 	num *= arg.denom;
 	denom *= arg.num;
 	reduce();
 }
 
-Fraction& Fraction::operator=(const Fraction& arg) {
+FractionPeteW& FractionPeteW::operator=(const FractionPeteW& arg) {
 	num = arg.num;
 	denom = arg.denom;
 	return *this;
 }
 
-Fraction Fraction::operator+(Fraction& arg) {
-	return Fraction((*this).num * arg.denom + ((*this).denom * arg.num), (*this).denom * arg.denom);
+FractionPeteW FractionPeteW::operator+(FractionPeteW& arg) {
+	return FractionPeteW((*this).num * arg.denom + ((*this).denom * arg.num), (*this).denom * arg.denom);
 }
 
-Fraction Fraction::operator-(Fraction& arg) {
-	return Fraction((*this).num * arg.denom - ((*this).denom * arg.num), (*this).denom * arg.denom);
+FractionPeteW FractionPeteW::operator-(FractionPeteW& arg) {
+	return FractionPeteW((*this).num * arg.denom - ((*this).denom * arg.num), (*this).denom * arg.denom);
 }
 
-Fraction Fraction::operator*(Fraction& arg) {
-	return Fraction((*this).num * arg.num, (*this).denom * arg.denom);
+FractionPeteW FractionPeteW::operator*(FractionPeteW& arg) {
+	return FractionPeteW((*this).num * arg.num, (*this).denom * arg.denom);
 }
 
-Fraction Fraction::operator/(Fraction& arg) {
-	return Fraction((*this).num * arg.denom, (*this).denom * arg.num);
+FractionPeteW FractionPeteW::operator/(FractionPeteW& arg) {
+	return FractionPeteW((*this).num * arg.denom, (*this).denom * arg.num);
 }
 

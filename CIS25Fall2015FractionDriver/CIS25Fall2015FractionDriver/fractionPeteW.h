@@ -12,15 +12,15 @@
 
 #include <iostream>
 
-class Fraction {
+class FractionPeteW {
 
 	public:
-	Fraction(); // default constructor
-	Fraction(int); // convert constructor
-	Fraction(const Fraction&); // copy constructor
-	Fraction(int, int);
+	FractionPeteW(); // default constructor
+	FractionPeteW(int); // convert constructor
+	FractionPeteW(const FractionPeteW&); // copy constructor
+	FractionPeteW(int, int);
 
-	~Fraction();
+	~FractionPeteW();
 
 	int getNum(void) const; // Return numerator
 	void setNum(int); // Set numerator
@@ -30,27 +30,27 @@ class Fraction {
 
 	void print(void); // Display fraction
 
-	void add(Fraction&, Fraction&);
-	void add(const Fraction&);
-	void subtract(Fraction&, Fraction&);
-	void subtract(const Fraction&); // subtract ^^
-	void multiply(Fraction&, Fraction&);
-	void multiply(const Fraction&);
-	void divide(Fraction&, Fraction&);
-	void divide(const Fraction&);
+	void add(FractionPeteW&, FractionPeteW&);
+	void add(const FractionPeteW&);
+	void subtract(FractionPeteW&, FractionPeteW&);
+	void subtract(const FractionPeteW&); // subtract ^^
+	void multiply(FractionPeteW&, FractionPeteW&);
+	void multiply(const FractionPeteW&);
+	void divide(FractionPeteW&, FractionPeteW&);
+	void divide(const FractionPeteW&);
 
-	Fraction& operator=(const Fraction&);
-	Fraction operator+(Fraction&);
-	Fraction operator-(Fraction&);
-	Fraction operator*(Fraction&);
-	Fraction operator/(Fraction&);
+	FractionPeteW& operator=(const FractionPeteW&);
+	FractionPeteW operator+(FractionPeteW&);
+	FractionPeteW operator-(FractionPeteW&);
+	FractionPeteW operator*(FractionPeteW&);
+	FractionPeteW operator/(FractionPeteW&);
 
-	friend std::ostream& operator<<(std::ostream& os, const Fraction& f) {
+	friend std::ostream& operator<<(std::ostream& os, const FractionPeteW& f) {
 		os << f.getNum() << "/" << f.getDenom();
 		return os;
 	}
-	friend Fraction operator+(const int& left, const Fraction& right) {
-		return Fraction(left * right.denom + right.num, right.denom);
+	friend FractionPeteW operator+(const int& left, const FractionPeteW& right) {
+		return FractionPeteW(left * right.denom + right.num, right.denom);
 	}
 
 	private:
