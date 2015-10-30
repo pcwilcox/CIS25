@@ -1,6 +1,9 @@
 /**
-* Program name: fractionPeteW.h
-*/
+  * Program Name: fractionPeteW.h
+  * Discussion:   Lab #5
+  * Written by:   Pete Wilcox
+  * Date:         2015/11/06
+  */
 
 #pragma once
 

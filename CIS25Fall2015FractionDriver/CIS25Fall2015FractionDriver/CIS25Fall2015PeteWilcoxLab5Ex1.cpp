@@ -1,6 +1,9 @@
-/*
-* Program name: CISFall2015Driver.cpp
-*/
+/**
+  * Program Name: CIS25Fall2015PeteWilcoxLab5Ex1.cpp
+  * Discussion:   Lab #5 Exercise #1
+  * Written by:   Pete Wilcox
+  * Date:         2015/11/06
+  */
 
 #include <iostream>
 #include "fraction.h"

@@ -1,6 +1,9 @@
-/* Program Name: fractionPeteW.h
- * Written By:   Pete Wilcox
- */
+/**
+  * Program Name: fractionPeteW.cpp
+  * Discussion:   Lab #5
+  * Written by:   Pete Wilcox
+  * Date:         2015/11/06
+  */
 
 #include "fractionPeteW.h"
 #include <iostream>
