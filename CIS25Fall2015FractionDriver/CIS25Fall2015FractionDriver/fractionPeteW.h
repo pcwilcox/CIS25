@@ -1,5 +1,5 @@
 /**
-* Program name: fraction.h
+* Program name: fractionPeteW.h
 */
 
 #pragma once

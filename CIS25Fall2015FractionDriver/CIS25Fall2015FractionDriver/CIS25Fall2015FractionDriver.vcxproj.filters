@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CIS25Fall2015FractionDriver.cpp">
+    <ClCompile Include="CIS25Fall2015PeteWilcoxLab5Ex1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fraction.cpp">
+    <ClCompile Include="fractionPeteW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="fraction.h">
+    <ClInclude Include="fractionPeteW.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

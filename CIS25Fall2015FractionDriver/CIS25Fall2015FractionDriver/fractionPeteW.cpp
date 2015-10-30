@@ -1,4 +1,8 @@
-#include "fraction.h"
+/* Program Name: fractionPeteW.h
+ * Written By:   Pete Wilcox
+ */
+
+#include "fractionPeteW.h"
 #include <iostream>
 
 using namespace std;
