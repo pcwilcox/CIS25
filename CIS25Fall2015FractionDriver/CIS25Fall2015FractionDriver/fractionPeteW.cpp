@@ -168,7 +168,7 @@ Fraction Fraction::operator/(const Fraction& arg) {
 	return foo;
 }
 
-/*ostream& operator<<(ostream& os, const Fraction& f) {
-	os << f.getNum() << "/" << f.getDenom();
+ostream& operator<<(ostream& os, const Fraction* f) {
+	os << (*f)->getNum() << "/" << f->getDenom();
 	return os;
-}*/
+}

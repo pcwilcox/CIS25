@@ -17,8 +17,9 @@ void initBothError(void);
 
 int main() {
 	int menuChoice;
-	Fraction* frac1 = nullptr;
-	Fraction* frac2 = nullptr;
+	Fraction* fracLeft = nullptr;
+	Fraction* fracRight = nullptr;
+	Fraction* fracResult = nullptr;
 
 	displayHeader();
 
@@ -30,37 +31,37 @@ int main() {
 		case 1:
 			cout << "\n  Initializing option --";
 			
-			initFraction(&frac1, &frac2);
+			initFraction(&fracLeft, &fracRight);
 
 			break;
 		case 2:
-			if ((frac1 != nullptr) && (frac2 != nullptr)) {
+			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
 				// add
 			} else {
 				initBothError();
 			}
 			break;
 		case 3:
-			if ((frac1 != nullptr) && (frac2 != nullptr)) {
+			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
 				// subtract
 			} else {
 				initBothError();
 			}
 			break;
 		case 4:
-			if ((frac1 != nullptr) && (frac2 != nullptr)) {
+			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
 				// multiply
 			} else {
 				initBothError();
 			}			break;
 		case 5:
-			if ((frac1 != nullptr) && (frac2 != nullptr)) {
+			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
 				// divide
 			} else {
 				initBothError();
 			}			break;
 		case 6:
-			if ((frac1 != nullptr) && (frac2 != nullptr)) {
+			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
 				// print
 			} else {
 				initBothError();
@@ -107,25 +108,69 @@ void displayMenu() {
 		"\nSelect an option (use integer value only): ";
 }
 
-void initFraction(Fraction** fracPtr1, Fraction** fracPtr2) {
-	int newNum, newDenom;
+void initFraction(Fraction** fracLeft, Fraction** fracRight) {
+	int newNum;
+	int newDenom;
+	int choice;
 	bool finished = false;
+
 	while (finished == false) {
 		cout << "\n\nCurrent fractions:"
 			"\n  Fraction 1: ";
-		if (fracPtr1 == nullptr) {
+		if (fracLeft == nullptr) {
 			cout << "null";
 		} else {
-			(*fracPtr1)->print();
+			(*fracLeft)->print();
 		}
 		cout << "\n  Fraction 2: ";
 
-		if (fracPtr2 == nullptr) {
+		if (fracRight == nullptr) {
 			cout << "null";
 		} else {
-			(*fracPtr2)->print();
+			(*fracRight)->print();
 		}
 
+		cout << "\nWhich fraction would you like to initialize?"
+			"\n  1. Initialize Fraction 1."
+			"\n  2. Initialize Fraction 2."
+			"\n  3. Return to previous menu."
+			"\n\nPlease enter your choice: ";
+		cin >> choice;
+		
+		switch (choice) {
+		case 1:
+			cout << "\nPlease enter the numerator: ";
+			cin >> newNum;
+			cout << "\nPlease enter the denominator: ";
+			cin >> newDenom;
+
+			if (fracLeft == nullptr) {
+				(*fracLeft) = new Fraction(newNum, newDenom);
+			} else {
+				(*fracLeft)->setNum(newNum);
+				(*fracRight)->setDenom(newDenom);
+			}
+			break;
+		case 2:
+			cout << "\nPlease enter the numerator: ";
+			cin >> newNum;
+			cout << "\nPlease enter the denominator: ";
+			cin >> newDenom;
+
+			if (fracRight == nullptr) {
+				(*fracRight) = new Fraction(newNum, newDenom);
+			} else {
+				(*fracRight)->setNum(newNum);
+				(*fracRight)->setDenom(newDenom);
+			}
+			break;
+		case 3:
+			cout << "\nReturning to main menu.";
+			finished = true;
+			break;
+		default:
+			cout << "\nInvalid option."
+		}
 
 	}
 
