@@ -117,14 +117,14 @@ void initFraction(Fraction** fracLeft, Fraction** fracRight) {
 	while (finished == false) {
 		cout << "\n\nCurrent fractions:"
 			"\n  Fraction 1: ";
-		if (fracLeft == nullptr) {
+		if ((*fracLeft) == nullptr) {
 			cout << "null";
 		} else {
 			(*fracLeft)->print();
 		}
 		cout << "\n  Fraction 2: ";
 
-		if (fracRight == nullptr) {
+		if ((*fracRight) == nullptr) {
 			cout << "null";
 		} else {
 			(*fracRight)->print();
@@ -144,7 +144,7 @@ void initFraction(Fraction** fracLeft, Fraction** fracRight) {
 			cout << "\nPlease enter the denominator: ";
 			cin >> newDenom;
 
-			if (fracLeft == nullptr) {
+			if ((*fracLeft) == nullptr) {
 				(*fracLeft) = new Fraction(newNum, newDenom);
 			} else {
 				(*fracLeft)->setNum(newNum);
@@ -157,7 +157,7 @@ void initFraction(Fraction** fracLeft, Fraction** fracRight) {
 			cout << "\nPlease enter the denominator: ";
 			cin >> newDenom;
 
-			if (fracRight == nullptr) {
+			if ((*fracRight) == nullptr) {
 				(*fracRight) = new Fraction(newNum, newDenom);
 			} else {
 				(*fracRight)->setNum(newNum);

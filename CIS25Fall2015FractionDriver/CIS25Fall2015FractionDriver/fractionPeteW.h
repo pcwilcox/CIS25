@@ -12,6 +12,7 @@
 
 
 class Fraction {
+
 	public:
 	Fraction(); // default constructor
 	Fraction(int); // convert constructor
@@ -20,10 +21,10 @@ class Fraction {
 
 	~Fraction();
 
-	int getNum(void); // Return numerator
+	int getNum(void) const; // Return numerator
 	void setNum(int); // Set numerator
 
-	int getDenom(void); // Return denominator
+	int getDenom(void) const; // Return denominator
 	void setDenom(int);
 
 	void print(void); // Display fraction
@@ -39,13 +40,14 @@ class Fraction {
 	Fraction operator*(const Fraction&);
 	Fraction operator/(const Fraction&);
 
-	friend ostream& operator<<(ostream&, const Fraction&);
 	//what the actual fuck
 
 	private:
 	int num;
 	int denom;
 	void reduce(void); // Helper function to reduce fraction
+	friend ostream& operator<<(ostream&, const Fraction&);
+
 };
 
 ostream& operator<<(ostream& os, const Fraction& f) {

@@ -32,7 +32,7 @@ Fraction::~Fraction() {
 	cout << "\nCalling ~Fraction()\n";
 }
 
-int Fraction::getNum() {
+int Fraction::getNum() const {
 	return num;
 }
 
@@ -41,7 +41,7 @@ void Fraction::setNum(int input) {
 	reduce();
 }
 
-int Fraction::getDenom() {
+int Fraction::getDenom() const {
 	return denom;
 }
 
