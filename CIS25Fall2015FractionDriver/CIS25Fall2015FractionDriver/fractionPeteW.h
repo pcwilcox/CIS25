@@ -40,14 +40,12 @@ class Fraction {
 	Fraction operator*(const Fraction&);
 	Fraction operator/(const Fraction&);
 
-	//what the actual fuck
-
 	private:
 	int num;
 	int denom;
 	void reduce(void); // Helper function to reduce fraction
 	friend ostream& operator<<(ostream&, const Fraction&);
-
+	friend Fraction operator+(const int&, const Fraction&);
 };
 
 ostream& operator<<(ostream& os, const Fraction& f) {
@@ -55,5 +53,8 @@ ostream& operator<<(ostream& os, const Fraction& f) {
 	return os;
 }
 
+Fraction operator+(const int& left, const Fraction& right) {
+	return Fraction(left * right.denom + right.num, right.denom);
+}
 #endif
 

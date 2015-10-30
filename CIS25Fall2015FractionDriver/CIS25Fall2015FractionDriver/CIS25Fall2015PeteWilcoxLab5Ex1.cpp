@@ -5,6 +5,9 @@
   * Date:         2015/11/06
   */
 
+
+/* At some point, refactor the error message somehow */
+
 #include <iostream>
 #include "fractionPeteW.h"
 
@@ -14,6 +17,11 @@ void displayHeader(void);
 void displayMenu(void);
 void initFraction(Fraction**, Fraction**);
 void initBothError(void);
+void add(Fraction**, Fraction**, Fraction**);
+void subtract(Fraction**, Fraction**, Fraction**);
+void multiply(Fraction**, Fraction**, Fraction**);
+void divide(Fraction**, Fraction**, Fraction**);
+void print(Fraction**, Fraction**, Fraction**);
 
 int main() {
 	int menuChoice;
@@ -36,44 +44,53 @@ int main() {
 			break;
 		case 2:
 			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
-				// add
+				cout << "\n\n  ADDING option -";
+				add(&fracLeft, &fracRight, &fracResult);
 			} else {
 				initBothError();
 			}
 			break;
 		case 3:
 			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
-				// subtract
+				cout << "\n\n  SUBTRACTING option -";
+				subtract(&fracLeft, &fracRight, &fracResult);
 			} else {
 				initBothError();
 			}
 			break;
 		case 4:
 			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
-				// multiply
+				cout << "\n\n  MULTIPLYING option -";
+				multiply(&fracLeft, &fracRight, &fracResult);
 			} else {
 				initBothError();
 			}			break;
 		case 5:
 			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
-				// divide
+				cout << "\n\n  DIVIDING option -";
+				divide(&fracLeft, &fracRight, &fracResult);
 			} else {
 				initBothError();
 			}			break;
 		case 6:
 			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
-				// print
+				cout << "\n\n  PRINTING option -";
+				print(&fracLeft, &fracRight, &fracResult);
 			} else {
 				initBothError();
 			}			break;
 		case 7:
 			// quit
 			cout << "\n\nHaving fun ...!\n";
+			delete fracLeft;
+			delete fracRight;
+			delete fracResult;
 			break;
 		default:
 			cout << "\nInvalid option.\n\n";
 		}
 	} while (menuChoice != 7);
+
 
 	return 0;
 }
@@ -173,5 +190,15 @@ void initFraction(Fraction** fracLeft, Fraction** fracRight) {
 		}
 
 	}
+
+}
+
+void add(Fraction** fracLeft, Fraction** fracRight,
+	Fraction** fracResult) {
+	int menuChoice;
+
+	do {
+
+	} while (menuChoice != 4);
 
 }
