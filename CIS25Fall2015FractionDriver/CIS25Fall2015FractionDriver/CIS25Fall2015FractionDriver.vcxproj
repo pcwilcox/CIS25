@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CIS25Fall2015PeteWilcoxLab5Ex1.cpp" />
+    <ClCompile Include="CIS25Fall2015PeteWilcoxLab5Ex2.cpp" />
     <ClCompile Include="fractionPeteW.cpp" />
   </ItemGroup>
   <ItemGroup>

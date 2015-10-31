@@ -21,6 +21,9 @@
     <ClCompile Include="fractionPeteW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CIS25Fall2015PeteWilcoxLab5Ex2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fractionPeteW.h">
