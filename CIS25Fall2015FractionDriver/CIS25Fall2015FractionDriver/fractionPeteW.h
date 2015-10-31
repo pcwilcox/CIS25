@@ -16,38 +16,53 @@
 class FractionPeteW {
 
 	public:
-	FractionPeteW(); // default constructor
-	FractionPeteW(int); // convert constructor
-	FractionPeteW(const FractionPeteW&); // copy constructor
+	// Default constructor
+	FractionPeteW(); 
+
+	// Convert constructor
+	FractionPeteW(int); 
+
+	// Copy constructor
+	FractionPeteW(const FractionPeteW&); 
+
+	// Explicit constructor
 	FractionPeteW(int, int);
 
 	~FractionPeteW();
 
-	int getNum(void) const; // Return numerator
-	void setNum(int); // Set numerator
+	// Getters
+	int getNum(void) const;
+	int getDenom(void) const;
 
-	int getDenom(void) const; // Return denominator
+	// Setters	
+	void setNum(int); 
 	void setDenom(int);
+	void setBoth(int, int);
 
-	void setBoth(int, int); // Set both num and denom
+	// Print
+	void print(void); 
 
-	void print(void); // Display fraction
-
+	// Member arithmetic functions
 	void add(FractionPeteW&, FractionPeteW&);
 	void add(const FractionPeteW&);
+
 	void subtract(FractionPeteW&, FractionPeteW&);
-	void subtract(const FractionPeteW&); // subtract ^^
+	void subtract(const FractionPeteW&); 
+
 	void multiply(FractionPeteW&, FractionPeteW&);
 	void multiply(const FractionPeteW&);
+
 	void divide(FractionPeteW&, FractionPeteW&);
 	void divide(const FractionPeteW&);
 
+	// Operator overloads
 	FractionPeteW& operator=(const FractionPeteW&);
 	FractionPeteW operator+(FractionPeteW&);
 	FractionPeteW operator-(FractionPeteW&);
 	FractionPeteW operator*(FractionPeteW&);
 	FractionPeteW operator/(FractionPeteW&);
 
+	// Friend overloads
 	friend std::ostream& operator<<(std::ostream& os, const FractionPeteW& f) {
 		os << f.getNum() << "/" << f.getDenom();
 		return os;
@@ -59,12 +74,11 @@ class FractionPeteW {
 	private:
 	int num;
 	int denom;
-	void reduce(void); // Helper function to reduce fraction
+
+	// Helper function to reduce fraction
+	void reduce(void); 
 
 };
-
-
-
 
 #endif
 

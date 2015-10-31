@@ -1,6 +1,7 @@
 /**
   * Program Name: fractionPeteW.cpp
-  * Discussion:   Lab #5
+  * Discussion:   Declaration File --
+  *                 FractionPeteW class
   * Written by:   Pete Wilcox
   * Date:         2015/11/06
   */
@@ -11,40 +12,46 @@
 using namespace std;
 
 
-
+// Default constructor
 FractionPeteW::FractionPeteW() : num(0), denom(1) {
 	cout << "\nCalling Fraction()";
 }
 
+// Convert constructor
 FractionPeteW::FractionPeteW(int input) : num(input), denom(1) {
 	cout << "\nCalling Fraction()";
 }
 
+// Copy constructor
 FractionPeteW::FractionPeteW(const FractionPeteW& input) : num(input.num), denom(input.denom) {
 	cout << "\nCalling Fraction()";
 	reduce();
 }
 
+// Explicit constructor
 FractionPeteW::FractionPeteW(int inputNum, int inputDenom) : num(inputNum), denom(inputDenom) {
 	cout << "\nCalling Fraction()";
 	reduce();
 }
 
+// Destructor
 FractionPeteW::~FractionPeteW() {
 	cout << "\nCalling ~Fraction()\n";
 }
 
+// Getters
 int FractionPeteW::getNum() const {
 	return num;
 }
 
+int FractionPeteW::getDenom() const {
+	return denom;
+}
+
+// Setters
 void FractionPeteW::setNum(int input) {
 	num = input;
 	reduce();
-}
-
-int FractionPeteW::getDenom() const {
-	return denom;
 }
 
 void FractionPeteW::setDenom(int input) {
@@ -71,30 +78,12 @@ void FractionPeteW::setBoth(int inputNum, int inputDenom) {
 	reduce();
 }
 
+// Print
 void FractionPeteW::print() {
 	cout << num << "/" << denom;
 }
 
-void FractionPeteW::reduce() {
-	bool finished = false;
-	int n = 2;
-	while (finished == false) {
-		if ((num % n == 0) && (denom % n == 0)) {
-			num /= n;
-			denom /= n;
-		} else if ((num <= n) || (denom <= n)) {
-			finished = true;
-		} else {
-			n++;
-		}
-	}
-
-	if (denom < 0) {
-		num = -num;
-		denom = -denom;
-	}
-}
-
+// Member math functions
 void FractionPeteW::add(FractionPeteW& left, FractionPeteW& right) {
 	num = left.num * right.denom + left.denom * right.num;
 	denom = left.denom * right.denom;
@@ -175,6 +164,7 @@ void FractionPeteW::divide(const FractionPeteW& arg) {
 	reduce();
 }
 
+// Member overloads
 FractionPeteW& FractionPeteW::operator=(const FractionPeteW& arg) {
 	num = arg.num;
 	denom = arg.denom;
@@ -197,3 +187,31 @@ FractionPeteW FractionPeteW::operator/(FractionPeteW& arg) {
 	return FractionPeteW((*this).num * arg.denom, (*this).denom * arg.num);
 }
 
+// Reduce() is called whenever other operations are performed
+void FractionPeteW::reduce() {
+	bool finished = false;
+	int n = 2;
+	int workingNum;
+
+	if (num < 0) {
+		workingNum = -num;
+	} else {
+		workingNum = num;
+	}
+
+	while (finished == false) {
+		if ((num % n == 0) && (denom % n == 0)) {
+			num /= n;
+			denom /= n;
+		} else if ((num <= n) || (denom <= n)) {
+			finished = true;
+		} else {
+			n++;
+		}
+	}
+
+	if (denom < 0) {
+		num = -num;
+		denom = -denom;
+	}
+}
