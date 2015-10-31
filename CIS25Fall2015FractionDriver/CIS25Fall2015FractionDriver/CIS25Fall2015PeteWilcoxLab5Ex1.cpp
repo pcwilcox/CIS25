@@ -14,18 +14,19 @@
 using namespace std;
 
 void displayHeader(void);
-void displayMenuMain(void);
-void initFraction(FractionPeteW**, FractionPeteW**);
+void menuMain(void);
+void init(FractionPeteW**, FractionPeteW**);
 void initBothError(void);
-void displayMenuAdd(FractionPeteW**, FractionPeteW**, FractionPeteW**);
-void displayMenuSubtract(FractionPeteW**, FractionPeteW**, FractionPeteW**);
-void displayMenuDivide(FractionPeteW**, FractionPeteW**, FractionPeteW**);
-void displayMenuMultiply(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void menuAdd(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void menuSubtract(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void menuDivide(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void menuMultiply(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void menuPrint(FractionPeteW**, FractionPeteW**, FractionPeteW**);
 void add(FractionPeteW**, FractionPeteW**, FractionPeteW**);
 void subtract(FractionPeteW**, FractionPeteW**, FractionPeteW**);
 void multiply(FractionPeteW**, FractionPeteW**, FractionPeteW**);
 void divide(FractionPeteW**, FractionPeteW**, FractionPeteW**);
-void print(FractionPeteW**, FractionPeteW**, FractionPeteW**);
+void print(FractionPeteW**);
 
 int main() {
 	int menuChoice;
@@ -36,20 +37,20 @@ int main() {
 	displayHeader();
 
 	do {
-		displayMenuMain();
+		menuMain();
 		cin >> menuChoice;
 
 		switch (menuChoice) {
 		case 1:
 			cout << "\n  Initializing option --";
 
-			initFraction(&fracLeft, &fracRight);
+			init(&fracLeft, &fracRight);
 
 			break;
 		case 2:
 			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
 				cout << "\n\n  ADDING option -";
-				displayMenuAdd(&fracLeft, &fracRight, &fracResult);
+				menuAdd(&fracLeft, &fracRight, &fracResult);
 			} else {
 				initBothError();
 			}
@@ -79,7 +80,7 @@ int main() {
 		case 6:
 			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
 				cout << "\n\n  PRINTING option -";
-				print(&fracLeft, &fracRight, &fracResult);
+				menuPrint(&fracLeft, &fracRight, &fracResult);
 			} else {
 				initBothError();
 			}			break;
@@ -114,7 +115,7 @@ void displayHeader() {
 		"\n  Due Date: 2015/11/06";
 }
 
-void displayMenuMain() {
+void menuMain() {
 	cout << "\n*********************"
 		"\n*        MENU       *"
 		"\n*                   *"
@@ -129,7 +130,7 @@ void displayMenuMain() {
 		"\nSelect an option (use integer value only): ";
 }
 
-void initFraction(FractionPeteW** fracLeft, FractionPeteW** fracRight) {
+void init(FractionPeteW** fracLeft, FractionPeteW** fracRight) {
 	int newNum;
 	int newDenom;
 	int choice;
@@ -188,7 +189,7 @@ void initFraction(FractionPeteW** fracLeft, FractionPeteW** fracRight) {
 			} else {
 				(*fracRight)->print();
 			}
-
+			break;
 		case 4:
 			cout << "\nReturning to main menu.";
 			break;
@@ -200,7 +201,7 @@ void initFraction(FractionPeteW** fracLeft, FractionPeteW** fracRight) {
 
 }
 
-void displayMenuAdd(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+void menuAdd(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	FractionPeteW** fracResult) {
 	int menuChoice;
 
@@ -287,7 +288,7 @@ void divide(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	}
 }
 
-void print(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+void menuPrint(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	FractionPeteW** fracResult) {
 	int menuChoice;
 
@@ -300,22 +301,51 @@ void print(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 			"\n*  3. ostream << - Stand Alone *"
 			"\n*  4. Return to Previous MENU  *"
 			"\n********************************"
-			"\nSelect an option *1, 2, 3, or 4): ";
+			"\nSelect an option (1, 2, 3, or 4): ";
 		cin >> menuChoice;
 
 		switch (menuChoice) {
 		case 1:
-			cout << "\n\n Calling member print()";
+			cout << "\n\n Calling member print()"
 				"\n  leftOp: ";
 			(*fracLeft)->print();
 			cout << "\n  rightOp: ";
 			(*fracRight)->print();
-			cout << "\n  result: ";
-			(*fracResult)->print();
+			if (*fracResult != nullptr) {
+				cout << "\n  result: ";
+				(*fracResult)->print();
+			}
 			break;
 		case 2:
+			cout << "\n\n Calling stand alone print()"
+				"\n  leftOp: ";
+			print(fracLeft);
+			cout << "\n  rightOp: ";
+			print(fracRight);
+			if (*fracResult != nullptr) {
+				cout << "\n  result: ";
+				print(fracResult);
+			}
+			break;
+		case 3:
+			cout << "\n\n Calling operator<<()"
+				"\n  leftOp: " << **fracLeft << "\n  rightOp: "
+				<< **fracRight;
+			if (*fracResult != nullptr) {
+				cout << "\n  result: " << **fracResult;
+			}
+			break;
+		case 4:
+			cout << "\n\n Returning to previous MENU";
+			break;
+		default:
+			cout << "\n\n WRONG OPTION!";
 
 		}
-	}
+	} while (menuChoice != 4);
 
+}
+
+void print(FractionPeteW** f) {
+	cout << (*f)->getNum() << "/" << (*f)->getDenom();
 }
