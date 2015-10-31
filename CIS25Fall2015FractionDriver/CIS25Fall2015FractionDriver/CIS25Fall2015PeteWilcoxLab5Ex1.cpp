@@ -58,7 +58,7 @@ int main() {
 		case 3:
 			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
 				cout << "\n\n  SUBTRACTING option -";
-				subtract(&fracLeft, &fracRight, &fracResult);
+				menuSubtract(&fracLeft, &fracRight, &fracResult);
 			} else {
 				initBothError();
 			}
@@ -66,24 +66,27 @@ int main() {
 		case 4:
 			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
 				cout << "\n\n  MULTIPLYING option -";
-				multiply(&fracLeft, &fracRight, &fracResult);
+				menuMultiply(&fracLeft, &fracRight, &fracResult);
 			} else {
 				initBothError();
-			}			break;
+			}			
+			break;
 		case 5:
 			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
 				cout << "\n\n  DIVIDING option -";
-				divide(&fracLeft, &fracRight, &fracResult);
+				menuDivide(&fracLeft, &fracRight, &fracResult);
 			} else {
 				initBothError();
-			}			break;
+			}
+			break;
 		case 6:
 			if ((fracLeft != nullptr) && (fracRight != nullptr)) {
 				cout << "\n\n  PRINTING option -";
 				menuPrint(&fracLeft, &fracRight, &fracResult);
 			} else {
 				initBothError();
-			}			break;
+			}
+			break;
 		case 7:
 			// quit
 			cout << "\n\nHaving fun ...!\n";
@@ -258,6 +261,53 @@ void add(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	}
 }
 
+void menuSubtract(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+	FractionPeteW** fracResult) {
+	int menuChoice;
+
+	do {
+		cout << "\n\n***********************************"
+			"\n*        SUBTRACTING MENU         *"
+			"\n*                                 *"
+			"\n*  1. subtract() - Member         *"
+			"\n*  2. subtract() - Stand Alone    *"
+			"\n*  3. operator-() - Member        *"
+			"\n*  4. Print                       *"
+			"\n*  5. Return to Previous MENU     *"
+			"\n***********************************"
+			"\n Select an option (1, 2, 3, 4, or 5): ";
+		cin >> menuChoice;
+
+		switch (menuChoice) {
+		case 1:
+			cout << "\n\n  Calling member subtract()";
+			if (*fracResult == nullptr) {
+				*fracResult = new FractionPeteW();
+			}
+
+			(*fracResult)->subtract(**fracLeft, **fracRight);
+			break;
+		case 2:
+			cout << "\n\n  Calling stand alone subtract()";
+			subtract(fracLeft, fracRight, fracResult);
+			break;
+		case 3:
+			cout << "\n\n  Calling operator-()";
+			**fracResult = **fracLeft - **fracRight;
+			break;
+		case 4:
+			cout << endl << **fracResult;
+			break;
+		case 5:
+			break;
+		default:
+			cout << "\n\n  WRONG OPTION";
+		}
+
+	} while (menuChoice != 5);
+
+}
+
 void subtract(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	FractionPeteW** fracResult) {
 	if (fracResult == nullptr) {
@@ -268,6 +318,53 @@ void subtract(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	}
 }
 
+void menuSubtract(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+	FractionPeteW** fracResult) {
+	int menuChoice;
+
+	do {
+		cout << "\n\n***********************************"
+			"\n*        MULTIPLYING MENU         *"
+			"\n*                                 *"
+			"\n*  1. multiply() - Member         *"
+			"\n*  2. multiply() - Stand Alone    *"
+			"\n*  3. operator*() - Member        *"
+			"\n*  4. Print                       *"
+			"\n*  5. Return to Previous MENU     *"
+			"\n***********************************"
+			"\n Select an option (1, 2, 3, 4, or 5): ";
+		cin >> menuChoice;
+
+		switch (menuChoice) {
+		case 1:
+			cout << "\n\n  Calling member multiply()";
+			if (*fracResult == nullptr) {
+				*fracResult = new FractionPeteW();
+			}
+
+			(*fracResult)->multiply(**fracLeft, **fracRight);
+			break;
+		case 2:
+			cout << "\n\n  Calling stand alone multiply()";
+			multiply(fracLeft, fracRight, fracResult);
+			break;
+		case 3:
+			cout << "\n\n  Calling operator*()";
+			**fracResult = **fracLeft * **fracRight;
+			break;
+		case 4:
+			cout << endl << **fracResult;
+			break;
+		case 5:
+			break;
+		default:
+			cout << "\n\n  WRONG OPTION";
+		}
+
+	} while (menuChoice != 5);
+
+}
+
 void multiply(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	FractionPeteW** fracResult) {
 	if (fracResult == nullptr) {
@@ -276,6 +373,53 @@ void multiply(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 		(*fracResult)->setNum((*fracLeft)->getNum() * (*fracRight)->getNum());
 		(*fracResult)->setDenom((*fracLeft)->getDenom() * (*fracRight)->getDenom());
 	}
+}
+
+void menuSubtract(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+	FractionPeteW** fracResult) {
+	int menuChoice;
+
+	do {
+		cout << "\n\n********************************"
+			"\n*        DIVIDING MENU         *"
+			"\n*                              *"
+			"\n*  1. divide() - Member        *"
+			"\n*  2. divide() - Stand Alone   *"
+			"\n*  3. operator/() - Member     *"
+			"\n*  4. Print                    *"
+			"\n*  5. Return to Previous MENU  *"
+			"\n********************************"
+			"\n Select an option (1, 2, 3, 4, or 5): ";
+		cin >> menuChoice;
+
+		switch (menuChoice) {
+		case 1:
+			cout << "\n\n  Calling member divide()";
+			if (*fracResult == nullptr) {
+				*fracResult = new FractionPeteW();
+			}
+
+			(*fracResult)->divide(**fracLeft, **fracRight);
+			break;
+		case 2:
+			cout << "\n\n  Calling stand alone divide()";
+			divide(fracLeft, fracRight, fracResult);
+			break;
+		case 3:
+			cout << "\n\n  Calling operator/()";
+			**fracResult = **fracLeft / **fracRight;
+			break;
+		case 4:
+			cout << endl << **fracResult;
+			break;
+		case 5:
+			break;
+		default:
+			cout << "\n\n  WRONG OPTION";
+		}
+
+	} while (menuChoice != 5);
+
 }
 
 void divide(FractionPeteW** fracLeft, FractionPeteW** fracRight,

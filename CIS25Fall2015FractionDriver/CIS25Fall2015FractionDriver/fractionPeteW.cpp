@@ -85,7 +85,8 @@ void FractionPeteW::reduce() {
 }
 
 void FractionPeteW::add(FractionPeteW& left, FractionPeteW& right) {
-	(*this) = left + right;
+	num = left.num * right.denom + left.denom * right.num;
+	denom = left.denom * right.denom;
 	reduce();
 }
 
@@ -112,7 +113,8 @@ void FractionPeteW::add(const FractionPeteW& arg) {
 }
 
 void FractionPeteW::subtract(FractionPeteW& left, FractionPeteW& right) {
-	(*this) = left - right;
+	num = left.num * right.denom - left.denom * right.num;
+	denom = left.denom * right.denom;
 	reduce();
 }
 
@@ -139,7 +141,8 @@ void FractionPeteW::subtract(const FractionPeteW& arg) {
 }
 
 void FractionPeteW::multiply(FractionPeteW& left, FractionPeteW& right) {
-	(*this) = left * right;
+	num = left.num * right.num;
+	denom = left.denom * right.denom;
 	reduce();
 }
 
@@ -150,7 +153,8 @@ void FractionPeteW::multiply(const FractionPeteW& arg) {
 }
 
 void FractionPeteW::divide(FractionPeteW& left, FractionPeteW& right) {
-	(*this) = left / right;
+	num = left.num * right.denom;
+	denom = left.denom * right.num;
 	reduce();
 }
 
