@@ -60,6 +60,17 @@ void FractionPeteW::setDenom(int input) {
 	reduce();
 }
 
+void FractionPeteW::setBoth(int inputNum, int inputDenom) {
+	if (inputDenom < 0) {
+		denom = -inputDenom;
+		num = -inputNum;
+	} else {
+		num = inputNum;
+		denom = inputDenom;
+	}
+	reduce();
+}
+
 void FractionPeteW::print() {
 	cout << num << "/" << denom;
 }

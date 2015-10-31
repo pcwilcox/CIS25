@@ -29,6 +29,8 @@ class FractionPeteW {
 	int getDenom(void) const; // Return denominator
 	void setDenom(int);
 
+	void setBoth(int, int); // Set both num and denom
+
 	void print(void); // Display fraction
 
 	void add(FractionPeteW&, FractionPeteW&);

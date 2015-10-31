@@ -253,11 +253,10 @@ void menuAdd(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 
 void add(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	FractionPeteW** fracResult) {
-	if (fracResult == nullptr) {
+	if (*fracResult == nullptr) {
 		(*fracResult) = new FractionPeteW((*fracLeft)->getNum() * (*fracRight)->getDenom() + (*fracRight)->getNum() * (*fracLeft)->getDenom(), (*fracLeft)->getDenom() * (*fracRight)->getDenom());
 	} else {
-		(*fracResult)->setNum((*fracLeft)->getNum() * (*fracRight)->getDenom() + (*fracRight)->getNum() * (*fracLeft)->getDenom());
-		(*fracResult)->setDenom((*fracLeft)->getDenom() * (*fracRight)->getDenom());
+		(*fracResult)->setBoth((*fracLeft)->getNum() * (*fracRight)->getDenom() + (*fracRight)->getNum() * (*fracLeft)->getDenom(),(*fracLeft)->getDenom() * (*fracRight)->getDenom());
 	}
 }
 
@@ -313,12 +312,11 @@ void subtract(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	if (fracResult == nullptr) {
 		(*fracResult) = new FractionPeteW((*fracLeft)->getNum() * (*fracRight)->getDenom() - (*fracRight)->getNum() * (*fracLeft)->getDenom(), (*fracLeft)->getDenom() * (*fracRight)->getDenom());
 	} else {
-		(*fracResult)->setNum((*fracLeft)->getNum() * (*fracRight)->getDenom() - (*fracRight)->getNum() * (*fracLeft)->getDenom());
-		(*fracResult)->setDenom((*fracLeft)->getDenom() * (*fracRight)->getDenom());
+		(*fracResult)->setBoth((*fracLeft)->getNum() * (*fracRight)->getDenom() - (*fracRight)->getNum() * (*fracLeft)->getDenom(), (*fracLeft)->getDenom() * (*fracRight)->getDenom());
 	}
 }
 
-void menuSubtract(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+void menuMultiply(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	FractionPeteW** fracResult) {
 	int menuChoice;
 
@@ -370,12 +368,11 @@ void multiply(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	if (fracResult == nullptr) {
 		(*fracResult) = new FractionPeteW((*fracLeft)->getNum() * (*fracRight)->getNum(), (*fracLeft)->getDenom() * (*fracRight)->getDenom());
 	} else {
-		(*fracResult)->setNum((*fracLeft)->getNum() * (*fracRight)->getNum());
-		(*fracResult)->setDenom((*fracLeft)->getDenom() * (*fracRight)->getDenom());
+		(*fracResult)->setBoth((*fracLeft)->getNum() * (*fracRight)->getNum(), (*fracLeft)->getDenom() * (*fracRight)->getDenom());
 	}
 }
 
-void menuSubtract(FractionPeteW** fracLeft, FractionPeteW** fracRight,
+void menuDivide(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	FractionPeteW** fracResult) {
 	int menuChoice;
 
@@ -427,8 +424,7 @@ void divide(FractionPeteW** fracLeft, FractionPeteW** fracRight,
 	if (fracResult == nullptr) {
 		(*fracResult) = new FractionPeteW((*fracLeft)->getNum() * (*fracRight)->getDenom(), (*fracLeft)->getDenom() * (*fracRight)->getNum());
 	} else {
-		(*fracResult)->setNum((*fracLeft)->getNum() * (*fracRight)->getDenom());
-		(*fracResult)->setDenom((*fracLeft)->getDenom() * (*fracRight)->getNum());
+		(*fracResult)->setBoth((*fracLeft)->getNum() * (*fracRight)->getDenom(), (*fracLeft)->getDenom() * (*fracRight)->getNum());
 	}
 }
 
