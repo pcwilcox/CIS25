@@ -127,7 +127,7 @@ void initBothError() {
 }
 
 void displayHeader() {
-	cout << "CIS 25 – C++ Programming\nLaney College"
+	cout << "CIS 25 - C++ Programming\nLaney College"
 		"\nPete Wilcox"
 		"\n\nAssignment Information --"
 		"\n  Assignment Number: Lab 5,"
@@ -553,11 +553,1407 @@ void print(FractionPeteW** f) {
 
 /* PROGRAM OUTPUT:
 
+CIS 25 - C++ Programming
+Laney College
+Pete Wilcox
 
+Assignment Information --
+  Assignment Number: Lab 5,
+                     Exercise #1
+  Written by: Pete Wilcox
+  Due Date: 2015/11/06
+
+
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 8
+
+Invalid option.
+
+
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 2
+
+
+  Please initialize both fractions first.
+
+
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 1
+
+  Initializing option --
+
+********************************
+*           INIT MENU          *
+*                              *
+*  1. Initialize Fraction 1.   *
+*  2. Initialize Fraction 2.   *
+*  3. Print fractions.         *
+*  4. Return to Previous MENU  *
+********************************
+
+Please enter your choice (1, 2, 3, or 4): 1
+
+Please enter the numerator: 1
+
+Please enter the denominator: 2
+
+Calling Fraction()
+
+********************************
+*           INIT MENU          *
+*                              *
+*  1. Initialize Fraction 1.   *
+*  2. Initialize Fraction 2.   *
+*  3. Print fractions.         *
+*  4. Return to Previous MENU  *
+********************************
+
+Please enter your choice (1, 2, 3, or 4): 2
+
+Please enter the numerator: 3
+
+Please enter the denominator: 4
+
+Calling Fraction()
+
+********************************
+*           INIT MENU          *
+*                              *
+*  1. Initialize Fraction 1.   *
+*  2. Initialize Fraction 2.   *
+*  3. Print fractions.         *
+*  4. Return to Previous MENU  *
+********************************
+
+Please enter your choice (1, 2, 3, or 4): 3
+
+
+Current fractions:
+  Fraction 1: 1/2
+  Fraction 2: 3/4
+
+********************************
+*           INIT MENU          *
+*                              *
+*  1. Initialize Fraction 1.   *
+*  2. Initialize Fraction 2.   *
+*  3. Print fractions.         *
+*  4. Return to Previous MENU  *
+********************************
+
+Please enter your choice (1, 2, 3, or 4): 4
+
+Returning to main menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 2
+
+
+ADDING option -
+
+********************************
+*          ADDING MENU         *
+*                              *
+*  1. add() - Member           *
+*  2. add() - Stand Alone      *
+*  3. operator+() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3,  or 4): 1
+
+
+Calling member add()
+Calling Fraction()
+1/2 + 3/4 = 5/4
+
+********************************
+*          ADDING MENU         *
+*                              *
+*  1. add() - Member           *
+*  2. add() - Stand Alone      *
+*  3. operator+() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3,  or 4): 2
+
+
+Calling stand alone add()
+1/2 + 3/4 = 5/4
+
+********************************
+*          ADDING MENU         *
+*                              *
+*  1. add() - Member           *
+*  2. add() - Stand Alone      *
+*  3. operator+() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3,  or 4): 3
+
+
+Calling operator+()
+Calling Fraction()
+Calling ~Fraction()
+
+1/2 + 3/4 = 5/4
+
+********************************
+*          ADDING MENU         *
+*                              *
+*  1. add() - Member           *
+*  2. add() - Stand Alone      *
+*  3. operator+() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3,  or 4): 4
+
+
+Returning to previous menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 3
+
+
+  SUBTRACTING option -
+
+*********************************
+*        SUBTRACTING MENU       *
+*                               *
+*  1. subtract() - Member       *
+*  2. subtract() - Stand Alone  *
+*  3. operator-() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, or 4): 1
+
+
+  Calling member subtract()
+1/2 - 3/4 = -1/4
+
+*********************************
+*        SUBTRACTING MENU       *
+*                               *
+*  1. subtract() - Member       *
+*  2. subtract() - Stand Alone  *
+*  3. operator-() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, or 4): 2
+
+
+  Calling stand alone subtract()
+1/2 - 3/4 = -1/4
+
+*********************************
+*        SUBTRACTING MENU       *
+*                               *
+*  1. subtract() - Member       *
+*  2. subtract() - Stand Alone  *
+*  3. operator-() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, or 4): 3
+
+
+  Calling operator-()
+Calling Fraction()
+Calling ~Fraction()
+
+1/2 - 3/4 = -1/4
+
+*********************************
+*        SUBTRACTING MENU       *
+*                               *
+*  1. subtract() - Member       *
+*  2. subtract() - Stand Alone  *
+*  3. operator-() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, or 4): 4
+
+
+  Returning to main menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 4
+
+
+  MULTIPLYING option -
+
+*********************************
+*        MULTIPLYING MENU       *
+*                               *
+*  1. multiply() - Member       *
+*  2. multiply() - Stand Alone  *
+*  3. operator*() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, 4): 1
+
+
+  Calling member multiply()
+1/2 * 3/4 = 3/8
+
+*********************************
+*        MULTIPLYING MENU       *
+*                               *
+*  1. multiply() - Member       *
+*  2. multiply() - Stand Alone  *
+*  3. operator*() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, 4): 2
+
+
+  Calling stand alone multiply()
+1/2 * 3/4 = 3/8
+
+*********************************
+*        MULTIPLYING MENU       *
+*                               *
+*  1. multiply() - Member       *
+*  2. multiply() - Stand Alone  *
+*  3. operator*() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, 4): 3
+
+
+  Calling operator*()
+Calling Fraction()
+Calling ~Fraction()
+
+1/2 * 3/4 = 3/8
+
+*********************************
+*        MULTIPLYING MENU       *
+*                               *
+*  1. multiply() - Member       *
+*  2. multiply() - Stand Alone  *
+*  3. operator*() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, 4): 4
+
+
+  Returning to previous menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 5
+
+
+  DIVIDING option -
+
+********************************
+*        DIVIDING MENU         *
+*                              *
+*  1. divide() - Member        *
+*  2. divide() - Stand Alone   *
+*  3. operator/() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3, or 4): 1
+
+
+  Calling member divide()
+1/2 / 3/4 = 2/3
+
+********************************
+*        DIVIDING MENU         *
+*                              *
+*  1. divide() - Member        *
+*  2. divide() - Stand Alone   *
+*  3. operator/() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3, or 4): 2
+
+
+  Calling stand alone divide()
+1/2 / 3/4 = 2/3
+
+********************************
+*        DIVIDING MENU         *
+*                              *
+*  1. divide() - Member        *
+*  2. divide() - Stand Alone   *
+*  3. operator/() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3, or 4): 3
+
+
+  Calling operator/()
+Calling Fraction()
+Calling ~Fraction()
+
+1/2 / 3/4 = 2/3
+
+********************************
+*        DIVIDING MENU         *
+*                              *
+*  1. divide() - Member        *
+*  2. divide() - Stand Alone   *
+*  3. operator/() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3, or 4): 4
+
+
+  Returning to previous menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only):6
+
+
+  PRINTING option -
+
+********************************
+*         PRINTING MENU        *
+*  (leftOp, rightOp, Result)   *
+*  1. print() - Member         *
+*  2. print() - Stand Alone    *
+*  3. ostream << - Stand Alone *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3, or 4): 1
+
+
+ Calling member print()
+  leftOp: 1/2
+  rightOp: 3/4
+  Result: 2/3
+
+********************************
+*         PRINTING MENU        *
+*  (leftOp, rightOp, Result)   *
+*  1. print() - Member         *
+*  2. print() - Stand Alone    *
+*  3. ostream << - Stand Alone *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3, or 4): 2
+
+
+ Calling stand alone print()
+  leftOp: 1/2
+  rightOp: 3/4
+  Result: 2/3
+
+********************************
+*         PRINTING MENU        *
+*  (leftOp, rightOp, Result)   *
+*  1. print() - Member         *
+*  2. print() - Stand Alone    *
+*  3. ostream << - Stand Alone *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3, or 4): 3
+
+
+ Calling operator<<()
+  leftOp: 1/2
+  rightOp: 3/4
+  Result: 2/3
+
+********************************
+*         PRINTING MENU        *
+*  (leftOp, rightOp, Result)   *
+*  1. print() - Member         *
+*  2. print() - Stand Alone    *
+*  3. ostream << - Stand Alone *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3, or 4): 4
+
+
+ Returning to previous MENU
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 1
+
+  Initializing option --
+
+********************************
+*           INIT MENU          *
+*                              *
+*  1. Initialize Fraction 1.   *
+*  2. Initialize Fraction 2.   *
+*  3. Print fractions.         *
+*  4. Return to Previous MENU  *
+********************************
+
+Please enter your choice (1, 2, 3, or 4): 1
+
+Please enter the numerator: -5
+
+Please enter the denominator: 9
+
+
+********************************
+*           INIT MENU          *
+*                              *
+*  1. Initialize Fraction 1.   *
+*  2. Initialize Fraction 2.   *
+*  3. Print fractions.         *
+*  4. Return to Previous MENU  *
+********************************
+
+Please enter your choice (1, 2, 3, or 4): 2
+
+Please enter the numerator: 7
+
+Please enter the denominator: 11
+
+
+********************************
+*           INIT MENU          *
+*                              *
+*  1. Initialize Fraction 1.   *
+*  2. Initialize Fraction 2.   *
+*  3. Print fractions.         *
+*  4. Return to Previous MENU  *
+********************************
+
+Please enter your choice (1, 2, 3, or 4): 3
+
+
+Current fractions:
+  Fraction 1: -5/9
+  Fraction 2: 7/11
+
+********************************
+*           INIT MENU          *
+*                              *
+*  1. Initialize Fraction 1.   *
+*  2. Initialize Fraction 2.   *
+*  3. Print fractions.         *
+*  4. Return to Previous MENU  *
+********************************
+
+Please enter your choice (1, 2, 3, or 4): 4
+
+Returning to main menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 2
+
+
+  ADDING option -
+
+********************************
+*          ADDING MENU         *
+*                              *
+*  1. add() - Member           *
+*  2. add() - Stand Alone      *
+*  3. operator+() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3,  or 4): 1
+
+
+  Calling member add()
+-5/9 + 7/11 = 8/99
+
+********************************
+*          ADDING MENU         *
+*                              *
+*  1. add() - Member           *
+*  2. add() - Stand Alone      *
+*  3. operator+() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3,  or 4): 2
+
+
+  Calling stand alone add()
+-5/9 + 7/11 = 8/99
+
+********************************
+*          ADDING MENU         *
+*                              *
+*  1. add() - Member           *
+*  2. add() - Stand Alone      *
+*  3. operator+() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3,  or 4): 3
+
+
+  Calling operator+()
+Calling Fraction()
+Calling ~Fraction()
+
+-5/9 + 7/11 = 8/99
+
+********************************
+*          ADDING MENU         *
+*                              *
+*  1. add() - Member           *
+*  2. add() - Stand Alone      *
+*  3. operator+() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3,  or 4): 4
+
+
+  Returning to previous menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 3
+
+
+  SUBTRACTING option -
+
+*********************************
+*        SUBTRACTING MENU       *
+*                               *
+*  1. subtract() - Member       *
+*  2. subtract() - Stand Alone  *
+*  3. operator-() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, or 4): 1
+
+
+  Calling member subtract()
+-5/9 - 7/11 = -118/99
+
+*********************************
+*        SUBTRACTING MENU       *
+*                               *
+*  1. subtract() - Member       *
+*  2. subtract() - Stand Alone  *
+*  3. operator-() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, or 4): 2
+
+
+  Calling stand alone subtract()
+-5/9 - 7/11 = -118/99
+
+*********************************
+*        SUBTRACTING MENU       *
+*                               *
+*  1. subtract() - Member       *
+*  2. subtract() - Stand Alone  *
+*  3. operator-() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, or 4): 3
+
+
+  Calling operator-()
+Calling Fraction()
+Calling ~Fraction()
+
+-5/9 - 7/11 = -118/99
+
+*********************************
+*        SUBTRACTING MENU       *
+*                               *
+*  1. subtract() - Member       *
+*  2. subtract() - Stand Alone  *
+*  3. operator-() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, or 4): 4
+
+
+  Returning to main menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 4
+
+
+  MULTIPLYING option -
+
+*********************************
+*        MULTIPLYING MENU       *
+*                               *
+*  1. multiply() - Member       *
+*  2. multiply() - Stand Alone  *
+*  3. operator*() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, 4): 1
+
+
+  Calling member multiply()
+-5/9 * 7/11 = -35/99
+
+*********************************
+*        MULTIPLYING MENU       *
+*                               *
+*  1. multiply() - Member       *
+*  2. multiply() - Stand Alone  *
+*  3. operator*() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, 4): 2
+
+
+  Calling stand alone multiply()
+-5/9 * 7/11 = -35/99
+
+*********************************
+*        MULTIPLYING MENU       *
+*                               *
+*  1. multiply() - Member       *
+*  2. multiply() - Stand Alone  *
+*  3. operator*() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, 4): 3
+
+
+  Calling operator*()
+Calling Fraction()
+Calling ~Fraction()
+
+-5/9 * 7/11 = -35/99
+
+*********************************
+*        MULTIPLYING MENU       *
+*                               *
+*  1. multiply() - Member       *
+*  2. multiply() - Stand Alone  *
+*  3. operator*() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, 4): 4
+
+
+  Returning to previous menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 5
+
+
+  DIVIDING option -
+
+********************************
+*        DIVIDING MENU         *
+*                              *
+*  1. divide() - Member        *
+*  2. divide() - Stand Alone   *
+*  3. operator/() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3, or 4): 1
+
+
+  Calling member divide()
+-5/9 / 7/11 = -55/63
+
+********************************
+*        DIVIDING MENU         *
+*                              *
+*  1. divide() - Member        *
+*  2. divide() - Stand Alone   *
+*  3. operator/() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3, or 4): 2
+
+
+  Calling stand alone divide()
+-5/9 / 7/11 = -55/63
+
+********************************
+*        DIVIDING MENU         *
+*                              *
+*  1. divide() - Member        *
+*  2. divide() - Stand Alone   *
+*  3. operator/() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3, or 4): 3
+
+
+  Calling operator/()
+Calling Fraction()
+Calling ~Fraction()
+
+-5/9 / 7/11 = -55/63
+
+********************************
+*        DIVIDING MENU         *
+*                              *
+*  1. divide() - Member        *
+*  2. divide() - Stand Alone   *
+*  3. operator/() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3, or 4): 4
+
+
+  Returning to previous menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 6
+
+
+  PRINTING option -
+
+********************************
+*         PRINTING MENU        *
+*  (leftOp, rightOp, Result)   *
+*  1. print() - Member         *
+*  2. print() - Stand Alone    *
+*  3. ostream << - Stand Alone *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3, or 4): 1
+
+
+ Calling member print()
+  leftOp: -5/9
+  rightOp: 7/11
+  Result: -55/63
+
+********************************
+*         PRINTING MENU        *
+*  (leftOp, rightOp, Result)   *
+*  1. print() - Member         *
+*  2. print() - Stand Alone    *
+*  3. ostream << - Stand Alone *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3, or 4): 2
+
+
+ Calling stand alone print()
+  leftOp: -5/9
+  rightOp: 7/11
+  Result: -55/63
+
+********************************
+*         PRINTING MENU        *
+*  (leftOp, rightOp, Result)   *
+*  1. print() - Member         *
+*  2. print() - Stand Alone    *
+*  3. ostream << - Stand Alone *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3, or 4): 3
+
+
+ Calling operator<<()
+  leftOp: -5/9
+  rightOp: 7/11
+  Result: -55/63
+
+********************************
+*         PRINTING MENU        *
+*  (leftOp, rightOp, Result)   *
+*  1. print() - Member         *
+*  2. print() - Stand Alone    *
+*  3. ostream << - Stand Alone *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3, or 4): 4
+
+
+ Returning to previous MENU
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 1
+
+  Initializing option --
+
+********************************
+*           INIT MENU          *
+*                              *
+*  1. Initialize Fraction 1.   *
+*  2. Initialize Fraction 2.   *
+*  3. Print fractions.         *
+*  4. Return to Previous MENU  *
+********************************
+
+Please enter your choice (1, 2, 3, or 4): 1
+
+Please enter the numerator: 8
+
+Please enter the denominator: 17
+
+
+********************************
+*           INIT MENU          *
+*                              *
+*  1. Initialize Fraction 1.   *
+*  2. Initialize Fraction 2.   *
+*  3. Print fractions.         *
+*  4. Return to Previous MENU  *
+********************************
+
+Please enter your choice (1, 2, 3, or 4): 2
+
+Please enter the numerator: 6
+
+Please enter the denominator: 23
+
+
+********************************
+*           INIT MENU          *
+*                              *
+*  1. Initialize Fraction 1.   *
+*  2. Initialize Fraction 2.   *
+*  3. Print fractions.         *
+*  4. Return to Previous MENU  *
+********************************
+
+Please enter your choice (1, 2, 3, or 4): 3
+
+
+Current fractions:
+  Fraction 1: 8/17
+  Fraction 2: 6/23
+
+********************************
+*           INIT MENU          *
+*                              *
+*  1. Initialize Fraction 1.   *
+*  2. Initialize Fraction 2.   *
+*  3. Print fractions.         *
+*  4. Return to Previous MENU  *
+********************************
+
+Please enter your choice (1, 2, 3, or 4): 4
+
+Returning to main menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 2
+
+
+  ADDING option -
+
+********************************
+*          ADDING MENU         *
+*                              *
+*  1. add() - Member           *
+*  2. add() - Stand Alone      *
+*  3. operator+() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3,  or 4): 1
+
+
+  Calling member add()
+8/17 + 6/23 = 286/391
+
+********************************
+*          ADDING MENU         *
+*                              *
+*  1. add() - Member           *
+*  2. add() - Stand Alone      *
+*  3. operator+() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3,  or 4): 2
+
+
+  Calling stand alone add()
+8/17 + 6/23 = 286/391
+
+********************************
+*          ADDING MENU         *
+*                              *
+*  1. add() - Member           *
+*  2. add() - Stand Alone      *
+*  3. operator+() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3,  or 4): 3
+
+
+  Calling operator+()
+Calling Fraction()
+Calling ~Fraction()
+
+8/17 + 6/23 = 286/391
+
+********************************
+*          ADDING MENU         *
+*                              *
+*  1. add() - Member           *
+*  2. add() - Stand Alone      *
+*  3. operator+() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3,  or 4): 4
+
+
+  Returning to previous menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 3
+
+
+  SUBTRACTING option -
+
+*********************************
+*        SUBTRACTING MENU       *
+*                               *
+*  1. subtract() - Member       *
+*  2. subtract() - Stand Alone  *
+*  3. operator-() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, or 4): 1
+
+
+  Calling member subtract()
+8/17 - 6/23 = 82/391
+
+*********************************
+*        SUBTRACTING MENU       *
+*                               *
+*  1. subtract() - Member       *
+*  2. subtract() - Stand Alone  *
+*  3. operator-() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, or 4): 2
+
+
+  Calling stand alone subtract()
+8/17 - 6/23 = 82/391
+
+*********************************
+*        SUBTRACTING MENU       *
+*                               *
+*  1. subtract() - Member       *
+*  2. subtract() - Stand Alone  *
+*  3. operator-() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, or 4): 3
+
+
+  Calling operator-()
+Calling Fraction()
+Calling ~Fraction()
+
+8/17 - 6/23 = 82/391
+
+*********************************
+*        SUBTRACTING MENU       *
+*                               *
+*  1. subtract() - Member       *
+*  2. subtract() - Stand Alone  *
+*  3. operator-() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, or 4): 4
+
+
+  Returning to main menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 4
+
+
+  MULTIPLYING option -
+
+*********************************
+*        MULTIPLYING MENU       *
+*                               *
+*  1. multiply() - Member       *
+*  2. multiply() - Stand Alone  *
+*  3. operator*() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, 4): 1
+
+
+  Calling member multiply()
+8/17 * 6/23 = 48/391
+
+*********************************
+*        MULTIPLYING MENU       *
+*                               *
+*  1. multiply() - Member       *
+*  2. multiply() - Stand Alone  *
+*  3. operator*() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, 4): 2
+
+
+  Calling stand alone multiply()
+8/17 * 6/23 = 48/391
+
+*********************************
+*        MULTIPLYING MENU       *
+*                               *
+*  1. multiply() - Member       *
+*  2. multiply() - Stand Alone  *
+*  3. operator*() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, 4): 3
+
+
+  Calling operator*()
+Calling Fraction()
+Calling ~Fraction()
+
+8/17 * 6/23 = 48/391
+
+*********************************
+*        MULTIPLYING MENU       *
+*                               *
+*  1. multiply() - Member       *
+*  2. multiply() - Stand Alone  *
+*  3. operator*() - Member      *
+*  4. Return to Previous MENU   *
+*********************************
+ Select an option (1, 2, 3, 4): 4
+
+
+  Returning to previous menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 5
+
+
+  DIVIDING option -
+
+********************************
+*        DIVIDING MENU         *
+*                              *
+*  1. divide() - Member        *
+*  2. divide() - Stand Alone   *
+*  3. operator/() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3, or 4): 1
+
+
+  Calling member divide()
+8/17 / 6/23 = 92/51
+
+********************************
+*        DIVIDING MENU         *
+*                              *
+*  1. divide() - Member        *
+*  2. divide() - Stand Alone   *
+*  3. operator/() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3, or 4): 2
+
+
+  Calling stand alone divide()
+8/17 / 6/23 = 92/51
+
+********************************
+*        DIVIDING MENU         *
+*                              *
+*  1. divide() - Member        *
+*  2. divide() - Stand Alone   *
+*  3. operator/() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3, or 4): 3
+
+
+  Calling operator/()
+Calling Fraction()
+Calling ~Fraction()
+
+8/17 / 6/23 = 92/51
+
+********************************
+*        DIVIDING MENU         *
+*                              *
+*  1. divide() - Member        *
+*  2. divide() - Stand Alone   *
+*  3. operator/() - Member     *
+*  4. Return to Previous MENU  *
+********************************
+ Select an option (1, 2, 3, or 4): 4
+
+
+  Returning to previous menu.
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 6
+
+
+  PRINTING option -
+
+********************************
+*         PRINTING MENU        *
+*  (leftOp, rightOp, Result)   *
+*  1. print() - Member         *
+*  2. print() - Stand Alone    *
+*  3. ostream << - Stand Alone *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3, or 4): 1
+
+
+ Calling member print()
+  leftOp: 8/17
+  rightOp: 6/23
+  Result: 92/51
+
+********************************
+*         PRINTING MENU        *
+*  (leftOp, rightOp, Result)   *
+*  1. print() - Member         *
+*  2. print() - Stand Alone    *
+*  3. ostream << - Stand Alone *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3, or 4): 2
+
+
+ Calling stand alone print()
+  leftOp: 8/17
+  rightOp: 6/23
+  Result: 92/51
+
+********************************
+*         PRINTING MENU        *
+*  (leftOp, rightOp, Result)   *
+*  1. print() - Member         *
+*  2. print() - Stand Alone    *
+*  3. ostream << - Stand Alone *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3, or 4): 3
+
+
+ Calling operator<<()
+  leftOp: 8/17
+  rightOp: 6/23
+  Result: 92/51
+
+********************************
+*         PRINTING MENU        *
+*  (leftOp, rightOp, Result)   *
+*  1. print() - Member         *
+*  2. print() - Stand Alone    *
+*  3. ostream << - Stand Alone *
+*  4. Return to Previous MENU  *
+********************************
+Select an option (1, 2, 3, or 4): 4
+
+
+ Returning to previous MENU
+*********************
+*        MENU       *
+*                   *
+*  1. Initializing  *
+*  2. Adding        *
+*  3. Subtracting   *
+*  4. Multiplying   *
+*  5. Dividing      *
+*  6. Printing      *
+*  7. Quit          *
+*********************
+Select an option (use integer value only): 7
+
+
+Having fun ...!
+
+Calling ~Fraction()
+
+Calling ~Fraction()
+
+Calling ~Fraction()
 */
 
 /* COMMENTS:
 
 2015/11/06:
-
+this class sucks
 */
