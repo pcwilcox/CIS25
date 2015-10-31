@@ -13,7 +13,7 @@ using namespace std;
 void displayHeader(void);
 void displayMenu(void);
 
-void createArrays(FractionPeteW**);
+void createArray(FractionPeteW**);
 
 int arrangeMultiArraysPeteWilcox(FractionPeteW**, int);
 
@@ -43,7 +43,7 @@ int main() {
 			for (i = 0; i < numArrays; i++) {
 				cout << "\nCreating array # " << (i + 1);
 
-				createArrays((fractionArray + i));
+				createArray((fractionArray + i));
 			}
 
 			cout << "\nConfirming before working through with swapping --\n\nThere is/are " << numArrays << " array(s).";
@@ -149,135 +149,43 @@ void displayMenu() {
 		"\nSelect an option (1 or 2): ";
 }
 
-
-/* reusing as much of this as we can
-
-void getInput() {
-
-
-
-	int** userArray;
-	int arraySize;
-	int numSwaps;
-	int i, j;
-
-	cout << "\n\nHow many arrays of int (treating these as "
-		"arrays of int? ";
-	cin >> arraySize;
-
-	userArray = new int*[arraySize];
-
-	for (i = 0; i < arraySize; i++) {
-		//*(userArray + i) = createArray();
-
-		cout << "\nFor array index #" << i << endl;
-		for (j = 0; j < (*(*(userArray + i)) + 1); j++) {
-			cout << "  Element index #" << j << " : " <<
-				*(*(userArray + i) + j) << endl;
-		}
-	}
-
-
-	cout << "\nConfirming before working through with "
-		"swapping --";
-	cout << "\n\nThere is/are " << arraySize <<
-		" array(s).";
-
-	for (i = 0; i < arraySize; i++) {
-		cout << "\n\nThe current array #" << (i + 1) << " has "
-			<< ((*(*(userArray + i))) + 1) <<
-			" element(s).\n..";
-
-		for (j = 0; j < ((*(*(userArray + i))) + 1); j++) {
-			cout << "Element index #" << j << " : " <<
-				*(*(userArray + i) + j) << "\n  ";
-		}
-
-	}
-
-	cout << "\nCalling arrangeMultipleArrayPeteWilcox() --\n";
-	numSwaps =
-		arrangeMultipleArrayPeteWilcox(userArray, arraySize);
-
-	cout << "\n\nDisplaying outside of "
-		"arrangeMultipleArrayYourName() -\n";
-
-	for (i = 0; i < arraySize; i++) {
-		cout << "\n\nThe updated array #" << (i + 1) << " has "
-			<< (*(*(userArray + i)) + 1) << " element(s).";
-
-		for (j = 0; j <= *(*(userArray + i)); j++) {
-			cout << "\n  Element index #" << j << " : " <<
-				*(*(userArray + i) + j);
-		}
-	}
-
-	if (numSwaps > 0) {
-		cout << "\n\nThere is/are " << numSwaps << " swap(s).";
-	}
-
-	for (i = 0; i < arraySize; i++) {
-		delete[] * (userArray + i);
-	}
-
-	delete[] userArray;
-
-	return;
-}
-
-*/
-
-/* this is gonna need to be refactored
-
-int arrangeMultipleArrayPeteWilcox(int** input, int size) {
-	// Arrange arrays
-
-	int maxSwaps = 0;
+int arrangeMultiArraysPeteWilcox(FractionPeteW** fracArray, int size) {
 	int numSwaps = 0;
-	int temp;
+	int maxSwaps = 0;
+	FractionPeteW temp;
 	bool swapped = false;
-	int i, k;
-	int j = 1;
+	int i, k, j = 1;
 
 	// Count the number of swaps to be made
-	for (i = 1; i <= **input; i++) {
-		if ((*(*input) + i) % 2 == 0) {
+	for (i = 1; i <= (*(fracArray) + i)->getNum(); i++) {
+		if ((*(fracArray)+i)->getNum() % 2 == 0) {
 			maxSwaps++;
 		}
 	}
 
 	if (maxSwaps > 0) {
-		cout << "\n  Displaying inside "
-			"arrangeMultipleArrayPeteWilcox()-";
+		cout << "\n  Displaying inside arrangeMultiArraysPeteWilcox()-";
 
-
-		for (i = 1; i <= **input; i++) {
-			swapped = false;
-			// For each value in Array #1
-
-			if (*((*input) + i) % 2 == 0) {
+		for (i = 1; i <= (*fracArray)->getNum(); i++) {
+			// For each value in array #1
+			if (((*fracArray) + i)->getNum() % 2 == 0) {
 				// If it's even
 
 				while ((j < size) && (!swapped)) {
 					// Iterate through each other array
+
 					k = 1;
-					while ((k <= *(*(input + j))) &&
-						(!swapped)) {
+					while ((k <= ((*fracArray + j))->getNum()) && (!swapped)) {
 
-						if (*(*(input + j) + k) % 2 != 0) {
-							// Until an odd value is found
+						if (((*fracArray + j) + k)->getNum() % 2 != 0) {
+							// When an odd value is found
 
-							cout << "\n    Array #1 value " <<
-								*((*input) + i) <<
-								" is swapped with Array #"
-								<< (j + 1) << " value " <<
-								*(*(input + j) + k);
+							cout << "\n    Array #1 value " << ((*fracArray) + i) << "is swapped with Array #" << (j + 1) << " value " << (*(*(fracArray + j) + k));
 
-							// And swap it
-							temp = *((*input) + i);
-							*((*input) + i) =
-								*(*(input + j) + k);
-							*(*(input + j) + k) = temp;
+							// Swap it
+							temp = *(*(fracArray + j) + k);
+							*(*(fracArray + j) + k) = *(*(fracArray + i));
+							*(*(fracArray + i)) = temp;
 
 							numSwaps++;
 							swapped = true;
@@ -285,17 +193,14 @@ int arrangeMultipleArrayPeteWilcox(int** input, int size) {
 						k++;
 					}
 					// If we've looked through every value
-					if (k > *(*(input + j))) {
+					if (k > ((*fracArray) + j)->getNum()) {
 						// Move to the next array
 						j++;
 					}
 				}
-
 			}
-
-
 		}
 	}
+
 	return numSwaps;
 }
-*/
