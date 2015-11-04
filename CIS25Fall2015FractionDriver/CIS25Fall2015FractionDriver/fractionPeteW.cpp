@@ -1,10 +1,10 @@
 /**
-  * Program Name: fractionPeteW.cpp
-  * Discussion:   Declaration File --
-  *                 FractionPeteW class
-  * Written by:   Pete Wilcox
-  * Date:         2015/11/06
-  */
+* Program Name: fractionPeteW.cpp
+* Discussion:   Declaration File --
+*                 FractionPeteW class
+* Written by:   Pete Wilcox
+* Date:         2015/11/06
+*/
 
 #include "fractionPeteW.h"
 #include <iostream>
@@ -84,7 +84,7 @@ void FractionPeteW::print() {
 }
 
 // Member math functions
-void FractionPeteW::add(FractionPeteW& left, FractionPeteW& right) {
+void FractionPeteW::add(const FractionPeteW& left, const FractionPeteW& right) {
 	num = left.num * right.denom + left.denom * right.num;
 	denom = left.denom * right.denom;
 	reduce();
@@ -112,7 +112,7 @@ void FractionPeteW::add(const FractionPeteW& arg) {
 	reduce();
 }
 
-void FractionPeteW::subtract(FractionPeteW& left, FractionPeteW& right) {
+void FractionPeteW::subtract(const FractionPeteW& left, const FractionPeteW& right) {
 	num = left.num * right.denom - left.denom * right.num;
 	denom = left.denom * right.denom;
 	reduce();
@@ -140,7 +140,7 @@ void FractionPeteW::subtract(const FractionPeteW& arg) {
 	reduce();
 }
 
-void FractionPeteW::multiply(FractionPeteW& left, FractionPeteW& right) {
+void FractionPeteW::multiply(const FractionPeteW& left, const FractionPeteW& right) {
 	num = left.num * right.num;
 	denom = left.denom * right.denom;
 	reduce();
@@ -152,7 +152,7 @@ void FractionPeteW::multiply(const FractionPeteW& arg) {
 	reduce();
 }
 
-void FractionPeteW::divide(FractionPeteW& left, FractionPeteW& right) {
+void FractionPeteW::divide(const FractionPeteW& left, const FractionPeteW& right) {
 	num = left.num * right.denom;
 	denom = left.denom * right.num;
 	reduce();
@@ -171,19 +171,19 @@ FractionPeteW& FractionPeteW::operator=(const FractionPeteW& arg) {
 	return *this;
 }
 
-FractionPeteW FractionPeteW::operator+(FractionPeteW& arg) {
+FractionPeteW FractionPeteW::operator+(const FractionPeteW& arg) {
 	return FractionPeteW((*this).num * arg.denom + ((*this).denom * arg.num), (*this).denom * arg.denom);
 }
 
-FractionPeteW FractionPeteW::operator-(FractionPeteW& arg) {
+FractionPeteW FractionPeteW::operator-(const FractionPeteW& arg) {
 	return FractionPeteW((*this).num * arg.denom - ((*this).denom * arg.num), (*this).denom * arg.denom);
 }
 
-FractionPeteW FractionPeteW::operator*(FractionPeteW& arg) {
+FractionPeteW FractionPeteW::operator*(const FractionPeteW& arg) {
 	return FractionPeteW((*this).num * arg.num, (*this).denom * arg.denom);
 }
 
-FractionPeteW FractionPeteW::operator/(FractionPeteW& arg) {
+FractionPeteW FractionPeteW::operator/(const FractionPeteW& arg) {
 	return FractionPeteW((*this).num * arg.denom, (*this).denom * arg.num);
 }
 
@@ -214,4 +214,33 @@ void FractionPeteW::reduce() {
 		num = -num;
 		denom = -denom;
 	}
+}
+
+ostream& operator<<(ostream& os, const FractionPeteW& f) {
+	os << f.getNum() << "/" << f.getDenom();
+	return os;
+}
+
+FractionPeteW operator+(const int& left, const FractionPeteW& right) {
+	return FractionPeteW(left * right.denom + right.num, right.denom);
+}
+
+FractionPeteW operator-(const FractionPeteW& left, const int& right) {
+	return FractionPeteW(left.denom * right + left.num, left.denom);
+}
+
+FractionPeteW operator*(const int& left, const FractionPeteW& right) {
+	return FractionPeteW(left * right.num, right.denom);
+}
+
+FractionPeteW operator*(const FractionPeteW& left, const int& right) {
+	return FractionPeteW(left.num * right, left.denom);
+}
+
+FractionPeteW operator/(const int& left, const FractionPeteW& right) {
+	return FractionPeteW(left * right.denom, right.num);
+}
+
+FractionPeteW operator/(const FractionPeteW& left, const int& right) {
+	return FractionPeteW(left.denom * right, left.num);
 }
