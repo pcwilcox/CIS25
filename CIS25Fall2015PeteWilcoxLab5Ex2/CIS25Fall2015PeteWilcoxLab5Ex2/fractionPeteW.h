@@ -13,6 +13,8 @@
 
 #include <iostream>
 
+using namespace std;
+
 class FractionPeteW {
 
 	public:
@@ -63,34 +65,13 @@ class FractionPeteW {
 	FractionPeteW operator/(const FractionPeteW&);
 
 	// Friend overloads
-	friend ostream& operator<<(ostream& os, const FractionPeteW& f) {
-		os << f.getNum() << "/" << f.getDenom();
-		return os;
-	}
-
-	friend FractionPeteW operator+(const int& left, const FractionPeteW& right) {
-		return FractionPeteW(left * right.denom + right.num, right.denom);
-	}
-
-	friend FractionPeteW operator-(const FractionPeteW& left, const int& right) {
-		return FractionPeteW(left.denom * right + left.num, left.denom);
-	}
-
-	friend FractionPeteW operator*(const int& left, const FractionPeteW& right) {
-		return FractionPeteW(left * right.num, right.denom);
-	}
-
-	friend FractionPeteW operator*(const FractionPeteW& left, const int& right) {
-		return FractionPeteW(left.num * right, left.denom);
-	}
-
-	friend FractionPeteW operator/(const int& left, const FractionPeteW& right) {
-		return FractionPeteW(left * right.denom, right.num);
-	}
-
-	friend FractionPeteW operator/(const FractionPeteW& left, const int& right) {
-		return FractionPeteW(left.denom * right, left.num);
-	}
+	friend ostream& operator<<(ostream& os, const FractionPeteW& f);
+	friend FractionPeteW operator+(const int&, const FractionPeteW&);
+	friend FractionPeteW operator-(const FractionPeteW&, const int&);
+	friend FractionPeteW operator*(const int&, const FractionPeteW&);
+	friend FractionPeteW operator*(const FractionPeteW&, const int&);
+	friend FractionPeteW operator/(const int&, const FractionPeteW&);
+	friend FractionPeteW operator/(const FractionPeteW&, const int&);
 
 	private:
 	int num;

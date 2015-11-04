@@ -136,18 +136,18 @@ int arrangeMultiArraysPeteWilcox(FractionPeteW** fracArray, int size) {
 	int numSwaps = 0;
 	FractionPeteW temp;
 	bool swapped = false;
-	int i, k, j = 1;
+	int i, k, j;
 
 	cout << "\n  Displaying inside arrangeMultiArraysPeteWilcox()-";
 
-	for (i = 1; i < (*fracArray + 0)->getNum(); i++) {
+	for (i = 1; i < (*(fracArray + 0) + 0)->getNum(); i++) {
 		// For each value in array #1
-		cout << "\n" << (*(fracArray + 0) + i);
+	//	cout << "\n" << (*(fracArray + 0) + i);
 
 		if ((*(fracArray + 0) + i)->getNum() % 2 == 0) {
 			// If it's even
-
-			cout << " even";
+			j = 1;
+//			cout << " even";
 			while ((j < size) && (!swapped)) {
 				// Iterate through each other array
 
@@ -155,12 +155,12 @@ int arrangeMultiArraysPeteWilcox(FractionPeteW** fracArray, int size) {
 				while ((k < (*(fracArray + j) + 0)->getNum())
 					&& (!swapped)) {
 
-					cout << "\n  " << *(*(fracArray + j) + k);
+					//cout << "\n  " << *(*(fracArray + j) + k);
 
 					if ((*(fracArray + j) + k)->getNum() % 2 != 0) {
 						// When an odd value is found
-						cout << "\n odd";
-						cout << "\n    Array #1 value " << *(*(fracArray + 0) + i) << " is swapped with Array #" << (j + 1) << " value " <<	(*(fracArray + j) + k);
+						//cout << "\n odd";
+						cout << "\n    Array #1 value " << *(*(fracArray + 0) + i) << " is swapped with Array #" << (j + 1) << " value " << (*(*(fracArray + j) + k));
 
 						// Swap it
 						temp = *(*(fracArray + 0) + i);
@@ -178,6 +178,7 @@ int arrangeMultiArraysPeteWilcox(FractionPeteW** fracArray, int size) {
 					j++;
 				}
 			}
+			swapped = false;
 		}
 	}
 

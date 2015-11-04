@@ -215,3 +215,32 @@ void FractionPeteW::reduce() {
 		denom = -denom;
 	}
 }
+
+ostream& operator<<(ostream& os, const FractionPeteW& f) {
+	os << f.getNum() << "/" << f.getDenom();
+	return os;
+}
+
+FractionPeteW operator+(const int& left, const FractionPeteW& right) {
+	return FractionPeteW(left * right.denom + right.num, right.denom);
+}
+
+FractionPeteW operator-(const FractionPeteW& left, const int& right) {
+	return FractionPeteW(left.denom * right + left.num, left.denom);
+}
+
+FractionPeteW operator*(const int& left, const FractionPeteW& right) {
+	return FractionPeteW(left * right.num, right.denom);
+}
+
+FractionPeteW operator*(const FractionPeteW& left, const int& right) {
+	return FractionPeteW(left.num * right, left.denom);
+}
+
+FractionPeteW operator/(const int& left, const FractionPeteW& right) {
+	return FractionPeteW(left * right.denom, right.num);
+}
+
+FractionPeteW operator/(const FractionPeteW& left, const int& right) {
+	return FractionPeteW(left.denom * right, left.num);
+}
