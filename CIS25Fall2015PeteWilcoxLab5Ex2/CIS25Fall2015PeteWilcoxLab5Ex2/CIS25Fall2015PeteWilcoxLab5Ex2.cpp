@@ -50,23 +50,11 @@ int main() {
 				*(fractionArray + i) = new FractionPeteW[++newArraySize];
 				(*(fractionArray + i))->setNum(newArraySize);
 
-				//				cout << "\n\n  array index 0: " << *(*(fractionArray + i));
-
 				for (j = 1; j < newArraySize; j++) {
-					cout << "\n\n    Enter the numerator for element at index " << j << " : ";
+					cout << "\n    Enter the numerator for element at index " << j << " : ";
 					cin >> num;
-					//					do {
-					//						cout << "\n    Enter the denominator for element at index " << j << " : ";
-					//						cin >> denom;
-					//						if (denom == 0) {
-					//							cout << "\nDenominator cannot be 0.";
-					//						}
-					//					} while (denom == 0);
 
 					((*(fractionArray + i)) + j)->setNum(num);
-
-					//Testing
-					//cout << "\n last fraction: " << *((*(fractionArray + i)) + j);
 				}
 
 				cout << "\n\nFor array index #" << i;
@@ -148,7 +136,7 @@ void displayMenu() {
 int arrangeMultiArraysPeteWilcox(FractionPeteW** fracArray, int size) {
 	int numSwaps = 0;
 	int maxSwaps = 0;
-	FractionPeteW temp = FractionPeteW();
+	FractionPeteW temp;
 	bool swapped = false;
 	int i, k, j = 1;
 
@@ -167,7 +155,6 @@ int arrangeMultiArraysPeteWilcox(FractionPeteW** fracArray, int size) {
 			// For each value in array #1
 			if ((*(fracArray + 0) + i)->getNum() % 2 == 0) {
 				// If it's even
-				cout << "\nFraction " << *(*(fracArray + 0) + i) << " is even.";
 				while ((j < size) && (!swapped)) {
 					// Iterate through each other array
 
