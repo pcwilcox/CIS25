@@ -50,18 +50,18 @@ int main() {
 				*(fractionArray + i) = new FractionPeteW[++newArraySize];
 				(*(fractionArray + i))->setNum(newArraySize);
 
-//				cout << "\n\n  array index 0: " << *(*(fractionArray + i));
+				//				cout << "\n\n  array index 0: " << *(*(fractionArray + i));
 
 				for (j = 1; j < newArraySize; j++) {
 					cout << "\n\n    Enter the numerator for element at index " << j << " : ";
 					cin >> num;
-//					do {
-//						cout << "\n    Enter the denominator for element at index " << j << " : ";
-//						cin >> denom;
-//						if (denom == 0) {
-//							cout << "\nDenominator cannot be 0.";
-//						}
-//					} while (denom == 0);
+					//					do {
+					//						cout << "\n    Enter the denominator for element at index " << j << " : ";
+					//						cin >> denom;
+					//						if (denom == 0) {
+					//							cout << "\nDenominator cannot be 0.";
+					//						}
+					//					} while (denom == 0);
 
 					((*(fractionArray + i)) + j)->setNum(num);
 
@@ -76,128 +76,133 @@ int main() {
 				}
 
 			}
-				cout << "\n\nConfirming before working through with swapping --\n\nThere is/are " << numArrays << " array(s).";
+			cout << "\n\nConfirming before working through with swapping --\n\nThere is/are " << numArrays << " array(s).";
 
-				for (i = 0; i < numArrays; i++) {
-					cout << "\n\nThe current array #" << (i + 1) << " has " << (*(fractionArray + i))->getNum() << " element(s).\n..";
+			for (i = 0; i < numArrays; i++) {
+				cout << "\n\nThe current array #" << (i + 1) << " has " << (*(fractionArray + i))->getNum() << " element(s).\n..";
 
-					for (j = 0; j < (*(fractionArray + i))->getNum(); j++) {
-						cout << "Element index #" << j << " : " << *((*(fractionArray + i)) + j) << "\n  ";
-					}
-
+				for (j = 0; j < (*(fractionArray + i))->getNum(); j++) {
+					cout << "Element index #" << j << " : " << *((*(fractionArray + i)) + j) << "\n  ";
 				}
 
-				cout << "\nCalling arrangeMultiArraysPeteWilcox() --\n";
-				numSwaps =
-					arrangeMultiArraysPeteWilcox(fractionArray, numArrays);
+			}
 
-				cout << "\n\nDisplaying outside of arrangeMultiArraysPeteWilcox() -\n";
+			cout << "\nCalling arrangeMultiArraysPeteWilcox() --\n";
+			numSwaps =
+				arrangeMultiArraysPeteWilcox(fractionArray, numArrays);
 
-				for (i = 0; i < numArrays; i++) {
-					cout << "\n\nThe updated array #" << (i + 1) << " has " << (*(fractionArray + i))->getNum() << " element(s).";
+			cout << "\n\nDisplaying outside of arrangeMultiArraysPeteWilcox() -\n";
 
-					for (j = 0; j < (*(fractionArray + i))->getNum(); j++) {
-						cout << "\n  Element index #" << j << " : " << *((*(fractionArray + i)) + j);
-					}
+			for (i = 0; i < numArrays; i++) {
+				cout << "\n\nThe updated array #" << (i + 1) << " has " << (*(fractionArray + i))->getNum() << " element(s).";
+
+				for (j = 0; j < (*(fractionArray + i))->getNum(); j++) {
+					cout << "\n  Element index #" << j << " : " << *((*(fractionArray + i)) + j);
 				}
+			}
 
-				if (numSwaps > 0) {
-					cout << "\n\nThere is/are " << numSwaps << " swap(s).";
-				}
+			if (numSwaps > 0) {
+				cout << "\n\nThere is/are " << numSwaps << " swap(s).";
+			}
 
-				for (i = 0; i < numArrays; i++) {
-					delete[] * (fractionArray + i);
-				}
+			for (i = 0; i < numArrays; i++) {
+				delete[] * (fractionArray + i);
+			}
 
-				delete[] fractionArray;
+			delete[] fractionArray;
 
-				break;
+			break;
 		case 2:
 			cout << "\nHaving fun..." << endl;
 			break;
 		default:
 			cout << "\nWRONG OPTION!\n";
-			}
-
-
-		} while (menuChoice != 2);
-
-
-
-		return 0;
-	}
-
-	void displayHeader() {
-		cout << "CIS 25 - C++ Programming\nLaney College"
-			"\nPete Wilcox \n\nAssignment Information --"
-			"\n  Assignment Number: Lab 5,"
-			"\n                     Exercise #2"
-			"\n  Written by: Pete Wilcox"
-			"\n  Due Date: 2015/11/06\n\n";
-	}
-
-	void displayMenu() {
-		cout << "\n\n**********************************************"
-			"\n*                Fraction Arrays             *"
-			"\n* (1) Calling arrangeMultiArraysPeteWilcox() *"
-			"\n* (2) Quit                                   *"
-			"\n**********************************************"
-			"\nSelect an option (1 or 2): ";
-	}
-
-	int arrangeMultiArraysPeteWilcox(FractionPeteW** fractionArray, int size) {
-		int numSwaps = 0;
-		int maxSwaps = 0;
-		FractionPeteW temp = FractionPeteW();
-		bool swapped = false;
-		int i, k, j = 1;
-
-		// Count the number of swaps to be made
-		for (i = 1; i < (*(fractionArray + 0))->getNum(); i++) {
-			if ((*(fractionArray + 0) + i)->getNum() % 2 == 0) {
-				maxSwaps++;
-			}
 		}
-		cout << "\nmaxSwaps: " << maxSwaps;
 
-		if (maxSwaps > 0) {
-			cout << "\n  Displaying inside arrangeMultiArraysPeteWilcox()-";
 
-			for (i = 1; i < (*fractionArray)->getNum(); i++) {
-				// For each value in array #1
-				if ((*(fractionArray + 0) + i)->getNum() % 2 == 0) {
-					// If it's even
-					cout << "\nFraction " << *(*(fractionArray + 0) + i) << " is even.";
-					while ((j < size) && (!swapped)) {
-						// Iterate through each other array
+	} while (menuChoice != 2);
 
-						k = 1;
-						while ((k < (*(fractionArray + j))->getNum()) && (!swapped)) {
 
-							if (((*(fractionArray + j)) + k)->getNum() % 2 != 0) {
-								// When an odd value is found
-								
-								cout << "\n    Array #1 value " << *(*(fractionArray + i)) << " is swapped with Array #" << (j + 1) << " value " << (*(*(fractionArray + j) + k));
 
-								// Swap it
-								temp = *(*(fractionArray + i));
-								*(*(fractionArray + i)) = (*(*(fractionArray + j) + k));
-								(*(*(fractionArray + j) + k)) = temp;
+	return 0;
+}
 
-								numSwaps++;
-								swapped = true;
-							}
-							k++;
+void displayHeader() {
+	cout << "CIS 25 - C++ Programming\nLaney College"
+		"\nPete Wilcox \n\nAssignment Information --"
+		"\n  Assignment Number: Lab 5,"
+		"\n                     Exercise #2"
+		"\n  Written by: Pete Wilcox"
+		"\n  Due Date: 2015/11/06\n\n";
+}
+
+void displayMenu() {
+	cout << "\n\n**********************************************"
+		"\n*                Fraction Arrays             *"
+		"\n* (1) Calling arrangeMultiArraysPeteWilcox() *"
+		"\n* (2) Quit                                   *"
+		"\n**********************************************"
+		"\nSelect an option (1 or 2): ";
+}
+
+int arrangeMultiArraysPeteWilcox(FractionPeteW** fracArray, int size) {
+	int numSwaps = 0;
+	int maxSwaps = 0;
+	FractionPeteW temp = FractionPeteW();
+	bool swapped = false;
+	int i, k, j = 1;
+
+	// Count the number of swaps to be made
+	for (i = 1; i < (*(fracArray + 0))->getNum(); i++) {
+		if ((*(fracArray + 0) + i)->getNum() % 2 == 0) {
+			maxSwaps++;
+		}
+	}
+	cout << "\nmaxSwaps: " << maxSwaps;
+
+	if (maxSwaps > 0) {
+		cout << "\n  Displaying inside arrangeMultiArraysPeteWilcox()-";
+
+		for (i = 1; i < (*fracArray)->getNum(); i++) {
+			// For each value in array #1
+			if ((*(fracArray + 0) + i)->getNum() % 2 == 0) {
+				// If it's even
+				cout << "\nFraction " << *(*(fracArray + 0) + i) << " is even.";
+				while ((j < size) && (!swapped)) {
+					// Iterate through each other array
+
+					k = 1;
+					while ((k < (*(fracArray + j))->getNum()) 
+						&& (!swapped)) {
+
+						if (((*(fracArray + j)) + k)->getNum() % 2 != 0) {
+							// When an odd value is found
+
+							cout << "\n    Array #1 value " << 
+								*(*(fracArray + 0) + i) << 
+								" is swapped with Array #" << 
+								(j + 1) << " value " << 
+								(*(*(fracArray + j) + k));
+
+							// Swap it
+							temp = *(*(fracArray + 0) + i);
+							*(*(fracArray + 0) + i) = (*(*(fracArray + j) + k));
+							(*(*(fracArray + j) + k)) = temp;
+
+							numSwaps++;
+							swapped = true;
 						}
-						// If we've looked through every value
-						if (k == ((*fractionArray) + j)->getNum()) {
-							// Move to the next array
-							j++;
-						}
+						k++;
+					}
+					// If we've looked through every value
+					if (k == ((*fracArray) + j)->getNum()) {
+						// Move to the next array
+						j++;
 					}
 				}
 			}
 		}
-
-		return numSwaps;
 	}
+
+	return numSwaps;
+}
