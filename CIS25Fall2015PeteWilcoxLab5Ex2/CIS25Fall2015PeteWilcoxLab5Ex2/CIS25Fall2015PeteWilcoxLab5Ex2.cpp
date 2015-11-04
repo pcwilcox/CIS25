@@ -20,7 +20,6 @@ int main() {
 	int numArrays = 0;
 	int numSwaps;
 	int num;
-	int denom;
 	int newArraySize;
 	int i, j;
 
@@ -135,57 +134,48 @@ void displayMenu() {
 
 int arrangeMultiArraysPeteWilcox(FractionPeteW** fracArray, int size) {
 	int numSwaps = 0;
-	int maxSwaps = 0;
 	FractionPeteW temp;
 	bool swapped = false;
 	int i, k, j = 1;
 
-	// Count the number of swaps to be made
-	for (i = 1; i < (*(fracArray + 0))->getNum(); i++) {
+	cout << "\n  Displaying inside arrangeMultiArraysPeteWilcox()-";
+
+	for (i = 1; i < (*fracArray + 0)->getNum(); i++) {
+		// For each value in array #1
+		cout << "\n" << (*(fracArray + 0) + i);
+
 		if ((*(fracArray + 0) + i)->getNum() % 2 == 0) {
-			maxSwaps++;
-		}
-	}
-	cout << "\nmaxSwaps: " << maxSwaps;
+			// If it's even
 
-	if (maxSwaps > 0) {
-		cout << "\n  Displaying inside arrangeMultiArraysPeteWilcox()-";
+			cout << " even";
+			while ((j < size) && (!swapped)) {
+				// Iterate through each other array
 
-		for (i = 1; i < (*fracArray)->getNum(); i++) {
-			// For each value in array #1
-			if ((*(fracArray + 0) + i)->getNum() % 2 == 0) {
-				// If it's even
-				while ((j < size) && (!swapped)) {
-					// Iterate through each other array
+				k = 1;
+				while ((k < (*(fracArray + j) + 0)->getNum())
+					&& (!swapped)) {
 
-					k = 1;
-					while ((k < (*(fracArray + j))->getNum()) 
-						&& (!swapped)) {
+					cout << "\n  " << *(*(fracArray + j) + k);
 
-						if (((*(fracArray + j)) + k)->getNum() % 2 != 0) {
-							// When an odd value is found
+					if ((*(fracArray + j) + k)->getNum() % 2 != 0) {
+						// When an odd value is found
+						cout << "\n odd";
+						cout << "\n    Array #1 value " << *(*(fracArray + 0) + i) << " is swapped with Array #" << (j + 1) << " value " <<	(*(fracArray + j) + k);
 
-							cout << "\n    Array #1 value " << 
-								*(*(fracArray + 0) + i) << 
-								" is swapped with Array #" << 
-								(j + 1) << " value " << 
-								(*(*(fracArray + j) + k));
+						// Swap it
+						temp = *(*(fracArray + 0) + i);
+						*(*(fracArray + 0) + i) = *(*(fracArray + j) + k);
+						*(*(fracArray + j) + k) = temp;
 
-							// Swap it
-							temp = *(*(fracArray + 0) + i);
-							*(*(fracArray + 0) + i) = (*(*(fracArray + j) + k));
-							(*(*(fracArray + j) + k)) = temp;
-
-							numSwaps++;
-							swapped = true;
-						}
-						k++;
+						numSwaps++;
+						swapped = true;
 					}
-					// If we've looked through every value
-					if (k == ((*fracArray) + j)->getNum()) {
-						// Move to the next array
-						j++;
-					}
+					k++;
+				}
+				// If we've looked through every value
+				if (k == (*(fracArray + j) + 0)->getNum()) {
+					// Move to the next array
+					j++;
 				}
 			}
 		}
