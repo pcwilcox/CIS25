@@ -1,10 +1,10 @@
 /**
-  * Program Name: fractionPeteW.h
-  * Discussion:   Declaration File --
-  *                 FractionPeteW class
-  * Written by:   Pete Wilcox
-  * Date:         2015/11/06
-  */
+* Program Name: fractionPeteW.h
+* Discussion:   Declaration File --
+*                 FractionPeteW class
+* Written by:   Pete Wilcox
+* Date:         2015/11/06
+*/
 
 #pragma once
 
@@ -19,13 +19,13 @@ class FractionPeteW {
 
 	public:
 	// Default constructor
-	FractionPeteW(); 
+	FractionPeteW();
 
 	// Convert constructor
-	FractionPeteW(int); 
+	FractionPeteW(int);
 
 	// Copy constructor
-	FractionPeteW(const FractionPeteW&); 
+	FractionPeteW(const FractionPeteW&);
 
 	// Explicit constructor
 	FractionPeteW(int, int);
@@ -37,19 +37,19 @@ class FractionPeteW {
 	int getDenom(void) const;
 
 	// Setters	
-	void setNum(int); 
+	void setNum(int);
 	void setDenom(int);
 	void setBoth(int, int);
 
 	// Print
-	void print(void); 
+	void print(void);
 
 	// Member arithmetic functions
 	void add(const FractionPeteW&, const FractionPeteW&);
 	void add(const FractionPeteW&);
 
 	void subtract(const FractionPeteW&, const FractionPeteW&);
-	void subtract(const FractionPeteW&); 
+	void subtract(const FractionPeteW&);
 
 	void multiply(const FractionPeteW&, const FractionPeteW&);
 	void multiply(const FractionPeteW&);
@@ -65,22 +65,28 @@ class FractionPeteW {
 	FractionPeteW operator/(const FractionPeteW&);
 
 	// Friend overloads
-	friend ostream& operator<<(ostream& os, const FractionPeteW& f);
-	friend FractionPeteW operator+(const int&, const FractionPeteW&);
-	friend FractionPeteW operator-(const FractionPeteW&, const int&);
-	friend FractionPeteW operator*(const int&, const FractionPeteW&);
-	friend FractionPeteW operator*(const FractionPeteW&, const int&);
-	friend FractionPeteW operator/(const int&, const FractionPeteW&);
-	friend FractionPeteW operator/(const FractionPeteW&, const int&);
+	friend ostream& operator<<(ostream& os,
+		const FractionPeteW& f);
+	friend FractionPeteW operator+(const int&,
+		const FractionPeteW&);
+	friend FractionPeteW operator-(const FractionPeteW&,
+		const int&);
+	friend FractionPeteW operator*(const int&,
+		const FractionPeteW&);
+	friend FractionPeteW operator*(const FractionPeteW&,
+		const int&);
+	friend FractionPeteW operator/(const int&,
+		const FractionPeteW&);
+	friend FractionPeteW operator/(const FractionPeteW&,
+		const int&);
 
 	private:
 	int num;
 	int denom;
 
-	// Helper function to reduce fraction
-	void reduce(void); 
+	// Helper function to reduce fractions
+	void reduce(void);
 
 };
 
 #endif
-
