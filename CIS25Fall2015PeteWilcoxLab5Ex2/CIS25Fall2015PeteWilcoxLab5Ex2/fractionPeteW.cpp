@@ -1,10 +1,10 @@
 /**
-* Program Name: fractionPeteW.cpp
-* Discussion:   Declaration File --
-*                 FractionPeteW class
-* Written by:   Pete Wilcox
-* Date:         2015/11/06
-*/
+  * Program Name: fractionPeteW.cpp
+  * Discussion:   Declaration File --
+  *                 FractionPeteW class
+  * Written by:   Pete Wilcox
+  * Date:         2015/11/06
+  */
 
 #include "fractionPeteW.h"
 #include <iostream>
@@ -36,7 +36,7 @@ FractionPeteW::FractionPeteW(int inputNum, int inputDenom) : num(inputNum), deno
 
 // Destructor
 FractionPeteW::~FractionPeteW() {
-	cout << "\nCalling ~Fraction()\n";
+	cout << "\nCalling ~Fraction()";
 }
 
 // Getters
