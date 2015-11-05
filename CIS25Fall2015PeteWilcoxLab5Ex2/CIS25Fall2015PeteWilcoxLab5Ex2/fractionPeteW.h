@@ -65,19 +65,26 @@ class FractionPeteW {
 	FractionPeteW operator/(const FractionPeteW&);
 
 	// Friend overloads
-	friend ostream& operator<<(ostream& os, const FractionPeteW& f);
-	friend FractionPeteW operator+(const int&, const FractionPeteW&);
-	friend FractionPeteW operator-(const FractionPeteW&, const int&);
-	friend FractionPeteW operator*(const int&, const FractionPeteW&);
-	friend FractionPeteW operator*(const FractionPeteW&, const int&);
-	friend FractionPeteW operator/(const int&, const FractionPeteW&);
-	friend FractionPeteW operator/(const FractionPeteW&, const int&);
+	friend ostream& operator<<(ostream& os, 
+		const FractionPeteW& f);
+	friend FractionPeteW operator+(const int&, 
+		const FractionPeteW&);
+	friend FractionPeteW operator-(const FractionPeteW&, 
+		const int&);
+	friend FractionPeteW operator*(const int&, 
+		const FractionPeteW&);
+	friend FractionPeteW operator*(const FractionPeteW&, 
+		const int&);
+	friend FractionPeteW operator/(const int&, 
+		const FractionPeteW&);
+	friend FractionPeteW operator/(const FractionPeteW&, 
+		const int&);
 
 	private:
 	int num;
 	int denom;
 
-	// Helper function to reduce fraction
+	// Helper function to reduce fractions
 	void reduce(void); 
 
 };

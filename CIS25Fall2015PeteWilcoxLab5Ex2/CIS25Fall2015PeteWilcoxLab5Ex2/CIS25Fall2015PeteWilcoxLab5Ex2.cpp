@@ -35,7 +35,9 @@ int main() {
 		switch (menuChoice) {
 		case 1:
 
-			cout << "\nSetting up data before calling ArrangeMultiArraysPeteWilcox() --\n\nHow many arrays of fractions? ";
+			cout << "\nSetting up data before calling "
+				"ArrangeMultiArraysPeteWilcox() --\n\nHow many "
+				"arrays of fractions? ";
 			cin >> numArrays;
 
 			fracArray = new FractionPeteW*[numArrays];
@@ -46,11 +48,13 @@ int main() {
 				cout << "\n\n  How many value(s)? ";
 				cin >> newArraySize;
 
-				*(fracArray + i) = new FractionPeteW[newArraySize + 1];
+				*(fracArray + i) = new 
+					FractionPeteW[newArraySize + 1];
 				(*(fracArray + i))->setNum(newArraySize);
 
 				for (j = 1; j < newArraySize + 1; j++) {
-					cout << "\n    Enter the numerator for element at index " << j << " : ";
+					cout << "\n    Enter the numerator for "
+						"element at index " << j << " : ";
 					cin >> num;
 
 					((*(fracArray + i)) + j)->setNum(num);
@@ -59,37 +63,54 @@ int main() {
 				cout << "\n\nFor array index #" << i;
 
 				for (j = 0; j < newArraySize + 1; j++) {
-					cout << "\n  Element index #" << j << ": " << *((*(fracArray + i)) + j);
+					cout << "\n  Element index #" << j << ": " 
+						<< *((*(fracArray + i)) + j);
 				}
 
 			}
-			cout << "\n\nConfirming before working through with swapping --\n\nThere is/are " << numArrays << " array(s).";
+			cout << "\n\nConfirming before working through with"
+				" swapping --\n\nThere is/are " << numArrays <<
+				" array(s).";
 
 			for (i = 0; i < numArrays; i++) {
-				cout << "\n\nThe current array #" << (i + 1) << " has " << (*(fracArray + i))->getNum() << " element(s).\n..";
+				cout << "\n\nThe current array #" << (i + 1) <<
+					" has " << (*(fracArray + i))->getNum() <<
+					" element(s).\n..";
 
-				for (j = 0; j < (*(fracArray + i))->getNum() + 1; j++) {
-					cout << "Element index #" << j << " : " << *((*(fracArray + i)) + j) << "\n  ";
+				for (j = 0; 
+					j < (*(fracArray + i))->getNum() + 1; j++) {
+
+					cout << "Element index #" << j << " : " <<
+						*((*(fracArray + i)) + j) << "\n  ";
 				}
 
 			}
 
-			cout << "\nCalling arrangeMultiArraysPeteWilcox() --\n";
+			cout << "\nCalling "
+				"arrangeMultiArraysPeteWilcox() --\n";
 			numSwaps =
-				arrangeMultiArraysPeteWilcox(fracArray, numArrays);
+				arrangeMultiArraysPeteWilcox(
+					fracArray, numArrays);
 
-			cout << "\n\nDisplaying outside of arrangeMultiArraysPeteWilcox() -\n";
+			cout << "\n\nDisplaying outside of "
+				"arrangeMultiArraysPeteWilcox() -\n";
 
 			for (i = 0; i < numArrays; i++) {
-				cout << "\n\nThe updated array #" << (i + 1) << " has " << (*(fracArray + i))->getNum() << " element(s).";
+				cout << "\n\nThe updated array #" << (i + 1) << 
+					" has " << (*(fracArray + i))->getNum() <<
+					" element(s).";
 
-				for (j = 0; j < (*(fracArray + i))->getNum() + 1; j++) {
-					cout << "\n  Element index #" << j << " : " << *((*(fracArray + i)) + j);
+				for (j = 0; 
+					j < (*(fracArray + i))->getNum() + 1; j++) {
+
+					cout << "\n  Element index #" << j << " : "
+						<< *((*(fracArray + i)) + j);
 				}
 			}
 
 			if (numSwaps > 0) {
-				cout << "\n\nThere is/are " << numSwaps << " swap(s).";
+				cout << "\n\nThere is/are " << numSwaps <<
+					" swap(s).";
 			}
 
 			for (i = 0; i < numArrays; i++) {
@@ -133,13 +154,16 @@ void displayMenu() {
 		"\nSelect an option (1 or 2): ";
 }
 
-int arrangeMultiArraysPeteWilcox(FractionPeteW** fracArray, int size) {
+int arrangeMultiArraysPeteWilcox(FractionPeteW** fracArray, 
+	int size) {
+
 	int numSwaps = 0;
 	FractionPeteW temp;
 	bool swapped = false;
 	int i, k, j;
 
-	cout << "\n  Displaying inside arrangeMultiArraysPeteWilcox()-";
+	cout << "\n  Displaying inside "
+		"arrangeMultiArraysPeteWilcox()-";
 
 	for (i = 1; i < (*(fracArray + 0) + 0)->getNum() + 1; i++) {
 		// For each value in array #1
@@ -151,17 +175,25 @@ int arrangeMultiArraysPeteWilcox(FractionPeteW** fracArray, int size) {
 				// Iterate through each other array
 
 				k = 1;
-				while ((k < (*(fracArray + j) + 0)->getNum() + 1)
+				while 
+					((k < (*(fracArray + j) + 0)->getNum() + 1)
 					&& (!swapped)) {
 
 
-					if ((*(fracArray + j) + k)->getNum() % 2 != 0) {
+					if ((*(fracArray + j) + k)->getNum() 
+						% 2 != 0) {
+						
 						// When an odd value is found
-						cout << "\n    Array #1 value " << *(*(fracArray + 0) + i) << " is swapped with Array #" << (j + 1) << " value " << (*(*(fracArray + j) + k));
+						cout << "\n    Array #1 value "
+							<< *(*(fracArray + 0) + i) 
+							<< " is swapped with Array #" 
+							<< (j + 1) << " value " 
+							<< (*(*(fracArray + j) + k));
 
 						// Swap it
 						temp = *(*(fracArray + 0) + i);
-						*(*(fracArray + 0) + i) = *(*(fracArray + j) + k);
+						*(*(fracArray + 0) + i) = 
+								*(*(fracArray + j) + k);
 						*(*(fracArray + j) + k) = temp;
 
 						numSwaps++;
