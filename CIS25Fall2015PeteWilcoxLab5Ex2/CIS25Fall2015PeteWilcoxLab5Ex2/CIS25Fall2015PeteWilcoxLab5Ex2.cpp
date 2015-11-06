@@ -352,7 +352,7 @@ Calling Fraction()
   Displaying inside arrangeMultiArraysPeteWilcox()-
     Array #1 value 18/1 is swapped with Array #2 value -17/1
     Array #1 value -36/1 is swapped with Array #3 value -1/1
-Calling ~Fraction()
+Calling ~Fraction() on -36/1
 
 Displaying outside of arrangeMultiArraysPeteWilcox() -
 
@@ -378,20 +378,20 @@ The updated array #3 has 2 element(s).
   Element index #2 : -3/1
 
 There is/are 2 swap(s).
-Calling ~Fraction()
-Calling ~Fraction()
-Calling ~Fraction()
-Calling ~Fraction()
-Calling ~Fraction()
-Calling ~Fraction()
-Calling ~Fraction()
-Calling ~Fraction()
-Calling ~Fraction()
-Calling ~Fraction()
-Calling ~Fraction()
-Calling ~Fraction()
-Calling ~Fraction()
-Calling ~Fraction()
+Calling ~Fraction() on 45/1
+Calling ~Fraction() on -1/1
+Calling ~Fraction() on 27/1
+Calling ~Fraction() on -17/1
+Calling ~Fraction() on -23/1
+Calling ~Fraction() on 1/1
+Calling ~Fraction() on 6/1
+Calling ~Fraction() on 8/1
+Calling ~Fraction() on 18/1
+Calling ~Fraction() on 4/1
+Calling ~Fraction() on 3/1
+Calling ~Fraction() on -3/1
+Calling ~Fraction() on -36/1
+Calling ~Fraction() on 2/1
 
 **********************************************
 *                Fraction Arrays             *
