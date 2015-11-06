@@ -40,7 +40,7 @@ FractionPeteW::FractionPeteW(int inputNum, int inputDenom) :
 
 // Destructor
 FractionPeteW::~FractionPeteW() {
-	cout << "\nCalling ~Fraction()";
+	cout << "\nCalling ~Fraction() on " << (*this);
 }
 
 // Getters
@@ -242,7 +242,7 @@ void FractionPeteW::reduce() {
 
 // Friend overloads
 ostream& operator<<(ostream& os, const FractionPeteW& f) {
-	os << f.getNum() << "/" << f.getDenom();
+	os << f.num << "/" << f.denom;
 	return os;
 }
 
