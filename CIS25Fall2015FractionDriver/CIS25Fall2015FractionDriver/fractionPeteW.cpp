@@ -40,7 +40,7 @@ FractionPeteW::FractionPeteW(int inputNum, int inputDenom) :
 
 // Destructor
 FractionPeteW::~FractionPeteW() {
-	cout << "\nCalling ~Fraction() on " << (*this);
+	cout << "\nCalling ~Fraction() on "<< (*this);
 }
 
 // Getters

@@ -2,7 +2,7 @@
   * Program Name: CIS25Fall2015PeteWilcoxLab5Ex1.cpp
   * Discussion:   Lab #5 Exercise #1
   * Written by:   Pete Wilcox
-  * Date:         2015/11/06
+  * Date:         2015/11/10
   */
 
 #include <iostream>
@@ -133,7 +133,7 @@ void displayHeader() {
 		"\n  Assignment Number: Lab 5,"
 		"\n                     Exercise #1"
 		"\n  Written by: Pete Wilcox"
-		"\n  Due Date: 2015/11/06\n\n";
+		"\n  Due Date: 2015/11/10\n\n";
 }
 
 void displayMainMenu() {
@@ -239,6 +239,9 @@ void menuAdd(FractionPeteW** fracLeft,
 	int menuChoice;
 
 	do {
+		if (*fracResult == nullptr) {
+			*fracResult = new FractionPeteW();
+		}
 		cout << "\n\n********************************"
 			"\n*          ADDING MENU         *"
 			"\n*                              *"
@@ -252,16 +255,16 @@ void menuAdd(FractionPeteW** fracLeft,
 
 		switch (menuChoice) {
 		case 1:
-			cout << "\n\n  Calling member add()";
-			if (*fracResult == nullptr) {
-				*fracResult = new FractionPeteW();
-			}
+			
 
+			cout << "\n\n  Calling member add()";
+			
 			(*fracResult)->add(**fracLeft, **fracRight);
 			cout << "\n" << (**fracLeft) << " + " <<
 				(**fracRight) << " = " << (**fracResult);
 			break;
 		case 2:
+			
 			cout << "\n\n  Calling stand alone add()";
 			add(fracLeft, fracRight, fracResult);
 			cout << "\n" << (**fracLeft) << " + " <<
@@ -304,6 +307,9 @@ void menuSubtract(FractionPeteW** fracLeft,
 	int menuChoice;
 
 	do {
+		if (*fracResult == nullptr) {
+			*fracResult = new FractionPeteW();
+		}
 		cout << "\n\n*********************************"
 			"\n*        SUBTRACTING MENU       *"
 			"\n*                               *"
@@ -318,10 +324,7 @@ void menuSubtract(FractionPeteW** fracLeft,
 		switch (menuChoice) {
 		case 1:
 			cout << "\n\n  Calling member subtract()";
-			if (*fracResult == nullptr) {
-				*fracResult = new FractionPeteW();
-			}
-
+			
 			(*fracResult)->subtract(**fracLeft, **fracRight);
 			cout << "\n" << (**fracLeft) << " - " << 
 				(**fracRight) << " = " << (**fracResult);
@@ -369,6 +372,9 @@ void menuMultiply(FractionPeteW** fracLeft,
 	int menuChoice;
 
 	do {
+		if (*fracResult == nullptr) {
+			*fracResult = new FractionPeteW();
+		}
 		cout << "\n\n*********************************"
 			"\n*        MULTIPLYING MENU       *"
 			"\n*                               *"
@@ -383,10 +389,7 @@ void menuMultiply(FractionPeteW** fracLeft,
 		switch (menuChoice) {
 		case 1:
 			cout << "\n\n  Calling member multiply()";
-			if (*fracResult == nullptr) {
-				*fracResult = new FractionPeteW();
-			}
-
+		
 			(*fracResult)->multiply(**fracLeft, **fracRight);
 			cout << "\n" << (**fracLeft) << " * " << 
 				(**fracRight) << " = " << (**fracResult);
@@ -432,6 +435,9 @@ void menuDivide(FractionPeteW** fracLeft,
 	int menuChoice;
 
 	do {
+		if (*fracResult == nullptr) {
+			*fracResult = new FractionPeteW();
+		}
 		cout << "\n\n********************************"
 			"\n*        DIVIDING MENU         *"
 			"\n*                              *"
@@ -446,10 +452,7 @@ void menuDivide(FractionPeteW** fracLeft,
 		switch (menuChoice) {
 		case 1:
 			cout << "\n\n  Calling member divide()";
-			if (*fracResult == nullptr) {
-				*fracResult = new FractionPeteW();
-			}
-
+		
 			(*fracResult)->divide(**fracLeft, **fracRight);
 			cout << "\n" << (**fracLeft) << " / " << 
 				(**fracRight) << " = " << (**fracResult);
@@ -552,7 +555,6 @@ void print(FractionPeteW** f) {
 }
 
 /* PROGRAM OUTPUT:
-
 CIS 25 - C++ Programming
 Laney College
 Pete Wilcox
@@ -561,8 +563,7 @@ Assignment Information --
   Assignment Number: Lab 5,
                      Exercise #1
   Written by: Pete Wilcox
-  Due Date: 2015/11/06
-
+  Due Date: 2015/11/10
 
 *********************
 *        MENU       *
@@ -732,8 +733,7 @@ Select an option (1, 2, 3,  or 4): 3
 
 Calling operator+()
 Calling Fraction()
-Calling ~Fraction()
-
+Calling ~Fraction() on 5/4
 1/2 + 3/4 = 5/4
 
 ********************************
@@ -805,8 +805,7 @@ Select an option (use integer value only): 3
 
   Calling operator-()
 Calling Fraction()
-Calling ~Fraction()
-
+Calling ~Fraction() on -1/4
 1/2 - 3/4 = -1/4
 
 *********************************
@@ -878,8 +877,7 @@ Select an option (use integer value only): 4
 
   Calling operator*()
 Calling Fraction()
-Calling ~Fraction()
-
+Calling ~Fraction() on 3/8
 1/2 * 3/4 = 3/8
 
 *********************************
@@ -951,8 +949,7 @@ Select an option (use integer value only): 5
 
   Calling operator/()
 Calling Fraction()
-Calling ~Fraction()
-
+Calling ~Fraction() on 2/3
 1/2 / 3/4 = 2/3
 
 ********************************
@@ -1175,8 +1172,7 @@ Select an option (use integer value only): 2
 
   Calling operator+()
 Calling Fraction()
-Calling ~Fraction()
-
+Calling ~Fraction() on 8/99
 -5/9 + 7/11 = 8/99
 
 ********************************
@@ -1248,8 +1244,7 @@ Select an option (use integer value only): 3
 
   Calling operator-()
 Calling Fraction()
-Calling ~Fraction()
-
+Calling ~Fraction() on -118/99
 -5/9 - 7/11 = -118/99
 
 *********************************
@@ -1321,8 +1316,7 @@ Select an option (use integer value only): 4
 
   Calling operator*()
 Calling Fraction()
-Calling ~Fraction()
-
+Calling ~Fraction() on -35/99
 -5/9 * 7/11 = -35/99
 
 *********************************
@@ -1618,8 +1612,7 @@ Select an option (use integer value only): 2
 
   Calling operator+()
 Calling Fraction()
-Calling ~Fraction()
-
+Calling ~Fraction() on 286/391
 8/17 + 6/23 = 286/391
 
 ********************************
@@ -1691,8 +1684,7 @@ Select an option (use integer value only): 3
 
   Calling operator-()
 Calling Fraction()
-Calling ~Fraction()
-
+Calling ~Fraction() on 82/391
 8/17 - 6/23 = 82/391
 
 *********************************
@@ -1764,8 +1756,7 @@ Select an option (use integer value only): 4
 
   Calling operator*()
 Calling Fraction()
-Calling ~Fraction()
-
+Calling ~Fraction() on 48/391
 8/17 * 6/23 = 48/391
 
 *********************************
@@ -1837,8 +1828,7 @@ Select an option (use integer value only): 5
 
   Calling operator/()
 Calling Fraction()
-Calling ~Fraction()
-
+Calling ~Fraction() on 92/51
 8/17 / 6/23 = 92/51
 
 ********************************
@@ -1945,11 +1935,11 @@ Select an option (use integer value only): 7
 
 Having fun ...!
 
-Calling ~Fraction()
+Calling ~Fraction() on 8/17
 
-Calling ~Fraction()
+Calling ~Fraction() on 6/23
 
-Calling ~Fraction()
+Calling ~Fraction() on 92/51
 */
 
 /* COMMENTS:
