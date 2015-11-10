@@ -1944,7 +1944,7 @@ Calling ~Fraction() on 92/51
 
 /* COMMENTS:
 
-2015/11/12:
+2015/11/10:
 This project was not very inspired. Fractions are a very
 unimaginative way to introduce classes when easier-to-understand
 objects exist. Performing the operations in the lab assignment
@@ -1959,4 +1959,10 @@ not a lot of thought was put into it. It's quite astonishing to
 see the chair of the department operate a 4-credit course that
 supposedly transfers to the U.C. system in this fashion, and it
 does not speak well of Laney's CIS department.
+
+I don't know what intelligent comments could be made about the
+logic of this code. It is very basic stuff and does not reflect
+the abilities someone should have once they have progressed to
+this level. Having to spend the time required to complete this 
+lab assignment is extremely frustrating.
 */
