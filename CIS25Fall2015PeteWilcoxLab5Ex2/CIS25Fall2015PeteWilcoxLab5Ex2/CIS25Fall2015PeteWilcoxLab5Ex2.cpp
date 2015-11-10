@@ -404,7 +404,7 @@ Having fun...
 */
 
 /* COMMENTS:
-2015/11/12:
+2015/11/10:
 This was a very frustrating project to write. The output was not
 specified. There was no additional advancement in the logic
 needed to complete the assignment, we just copied the logic we
