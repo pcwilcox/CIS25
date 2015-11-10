@@ -97,7 +97,8 @@ int main() {
 
 			for (i = 0; i < numArrays; i++) {
 				cout << "\n\nThe updated array #" << (i + 1) << 
-					" has " << (*(fracArray + i))->getNum() <<
+					" has " << 
+					((*(fracArray + i))->getNum() + 1) <<
 					" element(s).";
 
 				for (j = 0; 
@@ -357,7 +358,7 @@ Calling ~Fraction() on -36/1
 Displaying outside of arrangeMultiArraysPeteWilcox() -
 
 
-The updated array #1 has 6 element(s).
+The updated array #1 has 7 element(s).
   Element index #0 : 6/1
   Element index #1 : 1/1
   Element index #2 : -23/1
@@ -366,13 +367,13 @@ The updated array #1 has 6 element(s).
   Element index #5 : -1/1
   Element index #6 : 45/1
 
-The updated array #2 has 3 element(s).
+The updated array #2 has 4 element(s).
   Element index #0 : 3/1
   Element index #1 : 4/1
   Element index #2 : 18/1
   Element index #3 : 8/1
 
-The updated array #3 has 2 element(s).
+The updated array #3 has 3 element(s).
   Element index #0 : 2/1
   Element index #1 : -36/1
   Element index #2 : -3/1
