@@ -18,12 +18,18 @@
     <ClInclude Include="..\..\CIS25Fall2015FractionDriver\CIS25Fall2015FractionDriver\fractionPeteW.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PointPeteW.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\CIS25Fall2015FractionDriver\CIS25Fall2015FractionDriver\fractionPeteW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CIS25Fall2015PeteWilcoxLab6Ex1cpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pointPeteW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

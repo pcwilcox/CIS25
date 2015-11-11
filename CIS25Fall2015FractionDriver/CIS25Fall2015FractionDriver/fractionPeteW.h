@@ -1,10 +1,10 @@
 /**
-* Program Name: fractionPeteW.h
-* Discussion:   Declaration File --
-*                 FractionPeteW class
-* Written by:   Pete Wilcox
-* Date:         2015/11/10
-*/
+  * Program Name: fractionPeteW.h
+  * Discussion:   Declaration File --
+  *                 FractionPeteW class
+  * Written by:   Pete Wilcox
+  * Date:         2015/11/XX
+  */
 
 #pragma once
 

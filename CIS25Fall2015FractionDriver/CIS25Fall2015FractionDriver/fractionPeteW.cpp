@@ -1,10 +1,10 @@
 /**
-* Program Name: fractionPeteW.cpp
-* Discussion:   Declaration File --
-*                 FractionPeteW class
-* Written by:   Pete Wilcox
-* Date:         2015/11/10
-*/
+  * Program Name: fractionPeteW.cpp
+  * Discussion:   Declaration File --
+  *                 FractionPeteW class
+  * Written by:   Pete Wilcox
+  * Date:         2015/11/XX
+  */
 
 #include "fractionPeteW.h"
 #include <iostream>
