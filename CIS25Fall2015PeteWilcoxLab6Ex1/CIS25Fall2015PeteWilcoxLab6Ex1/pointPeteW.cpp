@@ -30,6 +30,10 @@ PointPeteW::PointPeteW(const PointPeteW& old) :
 PointPeteW::PointPeteW(const int input) : x(input) {
 }
 
+PointPeteW::PointPeteW(const FractionPeteW & xCoord) :
+	x(xCoord) {
+}
+
 // Destructor
 PointPeteW::~PointPeteW() {
 	cout << "\nCalling ~PointPeteW() on " << (*this);
@@ -49,12 +53,20 @@ void PointPeteW::setX(const FractionPeteW& newX) {
 	x = newX;
 }
 
+void PointPeteW::setX(const int num, const int denom) {
+	x.setBoth(num, denom);
+}
+
 void PointPeteW::setX(const int newX) {
 	x = FractionPeteW(newX);
 }
 
 void PointPeteW::setY(const FractionPeteW& newY) {
 	y = FractionPeteW(newY);
+}
+
+void PointPeteW::setY(const int num, const int denom) {
+	y.setBoth(num, denom);
 }
 
 void PointPeteW::setY(const int newY) {

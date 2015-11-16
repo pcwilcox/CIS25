@@ -28,8 +28,9 @@ class PointPeteW {
 	// Copy constructor
 	PointPeteW(const PointPeteW&);
 
-	// Convert constructor
+	// Convert constructors
 	PointPeteW(const int);
+	PointPeteW(const FractionPeteW&);
 
 	// Destructor
 	~PointPeteW();
@@ -40,8 +41,10 @@ class PointPeteW {
 
 	// Setters
 	void setX(const FractionPeteW&);
+	void setX(const int, const int);
 	void setX(const int);
 	void setY(const FractionPeteW&);
+	void setY(const int, const int);
 	void setY(const int);
 
 	// Movers

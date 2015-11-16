@@ -1,7 +1,7 @@
 /**
   * Program Name: CIS25Fall2015PeteWilcoxLab6Ex1Driver.cpp
   * Discussion:   Lab #6 Exercise #1 --
-  *                 Driver file
+  *                 Driver - CPP
   * Written by:   Pete Wilcox
   * Date:         2015/11/XX
   */
@@ -9,10 +9,11 @@
 #include <iostream>
 #include "fractionPeteW.h"
 #include "PointPeteW.h"
+#include "CIS25Fall2015PeteWilcoxLab6Ex1Driver.h"
 
 using namespace std;
 
-void displayHeader() {
+void display() {
 	cout << "CIS 25 - C++ Programming\n"
 		"Laney College\n"
 		"Pete Wilcox\n"
@@ -24,7 +25,7 @@ void displayHeader() {
 		"  Due Date:           2015/11/XX\n";
 }
 
-void displayMenuMain() {
+void menuMain() {
 	cout << "\n\n********************\n"
 		"*    MENU Point    *\n"
 		"*  1. Initializing *\n"
@@ -36,29 +37,135 @@ void displayMenuMain() {
 		"Select an option (use integer value only): ";
 }
 
-void displayMenuInit() {
-	cout << "\n\n  ******************************\n"
-		"  * MENU InitPoint             *\n"
-		"  *  1. Set point X-coordinate *\n"
-		"  *  2. Set point Y-coordinate *\n"
-		"  *  3. Printing               *\n"
-		"  *  4. Returning              *\n"
-		"  ******************************\n"
-		"  Please select an option (integer value only): ";
+void menuInit(PointPeteW** point) {
+	int menuChoice;
+	int num;
+	int denom;
+
+	do {
+		cout << "\n\n  ******************************\n"
+			"  * MENU InitPoint             *\n"
+			"  *  1. Set point X-coordinate *\n"
+			"  *  2. Set point Y-coordinate *\n"
+			"  *  3. Printing               *\n"
+			"  *  4. Returning              *\n"
+			"  ******************************\n"
+			"  Please select an option (integer value only): ";
+		cin >> menuChoice;
+
+		switch (menuChoice) {
+		case 1:
+			cout << "\n  Please enter the numerator: ";
+			cin >> num;
+			do {
+				cout << "\n  Please enter the denominator: ";
+				cin >> denom;
+				if (denom == 0) {
+					cout << "\n    Denominator cannot be 0!";
+				}
+			} while (denom == 0);
+
+			if ((*point) == nullptr) {
+				(*point) = new PointPeteW(FractionPeteW(num, denom));
+			} else {
+				(*point)->setX(num, denom);
+			}
+			break;
+		case 2:
+			cout << "\n  Please enter the numerator: ";
+			cin >> num;
+			do {
+				cout << "\n  Please enter the denominator: ";
+				cin >> denom;
+				if (denom == 0) {
+					cout << "\n    Denominator cannot be 0!";
+				}
+			} while (denom == 0);
+
+			if ((*point) == nullptr) {
+				(*point) = new PointPeteW(FractionPeteW(num, denom));
+			} else {
+				(*point)->setY(num, denom);
+			}
+			break;
+		case 3:
+			if ((*point) == nullptr) {
+				cout << "\n  The point is uninitialized.";
+			} else {
+				cout << "\n  The point is currently at " <<
+					(**point);
+			}
+			break;
+		case 4:
+			cout << "\n  Returning to \"MENU Point\"";
+			break;
+		default:
+			cout << "\n  WRONG OPTION!";
+		}
+	} while (menuChoice != 4);
 }
 
-void displayMenuMove() {
-	cout << "\n\n  *********************\n"
-		"  * MENU MovingPoint  *\n"
-		"  *  1. By (frX, frY) *\n"
-		"  *  2. By fr         *\n"
-		"  *  3. Printing      *\n"
-		"  *  4. Returning     *\n"
-		"  *********************\n"
-		"  Select an option (use integer value only): ";
+void menuMove(PointPeteW** point) {
+	int menuChoice;
+	int numX, numY, denomX, denomY;
+	
+	do {
+		cout << "\n\n  *********************\n"
+			"  * MENU MovingPoint  *\n"
+			"  *  1. By (frX, frY) *\n"
+			"  *  2. By fr         *\n"
+			"  *  3. Printing      *\n"
+			"  *  4. Returning     *\n"
+			"  *********************\n"
+			"  Select an option (use integer value only): ";
+		cin >> menuChoice;
+
+		switch (menuChoice) {
+		case 1:
+			cout << "\n  Enter the numerator for frX: ";
+			cin >> numX;
+			do {
+				cout << "\n  Enter the denominator for frX: ";
+				cin >> denomX;
+				if (denomX == 0) {
+					cout << "\n  Denominator cannot be 0!";
+				}
+			} while (denomX == 0);
+
+			cout << "\n  Enter the numerator for frY: ";
+			cin >> numY;
+			do {
+				cout << "\n  Enter the denominator for frY: ";
+				cin >> denomY;
+				if (denomY == 0) {
+					cout << "\n  Denominator cannot be 0!";
+				}
+			} while (denomY == 0);
+
+			(*point)->moveBy(FractionPeteW(numX, denomX), 
+				FractionPeteW(numY, denomY));
+			break;
+		case 2:
+			// how do you move by only one fraction?
+			break;
+		case 3:
+			if ((*point) == nullptr) {
+				cout << "\n  The point is uninitialized.";
+			} else {
+				cout << "\n  The point is currently at " <<
+					(**point);
+			}
+			break;
+		case 4:
+			cout << "\n  Returning to \"MENU Point\"";
+			break;
+		default:
+			cout << "\n  WRONG OPTION!";
+		}
+	} while (menuChoice != 4);
 }
 
-void displayMenuFlip() {
+void menuFlip(PointPeteW** point) {
 	cout << "\n\n  ***********************\n"
 		"  * MENU FlippingPoint  *\n"
 		"  *  1. By Y            *\n"
@@ -70,7 +177,7 @@ void displayMenuFlip() {
 		"  Select an option (use integer value only): ";
 }
 
-void displayMenuPrint() {
+void menuPrint(PointPeteW** point) {
 	cout << "\n\n *******************************\n"
 		"  * MENU PrintingPoint          *\n"
 		"  *  1. By member print()       *\n"
@@ -79,4 +186,54 @@ void displayMenuPrint() {
 		"  *  4. Returning               *\n"
 		"  *******************************\n"
 		"  Select an option (use integer value only): ";
+}
+
+void print(PointPeteW** point) {
+	cout << "\n\n  X: " << (*point)->getX() << ", Y: " <<
+		(*point)->getY();
+}
+
+void userInterface(PointPeteW** point) {
+	int menuChoice;
+	do {
+		menuMain();
+		cin >> menuChoice;
+
+		switch (menuChoice) {
+		case 1:
+			menuInit(point);
+			break;
+		case 2:
+			if (point == nullptr) {
+				cout << "\n\n  Not a proper call as no points"
+					" available!";
+			} else {
+				menuMove(point);
+			}
+			break;
+		case 3:
+			if (point == nullptr) {
+				cout << "\n\n  Not a proper call as no points"
+					" available!";
+			} else {
+				menuFlip(point);
+			}
+			break;
+
+		case 4:
+			if (point == nullptr) {
+				cout << "\n\n  Not a proper call as no points"
+					" available!";
+			} else {
+				menuPrint(point);
+			}
+			break;
+		case 5:
+			cout << "\n\n  Having Fun ...";
+			break;
+		default:
+			cout << "\n\n  WRONG OPTION!";
+		}
+
+	} while (menuChoice != 5);
 }

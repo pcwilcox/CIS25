@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\CIS25Fall2015FractionDriver\CIS25Fall2015FractionDriver\fractionPeteW.h" />
+    <ClInclude Include="CIS25Fall2015PeteWilcoxLab6Ex1Driver.h" />
     <ClInclude Include="PointPeteW.h" />
   </ItemGroup>
   <ItemGroup>
