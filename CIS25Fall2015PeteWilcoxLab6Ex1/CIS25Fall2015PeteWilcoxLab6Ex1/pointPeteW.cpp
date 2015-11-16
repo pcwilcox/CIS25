@@ -14,24 +14,31 @@ using namespace std;
 
 // Default constructor
 PointPeteW::PointPeteW() {
+	x = FractionPeteW(1,1);
+	y = FractionPeteW(1,1);
+	cout << "\nCalling PointPeteW() on " << (*this);
 }
 
 // Explicit constructor
 PointPeteW::PointPeteW(const FractionPeteW& first, 
 	const FractionPeteW& second) : x(first), y(second) {
+	cout << "\nCalling PointPeteW() on " << (*this);
 }
 
 // Copy constructor
 PointPeteW::PointPeteW(const PointPeteW& old) : 
 	x(old.x), y(old.y) {
+	cout << "\nCalling PointPeteW() on " << (*this);
 }
 
 // Convert constructor
 PointPeteW::PointPeteW(const int input) : x(input) {
+	cout << "\nCalling PointPeteW() on " << (*this);
 }
 
 PointPeteW::PointPeteW(const FractionPeteW & xCoord) :
 	x(xCoord) {
+	cout << "\nCalling PointPeteW() on " << (*this);
 }
 
 // Destructor

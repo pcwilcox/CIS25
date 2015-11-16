@@ -108,7 +108,7 @@ void menuInit(PointPeteW** point) {
 void menuMove(PointPeteW** point) {
 	int menuChoice;
 	int numX, numY, denomX, denomY;
-	
+
 	do {
 		cout << "\n\n  *********************\n"
 			"  * MENU MovingPoint  *\n"
@@ -142,7 +142,7 @@ void menuMove(PointPeteW** point) {
 				}
 			} while (denomY == 0);
 
-			(*point)->moveBy(FractionPeteW(numX, denomX), 
+			(*point)->moveBy(FractionPeteW(numX, denomX),
 				FractionPeteW(numY, denomY));
 			break;
 		case 2:
@@ -166,26 +166,92 @@ void menuMove(PointPeteW** point) {
 }
 
 void menuFlip(PointPeteW** point) {
-	cout << "\n\n  ***********************\n"
-		"  * MENU FlippingPoint  *\n"
-		"  *  1. By Y            *\n"
-		"  *  2. By X            *\n"
-		"  *  3. By Origin       *\n"
-		"  *  4. Printing        *\n"
-		"  *  5. Returning       *\n"
-		"  ***********************\n"
-		"  Select an option (use integer value only): ";
+
+	int menuChoice;
+
+	do {
+		cout << "\n\n  ***********************\n"
+			"  * MENU FlippingPoint  *\n"
+			"  *  1. By Y            *\n"
+			"  *  2. By X            *\n"
+			"  *  3. By Origin       *\n"
+			"  *  4. Printing        *\n"
+			"  *  5. Returning       *\n"
+			"  ***********************\n"
+			"  Select an option (use integer value only): ";
+		cin >> menuChoice;
+
+		switch (menuChoice) {
+		case 1:
+			(*point)->flipByY();
+			break;
+		case 2:
+			(*point)->flipByX();
+			break;
+		case 3:
+			(*point)->flipThroughOrigin();
+			break;
+		case 4:
+			if ((*point) == nullptr) {
+				cout << "\n  The point is uninitialized.";
+			} else {
+				cout << "\n  The point is currently at " <<
+					(**point);
+			}
+			break;
+		case 5:
+			cout << "\n  Returning to \"MENU Point\"";
+			break;
+		default:
+			cout << "\n  WRONG OPTION!";
+		}
+	} while (menuChoice != 5);
 }
 
 void menuPrint(PointPeteW** point) {
-	cout << "\n\n *******************************\n"
-		"  * MENU PrintingPoint          *\n"
-		"  *  1. By member print()       *\n"
-		"  *  2. By stand alone print()  *\n"
-		"  *  3. By operator<<           *\n"
-		"  *  4. Returning               *\n"
-		"  *******************************\n"
-		"  Select an option (use integer value only): ";
+	int menuChoice;
+
+	do {
+		cout << "\n\n *******************************\n"
+			"  * MENU PrintingPoint          *\n"
+			"  *  1. By member print()       *\n"
+			"  *  2. By stand alone print()  *\n"
+			"  *  3. By operator<<           *\n"
+			"  *  4. Returning               *\n"
+			"  *******************************\n"
+			"  Select an option (use integer value only): ";
+		cin >> menuChoice;
+
+		switch (menuChoice) {
+		case 1:
+			if ((*point) == nullptr) {
+				cout << "\n  The point is uninitialized.";
+			} else {
+				(*point)->print();
+			}
+			break;
+		case 2:
+			if ((*point) == nullptr) {
+				cout << "\n  The point is uninitialized.";
+			} else {
+				print(point);
+			}
+			break;
+		case 3:
+			if ((*point) == nullptr) {
+				cout << "\n  The point is uninitialized.";
+			} else {
+				cout << "\n  The point is currently at " <<
+					(**point);
+			}
+			break;
+		case 4:
+			cout << "\n  Returning to \"MENU Point\"";
+			break;
+		default:
+			cout << "\n  WRONG OPTION!";
+		}
+	} while (menuChoice != 5);
 }
 
 void print(PointPeteW** point) {
