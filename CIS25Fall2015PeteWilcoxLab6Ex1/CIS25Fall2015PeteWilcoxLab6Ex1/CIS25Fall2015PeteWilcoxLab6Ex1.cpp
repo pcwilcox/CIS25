@@ -5,3 +5,11 @@
   * Date:         2015/11/XX
   */
 
+#include <iostream>
+#include "fractionPeteW.h"
+#include "PointPeteW.h"
+
+int main() {
+
+	return 0;
+}

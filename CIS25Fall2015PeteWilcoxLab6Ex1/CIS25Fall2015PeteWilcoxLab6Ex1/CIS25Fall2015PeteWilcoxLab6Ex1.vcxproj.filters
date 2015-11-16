@@ -26,10 +26,13 @@
     <ClCompile Include="..\..\CIS25Fall2015FractionDriver\CIS25Fall2015FractionDriver\fractionPeteW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CIS25Fall2015PeteWilcoxLab6Ex1cpp.cpp">
+    <ClCompile Include="pointPeteW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pointPeteW.cpp">
+    <ClCompile Include="CIS25Fall2015PeteWilcoxLab6Ex1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CIS25Fall2015PeteWilcoxLab6Ex1Driver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

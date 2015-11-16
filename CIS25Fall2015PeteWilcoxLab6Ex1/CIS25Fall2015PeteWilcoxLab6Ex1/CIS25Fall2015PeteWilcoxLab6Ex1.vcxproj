@@ -151,7 +151,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\CIS25Fall2015FractionDriver\CIS25Fall2015FractionDriver\fractionPeteW.cpp" />
-    <ClCompile Include="CIS25Fall2015PeteWilcoxLab6Ex1cpp.cpp" />
+    <ClCompile Include="CIS25Fall2015PeteWilcoxLab6Ex1.cpp" />
+    <ClCompile Include="CIS25Fall2015PeteWilcoxLab6Ex1Driver.cpp" />
     <ClCompile Include="pointPeteW.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

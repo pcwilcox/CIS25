@@ -17,11 +17,13 @@ PointPeteW::PointPeteW() {
 }
 
 // Explicit constructor
-PointPeteW::PointPeteW(const FractionPeteW& first, const FractionPeteW& second) : x(first), y(second) {
+PointPeteW::PointPeteW(const FractionPeteW& first, 
+	const FractionPeteW& second) : x(first), y(second) {
 }
 
 // Copy constructor
-PointPeteW::PointPeteW(const PointPeteW& old) : x(old.x), y(old.y) {
+PointPeteW::PointPeteW(const PointPeteW& old) : 
+	x(old.x), y(old.y) {
 }
 
 // Convert constructor
@@ -60,15 +62,13 @@ void PointPeteW::setY(const int newY) {
 }
 
 // Movers
-void PointPeteW::moveBy(const FractionPeteW& delX, const FractionPeteW& delY) {
-	/* FIX THIS CODE HERE */
-
+void PointPeteW::moveBy(const FractionPeteW& delX, 
+	const FractionPeteW& delY) {
 	x = x + delX;
 	y = x + delY;
 }
 
 void PointPeteW::moveBy(const int delX, const int delY) {
-	/* FIX THIS CODE HERE */
 	x = x + delX;
 	y = y + delY;
 }
