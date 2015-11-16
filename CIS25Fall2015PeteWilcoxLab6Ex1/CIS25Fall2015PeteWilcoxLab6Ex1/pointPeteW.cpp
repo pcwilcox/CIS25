@@ -83,8 +83,8 @@ void PointPeteW::setY(const int newY) {
 // Movers
 void PointPeteW::moveBy(const FractionPeteW& delX, 
 	const FractionPeteW& delY) {
-	x = x + delX;
-	y = x + delY;
+	x.add(delX);
+	y.add(delY);
 }
 
 void PointPeteW::moveBy(const int delX, const int delY) {
@@ -119,4 +119,5 @@ ostream& operator<<(ostream& os, const PointPeteW& point) {
 PointPeteW& PointPeteW::operator=(const PointPeteW& otherPoint) {
 	x = otherPoint.x;
 	y = otherPoint.y;
+	return (*this);
 }

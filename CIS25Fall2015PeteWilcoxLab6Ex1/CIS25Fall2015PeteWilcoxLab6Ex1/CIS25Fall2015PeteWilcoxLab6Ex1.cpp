@@ -11,7 +11,6 @@
 #include "CIS25Fall2015PeteWilcoxLab6Ex1Driver.h"
 
 int main() {
-	int menuChoice;
 	PointPeteW* point = nullptr;
 
 	display();

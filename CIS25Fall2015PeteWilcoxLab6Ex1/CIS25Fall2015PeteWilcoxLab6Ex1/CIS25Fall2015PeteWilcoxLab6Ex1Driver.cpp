@@ -251,7 +251,7 @@ void menuPrint(PointPeteW** point) {
 		default:
 			cout << "\n  WRONG OPTION!";
 		}
-	} while (menuChoice != 5);
+	} while (menuChoice != 4);
 }
 
 void print(PointPeteW** point) {
@@ -270,7 +270,7 @@ void userInterface(PointPeteW** point) {
 			menuInit(point);
 			break;
 		case 2:
-			if (point == nullptr) {
+			if ((*point) == nullptr) {
 				cout << "\n\n  Not a proper call as no points"
 					" available!";
 			} else {
@@ -278,7 +278,7 @@ void userInterface(PointPeteW** point) {
 			}
 			break;
 		case 3:
-			if (point == nullptr) {
+			if ((*point) == nullptr) {
 				cout << "\n\n  Not a proper call as no points"
 					" available!";
 			} else {
@@ -287,7 +287,7 @@ void userInterface(PointPeteW** point) {
 			break;
 
 		case 4:
-			if (point == nullptr) {
+			if ((*point) == nullptr) {
 				cout << "\n\n  Not a proper call as no points"
 					" available!";
 			} else {
