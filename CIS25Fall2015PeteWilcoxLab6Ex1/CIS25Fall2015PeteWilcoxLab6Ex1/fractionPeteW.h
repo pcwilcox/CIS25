@@ -93,6 +93,7 @@ class FractionPeteW {
 	friend bool operator<=(const int&, const FractionPeteW&);
 	friend bool operator<=(const FractionPeteW&, const int&);
 	friend bool operator>=(const int&, const FractionPeteW&);
+	friend bool operator>=(const FractionPeteW&, const int&);
 
 
 	private:

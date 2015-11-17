@@ -35,11 +35,13 @@ class RectanglePeteW {
 	~RectanglePeteW();
 
 	// Getters
-	FractionPeteW getUpperRight();
-	FractionPeteW getLowerLeft();
+	PointPeteW getUpperRight();
+	PointPeteW getLowerLeft();
 	FractionPeteW getHeight();
 	FractionPeteW getWidth();
 	FractionPeteW getArea();
+
+	void print();
 	
 	// Setters
 	void setUpperRight(const PointPeteW&);
@@ -48,6 +50,11 @@ class RectanglePeteW {
 	void setLowerLeft(const FractionPeteW&, const FractionPeteW&);
 
 	// Operators
+	RectanglePeteW& operator=(const RectanglePeteW&);
+	
+	bool operator==(const RectanglePeteW&);
+
+	friend ostream& operator<<(ostream&, const RectanglePeteW&);
 
 	private:
 	PointPeteW upperRight;

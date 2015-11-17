@@ -382,10 +382,48 @@ bool operator<(const FractionPeteW& left, const int& right) {
 
 bool operator>(const int& left, const FractionPeteW& right) {
 	if (left * right.denom > right.num) {
-
+		return true;
+	} else {
+		return false;
 	}
 }
-	bool operator>(const FractionPeteW& left, const int& right)
-	bool operator<=(const int& left, const FractionPeteW& right)
-	bool operator<=(const FractionPeteW& left, const int& right)
-	bool operator>=(const int& left, const FractionPeteW& right)
+
+bool operator>(const FractionPeteW& left, const int& right) {
+	if (left.num > left.denom * right) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool operator<=(const int& left, const FractionPeteW& right) {
+	if (left * right.denom <= right.num) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool operator<=(const FractionPeteW& left, const int& right) {
+	if (left.num < right * left.denom) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool operator>=(const int& left, const FractionPeteW& right) {
+	if (left * right.denom >= right.num) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool operator>=(const FractionPeteW& left, const int& right) {
+	if (left.num >= left.denom * right) {
+		return true;
+	} else {
+		return false;
+	}
+}
