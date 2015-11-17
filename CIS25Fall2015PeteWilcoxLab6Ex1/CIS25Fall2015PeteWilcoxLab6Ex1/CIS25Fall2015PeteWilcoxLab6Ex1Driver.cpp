@@ -107,6 +107,7 @@ void menuInit(PointPeteW** point) {
 
 void menuMove(PointPeteW** point) {
 	int menuChoice;
+	int axis;
 	int numX, numY, denomX, denomY;
 
 	do {
@@ -146,7 +147,43 @@ void menuMove(PointPeteW** point) {
 				FractionPeteW(numY, denomY));
 			break;
 		case 2:
-			// how do you move by only one fraction?
+			numX = 0;
+			numY = 0;
+			denomX = 1;
+			denomY = 1;
+
+			do {
+				cout << "\n\n  Please select the axis for movement "
+					"(1 for X-axis, 2 for Y-axis): ";
+				cin >> axis;
+				if (axis != 1 && axis != 2) {
+					cout << "\n\n Invalid choice. Please choose"
+						" 1 for X-axis, 2 for Y-axis.";
+				}
+			} while (axis != 1 && axis != 2);
+
+			if (axis == 1) {
+				cout << "\n  Enter the numerator: ";
+				cin >> numX;
+				do {
+					cout << "\n  Enter the denominator: ";
+					cin >> denomX;
+					if (denomX == 0) {
+						cout << "\n  Denominator cannot be 0!";
+					}
+				} while (denomX == 0);
+			} else {
+				cout << "\n  Enter the numerator: ";
+				cin >> numY;
+				do {
+					cout << "\n  Enter the denominator: ";
+					cin >> denomY;
+					if (denomY == 0) {
+						cout << "\n  Denominator cannot be 0!";
+					}
+				} while (denomY == 0);
+			}
+			(*point)->moveBy(FractionPeteW(numX, denomX), FractionPeteW(numY, denomY));
 			break;
 		case 3:
 			if ((*point) == nullptr) {

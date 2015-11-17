@@ -64,16 +64,18 @@ class FractionPeteW {
 	FractionPeteW operator-(const FractionPeteW&);
 	FractionPeteW operator*(const FractionPeteW&);
 	FractionPeteW operator/(const FractionPeteW&);
-	FractionPeteW operator+=(const FractionPeteW&);
-	FractionPeteW operator+=(const int&);
-	FractionPeteW operator-=(const FractionPeteW&);
-	FractionPeteW operator-=(const int&);
-	FractionPeteW operator*=(const FractionPeteW&);
-	FractionPeteW operator*=(const int&);
-	FractionPeteW operator/=(const FractionPeteW&);
-	FractionPeteW operator/=(const int&);
-	FractionPeteW operator++();
-	FractionPeteW operator--();
+	FractionPeteW& operator+=(const FractionPeteW&);
+	FractionPeteW& operator+=(const int&);
+	FractionPeteW& operator-=(const FractionPeteW&);
+	FractionPeteW& operator-=(const int&);
+	FractionPeteW& operator*=(const FractionPeteW&);
+	FractionPeteW& operator*=(const int&);
+	FractionPeteW& operator/=(const FractionPeteW&);
+	FractionPeteW& operator/=(const int&);
+	FractionPeteW& operator++();
+	FractionPeteW operator++(int);
+	FractionPeteW& operator--();
+	FractionPeteW operator--(int);
 
 
 	// Friend overloads

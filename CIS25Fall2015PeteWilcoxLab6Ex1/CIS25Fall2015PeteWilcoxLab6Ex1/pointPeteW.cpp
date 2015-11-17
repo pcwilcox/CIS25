@@ -81,6 +81,14 @@ void PointPeteW::setY(const int newY) {
 }
 
 // Movers
+void PointPeteW::moveByX(const FractionPeteW& delX) {
+	x.add(delX);
+}
+
+void PointPeteW::moveByY(const FractionPeteW& delY) {
+	y.add(delY);
+}
+
 void PointPeteW::moveBy(const FractionPeteW& delX, 
 	const FractionPeteW& delY) {
 	x.add(delX);
