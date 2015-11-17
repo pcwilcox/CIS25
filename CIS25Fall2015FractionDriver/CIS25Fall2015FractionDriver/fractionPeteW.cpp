@@ -192,6 +192,11 @@ FractionPeteW FractionPeteW::operator+(const FractionPeteW&
 		(*this).denom * arg.denom);
 }
 
+FractionPeteW FractionPeteW::operator-() {
+	num = -num;
+	return *this;
+}
+
 FractionPeteW FractionPeteW::operator-(const FractionPeteW&
 	arg) {
 	return FractionPeteW(
@@ -209,6 +214,45 @@ FractionPeteW FractionPeteW::operator/(const FractionPeteW&
 	arg) {
 	return FractionPeteW(
 		(*this).num * arg.denom, (*this).denom * arg.num);
+}
+
+FractionPeteW FractionPeteW::operator+=(const FractionPeteW &arg) {
+	(*this).num = (*this).num * arg.denom + (*this).denom * arg.num;
+	(*this).denom = (*this).denom * arg.denom;
+	reduce();
+	return *this;
+}
+
+FractionPeteW FractionPeteW::operator+=(const int &arg) {
+	(*this).num = (*this).num + (*this).denom * arg;
+	reduce();
+	return *this;
+}
+
+FractionPeteW FractionPeteW::operator-=(const FractionPeteW &arg) {
+	(*this).num = (*this).num * arg.denom - (*this).denom * arg.num;
+	(*this).denom = (*this).denom * arg.denom;
+	reduce();
+	return *this;
+}
+
+FractionPeteW FractionPeteW::operator-=(const int &arg) {
+	(*this).num = (*this).num - arg * (*this).denom;
+	reduce();
+	return *this;
+}
+
+FractionPeteW FractionPeteW::operator*=(const FractionPeteW &arg) {
+	(*this).num = (*this).num * arg.num;
+	(*this).denom = (*this).denom * arg.denom;
+	reduce();
+	return *this;
+}
+
+FractionPeteW FractionPeteW::operator*=(const int &arg) {
+	(*this).num = (*this).num + (*this).denom * arg;
+	reduce();
+	return *this;
 }
 
 // Reduce() is called whenever other operations are performed

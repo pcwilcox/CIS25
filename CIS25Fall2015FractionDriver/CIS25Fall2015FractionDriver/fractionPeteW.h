@@ -60,9 +60,21 @@ class FractionPeteW {
 	// Operator overloads
 	FractionPeteW& operator=(const FractionPeteW&);
 	FractionPeteW operator+(const FractionPeteW&);
+	FractionPeteW operator-();
 	FractionPeteW operator-(const FractionPeteW&);
 	FractionPeteW operator*(const FractionPeteW&);
 	FractionPeteW operator/(const FractionPeteW&);
+	FractionPeteW operator+=(const FractionPeteW&);
+	FractionPeteW operator+=(const int&);
+	FractionPeteW operator-=(const FractionPeteW&);
+	FractionPeteW operator-=(const int&);
+	FractionPeteW operator*=(const FractionPeteW&);
+	FractionPeteW operator*=(const int&);
+	FractionPeteW operator/=(const FractionPeteW&);
+	FractionPeteW operator/=(const int&);
+	FractionPeteW operator++();
+	FractionPeteW operator--();
+
 
 	// Friend overloads
 	friend ostream& operator<<(ostream& os,
