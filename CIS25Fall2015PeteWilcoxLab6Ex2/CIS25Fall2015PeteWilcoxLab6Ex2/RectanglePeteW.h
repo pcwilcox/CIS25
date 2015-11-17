@@ -54,7 +54,7 @@ class RectanglePeteW {
 	
 	bool operator==(const RectanglePeteW&);
 
-	friend ostream& operator<<(ostream&, const RectanglePeteW&);
+	friend ostream& operator<<(ostream&, RectanglePeteW&);
 
 	private:
 	PointPeteW upperRight;

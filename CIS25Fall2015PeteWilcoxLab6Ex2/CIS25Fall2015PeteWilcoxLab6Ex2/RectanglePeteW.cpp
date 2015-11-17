@@ -1,3 +1,13 @@
+#pragma once
+
+/**
+  * Program Name: RectanglePeteW.cpp
+  * Discussion:   Declaration File --
+  *                 RectanglePeteW class
+  * Written by:   Pete Wilcox
+  * Date:         2015/11/XX
+  */
+
 #include "RectanglePeteW.h"
 
 RectanglePeteW::RectanglePeteW() {
@@ -122,4 +132,14 @@ void RectanglePeteW::checkPoints() {
 		lowerLeft.setY(*swapY);
 		delete swapY;
 	}
+}
+
+// TODO: Make arg const
+ostream& operator<<(ostream& os, RectanglePeteW &arg) {
+	os << "(" << arg.lowerLeft.getX() << ", " <<
+		arg.upperRight.getY() << "), " <<
+		arg.upperRight << ", (" <<
+		arg.upperRight.getX() << ", " <<
+		arg.lowerLeft.getY() << "), " << arg.lowerLeft;
+	return os;
 }

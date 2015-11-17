@@ -47,7 +47,11 @@ class PointPeteW {
 	void setY(const int, const int);
 	void setY(const int);
 
+	
+
 	// Movers
+	void moveByX(const FractionPeteW &);
+	void moveByY(const FractionPeteW &);
 	void moveBy(const FractionPeteW&, const FractionPeteW&);
 	void moveBy(const int, const int);
 	void flipByX();
