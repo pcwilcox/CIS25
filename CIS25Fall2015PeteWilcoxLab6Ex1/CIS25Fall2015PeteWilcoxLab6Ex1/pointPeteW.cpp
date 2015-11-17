@@ -129,3 +129,11 @@ PointPeteW& PointPeteW::operator=(const PointPeteW& otherPoint) {
 	y = otherPoint.y;
 	return (*this);
 }
+
+bool PointPeteW::operator==(const PointPeteW &arg) {
+	if ((*this).x == arg.x &&
+		(*this).y == arg.y) {
+		return true;
+	}
+	return false;
+}

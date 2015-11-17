@@ -59,6 +59,9 @@ class RectanglePeteW {
 	private:
 	PointPeteW upperRight;
 	PointPeteW lowerLeft;
+
+	// Helper method to check that the points are in the right position
+	void checkPoints();
 };
 
 

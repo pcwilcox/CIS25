@@ -62,6 +62,8 @@ class PointPeteW {
 
 	PointPeteW& operator=(const PointPeteW&);
 
+	bool operator==(const PointPeteW&);
+
 	private:
 	FractionPeteW x;
 	FractionPeteW y;
