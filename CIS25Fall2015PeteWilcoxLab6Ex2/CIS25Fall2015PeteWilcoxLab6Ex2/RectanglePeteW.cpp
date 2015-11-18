@@ -8,7 +8,12 @@
   * Date:         2015/11/XX
   */
 
+#include <iostream>
 #include "RectanglePeteW.h"
+#include "FractionPeteW.h"
+#include "PointPeteW.h"
+
+using namespace std;
 
 RectanglePeteW::RectanglePeteW() {
 	upperRight = PointPeteW(FractionPeteW(0), FractionPeteW(0));
@@ -134,8 +139,7 @@ void RectanglePeteW::checkPoints() {
 	}
 }
 
-// TODO: Make arg const
-ostream& operator<<(ostream& os, RectanglePeteW &arg) {
+ostream& operator<<(ostream& os, const RectanglePeteW &arg) {
 	os << "(" << arg.lowerLeft.getX() << ", " <<
 		arg.upperRight.getY() << "), " <<
 		arg.upperRight << ", (" <<

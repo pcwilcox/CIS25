@@ -47,11 +47,11 @@ PointPeteW::~PointPeteW() {
 }
 
 // Getters
-FractionPeteW PointPeteW::getX() {
+FractionPeteW PointPeteW::getX() const {
 	return x;
 }
 
-FractionPeteW PointPeteW::getY() {
+FractionPeteW PointPeteW::getY() const {
 	return y;
 }
 

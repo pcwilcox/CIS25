@@ -36,8 +36,8 @@ class PointPeteW {
 	~PointPeteW();
 
 	// Getters
-	FractionPeteW getX();
-	FractionPeteW getY();
+	FractionPeteW getX() const;
+	FractionPeteW getY() const;
 
 	// Setters
 	void setX(const FractionPeteW&);
