@@ -55,12 +55,30 @@ FractionPeteW CirclePeteW::getArea() const {
 	return FractionPeteW(radius * radius * PI);
 }
 
-void CirclePeteW::print();
+void CirclePeteW::print() {
+	cout << "\nCenter: " << center << ", radius: " << radius << ", area: " << getArea();
+}
 
 // Setters
-void CirclePeteW::setCenter(const PointPeteW&);
-void CirclePeteW::setRadius(const PointPeteW&);
-void CirclePeteW::setRadius(const int&);
+void CirclePeteW::setCenter(const PointPeteW& arg) {
+	center = arg;
+}
+
+void CirclePeteW::setRadius(const FractionPeteW& arg) {
+	if (arg >= 0) {
+		radius = arg;
+	} else {
+		cout << "\nRadius cannot be negative!";
+	}
+}
+
+void CirclePeteW::setRadius(const int& arg) {
+	if (arg >= 0) {
+		radius = arg;
+	} else {
+		cout << "\nRadius cannot be negative!";
+	}
+}
 
 // Operator overloads
 CirclePeteW& CirclePeteW::operator=(const CirclePeteW&);

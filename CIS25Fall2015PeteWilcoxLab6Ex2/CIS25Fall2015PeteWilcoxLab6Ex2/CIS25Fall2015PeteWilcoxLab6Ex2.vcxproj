@@ -151,6 +151,7 @@
     <ClInclude Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\fractionPeteW.h" />
     <ClInclude Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\PointPeteW.h" />
     <ClInclude Include="CirclePeteW.h" />
+    <ClInclude Include="CIS25Fall2015PeteWilcoxLab6Ex2Driver.h" />
     <ClInclude Include="RectanglePeteW.h" />
   </ItemGroup>
   <ItemGroup>

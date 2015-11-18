@@ -41,7 +41,7 @@ class CirclePeteW {
 
 	// Setters
 	void setCenter(const PointPeteW&);
-	void setRadius(const PointPeteW&);
+	void setRadius(const FractionPeteW&);
 	void setRadius(const int&);
 
 	// Operator overloads

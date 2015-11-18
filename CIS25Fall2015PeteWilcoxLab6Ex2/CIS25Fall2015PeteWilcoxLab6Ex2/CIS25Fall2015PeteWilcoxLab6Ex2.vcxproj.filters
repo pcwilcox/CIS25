@@ -27,6 +27,9 @@
     <ClInclude Include="CirclePeteW.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CIS25Fall2015PeteWilcoxLab6Ex2Driver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\fractionPeteW.cpp">
