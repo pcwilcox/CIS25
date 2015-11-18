@@ -5,7 +5,7 @@
   * Discussion:   Definition File --
   *                 CirclePeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/11/XX
+  * Date:         2015/11/24
   */
 
 #include <iostream>
@@ -81,8 +81,21 @@ void CirclePeteW::setRadius(const int& arg) {
 }
 
 // Operator overloads
-CirclePeteW& CirclePeteW::operator=(const CirclePeteW&);
+CirclePeteW& CirclePeteW::operator=(const CirclePeteW& arg) {
+	center = arg.center;
+	radius = arg.radius;
+	return *this;
+}
 
-bool CirclePeteW::operator==(const CirclePeteW&);
+bool CirclePeteW::operator==(const CirclePeteW& arg) {
+	if (center == arg.center && radius == arg.radius) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
-ostream& operator<<(ostream&, const CirclePeteW&);
+ostream& operator<<(ostream& os, const CirclePeteW& circle) {
+	os << "Center: " << circle.center << ", Radius: " << circle.radius;
+	return os;
+}

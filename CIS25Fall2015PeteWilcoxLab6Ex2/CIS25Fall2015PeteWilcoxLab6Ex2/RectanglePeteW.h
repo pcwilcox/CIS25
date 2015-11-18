@@ -1,11 +1,11 @@
 #pragma once
 
 /**
-  * Program Name: fractionPeteW.h
+  * Program Name: RectanglePeteW.h
   * Discussion:   Declaration File --
   *                 RectanglePeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/11/XX
+  * Date:         2015/11/24
   */
 
 #ifndef RECTANGLEPETEW_H

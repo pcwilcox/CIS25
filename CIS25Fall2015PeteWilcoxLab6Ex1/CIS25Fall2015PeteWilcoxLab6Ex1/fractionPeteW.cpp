@@ -1,9 +1,9 @@
 /**
   * Program Name: fractionPeteW.cpp
-  * Discussion:   Declaration File --
+  * Discussion:   Definition File --
   *                 FractionPeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/11/10
+  * Date:         2015/11/24
   */
 
 #include "fractionPeteW.h"

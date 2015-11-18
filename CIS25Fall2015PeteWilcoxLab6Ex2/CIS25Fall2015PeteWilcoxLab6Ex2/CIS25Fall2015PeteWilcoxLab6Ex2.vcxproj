@@ -158,7 +158,7 @@
     <ClCompile Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\fractionPeteW.cpp" />
     <ClCompile Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\pointPeteW.cpp" />
     <ClCompile Include="CirclePeteW.cpp" />
-    <ClCompile Include="CIS25Fall2015PeteWilcoxLab2Ex2Driver.cpp" />
+    <ClCompile Include="CIS25Fall2015PeteWilcoxLab6Ex2Driver.cpp" />
     <ClCompile Include="CIS25Fall2015PeteWilcoxLab6Ex2.cpp" />
     <ClCompile Include="RectanglePeteW.cpp" />
   </ItemGroup>

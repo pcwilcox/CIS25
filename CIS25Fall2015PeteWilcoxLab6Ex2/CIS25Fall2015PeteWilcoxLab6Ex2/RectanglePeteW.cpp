@@ -2,10 +2,10 @@
 
 /**
   * Program Name: RectanglePeteW.cpp
-  * Discussion:   Declaration File --
+  * Discussion:   Definition File --
   *                 RectanglePeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/11/XX
+  * Date:         2015/11/24
   */
 
 #include <iostream>

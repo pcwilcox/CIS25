@@ -1,9 +1,9 @@
 /**
   * Program Name: pointPeteW.cpp
-  * Discussion:   Declaration File --
+  * Discussion:   Definition File --
   *                 pointPeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/11/XX
+  * Date:         2015/11/24
   */
 
 #include <iostream>
