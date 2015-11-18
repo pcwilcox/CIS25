@@ -33,18 +33,28 @@ class CirclePeteW {
 	CirclePeteW(const FractionPeteW&, const FractionPeteW&);
 
 	// Getters
-	FractionPeteW getCenter() const;
+	PointPeteW getCenter() const;
 	FractionPeteW getRadius() const;
 	FractionPeteW getArea() const;
+
+	void print();
+
+	// Setters
+	void setCenter(const PointPeteW&);
+	void setRadius(const PointPeteW&);
+	void setRadius(const int&);
 
 	// Operator overloads
 	CirclePeteW& operator=(const CirclePeteW&);
 
 	bool operator==(const CirclePeteW&);
 
+	friend ostream& operator<<(ostream&, const CirclePeteW&);
+
 	private:
 	PointPeteW center;
 	FractionPeteW radius;
+	const static FractionPeteW PI;
 };
 
 #endif

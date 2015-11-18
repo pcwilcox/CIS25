@@ -86,7 +86,7 @@ void PointPeteW::moveByX(const FractionPeteW& delX) {
 }
 
 void PointPeteW::moveByY(const FractionPeteW& delY) {
-	y.add(delY);
+	y += delY;
 }
 
 void PointPeteW::moveBy(const FractionPeteW& delX, 
@@ -96,8 +96,8 @@ void PointPeteW::moveBy(const FractionPeteW& delX,
 }
 
 void PointPeteW::moveBy(const int delX, const int delY) {
-	x = x + delX;
-	y = y + delY;
+	x += delX;
+	y += delY;
 }
 
 void PointPeteW::flipByX() {

@@ -58,11 +58,20 @@ class FractionPeteW {
 	void divide(const FractionPeteW&);
 
 	// Operator overloads
+	FractionPeteW operator-(void);
 	FractionPeteW& operator=(const FractionPeteW&);
 	FractionPeteW operator+(const FractionPeteW&);
 	FractionPeteW operator-(const FractionPeteW&);
-	FractionPeteW operator*(const FractionPeteW&);
+	FractionPeteW operator*(const FractionPeteW&) const;
 	FractionPeteW operator/(const FractionPeteW&);
+	FractionPeteW& operator+=(const FractionPeteW&);
+	FractionPeteW& operator+=(const int&);
+	FractionPeteW& operator-=(const FractionPeteW&);
+	FractionPeteW& operator-=(const int&);
+	FractionPeteW& operator*=(const FractionPeteW&);
+	FractionPeteW& operator*=(const int&);
+	FractionPeteW& operator/=(const FractionPeteW&);
+	FractionPeteW& operator/=(const int&);
 	bool operator==(const FractionPeteW&);
 	bool operator<(const FractionPeteW&);
 	bool operator>(const FractionPeteW&);
