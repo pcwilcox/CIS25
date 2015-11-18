@@ -19,5 +19,26 @@
 
 using namespace std;
 
+// Main interface functions
+void displayHeader(void);
+void userInterface(RectanglePeteW**, CirclePeteW**);
+
+// Rectangle menu functions
+void rectangleTasks(RectanglePeteW**);
+void createRectangles(RectanglePeteW**);
+void compareArea(RectanglePeteW**);
+void print(RectanglePeteW**);
+
+// Circle menu functions
+void circleTasks(CirclePeteW**);
+void createCircles(CirclePeteW**);
+void compareArea(CirclePeteW**);
+void print(CirclePeteW**);
+
+// Mixed menu functions
+void mixedTasks(RectanglePeteW**, CirclePeteW**);
+void compareArea(RectanglePeteW**, CirclePeteW**);
+void print(RectanglePeteW**, CirclePeteW**);
+
 
 #endif

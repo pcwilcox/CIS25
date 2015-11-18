@@ -6,3 +6,12 @@
   * Date:         2015/11/24
   */
 
+#include <iostream>
+#include "fractionPeteW.h"
+#include "PointPeteW.h"
+#include "RectanglePeteW.h"
+#include "CirclePeteW.h"
+#include "CIS25Fall2015PeteWilcoxLab6Ex2Driver.h"
+
+using namespace std;
+
