@@ -40,7 +40,7 @@ FractionPeteW::FractionPeteW(int inputNum, int inputDenom) :
 
 // Destructor
 FractionPeteW::~FractionPeteW() {
-	cout << "\nCalling ~Fraction() on "<< (*this);
+	cout << "\nCalling ~Fraction() on " << (*this);
 }
 
 // Getters
@@ -274,8 +274,12 @@ FractionPeteW& FractionPeteW::operator++() {
 }
 
 FractionPeteW FractionPeteW::operator++(int arg) {
-	(*this)++;
-	return FractionPeteW((*this).num - 1, (*this).denom);
+	int oldNum, oldDenom;
+	oldNum = num;
+	oldDenom = denom;
+	++(*this);
+	reduce();
+	return FractionPeteW(oldNum, oldDenom);
 }
 
 FractionPeteW& FractionPeteW::operator--() {
@@ -284,9 +288,94 @@ FractionPeteW& FractionPeteW::operator--() {
 }
 
 FractionPeteW FractionPeteW::operator--(int arg) {
-	(*this)--;
-	return FractionPeteW((*this).num + 1, (*this).denom);
+	int oldNum, oldDenom;
+	oldNum = num;
+	oldDenom = denom;
+	--(*this);
+	reduce();
+	return FractionPeteW(oldNum, oldDenom);
 }
+
+bool FractionPeteW::operator==(const FractionPeteW& arg) {
+	if (num == arg.num && denom == arg.denom) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool FractionPeteW::operator==(const int& arg) {
+	if (denom == 1 && num == arg) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool FractionPeteW::operator<(const FractionPeteW& arg) {
+	if (num * arg.denom < denom * arg.num) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool FractionPeteW::operator<(const int& arg) {
+	if (num < arg * denom) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool FractionPeteW::operator>(const FractionPeteW& arg) {
+	if (num * arg.denom > denom * arg.num) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool FractionPeteW::operator>(const int& arg) {
+	if (num > arg * denom) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool FractionPeteW::operator<=(const FractionPeteW& arg) {
+	if (num * arg.denom <= denom * arg.num) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool FractionPeteW::operator<=(const int& arg) {
+	if (num <= arg * denom) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool FractionPeteW::operator>=(const FractionPeteW& arg) {
+	if (num * arg.denom >= denom * arg.num) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool FractionPeteW::operator>=(const int& arg) {
+	if (num >= arg * denom) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 
 // Reduce() is called whenever other operations are performed
 void FractionPeteW::reduce() {
@@ -365,3 +454,42 @@ FractionPeteW operator/(const FractionPeteW& left,
 	return FractionPeteW(left.denom * right, left.num);
 }
 
+bool operator<(const int& left, const FractionPeteW& right) {
+	if (left * right.denom < right.num) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool operator>(const int& left, const FractionPeteW& right) {
+	if (left * right.denom > right.num) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool operator<=(const int& left, const FractionPeteW& right) {
+	if (left * right.denom <= right.num) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool operator>=(const int& left, const FractionPeteW& right) {
+	if (left * right.denom >= right.num) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool operator==(const int& left, const FractionPeteW& right) {
+	if (right.denom == 1 && left == right.num) {
+		return true;
+	} else {
+		return false;
+	}
+}
