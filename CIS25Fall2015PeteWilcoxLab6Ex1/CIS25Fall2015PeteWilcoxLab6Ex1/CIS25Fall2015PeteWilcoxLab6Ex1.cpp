@@ -10,6 +10,8 @@
 #include "PointPeteW.h"
 #include "CIS25Fall2015PeteWilcoxLab6Ex1Driver.h"
 
+void userInterface(PointPeteW**);
+
 int main() {
 	PointPeteW* point = nullptr;
 
@@ -20,6 +22,51 @@ int main() {
 	delete point;
 
 	return 0;
+}
+
+void userInterface(PointPeteW** point) {
+	int menuChoice;
+	do {
+		menuMain();
+		cin >> menuChoice;
+
+		switch (menuChoice) {
+		case 1:
+			menuInit(point);
+			break;
+		case 2:
+			if ((*point) == nullptr) {
+				cout << "\n\n  Not a proper call as no points"
+					" available!";
+			} else {
+				menuMove(point);
+			}
+			break;
+		case 3:
+			if ((*point) == nullptr) {
+				cout << "\n\n  Not a proper call as no points"
+					" available!";
+			} else {
+				menuFlip(point);
+			}
+			break;
+
+		case 4:
+			if ((*point) == nullptr) {
+				cout << "\n\n  Not a proper call as no points"
+					" available!";
+			} else {
+				menuPrint(point);
+			}
+			break;
+		case 5:
+			cout << "\n\n  Having Fun ...";
+			break;
+		default:
+			cout << "\n\n  WRONG OPTION!";
+		}
+
+	} while (menuChoice != 5);
 }
 
 /**************************************

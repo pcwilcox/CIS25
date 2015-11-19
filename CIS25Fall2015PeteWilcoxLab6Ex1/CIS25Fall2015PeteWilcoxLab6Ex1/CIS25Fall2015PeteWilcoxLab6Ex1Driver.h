@@ -31,6 +31,4 @@ void menuPrint(PointPeteW**);
 
 void print(PointPeteW** point);
 
-void userInterface(PointPeteW** point);
-
 #endif
