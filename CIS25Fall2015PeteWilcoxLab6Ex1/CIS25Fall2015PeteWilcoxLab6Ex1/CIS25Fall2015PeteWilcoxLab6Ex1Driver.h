@@ -17,7 +17,7 @@
 
 using namespace std;
 
-void display(void);
+void displayHeader(void);
 
 void menuMain(void);
 

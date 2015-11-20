@@ -13,7 +13,7 @@
 
 using namespace std;
 
-void display() {
+void displayHeader() {
 	cout << "CIS 25 - C++ Programming\n"
 		"Laney College\n"
 		"Pete Wilcox\n"
