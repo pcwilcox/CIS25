@@ -45,10 +45,13 @@ class DPeteWilcox : public BPeteWilcox {
 int* extractCommonDigit(DPeteWilcox*, int);
 
 int main() {
-	DPeteWilcox* dPtr1 = new DPeteWilcox[2] {DPeteWilcox(12, 25), DPeteWilcox(3, 4)};
+	DPeteWilcox* dPtr1 = new DPeteWilcox[2] {DPeteWilcox(12, 25), 
+											 DPeteWilcox(3, 4)};
 
-	DPeteWilcox* dPtr2 = new DPeteWilcox[4] {DPeteWilcox(12, 25), DPeteWilcox(3, 4),
-											 DPeteWilcox(123, 234), DPeteWilcox()};
+	DPeteWilcox* dPtr2 = new DPeteWilcox[4] {DPeteWilcox(12, 25), 
+		                                     DPeteWilcox(3, 4),
+											 DPeteWilcox(123, 234), 
+		                                     DPeteWilcox()};
 
 	int* dPtr3 = nullptr;
 	
@@ -103,7 +106,8 @@ int* extractCommonDigit(DPeteWilcox* dAry, int size) {
 						commons++;
 					}
 					derived /= 10;
-				} while (commonDigit[search] == false, derived > 0);
+				} while (commonDigit[search] == false && 
+					derived > 0);
 			}
 			base /= 10;
 		} while (base > 0);
