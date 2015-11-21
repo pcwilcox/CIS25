@@ -33,37 +33,35 @@ class FractionPeteW {
 	~FractionPeteW();
 
 	// Getters
-	int getNum(void) const;
+	int getNum  (void) const;
 	int getDenom(void) const;
 
 	// Setters	
-	void setNum(int);
+	void setNum  (int);
 	void setDenom(int);
-	void setBoth(int, int);
+	void setBoth (int, int);
 
 	// Print
 	void print(void);
 
 	// Member arithmetic functions
-	void add(const FractionPeteW&, const FractionPeteW&);
-	void add(const FractionPeteW&);
-
+	void add     (const FractionPeteW&, const FractionPeteW&);
 	void subtract(const FractionPeteW&, const FractionPeteW&);
-	void subtract(const FractionPeteW&);
-
 	void multiply(const FractionPeteW&, const FractionPeteW&);
-	void multiply(const FractionPeteW&);
+	void divide  (const FractionPeteW&, const FractionPeteW&);
 
-	void divide(const FractionPeteW&, const FractionPeteW&);
-	void divide(const FractionPeteW&);
+	void add     (const FractionPeteW&);
+	void subtract(const FractionPeteW&);
+	void multiply(const FractionPeteW&);
+	void divide  (const FractionPeteW&);
 
 	// Operator overloads
-	FractionPeteW operator-(void);
+	FractionPeteW  operator-(void);
 	FractionPeteW& operator=(const FractionPeteW&);
-	FractionPeteW operator+(const FractionPeteW&);
-	FractionPeteW operator-(const FractionPeteW&);
-	FractionPeteW operator*(const FractionPeteW&) const;
-	FractionPeteW operator/(const FractionPeteW&);
+	FractionPeteW  operator+(const FractionPeteW&);
+	FractionPeteW  operator-(const FractionPeteW&);
+	FractionPeteW  operator*(const FractionPeteW&) const;
+	FractionPeteW  operator/(const FractionPeteW&);
 	FractionPeteW& operator+=(const FractionPeteW&);
 	FractionPeteW& operator+=(const int&);
 	FractionPeteW& operator-=(const FractionPeteW&);

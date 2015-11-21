@@ -27,9 +27,10 @@ class FractionPeteW {
 	// Copy constructor
 	FractionPeteW(const FractionPeteW&);
 
-	// Explicit constructor
+	// Detailed constructor
 	FractionPeteW(int, int);
 
+	// Destructor
 	~FractionPeteW();
 
 	// Getters
@@ -45,66 +46,79 @@ class FractionPeteW {
 	void print(void);
 
 	// Member arithmetic functions
-	void add(const FractionPeteW&, const FractionPeteW&);
-	void add(const FractionPeteW&);
-
-	void subtract(const FractionPeteW&, const FractionPeteW&);
-	void subtract(const FractionPeteW&);
-
-	void multiply(const FractionPeteW&, const FractionPeteW&);
+	void add     (const FractionPeteW&);
+	void subtract(const FractionPeteW&);	
 	void multiply(const FractionPeteW&);
+	void divide  (const FractionPeteW&);
 
-	void divide(const FractionPeteW&, const FractionPeteW&);
-	void divide(const FractionPeteW&);
+	void add     (const FractionPeteW&, const FractionPeteW&);
+	void subtract(const FractionPeteW&, const FractionPeteW&);
+	void multiply(const FractionPeteW&, const FractionPeteW&);
+	void divide  (const FractionPeteW&, const FractionPeteW&);
 
-	// Operator overloads
-	FractionPeteW& operator=(const FractionPeteW&);
-	FractionPeteW operator+(const FractionPeteW&);
-	FractionPeteW operator-();
-	FractionPeteW operator-(const FractionPeteW&);
-	FractionPeteW operator*(const FractionPeteW&);
-	FractionPeteW operator/(const FractionPeteW&);
+	// Operator overloads - member
+	FractionPeteW  operator-();
+	FractionPeteW& operator= (const FractionPeteW&);
+
+	FractionPeteW  operator+ (const FractionPeteW&);
+	FractionPeteW  operator- (const FractionPeteW&);
+	FractionPeteW  operator* (const FractionPeteW&);
+	FractionPeteW  operator/ (const FractionPeteW&);
+
 	FractionPeteW& operator+=(const FractionPeteW&);
-	FractionPeteW& operator+=(const int&);
 	FractionPeteW& operator-=(const FractionPeteW&);
-	FractionPeteW& operator-=(const int&);
-	FractionPeteW& operator*=(const FractionPeteW&);
-	FractionPeteW& operator*=(const int&);
+	FractionPeteW& operator*=(const FractionPeteW&);	
 	FractionPeteW& operator/=(const FractionPeteW&);
+
+	FractionPeteW operator+  (const int&);
+	FractionPeteW operator/  (const int&);
+	FractionPeteW operator-  (const int&);
+	FractionPeteW operator*  (const int&);
+
 	FractionPeteW& operator/=(const int&);
-	FractionPeteW& operator++();
-	FractionPeteW operator++(int);
+	FractionPeteW& operator+=(const int&);
+	FractionPeteW& operator-=(const int&);
+	FractionPeteW& operator*=(const int&);
+
+	// Pre-increment
+	FractionPeteW& operator++(); 
 	FractionPeteW& operator--();
-	FractionPeteW operator--(int);
+
+	// Post-increment
+	FractionPeteW  operator++(int);
+	FractionPeteW  operator--(int);
 
 	bool operator==(const FractionPeteW&);
-	bool operator==(const int&);
-	bool operator<(const FractionPeteW&);
-	bool operator<(const int&);
-	bool operator>(const FractionPeteW&);
-	bool operator>(const int&);
+	bool operator< (const FractionPeteW&);
+	bool operator> (const FractionPeteW&);
 	bool operator<=(const FractionPeteW&);
-	bool operator<=(const int&);
 	bool operator>=(const FractionPeteW&);
+
+	bool operator==(const int&);
+	bool operator< (const int&);
+	bool operator> (const int&);
+	bool operator<=(const int&);
 	bool operator>=(const int&);
 
 	// Friend overloads
-	friend ostream& operator<<(ostream& os,
-		const FractionPeteW& f);
+	friend ostream& operator<<    (ostream& os,
+								   const FractionPeteW& f);
+
 	friend FractionPeteW operator+(const int&,
-		const FractionPeteW&);
-	friend FractionPeteW operator-(const FractionPeteW&,
-		const int&);
+						           const FractionPeteW&);
+
+	friend FractionPeteW operator-(const int&,
+								   const FractionPeteW&);
+
 	friend FractionPeteW operator*(const int&,
-		const FractionPeteW&);
-	friend FractionPeteW operator*(const FractionPeteW&,
-		const int&);
+								   const FractionPeteW&);
+	
 	friend FractionPeteW operator/(const int&,
-		const FractionPeteW&);
-	friend FractionPeteW operator/(const FractionPeteW&,
-		const int&);
-	friend bool operator<(const int&, const FractionPeteW&);
-	friend bool operator>(const int&, const FractionPeteW&);
+								   const FractionPeteW&);
+	
+	
+	friend bool operator< (const int&, const FractionPeteW&);
+	friend bool operator> (const int&, const FractionPeteW&);
 	friend bool operator<=(const int&, const FractionPeteW&);
 	friend bool operator>=(const int&, const FractionPeteW&);
 	friend bool operator==(const int&, const FractionPeteW&);

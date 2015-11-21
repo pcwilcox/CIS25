@@ -21,13 +21,14 @@ PointPeteW::PointPeteW() {
 
 // Explicit constructor
 PointPeteW::PointPeteW(const FractionPeteW& first, 
-	const FractionPeteW& second) : x(first), y(second) {
+					   const FractionPeteW& second) : 
+					   x(first), y(second) {
 	cout << "\nCalling PointPeteW() on " << (*this);
 }
 
 // Copy constructor
 PointPeteW::PointPeteW(const PointPeteW& old) : 
-	x(old.x), y(old.y) {
+					   x(old.x), y(old.y) {
 	cout << "\nCalling PointPeteW() on " << (*this);
 }
 
@@ -37,7 +38,7 @@ PointPeteW::PointPeteW(const int input) : x(input) {
 }
 
 PointPeteW::PointPeteW(const FractionPeteW & xCoord) :
-	x(xCoord) {
+					   x(xCoord) {
 	cout << "\nCalling PointPeteW() on " << (*this);
 }
 

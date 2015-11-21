@@ -66,7 +66,8 @@ void menuInit(PointPeteW** point) {
 			} while (denom == 0);
 
 			if ((*point) == nullptr) {
-				(*point) = new PointPeteW(FractionPeteW(num, denom));
+				(*point) = new 
+					PointPeteW(FractionPeteW(num, denom));
 			} else {
 				(*point)->setX(num, denom);
 			}
@@ -83,7 +84,8 @@ void menuInit(PointPeteW** point) {
 			} while (denom == 0);
 
 			if ((*point) == nullptr) {
-				(*point) = new PointPeteW(FractionPeteW(num, denom));
+				(*point) = new 
+					PointPeteW(FractionPeteW(num, denom));
 			} else {
 				(*point)->setY(num, denom);
 			}
@@ -147,14 +149,16 @@ void menuMove(PointPeteW** point) {
 				FractionPeteW(numY, denomY));
 			break;
 		case 2:
+			// Set these to default values - whichever the user
+			// does not select will not have an impact.
 			numX = 0;
 			numY = 0;
 			denomX = 1;
 			denomY = 1;
 
 			do {
-				cout << "\n\n  Please select the axis for movement "
-					"(1 for X-axis, 2 for Y-axis): ";
+				cout << "\n\n  Please select the axis for "
+					"movement (1 for X-axis, 2 for Y-axis): ";
 				cin >> axis;
 				if (axis != 1 && axis != 2) {
 					cout << "\n\n Invalid choice. Please choose"
@@ -183,7 +187,8 @@ void menuMove(PointPeteW** point) {
 					}
 				} while (denomY == 0);
 			}
-			(*point)->moveBy(FractionPeteW(numX, denomX), FractionPeteW(numY, denomY));
+			(*point)->moveBy(FractionPeteW(numX, denomX), 
+				             FractionPeteW(numY, denomY));
 			break;
 		case 3:
 			if ((*point) == nullptr) {
