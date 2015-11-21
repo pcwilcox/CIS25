@@ -1,7 +1,7 @@
 /**
-  * Program Name: CIS25Fall2015PeteWilcoxLab6Ex1Driver.cpp
-  * Discussion:   Lab #6 Exercise #1 --
-  *                 Driver - CPP
+  * Program Name: PointPeteWUtilities.cpp
+  * Discussion:   PointPeteW Class --
+  *                 Driver CPP
   * Written by:   Pete Wilcox
   * Date:         2015/11/XX
   */
@@ -9,7 +9,7 @@
 #include <iostream>
 #include "fractionPeteW.h"
 #include "PointPeteW.h"
-#include "CIS25Fall2015PeteWilcoxLab6Ex1Driver.h"
+#include "PointPeteWUtilities.h"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ void displayHeader() {
 		"  Assignment Number:  Lab 6,\n"
 		"                      Exercise #1\n"
 		"  Written by:         Pete Wilcox\n"
-		"  Due Date:           2015/11/XX\n";
+		"  Due Date:           2015/11/24\n";
 }
 
 void menuMain() {

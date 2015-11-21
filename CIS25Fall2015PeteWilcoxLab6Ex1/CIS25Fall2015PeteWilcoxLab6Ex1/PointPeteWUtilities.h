@@ -1,15 +1,15 @@
 #pragma once
 
 /**
-  * Program Name: CIS25Fall2015PeteWilcoxLab6Ex1Driver.h
-  * Discussion:   Lab #6 Exercise #1 --
-  *                 Driver - Header file
+  * Program Name: PointPeteWUtilities.h
+  * Discussion:   PointPeteW Class --
+  *                 Utilities Header file
   * Written by:   Pete Wilcox
   * Date:         2015/11/XX
   */
 
-#ifndef CIS25FALL2015PETEWILCOXLAB6EX1DRIVER_H
-#define CIS25FALL2015PETEWILCOXLAB6EX1DRIVER_H
+#ifndef POINTPETEWUTILITIES_H
+#define POINTPETEWUTILITIES_H
 
 #include <iostream>
 #include "fractionPeteW.h"
