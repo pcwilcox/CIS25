@@ -3,7 +3,7 @@
   * Discussion:   PointPeteW Class --
   *                 Driver CPP
   * Written by:   Pete Wilcox
-  * Date:         2015/11/XX
+  * Date:         2015/11/24
   */
 
 #include <iostream>

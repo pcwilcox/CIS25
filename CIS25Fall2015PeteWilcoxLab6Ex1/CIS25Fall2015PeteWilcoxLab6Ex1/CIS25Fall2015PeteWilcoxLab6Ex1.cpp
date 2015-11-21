@@ -2,7 +2,7 @@
   * Program Name: CIS25Fall2015PeteWilcoxLab6Ex1.cpp
   * Discussion:   Lab #6 Exercise #1
   * Written by:   Pete Wilcox
-  * Date:         2015/11/XX
+  * Date:         2015/11/24
   */
 
 #include <iostream>
@@ -26,6 +26,7 @@ int main() {
 
 void userInterface(PointPeteW** point) {
 	int menuChoice;
+
 	do {
 		menuMain();
 		cin >> menuChoice;
@@ -34,7 +35,9 @@ void userInterface(PointPeteW** point) {
 		case 1:
 			menuInit(point);
 			break;
+
 		case 2:
+
 			if ((*point) == nullptr) {
 				cout << "\n\n  Not a proper call as no points"
 					" available!";
@@ -42,7 +45,9 @@ void userInterface(PointPeteW** point) {
 				menuMove(point);
 			}
 			break;
+
 		case 3:
+
 			if ((*point) == nullptr) {
 				cout << "\n\n  Not a proper call as no points"
 					" available!";
@@ -52,6 +57,7 @@ void userInterface(PointPeteW** point) {
 			break;
 
 		case 4:
+
 			if ((*point) == nullptr) {
 				cout << "\n\n  Not a proper call as no points"
 					" available!";
@@ -59,11 +65,16 @@ void userInterface(PointPeteW** point) {
 				menuPrint(point);
 			}
 			break;
+
 		case 5:
+
 			cout << "\n\n  Having Fun ...";
 			break;
+
 		default:
+
 			cout << "\n\n  WRONG OPTION!";
+
 		}
 
 	} while (menuChoice != 5);

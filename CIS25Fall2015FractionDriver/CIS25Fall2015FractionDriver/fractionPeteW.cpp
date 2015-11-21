@@ -3,7 +3,7 @@
   * Discussion:   Declaration File --
   *                 FractionPeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/11/XX
+  * Date:         2015/11/24
   */
 
 #include "fractionPeteW.h"
@@ -89,7 +89,6 @@ void FractionPeteW::print() {
 }
 
 // Member arithmetic functions
-
 void FractionPeteW::add(const FractionPeteW& arg) {
 	int inputNum = arg.num;
 	int inputDenom = arg.denom;
@@ -112,7 +111,6 @@ void FractionPeteW::add(const FractionPeteW& arg) {
 	reduce();
 }
 
-
 void FractionPeteW::subtract(const FractionPeteW& arg) {
 	int inputNum = arg.num;
 	int inputDenom = arg.denom;
@@ -134,7 +132,6 @@ void FractionPeteW::subtract(const FractionPeteW& arg) {
 
 	reduce();
 }
-
 
 void FractionPeteW::multiply(const FractionPeteW& arg) {
 	num *= arg.num;
@@ -179,7 +176,6 @@ void FractionPeteW::divide(const FractionPeteW& left,
 	reduce();
 }
 
-
 // Operator overloads - member
 FractionPeteW FractionPeteW::operator-() {
 	num = -num;
@@ -200,7 +196,6 @@ FractionPeteW FractionPeteW::operator+(const FractionPeteW&
 		((*this).num * arg.denom) + ((*this).denom * arg.num),
 		(*this).denom * arg.denom);
 }
-
 
 FractionPeteW FractionPeteW::operator-(const FractionPeteW&
 									   arg) {
@@ -230,7 +225,6 @@ FractionPeteW& FractionPeteW::operator+=(const FractionPeteW
 	return *this;
 }
 
-
 FractionPeteW& FractionPeteW::operator-=(const FractionPeteW 
 										 &arg) {
 	(*this).num = (*this).num * arg.denom - 
@@ -240,7 +234,6 @@ FractionPeteW& FractionPeteW::operator-=(const FractionPeteW
 	return *this;
 }
 
-
 FractionPeteW& FractionPeteW::operator*=(const FractionPeteW 
 										 &arg) {
 	(*this).num = (*this).num * arg.num;
@@ -248,7 +241,6 @@ FractionPeteW& FractionPeteW::operator*=(const FractionPeteW
 	reduce();
 	return *this;
 }
-
 
 FractionPeteW& FractionPeteW::operator/=(const FractionPeteW 
 										 &arg) {
@@ -276,7 +268,6 @@ FractionPeteW FractionPeteW::operator/(const int& arg) {
 
 	return FractionPeteW(denom * arg, num);
 }
-
 
 FractionPeteW& FractionPeteW::operator+=(const int &arg) {
 	(*this).num = (*this).num + (*this).denom * arg;
@@ -423,8 +414,6 @@ FractionPeteW operator+(const int& left,
 		left * right.denom + right.num, right.denom);
 }
 
-
-
 FractionPeteW operator*(const int& left,
 	const FractionPeteW& right) {
 
@@ -432,14 +421,11 @@ FractionPeteW operator*(const int& left,
 		left * right.num, right.denom);
 }
 
-
 FractionPeteW operator/(const int& left,
 	const FractionPeteW& right) {
 
 	return FractionPeteW(left * right.denom, right.num);
 }
-
-
 
 bool operator<(const int& left, const FractionPeteW& right) {
 	if (left * right.denom < right.num) {

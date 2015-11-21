@@ -3,7 +3,7 @@
   * Discussion:   Declaration File --
   *                 FractionPeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/11/XX
+  * Date:         2015/11/24
   */
 
 #pragma once
@@ -58,6 +58,7 @@ class FractionPeteW {
 
 	// Operator overloads - member
 	FractionPeteW  operator-();
+
 	FractionPeteW& operator= (const FractionPeteW&);
 
 	FractionPeteW  operator+ (const FractionPeteW&);
@@ -88,6 +89,7 @@ class FractionPeteW {
 	FractionPeteW  operator++(int);
 	FractionPeteW  operator--(int);
 
+	// Comparison
 	bool operator==(const FractionPeteW&);
 	bool operator< (const FractionPeteW&);
 	bool operator> (const FractionPeteW&);

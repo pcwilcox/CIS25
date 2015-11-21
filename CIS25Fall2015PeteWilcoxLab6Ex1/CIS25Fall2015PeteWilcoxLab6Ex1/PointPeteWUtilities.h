@@ -5,7 +5,7 @@
   * Discussion:   PointPeteW Class --
   *                 Utilities Header file
   * Written by:   Pete Wilcox
-  * Date:         2015/11/XX
+  * Date:         2015/11/24
   */
 
 #ifndef POINTPETEWUTILITIES_H
