@@ -41,10 +41,12 @@ class PointPeteW {
 
 	// Setters
 	void setX(const FractionPeteW&);
-	void setX(const int, const int);
-	void setX(const int);
 	void setY(const FractionPeteW&);
+
+	void setX(const int, const int);
 	void setY(const int, const int);
+
+	void setX(const int);
 	void setY(const int);
 
 	
@@ -52,10 +54,13 @@ class PointPeteW {
 	// Movers
 	void moveByX(const FractionPeteW &);
 	void moveByY(const FractionPeteW &);
+
 	void moveBy(const FractionPeteW&, const FractionPeteW&);
 	void moveBy(const int, const int);
+
 	void flipByX();
 	void flipByY();
+
 	void flipThroughOrigin();
 
 	// Print
