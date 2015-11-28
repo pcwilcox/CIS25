@@ -5,7 +5,7 @@
   * Discussion:   Lab #6 Exercise #2 - Driver --
   *                 Declaration file
   * Written by:   Pete Wilcox
-  * Date:         2015/11/24
+  * Date:         2015/12/01
   */
 
 #ifndef CIS25FALL2015PETEWILCOXLAB6EX2DRIVER_H

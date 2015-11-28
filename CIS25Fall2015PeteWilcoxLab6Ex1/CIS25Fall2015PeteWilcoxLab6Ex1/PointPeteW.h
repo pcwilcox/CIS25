@@ -3,7 +3,7 @@
   * Discussion:   Declaration File --
   *                 pointPeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/11/24
+  * Date:         2015/12/01
   */
 
 #pragma once

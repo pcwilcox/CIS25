@@ -5,7 +5,7 @@
 * Discussion:   Declaration File --
 *                 CirclePeteW class
 * Written by:   Pete Wilcox
-* Date:         2015/11/24
+* Date:         2015/12/01
 */
 
 #ifndef CIRCLEPETEW_H
@@ -48,6 +48,12 @@ class CirclePeteW {
 	CirclePeteW& operator=(const CirclePeteW&);
 
 	bool operator==(const CirclePeteW&);
+
+	bool operator< (const CirclePeteW&);
+	bool operator> (const CirclePeteW&);
+
+	bool operator<=(const CirclePeteW&);
+	bool operator>=(const CirclePeteW&);
 
 	friend ostream& operator<<(ostream&, const CirclePeteW&);
 
