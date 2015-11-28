@@ -100,10 +100,10 @@ void rectangleTasks(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** 
 	} while (menuChoice != 5);
 }
 
-void circleTasks(CirclePeteW** circles) {
+void circleTasks(CirclePeteW** cirA, CirclePeteW** cirB) {
 	int menuChoice;
 	do {
-		cout << "\nRECTANGLE MENU\n"
+		cout << "\nCIRCLE MENU\n"
 			"(1) Create two Circle objects\n"
 			"(2) Compare by volume\n"
 			"(3) Compare by area\n"
@@ -114,28 +114,21 @@ void circleTasks(CirclePeteW** circles) {
 
 		switch (menuChoice) {
 		case 1:
-			createCircles(circles);
+			createCircles(cirA, cirB);
 			break;
 		case 2:
 			cout << "\nBoth circles have zero volume.";
 			break;
 		case 3:
-			if (circles != nullptr) {
-				if (*(*(circles + 0)) > *(*(circles + 1))) {
-					cout << "\Circle " << *(*(circles + 0)) << " is larger than " << *(*(circles + 1));
-				} else if (*(*(circles + 0)) < *(*(circles + 1))) {
-					cout << "\Circle " << *(*(circles + 1)) << " is larger than " << *(*(circles + 0));
-				} else {
-					cout << "\nBoth circles have equal area.";
-				}
+			if (cirA != nullptr && cirB != nullptr) {
+				compareArea(cirA, cirB);
 			} else {
 				cout << "\nBoth circles must be intialized first!";
 			}
 			break;
 		case 4:
-			if (circles != nullptr) {
-				cout << "\nCircle 1: " << *(*(circles + 0));
-				cout << "\nCircle 2: " << *(*(circles + 1));
+			if (cirA != nullptr && cirB != nullptr) {
+				print(cirA, cirB);
 			} else {
 				cout << "\nBoth circles must be intialized first!";
 			}
@@ -149,11 +142,8 @@ void circleTasks(CirclePeteW** circles) {
 	} while (menuChoice != 5);
 }
 
-void createRectangles(RectanglePeteW** rectangles) {
-	if (rectangles == nullptr) {
-		// no rectangles yet
-	} else {
-		// change old rectangles
+void createRectangles(RectanglePeteW** recA, RectanglePeteW** recB) {
+	if (*recA == nullptr) {
+
 	}
-	
 }
