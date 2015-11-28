@@ -21,24 +21,24 @@ using namespace std;
 
 // Main interface functions
 void displayHeader(void);
-void userInterface(RectanglePeteW**, CirclePeteW**);
+void userInterface(RectanglePeteW**, RectanglePeteW**, CirclePeteW**, CirclePeteW**);
 
 // Rectangle menu functions
-void rectangleTasks(RectanglePeteW**);
-void createRectangles(RectanglePeteW**);
-void compareArea(RectanglePeteW**);
-void print(RectanglePeteW**);
+void rectangleTasks(RectanglePeteW**, RectanglePeteW**);
+void createRectangles(RectanglePeteW**, RectanglePeteW**);
+void compareArea(RectanglePeteW**, RectanglePeteW**);
+void print(RectanglePeteW**, RectanglePeteW**);
 
 // Circle menu functions
-void circleTasks(CirclePeteW**);
-void createCircles(CirclePeteW**);
-void compareArea(CirclePeteW**);
-void print(CirclePeteW**);
+void circleTasks(CirclePeteW**, CirclePeteW**);
+void createCircles(CirclePeteW**, CirclePeteW**);
+void compareArea(CirclePeteW**, CirclePeteW**);
+void print(CirclePeteW**, CirclePeteW**);
 
 // Mixed menu functions
-void mixedTasks(RectanglePeteW**, CirclePeteW**);
-void compareArea(RectanglePeteW**, CirclePeteW**);
-void print(RectanglePeteW**, CirclePeteW**);
+void mixedTasks(RectanglePeteW**, RectanglePeteW**, CirclePeteW**, CirclePeteW**);
+void compareArea(RectanglePeteW**, RectanglePeteW**, CirclePeteW**, CirclePeteW**);
+void print(RectanglePeteW**, RectanglePeteW**, CirclePeteW**, CirclePeteW**);
 
 
 #endif

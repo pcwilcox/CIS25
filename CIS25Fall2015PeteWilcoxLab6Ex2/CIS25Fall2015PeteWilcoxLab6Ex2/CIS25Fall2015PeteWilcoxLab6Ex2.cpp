@@ -13,15 +13,19 @@
 using namespace std;
 
 int main() {
-	RectanglePeteW** rectangles = nullptr;
-	CirclePeteW**    circles = nullptr;
+	RectanglePeteW* recA = nullptr;
+	RectanglePeteW* recB = nullptr;
+	CirclePeteW*    cirA = nullptr;
+	CirclePeteW*    cirB = nullptr;
 
 	displayHeader();
 
-	userInterface(rectangles, circles);
+	userInterface(&recA, &recB, &cirA, &cirB);
 
-	delete[] rectangles;
-	delete[] circles;
+	delete recA;
+	delete recB;
+	delete cirA;
+	delete cirB;
 	
 	return 0;
 }

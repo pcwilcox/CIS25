@@ -27,7 +27,7 @@ void displayHeader() {
 		"  Due Date:           2015/12/01\n";
 }
 
-void userInterface(RectanglePeteW** rectangles, CirclePeteW** circles) {
+void userInterface(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** cirA, CirclePeteW** cirB) {
 	int menuChoice;
 	do {
 		cout << "\nMAIN MENU\n"
@@ -41,13 +41,13 @@ void userInterface(RectanglePeteW** rectangles, CirclePeteW** circles) {
 
 		switch (menuChoice) {
 		case 1:
-			rectangleTasks(rectangles);
+			rectangleTasks(recA, recB);
 			break;
 		case 2:
-			circleTasks(circles);
+			circleTasks(cirA, cirB);
 			break;
 		case 3:
-			mixedTasks(rectangles, circles);
+			mixedTasks(recA, recB, cirA, cirB);
 			break;
 		case 4:
 			cout << "\n\n    Have fun...";
@@ -58,7 +58,7 @@ void userInterface(RectanglePeteW** rectangles, CirclePeteW** circles) {
 	} while (menuChoice != 4);
 }
 
-void rectangleTasks(RectanglePeteW** rectangles) {
+void rectangleTasks(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** cirA, CirclePeteW** cirB) {
 	int menuChoice;
 	do {
 		cout << "\nRECTANGLE MENU\n"
@@ -72,28 +72,21 @@ void rectangleTasks(RectanglePeteW** rectangles) {
 
 		switch (menuChoice) {
 		case 1:
-			createRectangles(rectangles);
+			createRectangles(recA, recB);
 			break;
 		case 2:
 			cout << "\nBoth rectangles have zero volume.";
 			break;
 		case 3:
-			if (rectangles != nullptr) {
-				if (*(*(rectangles + 0)) > *(*(rectangles + 1))) {
-					cout << "\nRectangle " << *(*(rectangles + 0)) << " is larger than " << *(*(rectangles + 1));
-				} else if (*(*(rectangles + 0)) < *(*(rectangles + 1))) {
-					cout << "\nRectangle " << *(*(rectangles + 1)) << " is larger than " << *(*(rectangles + 0));
-				} else {
-					cout << "\nBoth rectangles have equal area.";
-				}
+			if (recA != nullptr && recB != nullptr) {
+				compareArea(recA, recB);
 			} else {
 				cout << "\nBoth rectangles must be intialized first!";
 			}
 			break;
 		case 4:
-			if (rectangles != nullptr) {
-				cout << "\nRectangle 1: " << *(*(rectangles + 0));
-				cout << "\nRectangle 2: " << *(*(rectangles + 1));
+			if (recA != nullptr && recB != nullptr) {
+				print(recA, recB);
 			} else {
 				cout << "\nBoth rectangles must be intialized first!";
 			}
@@ -157,5 +150,10 @@ void circleTasks(CirclePeteW** circles) {
 }
 
 void createRectangles(RectanglePeteW** rectangles) {
+	if (rectangles == nullptr) {
+		// no rectangles yet
+	} else {
+		// change old rectangles
+	}
 	
 }
