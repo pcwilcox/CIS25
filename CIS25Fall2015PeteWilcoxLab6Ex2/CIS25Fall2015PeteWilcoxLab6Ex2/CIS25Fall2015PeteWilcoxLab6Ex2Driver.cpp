@@ -27,8 +27,8 @@ void displayHeader() {
 		"  Due Date:           2015/12/01\n";
 }
 
-void userInterface(RectanglePeteW** recA, RectanglePeteW** recB, 
-				   CirclePeteW** cirA, CirclePeteW** cirB) {
+void userInterface(RectanglePeteW** recA, RectanglePeteW** recB,
+	CirclePeteW** cirA, CirclePeteW** cirB) {
 	int menuChoice;
 	do {
 		cout << "\nMAIN MENU\n"
@@ -48,7 +48,14 @@ void userInterface(RectanglePeteW** recA, RectanglePeteW** recB,
 			circleTasks(cirA, cirB);
 			break;
 		case 3:
-			mixedTasks(recA, recB, cirA, cirB);
+			if (*recA == nullptr ||
+				*recB == nullptr ||
+				*cirA == nullptr ||
+				*cirB == nullptr) {
+				cout << "\nAll objects must be initialized first.";
+			} else {
+				mixedTasks(recA, recB, cirA, cirB);
+			}
 			break;
 		case 4:
 			cout << "\n\n    Have fun...";
@@ -59,8 +66,7 @@ void userInterface(RectanglePeteW** recA, RectanglePeteW** recB,
 	} while (menuChoice != 4);
 }
 
-void rectangleTasks(RectanglePeteW** recA, RectanglePeteW** recB, 
-					CirclePeteW** cirA, CirclePeteW** cirB) {
+void rectangleTasks(RectanglePeteW** recA, RectanglePeteW** recB) {
 	int menuChoice;
 	do {
 		cout << "\nRECTANGLE MENU\n"
@@ -144,6 +150,45 @@ void circleTasks(CirclePeteW** cirA, CirclePeteW** cirB) {
 	} while (menuChoice != 5);
 }
 
+void mixedTasks(RectanglePeteW** recA, RectanglePeteW** recB,
+	CirclePeteW** cirA, CirclePeteW** cirB) {
+	int menuChoice;
+	do {
+		cout << "\nMIXED RECTANGLE & CIRCLE MENU"
+			"\n(1) Compare by area"
+			"\n(2) Compare by volume"
+			"\n(3) Print ALL objects"
+			"\n(4) Quit"
+			"Enter your option (1 through 4): ";
+		cin >> menuChoice;
+
+		switch (menuChoice) {
+		case 1:
+			cout << "\n  Comparing by area: "
+				"\nRectangle 1: " << (*recA)->getArea() <<
+				"\nRectangle 2: " << (*recB)->getArea() <<
+				"\nCircle 1: " << (*cirA)->getArea() <<
+				"\nCircle 2: " << (*cirB)->getArea();
+			break;
+		case 2:
+			cout << "\nRectangles and circles have no volume.";
+			break;
+		case 3:
+			cout << "\nRectangle 1: " << **recA <<
+				"\nRectangle 2: " << **recB <<
+				"\nCircle 1: " << **cirA <<
+				"\nCircle 2: " << **cirB;
+			break;
+		case 4:
+			cout << "\nReturning to main menu.";
+			break;
+		default:
+			cout << "\nWRONG OPTION";
+			break;
+		}
+	} while (menuChoice != 4);
+}
+
 void createRectangles(RectanglePeteW** recA, RectanglePeteW** recB) {
 	int menuChoice;
 	int numX;
@@ -182,7 +227,7 @@ void createRectangles(RectanglePeteW** recA, RectanglePeteW** recB) {
 					cout << "\nDenominator cannot be 0!";
 				}
 			} while (denomY == 0);
-			
+
 			if (*recA == nullptr) {
 				*recA = new RectanglePeteW(PointPeteW(FractionPeteW(numX, denomX), FractionPeteW(numY, denomY)));
 			} else {
@@ -208,7 +253,7 @@ void createRectangles(RectanglePeteW** recA, RectanglePeteW** recB) {
 				if (denomY == 0) {
 					cout << "\nDenominator cannot be 0!";
 				}
-			} while (denomY == 0);	
+			} while (denomY == 0);
 
 			(*recA)->setUpperRight(PointPeteW(FractionPeteW(numX, denomX), FractionPeteW(numY, denomY)));
 			break;
@@ -283,4 +328,30 @@ void compareArea(RectanglePeteW** recA, RectanglePeteW** recB) {
 	} else {
 		cout << endl << "Both rectangles are the same size.";
 	}
+}
+
+void print(RectanglePeteW** recA, RectanglePeteW** recB) {
+	int menuChoice;
+	do {
+		cout << "\n  PRINT RECTANGLES"
+			"\n(1) Print first rectangle"
+			"\n(2) Print second rectangle"
+			"\n(3) Quit"
+			"\nPlease enter your option (1 through 3): ";
+		cin >> menuChoice;
+		switch (menuChoice) {
+		case 1:
+			cout << **recA;
+			break;
+		case 2:
+			cout << **recB;
+			break;
+		case 3:
+			cout << "\n  Returning to main menu";
+			break;
+		default:
+			cout << "\nWRONG OPTION";
+			break;
+		}
+	} while (menuChoice != 3);
 }
