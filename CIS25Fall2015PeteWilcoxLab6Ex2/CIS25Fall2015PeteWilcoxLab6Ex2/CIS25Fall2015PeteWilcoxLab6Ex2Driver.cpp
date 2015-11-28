@@ -320,6 +320,113 @@ void createRectangles(RectanglePeteW** recA, RectanglePeteW** recB) {
 	} while (menuChoice != 3);
 }
 
+void createCircles(CirclePeteW** cirA, CirclePeteW** cirB) {
+	int numX;
+	int numY;
+	int denomX;
+	int denomY;
+	int numR;
+	int denomR;
+	int menuChoice;
+
+	do {
+		cout << "\n  CREATING CIRCLES MENU"
+			"\n(1) Create first circle"
+			"\n(2) Create second circle"
+			"\n(3) Quit"
+			"\nPlease enter your option (1 through 3): ";
+		cin >> menuChoice;
+		switch (menuChoice) {
+		case 1:
+			cout << "\nCreating center point - X value"
+				"\n  Please enter the numerator: ";
+			cin >> numX;
+			do {
+				cout << "\n  Please enter the denominator: ";
+				cin >> denomX;
+				if (denomX == 0) {
+					cout << "\nDenominator cannot be 0!";
+				}
+			} while (denomX == 0);
+
+			cout << "\nCreating center point - Y value"
+				"\n  Please enter the numerator: ";
+			cin >> numY;
+			do {
+				cout << "\n  Please enter the denominator: ";
+				cin >> denomY;
+				if (denomY == 0) {
+					cout << "\nDenominator cannot be 0!";
+				}
+			} while (denomY == 0);
+
+			if (*cirA == nullptr) {
+				*cirA = new CirclePeteW(PointPeteW(FractionPeteW(numX, denomX), FractionPeteW(numY, denomY)));
+			} else {
+				(*cirA)->setCenter(PointPeteW(FractionPeteW(numX, denomX), FractionPeteW(numY, denomY)));
+			}
+
+			cout << "\n  Creating radius - please enter the numerator: ";
+			cin >> numR;
+			do {
+				cout << "\n  Please enter the denominator: ";
+				cin >> denomR;
+				if (denomR == 0) {
+					cout << "\nDenominator cannot be 0!";
+				}
+			} while (denomR == 0);
+			(*cirA)->setRadius(FractionPeteW(numR, denomR));
+			break;
+		case 2:
+			cout << "\nCreating center point - X value"
+				"\n  Please enter the numerator: ";
+			cin >> numX;
+			do {
+				cout << "\n  Please enter the denominator: ";
+				cin >> denomX;
+				if (denomX == 0) {
+					cout << "\nDenominator cannot be 0!";
+				}
+			} while (denomX == 0);
+
+			cout << "\nCreating center point - Y value"
+				"\n  Please enter the numerator: ";
+			cin >> numY;
+			do {
+				cout << "\n  Please enter the denominator: ";
+				cin >> denomY;
+				if (denomY == 0) {
+					cout << "\nDenominator cannot be 0!";
+				}
+			} while (denomY == 0);
+
+			if (*cirB == nullptr) {
+				*cirB = new CirclePeteW(PointPeteW(FractionPeteW(numX, denomX), FractionPeteW(numY, denomY)));
+			} else {
+				(*cirB)->setCenter(PointPeteW(FractionPeteW(numX, denomX), FractionPeteW(numY, denomY)));
+			}
+
+			cout << "\n  Creating radius - please enter the numerator: ";
+			cin >> numR;
+			do {
+				cout << "\n  Please enter the denominator: ";
+				cin >> denomR;
+				if (denomR == 0) {
+					cout << "\nDenominator cannot be 0!";
+				}
+			} while (denomR == 0);
+			(*cirB)->setRadius(FractionPeteW(numR, denomR));
+			break;
+		case 3:
+			cout << "\nReturning to main menu.";
+			break;
+		default:
+			cout << "\nWRONG OPTION";
+			break;
+		}
+	} while (menuChoice != 3);
+}
+
 void compareArea(RectanglePeteW** recA, RectanglePeteW** recB) {
 	if ((*recA)->getArea() > (*recB)->getArea()) {
 		cout << endl << "Rectangle " << **recA << " is larger than rectangle " << **recB;
@@ -327,6 +434,16 @@ void compareArea(RectanglePeteW** recA, RectanglePeteW** recB) {
 		cout << endl << "Rectangle " << **recA << " is smaller than rectangle " << **recB;
 	} else {
 		cout << endl << "Both rectangles are the same size.";
+	}
+}
+
+void compareArea(CirclePeteW** cirA, CirclePeteW** cirB) {
+	if ((*cirA)->getArea() > (*cirB)->getArea()) {
+		cout << endl << "Cricle " << **cirA << " is larger than circle " << **cirB;
+	} else if ((*cirA)->getArea() < (*cirB)->getArea()) {
+		cout << endl << "Circle " << **cirA << " is smaller than circle " << **cirB;
+	} else {
+		cout << endl << "Both circles are the same size.";
 	}
 }
 
@@ -345,6 +462,32 @@ void print(RectanglePeteW** recA, RectanglePeteW** recB) {
 			break;
 		case 2:
 			cout << **recB;
+			break;
+		case 3:
+			cout << "\n  Returning to main menu";
+			break;
+		default:
+			cout << "\nWRONG OPTION";
+			break;
+		}
+	} while (menuChoice != 3);
+}
+
+void print(CirclePeteW** cirA, CirclePeteW** cirB) {
+	int menuChoice;
+	do {
+		cout << "\n  PRINT CIRCLES"
+			"\n(1) Print first circle"
+			"\n(2) Print second circle"
+			"\n(3) Quit"
+			"\nPlease enter your option (1 through 3): ";
+		cin >> menuChoice;
+		switch (menuChoice) {
+		case 1:
+			cout << **cirA;
+			break;
+		case 2:
+			cout << **cirB;
 			break;
 		case 3:
 			cout << "\n  Returning to main menu";
