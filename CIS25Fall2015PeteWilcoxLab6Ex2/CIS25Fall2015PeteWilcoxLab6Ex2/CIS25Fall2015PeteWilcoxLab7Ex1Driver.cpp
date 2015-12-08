@@ -11,7 +11,7 @@
 #include "PointPeteW.h"
 #include "RectanglePeteW.h"
 #include "CirclePeteW.h"
-#include "CIS25Fall2015PeteWilcoxLab6Ex2Driver.h"
+#include "CIS25Fall2015PeteWilcoxLab7Ex1Driver.h"
 
 using namespace std;
 
@@ -153,6 +153,7 @@ void circleTasks(CirclePeteW** cirA, CirclePeteW** cirB) {
 void mixedTasks(RectanglePeteW** recA, RectanglePeteW** recB,
 	CirclePeteW** cirA, CirclePeteW** cirB) {
 	int menuChoice;
+	int compareFirst, compareSecond, compareTotal;
 	do {
 		cout << "\nMIXED RECTANGLE & CIRCLE MENU"
 			"\n(1) Compare by area"
@@ -164,11 +165,34 @@ void mixedTasks(RectanglePeteW** recA, RectanglePeteW** recB,
 
 		switch (menuChoice) {
 		case 1:
-			cout << "\n  Comparing by area: "
-				"\nRectangle 1: " << (*recA)->getArea() <<
-				"\nRectangle 2: " << (*recB)->getArea() <<
-				"\nCircle 1: " << (*cirA)->getArea() <<
-				"\nCircle 2: " << (*cirB)->getArea();
+			cout << "\n  Comparing by area - Select two objects"
+				" to compare --"
+				"\n  (1) Rectangle 1: " << (*recA)->getArea() <<
+				"\n  (2) Rectangle 2: " << (*recB)->getArea() <<
+				"\n  (3) Circle 1: " << (*cirA)->getArea() <<
+				"\n  (4) Circle 2: " << (*cirB)->getArea() <<
+				"\nPlease select the first object (1 through 4): ";
+				cin >> compareFirst;
+				cout << "\nPlease select the second object (1 through 4): ";
+				cin >> compareSecond;
+				compareTotal = compareFirst * compareSecond;
+				switch (compareTotal) {
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				case 6:
+					break;
+				case 8:
+					break;
+				case 12:
+					break;
+				default:
+					cout << "\nInvalid selection, you cannot compare an object with itself.";
+				}
+
 			break;
 		case 2:
 			cout << "\nRectangles and circles have no volume.";

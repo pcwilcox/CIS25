@@ -8,7 +8,7 @@
 #include <iostream>
 #include "CirclePeteW.h"
 #include "RectanglePeteW.h"
-#include "CIS25Fall2015PeteWilcoxLab6Ex2Driver.h"
+#include "CIS25Fall2015PeteWilcoxLab7Ex1Driver.h"
 
 using namespace std;
 
