@@ -508,8 +508,27 @@ void compareArea(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** cir
 		}
 		break;
 	case 8:
+		if ((**recB) > (**cirB)) {
+			cout << "\nRectangle #2 " << (**recB) <<
+				" is larger than Circle #2 " <<
+				(**cirB);
+		} else {
+			cout << "\nRectangle #2 " << (**recB) <<
+				" is smaller than Circle #2 " <<
+				(**cirB);
+		}
 		break;
 	case 12:
+		if ((**cirA) > (**cirB)) {
+			cout << "\nCircle #1 " << (**cirA) <<
+				" is larger than Circle #2 " <<
+				(**cirB);
+		} else {
+			cout << "\nCircle #1 " << (**cirA) <<
+				" is smaller than Circle #2 " <<
+				(**cirB);
+		}
+
 		break;
 	default:
 		cout << "\nInvalid selection, you cannot compare an object with itself.";
