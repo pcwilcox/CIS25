@@ -14,6 +14,7 @@
 #include <iostream>
 #include "fractionPeteW.h"
 #include "PointPeteW.h"
+#include "RectanglePeteW.h"
 
 using namespace std;
 
@@ -27,9 +28,11 @@ class CirclePeteW {
 
 	// Convert constructors
 	CirclePeteW(const FractionPeteW&);
+	CirclePeteW(const PointPeteW&);
 	CirclePeteW(const int&);
 
 	// Detailed constructor
+	CirclePeteW(const PointPeteW&, const FractionPeteW&);
 	CirclePeteW(const FractionPeteW&, const FractionPeteW&);
 
 	// Getters
@@ -56,6 +59,9 @@ class CirclePeteW {
 
 	bool operator<=(const CirclePeteW&);
 	bool operator>=(const CirclePeteW&);
+
+	bool operator< (const RectanglePeteW&);
+	bool operator> (const RectanglePeteW&);
 
 	friend ostream& operator<<(ostream&, const CirclePeteW&);
 

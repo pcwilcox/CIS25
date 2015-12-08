@@ -18,26 +18,34 @@ const FractionPeteW CirclePeteW::PI = FractionPeteW(157, 50);
 
 // Default constructor
 CirclePeteW::CirclePeteW() : center(FractionPeteW(0), FractionPeteW(0)), radius(0) {
-	cout << "\nCalling CirclePeteW on " << *this;
+	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
 // Copy constructor
 CirclePeteW::CirclePeteW(const CirclePeteW& arg) : center(arg.center), radius(arg.radius) {
-	cout << "\nCalling CirclePeteW on " << *this;
+	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
 // Convert constructors
 CirclePeteW::CirclePeteW(const FractionPeteW& arg) : center(FractionPeteW(0), FractionPeteW(0)), radius(arg) {
-	cout << "\nCalling CirclePeteW on " << *this;
+	cout << "\nCalling CirclePeteW() on " << *this;
+}
+
+CirclePeteW::CirclePeteW(const PointPeteW &arg) : center(arg), radius(0) {
+	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
 CirclePeteW::CirclePeteW(const int& arg) : center(FractionPeteW(0), FractionPeteW(0)), radius(FractionPeteW(arg)) {
-	cout << "\nCalling CirclePeteW on " << *this;
+	cout << "\nCalling CirclePeteW() on " << *this;
+}
+
+CirclePeteW::CirclePeteW(const PointPeteW &c, const FractionPeteW &r) : center(c), radius(r) {
+	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
 // Detailed constructor
 CirclePeteW::CirclePeteW(const FractionPeteW& argX, const FractionPeteW& argY) : center(PointPeteW(argX, argY)), radius(0) {
-	cout << "\nCalling CirclePeteW on " << *this;
+	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
 // Getters
@@ -85,8 +93,8 @@ CirclePeteW& CirclePeteW::operator=(const CirclePeteW& arg) {
 	return *this;
 }
 
-CirclePeteW & CirclePeteW::operator+(const CirclePeteW &) {
-	// TODO: insert return statement here
+CirclePeteW & CirclePeteW::operator+(const CirclePeteW &arg) {
+	return CirclePeteW(PointPeteW((*this).center.getX() - arg.center.getX() / 2, (*this).center.getY() - arg.center.getY() / 2), FractionPeteW((*this).radius + arg.radius));
 }
 
 bool CirclePeteW::operator==(const CirclePeteW& arg) {
@@ -97,19 +105,45 @@ bool CirclePeteW::operator==(const CirclePeteW& arg) {
 	}
 }
 
-bool CirclePeteW::operator<(const CirclePeteW &) {
+bool CirclePeteW::operator<(const CirclePeteW &arg) {
+	if (((*this).radius * (*this).radius * PI) < (arg.radius * arg.radius * PI)) {
+		return true;
+	}
 	return false;
 }
 
-bool CirclePeteW::operator>(const CirclePeteW &) {
+bool CirclePeteW::operator>(const CirclePeteW &arg) {
+	if (((*this).radius * (*this).radius * PI) > (arg.radius * arg.radius * PI)) {
+		return true;
+	}
 	return false;
 }
 
-bool CirclePeteW::operator<=(const CirclePeteW &) {
+bool CirclePeteW::operator<=(const CirclePeteW &arg) {
+	if (((*this).radius * (*this).radius * PI) <= (arg.radius * arg.radius * PI)) {
+		return true;
+	}
 	return false;
 }
 
-bool CirclePeteW::operator>=(const CirclePeteW &) {
+bool CirclePeteW::operator>=(const CirclePeteW &arg) {
+	if (((*this).radius * (*this).radius * PI) >= (arg.radius * arg.radius * PI)) {
+		return true;
+	}
+	return false;
+}
+
+bool CirclePeteW::operator<(const RectanglePeteW &arg) {
+	if (((*this).radius * (*this).radius * PI) < arg.getArea()) {
+		return true;
+	}
+	return false;
+}
+
+bool CirclePeteW::operator>(const RectanglePeteW &arg) {
+	if (((*this).radius * (*this).radius * PI) > arg.getArea()) {
+		return true;
+	}
 	return false;
 }
 

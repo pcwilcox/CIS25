@@ -153,7 +153,6 @@ void circleTasks(CirclePeteW** cirA, CirclePeteW** cirB) {
 void mixedTasks(RectanglePeteW** recA, RectanglePeteW** recB,
 	CirclePeteW** cirA, CirclePeteW** cirB) {
 	int menuChoice;
-	int compareFirst, compareSecond, compareTotal;
 	do {
 		cout << "\nMIXED RECTANGLE & CIRCLE MENU"
 			"\n(1) Compare by area"
@@ -165,34 +164,7 @@ void mixedTasks(RectanglePeteW** recA, RectanglePeteW** recB,
 
 		switch (menuChoice) {
 		case 1:
-			cout << "\n  Comparing by area - Select two objects"
-				" to compare --"
-				"\n  (1) Rectangle 1: " << (*recA)->getArea() <<
-				"\n  (2) Rectangle 2: " << (*recB)->getArea() <<
-				"\n  (3) Circle 1: " << (*cirA)->getArea() <<
-				"\n  (4) Circle 2: " << (*cirB)->getArea() <<
-				"\nPlease select the first object (1 through 4): ";
-				cin >> compareFirst;
-				cout << "\nPlease select the second object (1 through 4): ";
-				cin >> compareSecond;
-				compareTotal = compareFirst * compareSecond;
-				switch (compareTotal) {
-				case 2:
-					break;
-				case 3:
-					break;
-				case 4:
-					break;
-				case 6:
-					break;
-				case 8:
-					break;
-				case 12:
-					break;
-				default:
-					cout << "\nInvalid selection, you cannot compare an object with itself.";
-				}
-
+			compareArea(recA, recB, cirA, cirB);
 			break;
 		case 2:
 			cout << "\nRectangles and circles have no volume.";
@@ -468,6 +440,79 @@ void compareArea(CirclePeteW** cirA, CirclePeteW** cirB) {
 		cout << endl << "Circle " << **cirA << " is smaller than circle " << **cirB;
 	} else {
 		cout << endl << "Both circles are the same size.";
+	}
+}
+
+void compareArea(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** cirA, CirclePeteW** cirB) {
+	int compareFirst, compareSecond, compareTotal;
+	cout << "\n  Comparing by area - Select two objects"
+		" to compare --"
+		"\n  (1) Rectangle 1"
+		"\n  (2) Rectangle 2"
+		"\n  (3) Circle 1"
+		"\n  (4) Circle 2"
+		"\nPlease select the first object (1 through 4): ";
+	cin >> compareFirst;
+	cout << "\nPlease select the second object (1 through 4): ";
+	cin >> compareSecond;
+
+	if (compareFirst == compareSecond) {
+		compareTotal = -1;
+	} else {
+		compareTotal = compareFirst * compareSecond;
+	}
+
+	switch (compareTotal) {
+	case 2:
+		if ((**recA) > (**recB)) {
+			cout << "\nRectangle #1 " << (**recA) <<
+				" is larger than Rectangle #2 " <<
+				(**recB);
+		} else {
+			cout << "\nRectangle #1 " << (**recA) <<
+				" is smaller than Rectangle #2 " <<
+				(**recB);
+		}
+		break;
+	case 3:
+		if ((**recA) > (**cirA)) {
+			cout << "\nRectangle #1 " << (**recA) <<
+				" is larger than Circle #1 " <<
+				(**cirA);
+		} else {
+			cout << "\nRectangle #1 " << (**recA) <<
+				" is smaller than Circle #1 " <<
+				(**cirA);
+		}
+		break;
+	case 4:
+		if ((**recA) > (**cirB)) {
+			cout << "\nRectangle #1 " << (**recA) <<
+				" is larger than Circle #2 " <<
+				(**cirB);
+		} else {
+			cout << "\nRectangle #1 " << (**recA) <<
+				" is smaller than Circle #2 " <<
+				(**cirB);
+		}
+		break;
+	case 6:
+		if ((**recB) > (**cirA)) {
+			cout << "\nRectangle #2 " << (**recB) <<
+				" is larger than Circle #1 " <<
+				(**cirA);
+		} else {
+			cout << "\nRectangle #2 " << (**recB) <<
+				" is smaller than Circle #1 " <<
+				(**cirA);
+		}
+		break;
+	case 8:
+		break;
+	case 12:
+		break;
+	default:
+		cout << "\nInvalid selection, you cannot compare an object with itself.";
 	}
 }
 

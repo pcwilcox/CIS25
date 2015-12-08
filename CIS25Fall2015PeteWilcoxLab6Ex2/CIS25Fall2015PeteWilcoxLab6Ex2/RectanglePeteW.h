@@ -14,6 +14,7 @@
 #include <iostream>
 #include "fractionPeteW.h"
 #include "PointPeteW.h"
+#include "CirclePeteW.h"
 
 using namespace std;
 
@@ -35,11 +36,11 @@ class RectanglePeteW {
 	~RectanglePeteW();
 
 	// Getters
-	PointPeteW getUpperRight();
-	PointPeteW getLowerLeft();
-	FractionPeteW getHeight();
-	FractionPeteW getWidth();
-	FractionPeteW getArea();
+	PointPeteW getUpperRight() const;
+	PointPeteW getLowerLeft() const;
+	FractionPeteW getHeight() const;
+	FractionPeteW getWidth() const;
+	FractionPeteW getArea() const;
 
 	void print();
 	
@@ -61,6 +62,9 @@ class RectanglePeteW {
 
 	bool operator<=(const RectanglePeteW&);
 	bool operator>=(const RectanglePeteW&);
+
+	bool operator< (const CirclePeteW&);
+	bool operator> (const CirclePeteW&);
 
 	friend ostream& operator<<(ostream&, const RectanglePeteW&);
 
