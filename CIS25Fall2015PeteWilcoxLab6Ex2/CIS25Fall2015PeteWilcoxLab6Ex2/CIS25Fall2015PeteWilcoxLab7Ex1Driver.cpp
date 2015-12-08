@@ -1,9 +1,9 @@
 /**
-  * Program Name: CIS25Fall2015PeteWilcoxLab6Ex2Driver.cpp
-  * Discussion:   Lab #6 Exercise #2 - Driver --
+  * Program Name: CIS25Fall2015PeteWilcoxLab7Ex1Driver.cpp
+  * Discussion:   Lab #7 Exercise #1 - Driver --
   *                 Definition file
   * Written by:   Pete Wilcox
-  * Date:         2015/12/01
+  * Date:         2015/12/10
   */
 
 #include <iostream>
@@ -21,10 +21,10 @@ void displayHeader() {
 		"Pete Wilcox\n"
 		"\n"
 		"Assignment Information --\n"
-		"  Assignment Number:  Lab 6,\n"
-		"                      Exercise #2\n"
+		"  Assignment Number:  Lab 7,\n"
+		"                      Exercise #1\n"
 		"  Written by:         Pete Wilcox\n"
-		"  Due Date:           2015/12/01\n";
+		"  Due Date:           2015/12/10\n";
 }
 
 void userInterface(RectanglePeteW** recA, RectanglePeteW** recB,

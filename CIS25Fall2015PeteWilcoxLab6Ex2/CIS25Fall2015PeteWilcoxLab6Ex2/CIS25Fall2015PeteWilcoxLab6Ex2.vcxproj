@@ -151,15 +151,15 @@
     <ClInclude Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\fractionPeteW.h" />
     <ClInclude Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\PointPeteW.h" />
     <ClInclude Include="CirclePeteW.h" />
-    <ClInclude Include="CIS25Fall2015PeteWilcoxLab6Ex2Driver.h" />
+    <ClInclude Include="CIS25Fall2015PeteWilcoxLab7Ex1Driver.h" />
     <ClInclude Include="RectanglePeteW.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\fractionPeteW.cpp" />
     <ClCompile Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\pointPeteW.cpp" />
     <ClCompile Include="CirclePeteW.cpp" />
-    <ClCompile Include="CIS25Fall2015PeteWilcoxLab6Ex2Driver.cpp" />
-    <ClCompile Include="CIS25Fall2015PeteWilcoxLab6Ex2.cpp" />
+    <ClCompile Include="CIS25Fall2015PeteWilcoxLab7Ex1Driver.cpp" />
+    <ClCompile Include="CIS25Fall2015PeteWilcoxLab7Ex1.cpp" />
     <ClCompile Include="RectanglePeteW.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

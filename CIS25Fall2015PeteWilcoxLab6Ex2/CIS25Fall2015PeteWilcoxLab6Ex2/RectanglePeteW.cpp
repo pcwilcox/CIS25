@@ -5,7 +5,7 @@
   * Discussion:   Definition File --
   *                 RectanglePeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/12/01
+  * Date:         2015/12/10
   */
 
 #include <iostream>
@@ -103,6 +103,10 @@ RectanglePeteW & RectanglePeteW::operator=(const RectanglePeteW &arg) {
 	return *this;
 }
 
+RectanglePeteW & RectanglePeteW::operator+(const RectanglePeteW &) {
+	// TODO: insert return statement here
+}
+
 bool RectanglePeteW::operator==(const RectanglePeteW &arg) {
 	if ((*this).upperRight == arg.upperRight &&
 		(*this).lowerLeft == arg.lowerLeft) {
@@ -110,6 +114,22 @@ bool RectanglePeteW::operator==(const RectanglePeteW &arg) {
 	} else {
 		return false;
 	}
+}
+
+bool RectanglePeteW::operator<(const RectanglePeteW &arg) {
+	return false;
+}
+
+bool RectanglePeteW::operator>(const RectanglePeteW &) {
+	return false;
+}
+
+bool RectanglePeteW::operator<=(const RectanglePeteW &) {
+	return false;
+}
+
+bool RectanglePeteW::operator>=(const RectanglePeteW &) {
+	return false;
 }
 
 void RectanglePeteW::checkPoints() {

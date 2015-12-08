@@ -5,7 +5,7 @@
   * Discussion:   Declaration File --
   *                 RectanglePeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/12/01
+  * Date:         2015/12/10
   */
 
 #ifndef RECTANGLEPETEW_H
@@ -51,6 +51,8 @@ class RectanglePeteW {
 
 	// Operators
 	RectanglePeteW& operator=(const RectanglePeteW&);
+
+	RectanglePeteW& operator+(const RectanglePeteW&);
 	
 	bool operator==(const RectanglePeteW&);
 

@@ -1,8 +1,8 @@
 /**
-  * Program Name: CIS25Fall2015PeteWilcoxLab6Ex2.cpp
-  * Discussion:   Lab #6 Exercise #2
+  * Program Name: CIS25Fall2015PeteWilcoxLab7Ex1.cpp
+  * Discussion:   Lab #7 Exercise #1
   * Written by:   Pete Wilcox
-  * Date:         2015/12/01
+  * Date:         2015/12/10
   */
 
 #include <iostream>

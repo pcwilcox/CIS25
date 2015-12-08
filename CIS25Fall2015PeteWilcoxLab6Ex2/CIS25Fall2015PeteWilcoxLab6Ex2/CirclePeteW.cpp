@@ -1,11 +1,9 @@
-#pragma once
-
 /**
   * Program Name: CirclePeteW.cpp
   * Discussion:   Definition File --
   *                 CirclePeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/12/01
+  * Date:         2015/12/10
   */
 
 #include <iostream>
@@ -16,7 +14,7 @@
 using namespace std;
 
 // Define a constant PI for use in getArea() and getVolume()
-const FractionPeteW CirclePeteW::PI = FractionPeteW(314159, 100000);
+const FractionPeteW CirclePeteW::PI = FractionPeteW(157, 50);
 
 // Default constructor
 CirclePeteW::CirclePeteW() : center(FractionPeteW(0), FractionPeteW(0)), radius(0) {
@@ -87,12 +85,32 @@ CirclePeteW& CirclePeteW::operator=(const CirclePeteW& arg) {
 	return *this;
 }
 
+CirclePeteW & CirclePeteW::operator+(const CirclePeteW &) {
+	// TODO: insert return statement here
+}
+
 bool CirclePeteW::operator==(const CirclePeteW& arg) {
 	if (center == arg.center && radius == arg.radius) {
 		return true;
 	} else {
 		return false;
 	}
+}
+
+bool CirclePeteW::operator<(const CirclePeteW &) {
+	return false;
+}
+
+bool CirclePeteW::operator>(const CirclePeteW &) {
+	return false;
+}
+
+bool CirclePeteW::operator<=(const CirclePeteW &) {
+	return false;
+}
+
+bool CirclePeteW::operator>=(const CirclePeteW &) {
+	return false;
 }
 
 ostream& operator<<(ostream& os, const CirclePeteW& circle) {

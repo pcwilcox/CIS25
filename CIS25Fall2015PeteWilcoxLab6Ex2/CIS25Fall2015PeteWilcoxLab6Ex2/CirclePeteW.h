@@ -33,7 +33,7 @@ class CirclePeteW {
 	CirclePeteW(const FractionPeteW&, const FractionPeteW&);
 
 	// Getters
-	PointPeteW getCenter() const;
+	PointPeteW    getCenter() const;
 	FractionPeteW getRadius() const;
 	FractionPeteW getArea() const;
 
@@ -46,6 +46,8 @@ class CirclePeteW {
 
 	// Operator overloads
 	CirclePeteW& operator=(const CirclePeteW&);
+
+	CirclePeteW& operator+(const CirclePeteW&);
 
 	bool operator==(const CirclePeteW&);
 

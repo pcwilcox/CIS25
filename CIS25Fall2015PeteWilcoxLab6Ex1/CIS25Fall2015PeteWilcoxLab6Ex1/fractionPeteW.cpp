@@ -3,7 +3,7 @@
   * Discussion:   Definition File --
   *                 FractionPeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/12/01
+  * Date:         2015/12/10
   */
 
 #include "fractionPeteW.h"
@@ -206,7 +206,7 @@ FractionPeteW FractionPeteW::operator-(const FractionPeteW&
 FractionPeteW FractionPeteW::operator*(const FractionPeteW&
 	arg) const {
 	return FractionPeteW((*this).num * arg.num,
-		(*this).denom * arg.denom);
+						 (*this).denom * arg.denom);
 }
 
 FractionPeteW FractionPeteW::operator/(const FractionPeteW&
