@@ -464,7 +464,7 @@ void compareArea(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** cir
 
 	switch (compareTotal) {
 	case 2:
-		if ((**recA) > (**recB)) {
+		if ((*recA)->getArea() > (*recB)->getArea()) {
 			cout << "\nRectangle #1 " << (**recA) <<
 				" is larger than Rectangle #2 " <<
 				(**recB);
@@ -475,7 +475,7 @@ void compareArea(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** cir
 		}
 		break;
 	case 3:
-		if ((**recA) > (**cirA)) {
+		if ((*recA)->getArea() > (*cirA)->getArea()) {
 			cout << "\nRectangle #1 " << (**recA) <<
 				" is larger than Circle #1 " <<
 				(**cirA);
@@ -486,7 +486,7 @@ void compareArea(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** cir
 		}
 		break;
 	case 4:
-		if ((**recA) > (**cirB)) {
+		if ((*recA)->getArea() > (*cirB)->getArea()) {
 			cout << "\nRectangle #1 " << (**recA) <<
 				" is larger than Circle #2 " <<
 				(**cirB);
@@ -497,7 +497,7 @@ void compareArea(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** cir
 		}
 		break;
 	case 6:
-		if ((**recB) > (**cirA)) {
+		if ((*recB)->getArea() > (*cirA)->getArea()) {
 			cout << "\nRectangle #2 " << (**recB) <<
 				" is larger than Circle #1 " <<
 				(**cirA);
@@ -508,7 +508,7 @@ void compareArea(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** cir
 		}
 		break;
 	case 8:
-		if ((**recB) > (**cirB)) {
+		if ((*recB)->getArea() > (*cirB)->getArea()) {
 			cout << "\nRectangle #2 " << (**recB) <<
 				" is larger than Circle #2 " <<
 				(**cirB);
@@ -519,7 +519,7 @@ void compareArea(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** cir
 		}
 		break;
 	case 12:
-		if ((**cirA) > (**cirB)) {
+		if ((*cirA)->getArea() > (*cirB)->getArea()) {
 			cout << "\nCircle #1 " << (**cirA) <<
 				" is larger than Circle #2 " <<
 				(**cirB);
