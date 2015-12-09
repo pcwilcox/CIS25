@@ -60,9 +60,6 @@ class CirclePeteW {
 	bool operator<=(const CirclePeteW&);
 	bool operator>=(const CirclePeteW&);
 
-	bool operator< (const RectanglePeteW&);
-	bool operator> (const RectanglePeteW&);
-
 	friend ostream& operator<<(ostream&, const CirclePeteW&);
 
 	private:

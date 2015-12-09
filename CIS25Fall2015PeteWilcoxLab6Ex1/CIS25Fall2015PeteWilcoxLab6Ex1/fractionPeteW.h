@@ -58,50 +58,24 @@ class FractionPeteW {
 	// Operator overloads
 	FractionPeteW  operator-(void);
 	FractionPeteW& operator=(const FractionPeteW&);
-	FractionPeteW  operator+(const FractionPeteW&);
-	FractionPeteW  operator-(const FractionPeteW&);
+	FractionPeteW  operator+(const FractionPeteW&) const;
+	FractionPeteW  operator-(const FractionPeteW&) const;
 	FractionPeteW  operator*(const FractionPeteW&) const;
-	FractionPeteW  operator/(const FractionPeteW&);
+	FractionPeteW  operator/(const FractionPeteW&) const;
 	FractionPeteW& operator+=(const FractionPeteW&);
-	FractionPeteW& operator+=(const int&);
 	FractionPeteW& operator-=(const FractionPeteW&);
-	FractionPeteW& operator-=(const int&);
 	FractionPeteW& operator*=(const FractionPeteW&);
-	FractionPeteW& operator*=(const int&);
 	FractionPeteW& operator/=(const FractionPeteW&);
-	FractionPeteW& operator/=(const int&);
-	bool operator==(const FractionPeteW&);
-	bool operator<(const FractionPeteW&);
-	bool operator>(const FractionPeteW&);
-	bool operator<=(const FractionPeteW&);
-	bool operator>=(const FractionPeteW&);
+	bool operator==(const FractionPeteW&) const;
+	bool operator<(const FractionPeteW&) const;
+	bool operator>(const FractionPeteW&) const;
+	bool operator<=(const FractionPeteW&) const;
+	bool operator>=(const FractionPeteW&) const;
+	
 
 	// Friend overloads
 	friend ostream& operator<<(ostream& os,
 		const FractionPeteW& f);
-	friend FractionPeteW operator+(const int&,
-		const FractionPeteW&);
-	friend FractionPeteW operator-(const FractionPeteW&,
-		const int&);
-	friend FractionPeteW operator*(const int&,
-		const FractionPeteW&);
-	friend FractionPeteW operator*(const FractionPeteW&,
-		const int&);
-	friend FractionPeteW operator/(const int&,
-		const FractionPeteW&);
-	friend FractionPeteW operator/(const FractionPeteW&,
-		const int&);
-	friend bool operator==(const int&, const FractionPeteW&);
-	friend bool operator==(const FractionPeteW&, const int&);
-	friend bool operator<(const int&, const FractionPeteW&);
-	friend bool operator<(const FractionPeteW&, const int&);
-	friend bool operator>(const int&, const FractionPeteW&);
-	friend bool operator>(const FractionPeteW&, const int&);
-	friend bool operator<=(const int&, const FractionPeteW&);
-	friend bool operator<=(const FractionPeteW&, const int&);
-	friend bool operator>=(const int&, const FractionPeteW&);
-	friend bool operator>=(const FractionPeteW&, const int&);
-
 
 	private:
 	int num;

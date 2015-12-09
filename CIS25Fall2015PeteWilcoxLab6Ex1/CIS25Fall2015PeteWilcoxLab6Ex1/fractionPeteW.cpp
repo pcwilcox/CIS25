@@ -189,7 +189,7 @@ FractionPeteW& FractionPeteW::operator=(const FractionPeteW&
 }
 
 FractionPeteW FractionPeteW::operator+(const FractionPeteW&
-	arg) {
+	arg) const {
 
 	return FractionPeteW(
 		(*this).num * arg.denom + ((*this).denom * arg.num),
@@ -197,7 +197,7 @@ FractionPeteW FractionPeteW::operator+(const FractionPeteW&
 }
 
 FractionPeteW FractionPeteW::operator-(const FractionPeteW&
-	arg) {
+	arg) const {
 	return FractionPeteW(
 		(*this).num * arg.denom - ((*this).denom * arg.num),
 		(*this).denom * arg.denom);
@@ -206,11 +206,11 @@ FractionPeteW FractionPeteW::operator-(const FractionPeteW&
 FractionPeteW FractionPeteW::operator*(const FractionPeteW&
 	arg) const {
 	return FractionPeteW((*this).num * arg.num,
-						 (*this).denom * arg.denom);
+		(*this).denom * arg.denom);
 }
 
 FractionPeteW FractionPeteW::operator/(const FractionPeteW&
-	arg) {
+	arg) const {
 	return FractionPeteW(
 		(*this).num * arg.denom, (*this).denom * arg.num);
 }
@@ -222,20 +222,9 @@ FractionPeteW& FractionPeteW::operator+=(const FractionPeteW& arg) {
 	return *this;
 }
 
-FractionPeteW& FractionPeteW::operator+=(const int& arg) {
-	num += arg * denom;
-	reduce();
-	return *this;
-}
-
 FractionPeteW& FractionPeteW::operator-=(const FractionPeteW& arg) {
 	num = num * arg.denom - denom * arg.num;
 	denom = num * denom;
-	reduce();
-	return *this;
-}
-FractionPeteW& FractionPeteW::operator-=(const int& arg) {
-	num -= arg * denom;
 	reduce();
 	return *this;
 }
@@ -247,12 +236,6 @@ FractionPeteW& FractionPeteW::operator*=(const FractionPeteW& arg) {
 	return *this;
 }
 
-FractionPeteW& FractionPeteW::operator*=(const int& arg) {
-	num *= arg;
-	reduce();
-	return *this;
-}
-
 FractionPeteW& FractionPeteW::operator/=(const FractionPeteW& arg) {
 	num *= arg.denom;
 	denom *= arg.num;
@@ -260,72 +243,39 @@ FractionPeteW& FractionPeteW::operator/=(const FractionPeteW& arg) {
 	return *this;
 }
 
-FractionPeteW& FractionPeteW::operator/=(const int& arg) {
-	num /= arg;
-	reduce();
-	return *this;
-}
-
-
-bool FractionPeteW::operator==(const FractionPeteW &arg) {
+bool FractionPeteW::operator==(const FractionPeteW &arg) const {
 	if ((*this).num == arg.num && (*this).denom == arg.denom) {
 		return true;
-	} else {
-		return false;
 	}
+	return false;
 }
 
-bool FractionPeteW::operator<(const FractionPeteW &arg) {
-	int leftNum, rightNum;
-
-	leftNum = (*this).num * arg.denom;
-	rightNum = (*this).denom * arg.num;
-
-	if (leftNum < rightNum) {
+bool FractionPeteW::operator<(const FractionPeteW &arg) const {
+	if (((*this).num * arg.denom) < ((*this).denom * arg.num)) {
 		return true;
-	} else {
-		return false;
 	}
-
+	return false;
 }
 
-bool FractionPeteW::operator>(const FractionPeteW &arg) {
-	int leftNum, rightNum;
-
-	leftNum = (*this).num * arg.denom;
-	rightNum = (*this).denom * arg.num;
-
-	if (leftNum > rightNum) {
+bool FractionPeteW::operator>(const FractionPeteW &arg) const {
+	if (((*this).num * arg.denom) > ((*this).denom * arg.num)) {
 		return true;
-	} else {
-		return false;
 	}
+	return false;
 }
 
-bool FractionPeteW::operator<=(const FractionPeteW &arg) {
-	int leftNum, rightNum;
-
-	leftNum = (*this).num * arg.denom;
-	rightNum = (*this).denom * arg.num;
-
-	if (leftNum <= rightNum) {
+bool FractionPeteW::operator<=(const FractionPeteW &arg) const {
+	if (((*this).num * arg.denom) <= ((*this).denom * arg.num)) {
 		return true;
-	} else {
-		return false;
 	}
+	return false;
 }
 
-bool FractionPeteW::operator>=(const FractionPeteW &arg) {
-	int leftNum, rightNum;
-
-	leftNum = (*this).num * arg.denom;
-	rightNum = (*this).denom * arg.num;
-
-	if (leftNum >= rightNum) {
+bool FractionPeteW::operator>=(const FractionPeteW &arg) const {
+	if (((*this).num * arg.denom) >= ((*this).denom * arg.num)) {
 		return true;
-	} else {
-		return false;
 	}
+	return false;
 }
 
 // Reduce() is called whenever other operations are performed
@@ -361,125 +311,4 @@ void FractionPeteW::reduce() {
 ostream& operator<<(ostream& os, const FractionPeteW& f) {
 	os << f.num << "/" << f.denom;
 	return os;
-}
-
-// Two each of these so that binary operations can be performed
-// with a Fraction on either side of the operator
-FractionPeteW operator+(const int& left,
-	const FractionPeteW& right) {
-
-	return FractionPeteW(
-		left * right.denom + right.num, right.denom);
-}
-
-
-FractionPeteW operator-(const FractionPeteW& left,
-	const int& right) {
-
-	return FractionPeteW(
-		left.denom * right + left.num, left.denom);
-}
-
-FractionPeteW operator*(const int& left,
-	const FractionPeteW& right) {
-
-	return FractionPeteW(
-		left * right.num, right.denom);
-}
-
-FractionPeteW operator*(const FractionPeteW& left,
-	const int& right) {
-
-	return FractionPeteW(left.num * right, left.denom);
-}
-
-FractionPeteW operator/(const int& left,
-	const FractionPeteW& right) {
-
-	return FractionPeteW(left * right.denom, right.num);
-}
-
-FractionPeteW operator/(const FractionPeteW& left,
-	const int& right) {
-
-	return FractionPeteW(left.denom * right, left.num);
-}
-
-bool operator==(const int& left, const FractionPeteW& right) {
-	if (left * right.denom == right.num) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-bool operator==(const FractionPeteW& left, const int& right) {
-	if (right * left.denom == left.num) {
-		return true;
-	} else {
-		return false;
-	}
-}
-bool operator<(const int& left, const FractionPeteW& right) {
-	if (left * right.denom < right.num) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-bool operator<(const FractionPeteW& left, const int& right) {
-	if (left.num < left.denom * right) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-bool operator>(const int& left, const FractionPeteW& right) {
-	if (left * right.denom > right.num) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-bool operator>(const FractionPeteW& left, const int& right) {
-	if (left.num > left.denom * right) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-bool operator<=(const int& left, const FractionPeteW& right) {
-	if (left * right.denom <= right.num) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-bool operator<=(const FractionPeteW& left, const int& right) {
-	if (left.num < right * left.denom) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-bool operator>=(const int& left, const FractionPeteW& right) {
-	if (left * right.denom >= right.num) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-bool operator>=(const FractionPeteW& left, const int& right) {
-	if (left.num >= left.denom * right) {
-		return true;
-	} else {
-		return false;
-	}
 }

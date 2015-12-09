@@ -29,7 +29,6 @@ class RectanglePeteW {
 
 	// Other constructors
 	RectanglePeteW(const PointPeteW&);
-	RectanglePeteW(const PointPeteW&, const int&);
 	RectanglePeteW(const PointPeteW&, const PointPeteW&);
 	
 	// Destructor
@@ -62,9 +61,6 @@ class RectanglePeteW {
 
 	bool operator<=(const RectanglePeteW&);
 	bool operator>=(const RectanglePeteW&);
-
-	bool operator< (const CirclePeteW&);
-	bool operator> (const CirclePeteW&);
 
 	friend ostream& operator<<(ostream&, const RectanglePeteW&);
 

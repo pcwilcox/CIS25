@@ -133,20 +133,6 @@ bool CirclePeteW::operator>=(const CirclePeteW &arg) {
 	return false;
 }
 
-bool CirclePeteW::operator<(const RectanglePeteW &arg) {
-	if (((*this).radius * (*this).radius * PI) < arg.getArea()) {
-		return true;
-	}
-	return false;
-}
-
-bool CirclePeteW::operator>(const RectanglePeteW &arg) {
-	if (((*this).radius * (*this).radius * PI) > arg.getArea()) {
-		return true;
-	}
-	return false;
-}
-
 ostream& operator<<(ostream& os, const CirclePeteW& circle) {
 	os << "Center: " << circle.center << ", Radius: " << circle.radius;
 	return os;
