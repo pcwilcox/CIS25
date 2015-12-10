@@ -61,7 +61,7 @@ FractionPeteW RectanglePeteW::getWidth()  const {
 	return FractionPeteW(upperRight.getX() - lowerLeft.getX());
 }
 
-FractionPeteW RectanglePeteW::getArea()  const {
+FractionPeteW RectanglePeteW::computeArea() const {
 	return FractionPeteW((upperRight.getY() - lowerLeft.getY()) * (upperRight.getX() - lowerLeft.getX()));
 }
 
@@ -174,7 +174,7 @@ bool RectanglePeteW::operator>=(const RectanglePeteW &arg) {
 bool RectanglePeteW::operator<(const CirclePeteW &arg) {
 	if (((*this).upperRight.getY() - (*this).lowerLeft.getY()) *
 		((*this).upperRight.getX() - (*this).lowerLeft.getX()) <
-		arg.getArea()) {
+		arg.computeArea()) {
 		return true;
 	}
 	return false;
@@ -183,7 +183,7 @@ bool RectanglePeteW::operator<(const CirclePeteW &arg) {
 bool RectanglePeteW::operator>(const CirclePeteW &arg) {
 	if (((*this).upperRight.getY() - (*this).lowerLeft.getY()) *
 		((*this).upperRight.getX() - (*this).lowerLeft.getX()) >
-		arg.getArea()) {
+		arg.computeArea()) {
 		return true;
 	}
 	return false;

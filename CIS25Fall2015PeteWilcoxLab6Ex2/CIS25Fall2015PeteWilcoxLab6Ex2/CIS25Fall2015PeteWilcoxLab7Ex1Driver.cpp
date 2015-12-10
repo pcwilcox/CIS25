@@ -87,16 +87,16 @@ void rectangleTasks(RectanglePeteW** recA, RectanglePeteW** recB) {
 			break;
 		case 3:
 			if (recA != nullptr && recB != nullptr) {
-				compareArea(recA, recB);
+				compareArea(*recA, *recB);
 			} else {
-				cout << "\nBoth rectangles must be intialized first!";
+				cout << "\nBoth rectangles must be initialized first!";
 			}
 			break;
 		case 4:
 			if (recA != nullptr && recB != nullptr) {
 				print(recA, recB);
 			} else {
-				cout << "\nBoth rectangles must be intialized first!";
+				cout << "\nBoth rectangles must be initialized first!";
 			}
 			break;
 		case 5:
@@ -129,7 +129,7 @@ void circleTasks(CirclePeteW** cirA, CirclePeteW** cirB) {
 			break;
 		case 3:
 			if (cirA != nullptr && cirB != nullptr) {
-				compareArea(cirA, cirB);
+				compareArea(*cirA, *cirB);
 			} else {
 				cout << "\nBoth circles must be intialized first!";
 			}
@@ -152,7 +152,10 @@ void circleTasks(CirclePeteW** cirA, CirclePeteW** cirB) {
 
 void mixedTasks(RectanglePeteW** recA, RectanglePeteW** recB,
 	CirclePeteW** cirA, CirclePeteW** cirB) {
+	ShapePeteW* shapeOne = nullptr;
+	ShapePeteW* shapeTwo = nullptr;
 	int menuChoice;
+
 	do {
 		cout << "\nMIXED RECTANGLE & CIRCLE MENU"
 			"\n(1) Compare by area"
@@ -164,7 +167,9 @@ void mixedTasks(RectanglePeteW** recA, RectanglePeteW** recB,
 
 		switch (menuChoice) {
 		case 1:
-			compareArea(recA, recB, cirA, cirB);
+			do {
+				shapeOne = compareMenu(recA, recB, cirA, cirB);
+				shapeTwo = compareMenu(recA, recB, cirA, cirB);
 			break;
 		case 2:
 			cout << "\nRectangles and circles have no volume.";
@@ -423,116 +428,50 @@ void createCircles(CirclePeteW** cirA, CirclePeteW** cirB) {
 	} while (menuChoice != 3);
 }
 
-void compareArea(RectanglePeteW** recA, RectanglePeteW** recB) {
-	if ((*recA)->getArea() > (*recB)->getArea()) {
-		cout << endl << "Rectangle " << **recA << " is larger than rectangle " << **recB;
-	} else if ((*recA)->getArea() < (*recB)->getArea()) {
-		cout << endl << "Rectangle " << **recA << " is smaller than rectangle " << **recB;
+void compareArea(ShapePeteW* shapeOne, ShapePeteW* shapeTwo) {
+	if (shapeOne->computeArea() > shapeTwo->computeArea()) {
+		cout << endl << *shapeOne << " is larger than " << *shapeTwo;
+	} else if (shapeOne->computeArea() < shapeTwo->computeArea()) {
+		cout << endl << *shapeOne << " is smaller than " << *shapeTwo;
 	} else {
-		cout << endl << "Both rectangles are the same size.";
+		cout << endl << "Both are the same size.";
 	}
 }
 
-void compareArea(CirclePeteW** cirA, CirclePeteW** cirB) {
-	if ((*cirA)->getArea() > (*cirB)->getArea()) {
-		cout << endl << "Cricle " << **cirA << " is larger than circle " << **cirB;
-	} else if ((*cirA)->getArea() < (*cirB)->getArea()) {
-		cout << endl << "Circle " << **cirA << " is smaller than circle " << **cirB;
-	} else {
-		cout << endl << "Both circles are the same size.";
-	}
-}
+ShapePeteW* compareMenu(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** cirA, CirclePeteW** cirB) {
+	ShapePeteW* shape = nullptr;
+	
+	int menuChoice;
+	do {
 
-void compareArea(RectanglePeteW** recA, RectanglePeteW** recB, CirclePeteW** cirA, CirclePeteW** cirB) {
-	int compareFirst, compareSecond, compareTotal;
-	cout << "\n  Comparing by area - Select two objects"
-		" to compare --"
-		"\n  (1) Rectangle 1"
-		"\n  (2) Rectangle 2"
-		"\n  (3) Circle 1"
-		"\n  (4) Circle 2"
-		"\nPlease select the first object (1 through 4): ";
-	cin >> compareFirst;
-	cout << "\nPlease select the second object (1 through 4): ";
-	cin >> compareSecond;
+		cout << "\n  Comparing by area - Select two objects"
+			" to compare --"
+			"\n  (1) Rectangle 1"
+			"\n  (2) Rectangle 2"
+			"\n  (3) Circle 1"
+			"\n  (4) Circle 2"
+			"\nPlease select the first object (1 through 4): ";
+		cin >> menuChoice;
+		switch (menuChoice) {
+		case 1:
+			shape = *recA;
+			break;
+		case 2:
+			shape = *recB;
+			break;
+		case 3:
+			shape = *cirA;
+			break;
+		case 4:
+			shape = *cirB;
+			break;
+		default:
+			cout << "\nInvalid selection.";
+		}
+	} while (shape == nullptr);
 
-	if (compareFirst == compareSecond) {
-		compareTotal = -1;
-	} else {
-		compareTotal = compareFirst * compareSecond;
-	}
+	return *shape;
 
-	switch (compareTotal) {
-	case 2:
-		if ((**recA) > (**recB)) {
-			cout << "\nRectangle #1 " << (**recA) <<
-				" is larger than Rectangle #2 " <<
-				(**recB);
-		} else {
-			cout << "\nRectangle #1 " << (**recA) <<
-				" is smaller than Rectangle #2 " <<
-				(**recB);
-		}
-		break;
-	case 3:
-		if ((**recA) > (**cirA)) {
-			cout << "\nRectangle #1 " << (**recA) <<
-				" is larger than Circle #1 " <<
-				(**cirA);
-		} else {
-			cout << "\nRectangle #1 " << (**recA) <<
-				" is smaller than Circle #1 " <<
-				(**cirA);
-		}
-		break;
-	case 4:
-		if ((**recA) > (**cirB)) {
-			cout << "\nRectangle #1 " << (**recA) <<
-				" is larger than Circle #2 " <<
-				(**cirB);
-		} else {
-			cout << "\nRectangle #1 " << (**recA) <<
-				" is smaller than Circle #2 " <<
-				(**cirB);
-		}
-		break;
-	case 6:
-		if ((**recB) > (**cirA)) {
-			cout << "\nRectangle #2 " << (**recB) <<
-				" is larger than Circle #1 " <<
-				(**cirA);
-		} else {
-			cout << "\nRectangle #2 " << (**recB) <<
-				" is smaller than Circle #1 " <<
-				(**cirA);
-		}
-		break;
-	case 8:
-		if ((**recB) > (**cirB)) {
-			cout << "\nRectangle #2 " << (**recB) <<
-				" is larger than Circle #2 " <<
-				(**cirB);
-		} else {
-			cout << "\nRectangle #2 " << (**recB) <<
-				" is smaller than Circle #2 " <<
-				(**cirB);
-		}
-		break;
-	case 12:
-		if ((**cirA) > (**cirB)) {
-			cout << "\nCircle #1 " << (**cirA) <<
-				" is larger than Circle #2 " <<
-				(**cirB);
-		} else {
-			cout << "\nCircle #1 " << (**cirA) <<
-				" is smaller than Circle #2 " <<
-				(**cirB);
-		}
-
-		break;
-	default:
-		cout << "\nInvalid selection, you cannot compare an object with itself.";
-	}
 }
 
 void print(RectanglePeteW** recA, RectanglePeteW** recB) {

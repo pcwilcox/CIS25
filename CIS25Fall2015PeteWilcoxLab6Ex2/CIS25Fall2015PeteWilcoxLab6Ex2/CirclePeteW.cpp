@@ -57,12 +57,12 @@ FractionPeteW CirclePeteW::getRadius() const {
 	return radius;
 }
 
-FractionPeteW CirclePeteW::getArea() const {
+FractionPeteW CirclePeteW::computeArea() const {
 	return FractionPeteW(radius * radius * PI);
 }
 
 void CirclePeteW::print() {
-	cout << "\nCenter: " << center << ", radius: " << radius << ", area: " << getArea();
+	cout << "\nCenter: " << center << ", radius: " << radius << ", area: " << computeArea();
 }
 
 // Setters
@@ -134,14 +134,14 @@ bool CirclePeteW::operator>=(const CirclePeteW &arg) {
 }
 
 bool CirclePeteW::operator<(const RectanglePeteW &arg) {
-	if (((*this).radius * (*this).radius * PI) < arg.getArea()) {
+	if (((*this).radius * (*this).radius * PI) < arg.computeArea()) {
 		return true;
 	}
 	return false;
 }
 
 bool CirclePeteW::operator>(const RectanglePeteW &arg) {
-	if (((*this).radius * (*this).radius * PI) > arg.getArea()) {
+	if (((*this).radius * (*this).radius * PI) > arg.computeArea()) {
 		return true;
 	}
 	return false;

@@ -12,13 +12,14 @@
 #define CIRLCEPETEW_H
 
 #include <iostream>
+#include "ShapePeteW.h"
 #include "fractionPeteW.h"
 #include "PointPeteW.h"
 #include "RectanglePeteW.h"
 
 using namespace std;
 
-class CirclePeteW {
+class CirclePeteW : public ShapePeteW {
 	public:
 	// Default constructor
 	CirclePeteW();
@@ -38,9 +39,10 @@ class CirclePeteW {
 	// Getters
 	PointPeteW    getCenter() const;
 	FractionPeteW getRadius() const;
-	FractionPeteW getArea() const;
+	
+	FractionPeteW computeArea() const override;
 
-	void print();
+	void print(void) override;
 
 	// Setters
 	void setCenter(const PointPeteW&);
