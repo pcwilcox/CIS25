@@ -31,11 +31,6 @@ RectanglePeteW::RectanglePeteW(const PointPeteW &arg) : upperRight(arg), lowerLe
 	cout << "\nCalling RectanglePeteW() on " << (*this);
 }
 
-RectanglePeteW::RectanglePeteW(const PointPeteW &argPoint, const int &argInt) : lowerLeft(argPoint), upperRight(FractionPeteW(argPoint.getX + argInt, argPoint.getY + argInt)) {
-	checkPoints();
-	cout << "\nCalling RectanglePeteW() on " << (*this);
-}
-
 RectanglePeteW::RectanglePeteW(const PointPeteW &left, const PointPeteW &right) : lowerLeft(left), upperRight(right) {
 	checkPoints();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
@@ -66,12 +61,7 @@ FractionPeteW RectanglePeteW::computeArea() const {
 }
 
 void RectanglePeteW::print() {
-	cout << "\nUpper left: (" << lowerLeft.getX() 
-		<< ", " << upperRight.getY() 
-		<< "), Upper right: (" 	<< upperRight 
-		<< ", Lower left: " << lowerLeft << 
-		", Lower right: (" << upperRight.getX() 
-		<< ", " << lowerLeft.getY() << ").";
+	cout << "Rectangle [" << lowerLeft << ", " << upperRight << "]" << endl;
 }
 
 void RectanglePeteW::setUpperRight(const PointPeteW &arg) {
@@ -102,7 +92,7 @@ RectanglePeteW & RectanglePeteW::operator=(const RectanglePeteW &arg) {
 	checkPoints();
 	return *this;
 }
-
+/*
 RectanglePeteW & RectanglePeteW::operator+(const RectanglePeteW &arg) {
 	FractionPeteW newHeight;
 	FractionPeteW newWidth;
@@ -120,7 +110,8 @@ RectanglePeteW & RectanglePeteW::operator+(const RectanglePeteW &arg) {
 	return RectanglePeteW(newLowerLeft, newUpperRight);
 
 }
-
+*/
+/*
 bool RectanglePeteW::operator==(const RectanglePeteW &arg) {
 	if ((*this).upperRight == arg.upperRight &&
 		(*this).lowerLeft == arg.lowerLeft) {
@@ -188,7 +179,7 @@ bool RectanglePeteW::operator>(const CirclePeteW &arg) {
 	}
 	return false;
 }
-
+*/
 void RectanglePeteW::checkPoints() {
 	FractionPeteW* swapX = nullptr;
 	FractionPeteW* swapY = nullptr;
@@ -217,10 +208,6 @@ void RectanglePeteW::checkPoints() {
 }
 
 ostream& operator<<(ostream& os, const RectanglePeteW &arg) {
-	os << "(" << arg.lowerLeft.getX() << ", " <<
-		arg.upperRight.getY() << "), " <<
-		arg.upperRight << ", (" <<
-		arg.upperRight.getX() << ", " <<
-		arg.lowerLeft.getY() << "), " << arg.lowerLeft;
+	os << "[" << arg.lowerLeft << ", " << arg.upperRight << "]";
 	return os;
 }

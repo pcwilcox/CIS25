@@ -27,18 +27,14 @@ void userInterface(RectanglePeteW**, RectanglePeteW**, CirclePeteW**, CirclePete
 // Rectangle menu functions
 void rectangleTasks(RectanglePeteW**, RectanglePeteW**);
 void createRectangles(RectanglePeteW**, RectanglePeteW**);
-void print(RectanglePeteW**, RectanglePeteW**);
 
 // Circle menu functions
 void circleTasks(CirclePeteW**, CirclePeteW**);
 void createCircles(CirclePeteW**, CirclePeteW**);
-void print(CirclePeteW**, CirclePeteW**);
 
 // Mixed menu functions
 void mixedTasks(RectanglePeteW**, RectanglePeteW**, CirclePeteW**, CirclePeteW**);
 ShapePeteW* compareMenu(RectanglePeteW**, RectanglePeteW**, CirclePeteW**, CirclePeteW**);
-void compareArea(ShapePeteW*);
-void print(RectanglePeteW**, RectanglePeteW**, CirclePeteW**, CirclePeteW**);
-
+void compareArea(ShapePeteW**, ShapePeteW**);
 
 #endif

@@ -30,7 +30,6 @@ class CirclePeteW : public ShapePeteW {
 	// Convert constructors
 	CirclePeteW(const FractionPeteW&);
 	CirclePeteW(const PointPeteW&);
-	CirclePeteW(const int&);
 
 	// Detailed constructor
 	CirclePeteW(const PointPeteW&, const FractionPeteW&);
@@ -51,9 +50,9 @@ class CirclePeteW : public ShapePeteW {
 
 	// Operator overloads
 	CirclePeteW& operator=(const CirclePeteW&);
-
+	/*
 	CirclePeteW& operator+(const CirclePeteW&);
-
+	
 	bool operator==(const CirclePeteW&);
 
 	bool operator< (const CirclePeteW&);
@@ -64,13 +63,12 @@ class CirclePeteW : public ShapePeteW {
 
 	bool operator< (const RectanglePeteW&);
 	bool operator> (const RectanglePeteW&);
-
+	*/
 	friend ostream& operator<<(ostream&, const CirclePeteW&);
 
 	private:
 	PointPeteW center;
 	FractionPeteW radius;
-	const static FractionPeteW PI;
 };
 
 #endif

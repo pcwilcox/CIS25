@@ -13,9 +13,6 @@
 
 using namespace std;
 
-// Define a constant PI for use in getArea() and getVolume()
-const FractionPeteW CirclePeteW::PI = FractionPeteW(157, 50);
-
 // Default constructor
 CirclePeteW::CirclePeteW() : center(FractionPeteW(0), FractionPeteW(0)), radius(0) {
 	cout << "\nCalling CirclePeteW() on " << *this;
@@ -32,10 +29,6 @@ CirclePeteW::CirclePeteW(const FractionPeteW& arg) : center(FractionPeteW(0), Fr
 }
 
 CirclePeteW::CirclePeteW(const PointPeteW &arg) : center(arg), radius(0) {
-	cout << "\nCalling CirclePeteW() on " << *this;
-}
-
-CirclePeteW::CirclePeteW(const int& arg) : center(FractionPeteW(0), FractionPeteW(0)), radius(FractionPeteW(arg)) {
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
@@ -58,7 +51,7 @@ FractionPeteW CirclePeteW::getRadius() const {
 }
 
 FractionPeteW CirclePeteW::computeArea() const {
-	return FractionPeteW(radius * radius * PI);
+	return FractionPeteW(radius * radius * FractionPeteW(157/50));
 }
 
 void CirclePeteW::print() {
@@ -92,7 +85,7 @@ CirclePeteW& CirclePeteW::operator=(const CirclePeteW& arg) {
 	radius = arg.radius;
 	return *this;
 }
-
+/*
 CirclePeteW & CirclePeteW::operator+(const CirclePeteW &arg) {
 	return CirclePeteW(PointPeteW((*this).center.getX() - arg.center.getX() / 2, (*this).center.getY() - arg.center.getY() / 2), FractionPeteW((*this).radius + arg.radius));
 }
@@ -146,7 +139,7 @@ bool CirclePeteW::operator>(const RectanglePeteW &arg) {
 	}
 	return false;
 }
-
+*/
 ostream& operator<<(ostream& os, const CirclePeteW& circle) {
 	os << "Center: " << circle.center << ", Radius: " << circle.radius;
 	return os;

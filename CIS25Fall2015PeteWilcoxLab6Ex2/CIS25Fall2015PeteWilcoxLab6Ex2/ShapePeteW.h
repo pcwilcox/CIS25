@@ -19,7 +19,8 @@ class ShapePeteW {
 	public:
 	virtual void print(void) = 0;
 	virtual FractionPeteW computeArea(void) const = 0;
-	virtual friend ostream& operator<<(ostream&, ShapePeteW&) = 0;
+	friend ostream& operator<<(ostream&, ShapePeteW&);
+
 };
 
 #endif

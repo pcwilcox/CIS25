@@ -1,3 +1,5 @@
+#pragma once
+
 /**
   * Program Name: fractionPeteW.h
   * Discussion:   Declaration File --
@@ -5,8 +7,6 @@
   * Written by:   Pete Wilcox
   * Date:         2015/12/10
   */
-
-#pragma once
 
 #ifndef FRACTIONPETEW_H
 #define FRACTIONPETEW_H

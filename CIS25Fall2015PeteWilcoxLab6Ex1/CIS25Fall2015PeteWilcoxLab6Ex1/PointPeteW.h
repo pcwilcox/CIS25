@@ -29,7 +29,6 @@ class PointPeteW {
 	PointPeteW(const PointPeteW&);
 
 	// Convert constructors
-	PointPeteW(const int);
 	PointPeteW(const FractionPeteW&);
 
 	// Destructor

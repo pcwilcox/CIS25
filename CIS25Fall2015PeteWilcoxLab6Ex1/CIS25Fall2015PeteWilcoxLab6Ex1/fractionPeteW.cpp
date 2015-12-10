@@ -14,19 +14,19 @@ using namespace std;
 
 // Default constructor
 FractionPeteW::FractionPeteW() : num(0), denom(1) {
-	cout << "\nCalling Fraction()";
+	cout << "\nCalling Fraction() on " << *this;
 }
 
 // Convert constructor
 FractionPeteW::FractionPeteW(int input) : num(input), denom(1) {
-	cout << "\nCalling Fraction()";
+	cout << "\nCalling Fraction() on " << *this;
 }
 
 // Copy constructor
 FractionPeteW::FractionPeteW(const FractionPeteW& input) :
 	num(input.num), denom(input.denom) {
 
-	cout << "\nCalling Fraction()";
+	cout << "\nCalling Fraction() on " << *this;
 	reduce();
 }
 
@@ -34,7 +34,7 @@ FractionPeteW::FractionPeteW(const FractionPeteW& input) :
 FractionPeteW::FractionPeteW(int inputNum, int inputDenom) :
 	num(inputNum), denom(inputDenom) {
 
-	cout << "\nCalling Fraction()";
+	cout << "\nCalling Fraction() on " << *this;
 	reduce();
 }
 
