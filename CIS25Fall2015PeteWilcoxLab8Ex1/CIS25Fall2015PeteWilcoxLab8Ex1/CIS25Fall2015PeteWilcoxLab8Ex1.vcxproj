@@ -18,6 +18,26 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BoxPeteW.h" />
+    <ClInclude Include="CirclePeteW.h" />
+    <ClInclude Include="CIS25Fall2015PeteWilcoxLab8Ex1Driver.h" />
+    <ClInclude Include="CylinderPeteW.h" />
+    <ClInclude Include="fractionPeteW.h" />
+    <ClInclude Include="PointPeteW.h" />
+    <ClInclude Include="RectanglePeteW.h" />
+    <ClInclude Include="ShapePeteW.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BoxPeteW.cpp" />
+    <ClCompile Include="CirclePeteW.cpp" />
+    <ClCompile Include="CIS25Fall2015PeteWilcoxLab8Ex1.cpp" />
+    <ClCompile Include="CIS25Fall2015PeteWilcoxLab8Ex1Driver.cpp" />
+    <ClCompile Include="CylinderPeteW.cpp" />
+    <ClCompile Include="fractionPeteW.cpp" />
+    <ClCompile Include="pointPeteW.cpp" />
+    <ClCompile Include="RectanglePeteW.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{EC35F9E3-DA0D-40C0-9157-B8B81CF180FA}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
