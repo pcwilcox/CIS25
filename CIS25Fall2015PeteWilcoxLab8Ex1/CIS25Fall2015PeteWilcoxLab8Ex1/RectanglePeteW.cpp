@@ -63,7 +63,7 @@ PointPeteW RectanglePeteW::getLowerLeft() const {
 	return lowerLeft;
 }
 
-FractionPeteW RectanglePeteW::getHeight() const {
+FractionPeteW RectanglePeteW::getLength() const {
 	return FractionPeteW(upperRight.getY() - lowerLeft.getY());
 }
 

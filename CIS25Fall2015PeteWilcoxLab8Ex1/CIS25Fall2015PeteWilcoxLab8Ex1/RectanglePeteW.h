@@ -38,9 +38,9 @@ class RectanglePeteW : public ShapePeteW {
 	// Getters
 	PointPeteW getUpperRight(void) const;
 	PointPeteW getLowerLeft(void) const;
-	FractionPeteW getHeight(void) const;
+	FractionPeteW getLength(void) const;
 	FractionPeteW getWidth(void) const;
-	FractionPeteW getArea(void) const override;
+	virtual FractionPeteW getArea(void) const override;
 
 	// Setters
 	void setUpperRight(const PointPeteW&);
@@ -49,7 +49,7 @@ class RectanglePeteW : public ShapePeteW {
 	void setLowerLeft(const FractionPeteW&, const FractionPeteW&);
 
 	// Helper function
-	void computeArea(void) override;
+	virtual void computeArea(void) override;
 
 	void print(void) override;
 
@@ -58,12 +58,12 @@ class RectanglePeteW : public ShapePeteW {
 	
 	friend ostream& operator<<(ostream&, const RectanglePeteW&);
 
-	private:
+	protected:
 	PointPeteW upperRight;
 	PointPeteW lowerLeft;
 
 	// Helper method to check that the points are in the right position
-	void checkPoints();
+	virtual void checkPoints();
 };
 
 

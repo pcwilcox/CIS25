@@ -14,7 +14,38 @@
 #include "CirclePeteW.h"
 
 class CylinderPeteW : public CirclePeteW {
+	public:
 
+	// Default constructor
+	CylinderPeteW();
+
+	// Convert constructor
+	CylinderPeteW(const CirclePeteW&);
+
+	// Copy constructor
+	CylinderPeteW(const CylinderPeteW&);
+
+	// Detailed constructor
+	CylinderPeteW(const CirclePeteW&, const FractionPeteW&);
+
+	// Destructor
+	~CylinderPeteW();
+
+	// Getters
+	FractionPeteW getHeight(void) const;
+	FractionPeteW getArea(void) const override;
+	FractionPeteW getVolume(void) const;
+
+	// Setters
+	void setHeight(const FractionPeteW&);
+
+	// Helpers
+	void computeArea() override;
+	void computeVolume();
+
+	private:
+	FractionPeteW h;
+	FractionPeteW v;
 };
 
 #endif
