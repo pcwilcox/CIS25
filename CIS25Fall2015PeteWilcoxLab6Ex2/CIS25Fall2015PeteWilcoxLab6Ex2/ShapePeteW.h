@@ -18,9 +18,12 @@ using namespace std;
 class ShapePeteW {
 	public:
 	virtual void print(void) = 0;
-	virtual FractionPeteW computeArea(void) const = 0;
+	virtual void computeArea(void) = 0;
+	virtual FractionPeteW getArea(void) const = 0;
 	friend ostream& operator<<(ostream&, ShapePeteW&);
 
+	protected:
+	FractionPeteW area;
 };
 
 #endif

@@ -35,11 +35,15 @@ class CirclePeteW : public ShapePeteW {
 	CirclePeteW(const PointPeteW&, const FractionPeteW&);
 	CirclePeteW(const FractionPeteW&, const FractionPeteW&);
 
+	// Destructor
+	~CirclePeteW();
+
 	// Getters
 	PointPeteW    getCenter() const;
 	FractionPeteW getRadius() const;
-	
-	FractionPeteW computeArea() const override;
+	FractionPeteW getArea() const override;
+
+	void computeArea() override;
 
 	void print(void) override;
 
@@ -50,20 +54,7 @@ class CirclePeteW : public ShapePeteW {
 
 	// Operator overloads
 	CirclePeteW& operator=(const CirclePeteW&);
-	/*
-	CirclePeteW& operator+(const CirclePeteW&);
-	
-	bool operator==(const CirclePeteW&);
 
-	bool operator< (const CirclePeteW&);
-	bool operator> (const CirclePeteW&);
-
-	bool operator<=(const CirclePeteW&);
-	bool operator>=(const CirclePeteW&);
-
-	bool operator< (const RectanglePeteW&);
-	bool operator> (const RectanglePeteW&);
-	*/
 	friend ostream& operator<<(ostream&, const CirclePeteW&);
 
 	private:

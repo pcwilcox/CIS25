@@ -18,21 +18,25 @@ using namespace std;
 RectanglePeteW::RectanglePeteW() {
 	upperRight = PointPeteW(FractionPeteW(0), FractionPeteW(0));
 	lowerLeft = PointPeteW(FractionPeteW(0), FractionPeteW(0));
+	computeArea();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
 }
 
 RectanglePeteW::RectanglePeteW(const RectanglePeteW &arg) : upperRight(arg.upperRight), lowerLeft(arg.lowerLeft) {
 	checkPoints();
+	computeArea();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
 }
 
 RectanglePeteW::RectanglePeteW(const PointPeteW &arg) : upperRight(arg), lowerLeft(PointPeteW(0)) {
 	checkPoints();
+	computeArea();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
 }
 
 RectanglePeteW::RectanglePeteW(const PointPeteW &left, const PointPeteW &right) : lowerLeft(left), upperRight(right) {
 	checkPoints();
+	computeArea();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
 }
 
@@ -55,13 +59,19 @@ FractionPeteW RectanglePeteW::getHeight()  const {
 FractionPeteW RectanglePeteW::getWidth()  const {
 	return FractionPeteW(upperRight.getX() - lowerLeft.getX());
 }
+FractionPeteW RectanglePeteW::getArea() const {
+	return area;
+}
 
-FractionPeteW RectanglePeteW::computeArea() const {
-	return FractionPeteW((upperRight.getY() - lowerLeft.getY()) * (upperRight.getX() - lowerLeft.getX()));
+void RectanglePeteW::computeArea() {
+	(*this).area = (upperRight.getY() - lowerLeft.getY()) * (upperRight.getX() - lowerLeft.getX());
 }
 
 void RectanglePeteW::print() {
-	cout << "Rectangle [" << lowerLeft << ", " << upperRight << "]" << endl;
+	cout << "\nRectangle:"
+		"\n  Lower Left: " << lowerLeft << 
+		"\n  Upper Right: " << upperRight <<
+		"\n  Area:" << area << endl;
 }
 
 void RectanglePeteW::setUpperRight(const PointPeteW &arg) {
@@ -92,94 +102,7 @@ RectanglePeteW & RectanglePeteW::operator=(const RectanglePeteW &arg) {
 	checkPoints();
 	return *this;
 }
-/*
-RectanglePeteW & RectanglePeteW::operator+(const RectanglePeteW &arg) {
-	FractionPeteW newHeight;
-	FractionPeteW newWidth;
-	PointPeteW newLowerLeft;
-	PointPeteW newUpperRight;
 
-	newLowerLeft.setX(FractionPeteW((*this).lowerLeft.getX() + arg.lowerLeft.getX()) / 2);
-	newLowerLeft.setY(FractionPeteW((*this).lowerLeft.getY() + arg.lowerLeft.getY()) / 2);
-	newWidth = (((*this).upperRight.getX() - (*this).lowerLeft.getX()) + (arg.upperRight.getX() - arg.lowerLeft.getX())) / 2;
-	newHeight = (((*this).upperRight.getY() - (*this).lowerLeft.getY()) + (arg.upperRight.getY() - arg.lowerLeft.getY())) / 2;
-
-	newUpperRight.setX(newLowerLeft.getX() + newWidth);
-	newUpperRight.setY(newLowerLeft.getY() + newHeight);
-
-	return RectanglePeteW(newLowerLeft, newUpperRight);
-
-}
-*/
-/*
-bool RectanglePeteW::operator==(const RectanglePeteW &arg) {
-	if ((*this).upperRight == arg.upperRight &&
-		(*this).lowerLeft == arg.lowerLeft) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-bool RectanglePeteW::operator<(const RectanglePeteW &arg) {
-	if (((*this).upperRight.getY() - (*this).lowerLeft.getY()) * 
-		((*this).upperRight.getX() - (*this).lowerLeft.getX()) < 
-		(arg.upperRight.getY() - arg.lowerLeft.getY()) * 
-		(arg.upperRight.getX() - arg.lowerLeft.getX())) {
-		return true;
-	}
-	return false;
-}
-
-bool RectanglePeteW::operator>(const RectanglePeteW &arg) {
-	if (((*this).upperRight.getY() - (*this).lowerLeft.getY()) *
-		((*this).upperRight.getX() - (*this).lowerLeft.getX()) >
-		(arg.upperRight.getY() - arg.lowerLeft.getY()) *
-		(arg.upperRight.getX() - arg.lowerLeft.getX())) {
-		return true;
-	}
-	return false;
-	return false;
-}
-
-bool RectanglePeteW::operator<=(const RectanglePeteW &arg) {
-	if (((*this).upperRight.getY() - (*this).lowerLeft.getY()) *
-		((*this).upperRight.getX() - (*this).lowerLeft.getX())
-		<= (arg.upperRight.getY() - arg.lowerLeft.getY()) *
-		   (arg.upperRight.getX() - arg.lowerLeft.getX())) {
-		return true;
-	}
-	return false;
-}
-
-bool RectanglePeteW::operator>=(const RectanglePeteW &arg) {
-	if (((*this).upperRight.getY() - (*this).lowerLeft.getY()) *
-		((*this).upperRight.getX() - (*this).lowerLeft.getX()) 
-		>= (arg.upperRight.getY() - arg.lowerLeft.getY()) *
-		   (arg.upperRight.getX() - arg.lowerLeft.getX())) {
-		return true;
-	}
-	return false;
-}
-
-bool RectanglePeteW::operator<(const CirclePeteW &arg) {
-	if (((*this).upperRight.getY() - (*this).lowerLeft.getY()) *
-		((*this).upperRight.getX() - (*this).lowerLeft.getX()) <
-		arg.computeArea()) {
-		return true;
-	}
-	return false;
-}
-
-bool RectanglePeteW::operator>(const CirclePeteW &arg) {
-	if (((*this).upperRight.getY() - (*this).lowerLeft.getY()) *
-		((*this).upperRight.getX() - (*this).lowerLeft.getX()) >
-		arg.computeArea()) {
-		return true;
-	}
-	return false;
-}
-*/
 void RectanglePeteW::checkPoints() {
 	FractionPeteW* swapX = nullptr;
 	FractionPeteW* swapY = nullptr;

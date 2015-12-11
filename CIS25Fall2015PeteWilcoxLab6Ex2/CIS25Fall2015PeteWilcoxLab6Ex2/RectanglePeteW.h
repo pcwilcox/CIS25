@@ -40,8 +40,9 @@ class RectanglePeteW : public ShapePeteW {
 	PointPeteW getLowerLeft(void) const;
 	FractionPeteW getHeight(void) const;
 	FractionPeteW getWidth(void) const;
+	FractionPeteW getArea(void) const override;
 
-	FractionPeteW computeArea(void) const override;
+	void computeArea(void) override;
 
 	void print(void) override;
 	
@@ -54,19 +55,6 @@ class RectanglePeteW : public ShapePeteW {
 	// Operators
 	RectanglePeteW& operator=(const RectanglePeteW&);
 	
-	//RectanglePeteW& operator+(const RectanglePeteW&);
-	/*
-	bool operator==(const RectanglePeteW&);
-
-	bool operator< (const RectanglePeteW&);
-	bool operator> (const RectanglePeteW&);
-
-	bool operator<=(const RectanglePeteW&);
-	bool operator>=(const RectanglePeteW&);
-
-	bool operator< (const CirclePeteW&);
-	bool operator> (const CirclePeteW&);
-	*/
 	friend ostream& operator<<(ostream&, const RectanglePeteW&);
 
 	private:

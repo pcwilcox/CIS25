@@ -188,7 +188,7 @@ void mixedTasks(RectanglePeteW** recA, RectanglePeteW** recB,
 				if (shapeOne == shapeTwo) {
 					cout << "\nInvalid selection, you cannot compare an object with itself.";
 				}
-			} while (shapeOne != shapeTwo);
+			} while (shapeOne == shapeTwo);
 			compareArea(&shapeOne, &shapeTwo);
 			break;
 		case 2:
@@ -349,14 +349,14 @@ void createRectangles(RectanglePeteW** recA, RectanglePeteW** recB) {
 			fracY->setBoth(num, denom);
 			upperRight = new PointPeteW(*fracX, *fracY);
 
-			if (*recA == nullptr) {
-				*recA = new RectanglePeteW(*lowerLeft, *upperRight);
+			if (*recB == nullptr) {
+				*recB = new RectanglePeteW(*lowerLeft, *upperRight);
 			} else {
-				(*recA)->setLowerLeft(*lowerLeft);
-				(*recA)->setUpperRight(*upperRight);
+				(*recB)->setLowerLeft(*lowerLeft);
+				(*recB)->setUpperRight(*upperRight);
 			}
-			cout << "\nRectangle #1 created: \n";
-			(*recA)->print();
+			cout << "\nRectangle #2 created: \n";
+			(*recB)->print();
 
 			delete fracX;
 			delete fracY;
@@ -374,101 +374,150 @@ void createRectangles(RectanglePeteW** recA, RectanglePeteW** recB) {
 }
 
 void createCircles(CirclePeteW** cirA, CirclePeteW** cirB) {
-	int numX;
-	int numY;
-	int denomX;
-	int denomY;
-	int numR;
-	int denomR;
-	int menuChoice;
+	FractionPeteW* centerX = nullptr;
+	FractionPeteW* centerY = nullptr;
+	FractionPeteW* radius = nullptr;
+	PointPeteW* center = nullptr;
+
+	int num, denom, menuChoice;
 
 	do {
-		cout << "\n  CREATING CIRCLES MENU"
-			"\n(1) Create first circle"
-			"\n(2) Create second circle"
-			"\n(3) Quit"
-			"\nPlease enter your option (1 through 3): ";
+		cout << "\n  CREATING CIRCLES MENU --"
+			"\n  (1) Create first circle"
+			"\n  (2) Create second circle"
+			"\n  (3) Quit"
+			"\nPlease select your option (1 through 3):";
 		cin >> menuChoice;
 		switch (menuChoice) {
 		case 1:
-			cout << "\nCreating center point - X value"
-				"\n  Please enter the numerator: ";
-			cin >> numX;
+			cout << "\nCreating first circle --"
+				"\n  Creating center point --"
+				"\n    X value:"
+				"\n      Please enter the numerator: ";
+			cin >> num;
 			do {
-				cout << "\n  Please enter the denominator: ";
-				cin >> denomX;
-				if (denomX == 0) {
+				cout << "\n      Please enter the denominator: ";
+				cin >> denom;
+				if (denom == 0) {
 					cout << "\nDenominator cannot be 0!";
 				}
-			} while (denomX == 0);
+			} while (denom == 0);
 
-			cout << "\nCreating center point - Y value"
-				"\n  Please enter the numerator: ";
-			cin >> numY;
+			centerX = new FractionPeteW(num, denom);
+
+			cout << "\n    Y value:"
+				"\n      Please enter the numerator: ";
+			cin >> num;
 			do {
-				cout << "\n  Please enter the denominator: ";
-				cin >> denomY;
-				if (denomY == 0) {
+				cout << "\n      Please enter the denominator: ";
+				cin >> denom;
+				if (denom == 0) {
 					cout << "\nDenominator cannot be 0!";
 				}
-			} while (denomY == 0);
+			} while (denom == 0);
 
+			centerY = new FractionPeteW(num, denom);
+			center = new PointPeteW(*centerX, *centerY);
+
+			cout << "\n    Creating radius --";
+			do {
+				cout << "\n      Please enter the numerator: ";
+				cin >> num;
+				do {
+					cout << "\n      Please enter the denominator: ";
+					cin >> denom;
+					if (denom == 0) {
+						cout << "\nDenominator cannot be 0!";
+					}
+				} while (denom == 0);
+				if (radius == nullptr) {
+					radius = new FractionPeteW(num, denom);
+				} else {
+					radius->setBoth(num, denom);
+				}
+				if (radius->getNum() <= 0) {
+					cout << "\nRadius must be positive!";
+				}
+			} while (radius->getNum() <= 0);
 			if (*cirA == nullptr) {
-				*cirA = new CirclePeteW(PointPeteW(FractionPeteW(numX, denomX), FractionPeteW(numY, denomY)));
+				*cirA = new CirclePeteW(*center, *radius);
 			} else {
-				(*cirA)->setCenter(PointPeteW(FractionPeteW(numX, denomX), FractionPeteW(numY, denomY)));
+				(*cirA)->setCenter(*center);
+				(*cirA)->setRadius(*radius);
 			}
+			cout << "\nCircle #1 created:";
+			(*cirA)->print();
+			
+			delete centerX;
+			delete centerY;
+			delete radius;
+			delete center;
 
-			cout << "\n  Creating radius - please enter the numerator: ";
-			cin >> numR;
-			do {
-				cout << "\n  Please enter the denominator: ";
-				cin >> denomR;
-				if (denomR == 0) {
-					cout << "\nDenominator cannot be 0!";
-				}
-			} while (denomR == 0);
-			(*cirA)->setRadius(FractionPeteW(numR, denomR));
 			break;
+
 		case 2:
-			cout << "\nCreating center point - X value"
-				"\n  Please enter the numerator: ";
-			cin >> numX;
+			cout << "\nCreating second circle --"
+				"\n  Creating center point --"
+				"\n    X value:"
+				"\n      Please enter the numerator: ";
+			cin >> num;
 			do {
-				cout << "\n  Please enter the denominator: ";
-				cin >> denomX;
-				if (denomX == 0) {
+				cout << "\n      Please enter the denominator: ";
+				cin >> denom;
+				if (denom == 0) {
 					cout << "\nDenominator cannot be 0!";
 				}
-			} while (denomX == 0);
+			} while (denom == 0);
 
-			cout << "\nCreating center point - Y value"
-				"\n  Please enter the numerator: ";
-			cin >> numY;
+			centerX = new FractionPeteW(num, denom);
+
+			cout << "\n    Y value:"
+				"\n      Please enter the numerator: ";
+			cin >> num;
 			do {
-				cout << "\n  Please enter the denominator: ";
-				cin >> denomY;
-				if (denomY == 0) {
+				cout << "\n      Please enter the denominator: ";
+				cin >> denom;
+				if (denom == 0) {
 					cout << "\nDenominator cannot be 0!";
 				}
-			} while (denomY == 0);
+			} while (denom == 0);
 
+			centerY = new FractionPeteW(num, denom);
+			center = new PointPeteW(*centerX, *centerY);
+
+			cout << "\n    Creating radius --";
+			do {
+				
+				cout << "\n      Please enter the numerator: ";
+				cin >> num;
+				do {
+					cout << "\n      Please enter the denominator: ";
+					cin >> denom;
+					if (denom == 0) {
+						cout << "\nDenominator cannot be 0!";
+					}
+				} while (denom == 0);
+				radius = new FractionPeteW(num, denom);
+				if (radius->getNum() <= 0) {
+					cout << "\nRadius must be positive!";
+					delete radius;
+				}
+				
+			} while (radius->getNum() <= 0);
 			if (*cirB == nullptr) {
-				*cirB = new CirclePeteW(PointPeteW(FractionPeteW(numX, denomX), FractionPeteW(numY, denomY)));
+				*cirB = new CirclePeteW(*center, *radius);
 			} else {
-				(*cirB)->setCenter(PointPeteW(FractionPeteW(numX, denomX), FractionPeteW(numY, denomY)));
+				(*cirB)->setCenter(*center);
+				(*cirB)->setRadius(*radius);
 			}
+			cout << "\nCircle #2 created:";
+			(*cirB)->print();
 
-			cout << "\n  Creating radius - please enter the numerator: ";
-			cin >> numR;
-			do {
-				cout << "\n  Please enter the denominator: ";
-				cin >> denomR;
-				if (denomR == 0) {
-					cout << "\nDenominator cannot be 0!";
-				}
-			} while (denomR == 0);
-			(*cirB)->setRadius(FractionPeteW(numR, denomR));
+			delete centerX;
+			delete centerY;
+			delete radius;
+			delete center;
+
 			break;
 		case 3:
 			cout << "\nReturning to main menu.";
@@ -481,12 +530,17 @@ void createCircles(CirclePeteW** cirA, CirclePeteW** cirB) {
 }
 
 void compareArea(ShapePeteW** shapeOne, ShapePeteW** shapeTwo) {
-	if ((*shapeOne)->computeArea() > (*shapeTwo)->computeArea()) {
-		cout << endl << *shapeOne << " is larger than " << *shapeTwo;
-	} else if ((*shapeOne)->computeArea() < (*shapeTwo)->computeArea()) {
-		cout << endl << *shapeOne << " is smaller than " << *shapeTwo;
+	cout << "\nComparing area -- \n    ";
+	if ((*shapeOne)->getArea() > (*shapeTwo)->getArea()) {
+		(*shapeOne)->print();
+		cout << " is larger than "; 
+		(*shapeTwo)->print();
+	} else if ((*shapeOne)->getArea() < (*shapeTwo)->getArea()) {
+		(*shapeTwo)->print();
+		cout << " is larger than ";
+		(*shapeOne)->print();
 	} else {
-		cout << endl << "Both are the same size.";
+		cout << "Both shapes are the same size.";
 	}
 }
 
