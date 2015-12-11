@@ -1,12 +1,12 @@
 #pragma once
 
 /**
-* Program Name: CirclePeteW.h
-* Discussion:   Declaration File --
-*                 CirclePeteW class
-* Written by:   Pete Wilcox
-* Date:         2015/12/15
-*/
+ * Program Name: CirclePeteW.h
+ * Discussion:   Declaration File --
+ *                 CirclePeteW class
+ * Written by:   Pete Wilcox
+ * Date:         2015/12/15
+ */
 
 #ifndef CIRCLEPETEW_H
 #define CIRLCEPETEW_H
