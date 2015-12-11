@@ -71,7 +71,7 @@ void RectanglePeteW::print() {
 	cout << "\nRectangle:"
 		"\n  Lower Left: " << lowerLeft << 
 		"\n  Upper Right: " << upperRight <<
-		"\n  Area:" << area << endl;
+		"\n  Area: " << area << endl;
 }
 
 void RectanglePeteW::setUpperRight(const PointPeteW &arg) {
