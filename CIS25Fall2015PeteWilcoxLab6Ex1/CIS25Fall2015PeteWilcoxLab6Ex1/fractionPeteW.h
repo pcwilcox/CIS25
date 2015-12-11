@@ -5,7 +5,7 @@
   * Discussion:   Declaration File --
   *                 FractionPeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/12/10
+  * Date:         2015/12/15
   */
 
 #ifndef FRACTIONPETEW_H
@@ -30,6 +30,7 @@ class FractionPeteW {
 	// Explicit constructor
 	FractionPeteW(int, int);
 
+	// Destructor
 	~FractionPeteW();
 
 	// Getters

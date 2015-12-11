@@ -5,7 +5,7 @@
   * Discussion:   Lab #7 Exercise #1 - Driver --
   *                 Declaration file
   * Written by:   Pete Wilcox
-  * Date:         2015/12/10
+  * Date:         2015/12/15
   */
 
 #ifndef CIS25FALL2015PETEWILCOXLAB7EX1DRIVER_H
@@ -22,7 +22,10 @@ using namespace std;
 
 // Main interface functions
 void displayHeader(void);
-void userInterface(RectanglePeteW**, RectanglePeteW**, CirclePeteW**, CirclePeteW**);
+void userInterface(RectanglePeteW**, 
+				   RectanglePeteW**, 
+				   CirclePeteW**, 
+				   CirclePeteW**);
 
 // Rectangle menu functions
 void rectangleTasks(RectanglePeteW**, RectanglePeteW**);
@@ -33,8 +36,17 @@ void circleTasks(CirclePeteW**, CirclePeteW**);
 void createCircles(CirclePeteW**, CirclePeteW**);
 
 // Mixed menu functions
-void mixedTasks(RectanglePeteW**, RectanglePeteW**, CirclePeteW**, CirclePeteW**);
-ShapePeteW* compareMenu(RectanglePeteW**, RectanglePeteW**, CirclePeteW**, CirclePeteW**);
+void mixedTasks(RectanglePeteW**, 
+				RectanglePeteW**, 
+				CirclePeteW**, 
+				CirclePeteW**);
+
+ShapePeteW* compareMenu(RectanglePeteW**, 
+						RectanglePeteW**, 
+						CirclePeteW**, 
+						CirclePeteW**);
+
+
 void compareArea(ShapePeteW**, ShapePeteW**);
 
 #endif

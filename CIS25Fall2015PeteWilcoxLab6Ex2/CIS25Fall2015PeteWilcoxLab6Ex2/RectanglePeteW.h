@@ -5,7 +5,7 @@
   * Discussion:   Declaration File --
   *                 RectanglePeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/12/10
+  * Date:         2015/12/15
   */
 
 #ifndef RECTANGLEPETEW_H
@@ -42,15 +42,16 @@ class RectanglePeteW : public ShapePeteW {
 	FractionPeteW getWidth(void) const;
 	FractionPeteW getArea(void) const override;
 
-	void computeArea(void) override;
-
-	void print(void) override;
-	
 	// Setters
 	void setUpperRight(const PointPeteW&);
 	void setUpperRight(const FractionPeteW&, const FractionPeteW&);
 	void setLowerLeft(const PointPeteW&);
 	void setLowerLeft(const FractionPeteW&, const FractionPeteW&);
+
+	// Helper function
+	void computeArea(void) override;
+
+	void print(void) override;
 
 	// Operators
 	RectanglePeteW& operator=(const RectanglePeteW&);

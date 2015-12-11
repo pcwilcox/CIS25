@@ -3,7 +3,7 @@
   * Discussion:   Definition File --
   *                 pointPeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/12/10
+  * Date:         2015/12/15
   */
 
 #include <iostream>
@@ -99,11 +99,11 @@ void PointPeteW::moveBy(const int delX, const int delY) {
 }
 
 void PointPeteW::flipByX() {
-	x.setNum(-(x.getNum()));
+	y.setNum(-(y.getNum()));
 }
 
 void PointPeteW::flipByY() {
-	y.setNum(-(y.getNum()));
+	x.setNum(-(x.getNum()));
 }
 
 void PointPeteW::flipThroughOrigin() {

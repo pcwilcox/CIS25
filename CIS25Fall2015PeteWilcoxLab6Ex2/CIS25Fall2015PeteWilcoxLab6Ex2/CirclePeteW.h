@@ -5,7 +5,7 @@
 * Discussion:   Declaration File --
 *                 CirclePeteW class
 * Written by:   Pete Wilcox
-* Date:         2015/12/01
+* Date:         2015/12/15
 */
 
 #ifndef CIRCLEPETEW_H
@@ -42,15 +42,16 @@ class CirclePeteW : public ShapePeteW {
 	PointPeteW    getCenter() const;
 	FractionPeteW getRadius() const;
 	FractionPeteW getArea() const override;
-
-	void computeArea() override;
-
-	void print(void) override;
-
+	
 	// Setters
 	void setCenter(const PointPeteW&);
 	void setRadius(const FractionPeteW&);
 	void setRadius(const int&);
+
+	// Helper function
+	void computeArea() override;
+
+	void print(void) override;
 
 	// Operator overloads
 	CirclePeteW& operator=(const CirclePeteW&);

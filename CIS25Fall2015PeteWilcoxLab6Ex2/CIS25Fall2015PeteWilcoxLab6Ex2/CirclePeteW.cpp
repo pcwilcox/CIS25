@@ -3,7 +3,7 @@
   * Discussion:   Definition File --
   *                 CirclePeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/12/10
+  * Date:         2015/12/15
   */
 
 #include <iostream>
@@ -14,35 +14,44 @@
 using namespace std;
 
 // Default constructor
-CirclePeteW::CirclePeteW() : center(FractionPeteW(0), FractionPeteW(0)), radius(0) {
+CirclePeteW::CirclePeteW() : 
+		center(FractionPeteW(0), FractionPeteW(0)), radius(0) {
 	computeArea();
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
 // Copy constructor
-CirclePeteW::CirclePeteW(const CirclePeteW& arg) : center(arg.center), radius(arg.radius) {
+CirclePeteW::CirclePeteW(const CirclePeteW& arg) : 
+		center(arg.center), radius(arg.radius) {
 	computeArea();
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
 // Convert constructors
-CirclePeteW::CirclePeteW(const FractionPeteW& arg) : center(FractionPeteW(0), FractionPeteW(0)), radius(arg) {
+CirclePeteW::CirclePeteW(const FractionPeteW& arg) : 
+		center(FractionPeteW(0), FractionPeteW(0)), radius(arg) {
 	computeArea();
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
-CirclePeteW::CirclePeteW(const PointPeteW &arg) : center(arg), radius(0) {
+CirclePeteW::CirclePeteW(const PointPeteW &arg) : 
+		center(arg), radius(0) {
 	computeArea();
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
-CirclePeteW::CirclePeteW(const PointPeteW &c, const FractionPeteW &r) : center(c), radius(r) {
+CirclePeteW::CirclePeteW(const PointPeteW &c, 
+						 const FractionPeteW &r) : 
+						 center(c), radius(r) {
 	computeArea();
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
 // Detailed constructor
-CirclePeteW::CirclePeteW(const FractionPeteW& argX, const FractionPeteW& argY) : center(PointPeteW(argX, argY)), radius(0) {
+CirclePeteW::CirclePeteW(const FractionPeteW& argX, 
+						 const FractionPeteW& argY) : 
+						 center(PointPeteW(argX, argY)), 
+						 radius(0) {
 	computeArea();
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
@@ -105,6 +114,9 @@ CirclePeteW& CirclePeteW::operator=(const CirclePeteW& arg) {
 }
 
 ostream& operator<<(ostream& os, const CirclePeteW& circle) {
-	os << "Center: " << circle.center << ", Radius: " << circle.radius;
+	os << "\nCircle:"
+		"\n  Center: " << circle.center << 
+		"\n  Radius: " << circle.radius <<
+		"\n  Area: " << circle.area;
 	return os;
 }

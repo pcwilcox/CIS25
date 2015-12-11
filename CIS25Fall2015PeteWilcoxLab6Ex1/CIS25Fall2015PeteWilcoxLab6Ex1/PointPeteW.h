@@ -3,7 +3,7 @@
   * Discussion:   Declaration File --
   *                 pointPeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/12/10
+  * Date:         2015/12/15
   */
 
 #pragma once
@@ -47,8 +47,6 @@ class PointPeteW {
 
 	void setX(const int);
 	void setY(const int);
-
-	
 
 	// Movers
 	void moveByX(const FractionPeteW &);

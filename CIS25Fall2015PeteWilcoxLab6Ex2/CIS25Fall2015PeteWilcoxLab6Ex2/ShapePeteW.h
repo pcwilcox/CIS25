@@ -5,7 +5,7 @@
   * Discussion:   Declaration File --
   *                 ShapePeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/12/01
+  * Date:         2015/12/15
   */
 
 #ifndef SHAPEPETEW_H

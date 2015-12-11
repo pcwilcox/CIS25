@@ -3,7 +3,7 @@
   * Discussion:   Definition File --
   *                 FractionPeteW class
   * Written by:   Pete Wilcox
-  * Date:         2015/12/10
+  * Date:         2015/12/15
   */
 
 #include "fractionPeteW.h"
@@ -24,7 +24,7 @@ FractionPeteW::FractionPeteW(int input) : num(input), denom(1) {
 
 // Copy constructor
 FractionPeteW::FractionPeteW(const FractionPeteW& input) :
-	num(input.num), denom(input.denom) {
+		num(input.num), denom(input.denom) {
 
 	cout << "\nCalling Fraction() on " << *this;
 	reduce();
@@ -32,7 +32,7 @@ FractionPeteW::FractionPeteW(const FractionPeteW& input) :
 
 // Explicit constructor
 FractionPeteW::FractionPeteW(int inputNum, int inputDenom) :
-	num(inputNum), denom(inputDenom) {
+		num(inputNum), denom(inputDenom) {
 
 	cout << "\nCalling Fraction() on " << *this;
 	reduce();
@@ -89,7 +89,7 @@ void FractionPeteW::print() {
 
 // Member math functions
 void FractionPeteW::add(const FractionPeteW& left,
-	const FractionPeteW& right) {
+						const FractionPeteW& right) {
 
 	num = left.num * right.denom + left.denom * right.num;
 	denom = left.denom * right.denom;
@@ -119,7 +119,7 @@ void FractionPeteW::add(const FractionPeteW& arg) {
 }
 
 void FractionPeteW::subtract(const FractionPeteW& left,
-	const FractionPeteW& right) {
+							 const FractionPeteW& right) {
 
 	num = left.num * right.denom - left.denom * right.num;
 	denom = left.denom * right.denom;
@@ -149,7 +149,7 @@ void FractionPeteW::subtract(const FractionPeteW& arg) {
 }
 
 void FractionPeteW::multiply(const FractionPeteW& left,
-	const FractionPeteW& right) {
+							 const FractionPeteW& right) {
 
 	num = left.num * right.num;
 	denom = left.denom * right.denom;
@@ -163,16 +163,24 @@ void FractionPeteW::multiply(const FractionPeteW& arg) {
 }
 
 void FractionPeteW::divide(const FractionPeteW& left,
-	const FractionPeteW& right) {
-	num = left.num * right.denom;
-	denom = left.denom * right.num;
-	reduce();
+						   const FractionPeteW& right) {
+	if (right.num == 0) {
+		cout << "\nDivide by zero!";
+	} else {
+		num = left.num * right.denom;
+		denom = left.denom * right.num;
+		reduce();
+	}
 }
 
 void FractionPeteW::divide(const FractionPeteW& arg) {
-	num *= arg.denom;
-	denom *= arg.num;
-	reduce();
+	if (arg.num == 0) {
+		cout << "\nDivide by zero!";
+	} else {
+		num *= arg.denom;
+		denom *= arg.num;
+		reduce();
+	}
 }
 
 // Member overloads
@@ -237,9 +245,13 @@ FractionPeteW& FractionPeteW::operator*=(const FractionPeteW& arg) {
 }
 
 FractionPeteW& FractionPeteW::operator/=(const FractionPeteW& arg) {
-	num *= arg.denom;
-	denom *= arg.num;
-	reduce();
+	if (arg.denom == 0) {
+		cout << "\nDivide by zero!";
+	} else {
+		num *= arg.denom;
+		denom *= arg.num;
+		reduce();
+	}
 	return *this;
 }
 
@@ -307,7 +319,7 @@ void FractionPeteW::reduce() {
 	}
 }
 
-// Friend overloads
+// Friend overload
 ostream& operator<<(ostream& os, const FractionPeteW& f) {
 	os << f.num << "/" << f.denom;
 	return os;
