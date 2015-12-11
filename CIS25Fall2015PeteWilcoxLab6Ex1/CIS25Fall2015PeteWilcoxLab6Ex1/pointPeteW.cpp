@@ -33,9 +33,6 @@ PointPeteW::PointPeteW(const PointPeteW& old) :
 }
 
 // Convert constructor
-PointPeteW::PointPeteW(const int input) : x(input) {
-	cout << "\nCalling PointPeteW() on " << (*this);
-}
 
 PointPeteW::PointPeteW(const FractionPeteW & xCoord) :
 					   x(xCoord) {

@@ -12,13 +12,14 @@
 #define CIRLCEPETEW_H
 
 #include <iostream>
+#include "ShapePeteW.h"
 #include "fractionPeteW.h"
 #include "PointPeteW.h"
 #include "RectanglePeteW.h"
 
 using namespace std;
 
-class CirclePeteW {
+class CirclePeteW : public ShapePeteW {
 	public:
 	// Default constructor
 	CirclePeteW();
@@ -29,18 +30,22 @@ class CirclePeteW {
 	// Convert constructors
 	CirclePeteW(const FractionPeteW&);
 	CirclePeteW(const PointPeteW&);
-	CirclePeteW(const int&);
 
 	// Detailed constructor
 	CirclePeteW(const PointPeteW&, const FractionPeteW&);
 	CirclePeteW(const FractionPeteW&, const FractionPeteW&);
 
+	// Destructor
+	~CirclePeteW();
+
 	// Getters
 	PointPeteW    getCenter() const;
 	FractionPeteW getRadius() const;
-	FractionPeteW getArea() const;
+	FractionPeteW getArea() const override;
 
-	void print();
+	void computeArea() override;
+
+	void print(void) override;
 
 	// Setters
 	void setCenter(const PointPeteW&);
@@ -50,22 +55,11 @@ class CirclePeteW {
 	// Operator overloads
 	CirclePeteW& operator=(const CirclePeteW&);
 
-	CirclePeteW& operator+(const CirclePeteW&);
-
-	bool operator==(const CirclePeteW&);
-
-	bool operator< (const CirclePeteW&);
-	bool operator> (const CirclePeteW&);
-
-	bool operator<=(const CirclePeteW&);
-	bool operator>=(const CirclePeteW&);
-
 	friend ostream& operator<<(ostream&, const CirclePeteW&);
 
 	private:
 	PointPeteW center;
 	FractionPeteW radius;
-	const static FractionPeteW PI;
 };
 
 #endif

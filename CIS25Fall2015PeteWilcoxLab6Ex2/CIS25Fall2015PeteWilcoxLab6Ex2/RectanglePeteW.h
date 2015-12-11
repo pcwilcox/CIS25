@@ -12,17 +12,18 @@
 #define RECTANGLEPETEW_H
 
 #include <iostream>
+#include "ShapePeteW.h"
 #include "fractionPeteW.h"
 #include "PointPeteW.h"
 #include "CirclePeteW.h"
 
 using namespace std;
 
-class RectanglePeteW {
+class RectanglePeteW : public ShapePeteW {
 	public:
 	
 	// Default constructor
-	RectanglePeteW();
+	RectanglePeteW(void);
 
 	// Copy constructor
 	RectanglePeteW(const RectanglePeteW&);
@@ -35,13 +36,15 @@ class RectanglePeteW {
 	~RectanglePeteW();
 
 	// Getters
-	PointPeteW getUpperRight() const;
-	PointPeteW getLowerLeft() const;
-	FractionPeteW getHeight() const;
-	FractionPeteW getWidth() const;
-	FractionPeteW getArea() const;
+	PointPeteW getUpperRight(void) const;
+	PointPeteW getLowerLeft(void) const;
+	FractionPeteW getHeight(void) const;
+	FractionPeteW getWidth(void) const;
+	FractionPeteW getArea(void) const override;
 
-	void print();
+	void computeArea(void) override;
+
+	void print(void) override;
 	
 	// Setters
 	void setUpperRight(const PointPeteW&);
@@ -51,17 +54,7 @@ class RectanglePeteW {
 
 	// Operators
 	RectanglePeteW& operator=(const RectanglePeteW&);
-
-	RectanglePeteW& operator+(const RectanglePeteW&);
 	
-	bool operator==(const RectanglePeteW&);
-
-	bool operator< (const RectanglePeteW&);
-	bool operator> (const RectanglePeteW&);
-
-	bool operator<=(const RectanglePeteW&);
-	bool operator>=(const RectanglePeteW&);
-
 	friend ostream& operator<<(ostream&, const RectanglePeteW&);
 
 	private:
