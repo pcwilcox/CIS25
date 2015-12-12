@@ -19,11 +19,14 @@ class ShapePeteW {
 	public:
 	virtual void print(void) = 0;
 	virtual void computeArea(void) = 0;
+	virtual void computeVolume(void) = 0;
 	virtual FractionPeteW getArea(void) const = 0;
+	virtual FractionPeteW getVolume(void) const = 0;
 	friend ostream& operator<<(ostream&, ShapePeteW&);
 
 	protected:
 	FractionPeteW area;
+	FractionPeteW volume;
 };
 
 #endif

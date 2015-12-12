@@ -16,6 +16,7 @@ using namespace std;
 // Default constructor
 CirclePeteW::CirclePeteW() : 
 		center(FractionPeteW(0), FractionPeteW(0)), radius(0) {
+	volume = 0;
 	computeArea();
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
@@ -23,6 +24,7 @@ CirclePeteW::CirclePeteW() :
 // Copy constructor
 CirclePeteW::CirclePeteW(const CirclePeteW& arg) : 
 		center(arg.center), radius(arg.radius) {
+	volume = 0;
 	computeArea();
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
@@ -30,28 +32,32 @@ CirclePeteW::CirclePeteW(const CirclePeteW& arg) :
 // Convert constructors
 CirclePeteW::CirclePeteW(const FractionPeteW& arg) : 
 		center(FractionPeteW(0), FractionPeteW(0)), radius(arg) {
+	volume = 0;
 	computeArea();
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
 CirclePeteW::CirclePeteW(const PointPeteW &arg) : 
 		center(arg), radius(0) {
+	volume = 0;
 	computeArea();
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
+// Detailed constructors
 CirclePeteW::CirclePeteW(const PointPeteW &c, 
 						 const FractionPeteW &r) : 
 						 center(c), radius(r) {
+	volume = 0;
 	computeArea();
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
 
-// Detailed constructor
 CirclePeteW::CirclePeteW(const FractionPeteW& argX, 
 						 const FractionPeteW& argY) : 
 						 center(PointPeteW(argX, argY)), 
 						 radius(0) {
+	volume = 0;
 	computeArea();
 	cout << "\nCalling CirclePeteW() on " << *this;
 }
@@ -74,8 +80,16 @@ FractionPeteW CirclePeteW::getArea() const {
 	return area;
 }
 
+FractionPeteW CirclePeteW::getVolume(void) const {
+	return volume;
+}
+
 void CirclePeteW::computeArea() {
 	(*this).area = (radius * radius * FractionPeteW(157,50));
+}
+
+void CirclePeteW::computeVolume(void) {
+	volume = 0;
 }
 
 void CirclePeteW::print() {

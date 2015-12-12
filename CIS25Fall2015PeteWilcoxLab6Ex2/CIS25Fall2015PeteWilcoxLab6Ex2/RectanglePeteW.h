@@ -19,7 +19,7 @@
 
 using namespace std;
 
-class RectanglePeteW : public ShapePeteW {
+class RectanglePeteW : public virtual ShapePeteW {
 	public:
 	
 	// Default constructor
@@ -30,7 +30,9 @@ class RectanglePeteW : public ShapePeteW {
 
 	// Other constructors
 	RectanglePeteW(const PointPeteW&);
-	RectanglePeteW(const PointPeteW&, const PointPeteW&);
+
+	RectanglePeteW(const PointPeteW&, 
+					const PointPeteW&);
 	
 	// Destructor
 	~RectanglePeteW();
@@ -38,18 +40,26 @@ class RectanglePeteW : public ShapePeteW {
 	// Getters
 	PointPeteW getUpperRight(void) const;
 	PointPeteW getLowerLeft(void) const;
-	FractionPeteW getHeight(void) const;
+	FractionPeteW getLength(void) const;
 	FractionPeteW getWidth(void) const;
-	FractionPeteW getArea(void) const override;
+
+	virtual FractionPeteW getArea(void) const override;
+	virtual FractionPeteW getVolume(void) const override;
 
 	// Setters
 	void setUpperRight(const PointPeteW&);
-	void setUpperRight(const FractionPeteW&, const FractionPeteW&);
+
+	void setUpperRight(const FractionPeteW&, 
+						const FractionPeteW&);
+
 	void setLowerLeft(const PointPeteW&);
-	void setLowerLeft(const FractionPeteW&, const FractionPeteW&);
+
+	void setLowerLeft(const FractionPeteW&, 
+						const FractionPeteW&);
 
 	// Helper function
-	void computeArea(void) override;
+	virtual void computeArea(void) override;
+	virtual void computeVolume(void) override;
 
 	void print(void) override;
 
@@ -58,13 +68,16 @@ class RectanglePeteW : public ShapePeteW {
 	
 	friend ostream& operator<<(ostream&, const RectanglePeteW&);
 
-	private:
+	protected:
 	PointPeteW upperRight;
 	PointPeteW lowerLeft;
 
-	// Helper method to check that the points are in the right position
-	void checkPoints();
+	/* Helper function - checkPoints() is called whenever an
+	 * operation is performed on the member data points in
+	 * order to verify that the data are still valid. If the
+	 * data is invalid then the points are adjusted as needed.
+	 */
+	virtual void checkPoints();
 };
-
 
 #endif

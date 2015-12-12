@@ -1,12 +1,12 @@
 #pragma once
 
 /**
-* Program Name: CirclePeteW.h
-* Discussion:   Declaration File --
-*                 CirclePeteW class
-* Written by:   Pete Wilcox
-* Date:         2015/12/15
-*/
+ * Program Name: CirclePeteW.h
+ * Discussion:   Declaration File --
+ *                 CirclePeteW class
+ * Written by:   Pete Wilcox
+ * Date:         2015/12/15
+ */
 
 #ifndef CIRCLEPETEW_H
 #define CIRLCEPETEW_H
@@ -19,7 +19,7 @@
 
 using namespace std;
 
-class CirclePeteW : public ShapePeteW {
+class CirclePeteW : public virtual ShapePeteW {
 	public:
 	// Default constructor
 	CirclePeteW();
@@ -39,9 +39,11 @@ class CirclePeteW : public ShapePeteW {
 	~CirclePeteW();
 
 	// Getters
-	PointPeteW    getCenter() const;
-	FractionPeteW getRadius() const;
-	FractionPeteW getArea() const override;
+	PointPeteW    getCenter(void) const;
+	FractionPeteW getRadius(void) const;
+
+	virtual FractionPeteW getArea(void) const override;
+	virtual FractionPeteW getVolume(void) const override;
 	
 	// Setters
 	void setCenter(const PointPeteW&);
@@ -49,16 +51,16 @@ class CirclePeteW : public ShapePeteW {
 	void setRadius(const int&);
 
 	// Helper function
-	void computeArea() override;
-
-	void print(void) override;
+	virtual void computeArea(void) override;
+	virtual void computeVolume(void) override;
+	virtual void print(void) override;
 
 	// Operator overloads
 	CirclePeteW& operator=(const CirclePeteW&);
 
 	friend ostream& operator<<(ostream&, const CirclePeteW&);
 
-	private:
+	protected:
 	PointPeteW center;
 	FractionPeteW radius;
 };

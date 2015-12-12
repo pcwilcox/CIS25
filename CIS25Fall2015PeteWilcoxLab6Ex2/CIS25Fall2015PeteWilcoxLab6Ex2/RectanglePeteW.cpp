@@ -19,6 +19,7 @@ using namespace std;
 RectanglePeteW::RectanglePeteW() {
 	upperRight = PointPeteW(FractionPeteW(0), FractionPeteW(0));
 	lowerLeft = PointPeteW(FractionPeteW(0), FractionPeteW(0));
+	volume = 0;
 	checkPoints();
 	computeArea();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
@@ -27,6 +28,7 @@ RectanglePeteW::RectanglePeteW() {
 // Copy constructor
 RectanglePeteW::RectanglePeteW(const RectanglePeteW &arg) : 
 		upperRight(arg.upperRight), lowerLeft(arg.lowerLeft) {
+	volume = 0;
 	checkPoints();
 	computeArea();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
@@ -35,6 +37,7 @@ RectanglePeteW::RectanglePeteW(const RectanglePeteW &arg) :
 // Convert constructor
 RectanglePeteW::RectanglePeteW(const PointPeteW &arg) : 
 		upperRight(arg), lowerLeft(PointPeteW(0)) {
+	volume = 0;
 	checkPoints();
 	computeArea();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
@@ -44,6 +47,7 @@ RectanglePeteW::RectanglePeteW(const PointPeteW &arg) :
 RectanglePeteW::RectanglePeteW(const PointPeteW &left, 
 							   const PointPeteW &right) : 
 		lowerLeft(left), upperRight(right) {
+	volume = 0;
 	checkPoints();
 	computeArea();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
@@ -63,7 +67,7 @@ PointPeteW RectanglePeteW::getLowerLeft() const {
 	return lowerLeft;
 }
 
-FractionPeteW RectanglePeteW::getHeight() const {
+FractionPeteW RectanglePeteW::getLength() const {
 	return FractionPeteW(upperRight.getY() - lowerLeft.getY());
 }
 
@@ -72,6 +76,10 @@ FractionPeteW RectanglePeteW::getWidth() const {
 }
 FractionPeteW RectanglePeteW::getArea() const {
 	return area;
+}
+
+FractionPeteW RectanglePeteW::getVolume(void) const {
+	return volume;
 }
 
 // Setters
@@ -120,6 +128,10 @@ void RectanglePeteW::computeArea() {
 		(upperRight.getX() - lowerLeft.getX());
 }
 
+void RectanglePeteW::computeVolume(void) {
+	volume = 0;
+}
+
 void RectanglePeteW::print() {
 	cout << "\nRectangle:"
 		"\n  Lower Left: " << lowerLeft <<
@@ -139,8 +151,8 @@ void RectanglePeteW::checkPoints() {
 
 	if (lowerLeft.getY() > upperRight.getY()) {
 		temp = new FractionPeteW(lowerLeft.getY());
-		lowerLeft.setX(upperRight.getX());
-		upperRight.setX(*temp);
+		lowerLeft.setY(upperRight.getY());
+		upperRight.setY(*temp);
 		delete temp;
 	}
 }
