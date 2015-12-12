@@ -50,19 +50,13 @@ int main() {
 			createCylinders(cylinderOne, cylinderTwo);
 			break;
 		case 5:
-			compareAreaMenu(rectangleOne, rectangleTwo,
-				circleOne, circleTwo,
-				boxOne, boxTwo,
-				cylinderOne, cylinderTwo);
+			compareAreaMenu(rectangleOne, rectangleTwo,	circleOne, circleTwo, boxOne, boxTwo, cylinderOne, cylinderTwo);
 			break;
 		case 6:
 			compareVolumeMenu(boxOne, boxTwo, cylinderOne, cylinderTwo);
 			break;
 		case 7:
-			printMenu(rectangleOne, rectangleTwo,
-				circleOne, circleTwo,
-				boxOne, boxTwo,
-				cylinderOne, cylinderTwo);
+			printMenu(rectangleOne, rectangleTwo, circleOne, circleTwo,	boxOne, boxTwo,	cylinderOne, cylinderTwo);
 			break;
 		case 8:
 			cout << "\n\n  Have fun!";
