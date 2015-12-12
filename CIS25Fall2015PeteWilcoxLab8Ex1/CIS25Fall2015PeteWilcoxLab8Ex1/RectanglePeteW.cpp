@@ -19,6 +19,7 @@ using namespace std;
 RectanglePeteW::RectanglePeteW() {
 	upperRight = PointPeteW(FractionPeteW(0), FractionPeteW(0));
 	lowerLeft = PointPeteW(FractionPeteW(0), FractionPeteW(0));
+	volume = 0;
 	checkPoints();
 	computeArea();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
@@ -27,6 +28,7 @@ RectanglePeteW::RectanglePeteW() {
 // Copy constructor
 RectanglePeteW::RectanglePeteW(const RectanglePeteW &arg) : 
 		upperRight(arg.upperRight), lowerLeft(arg.lowerLeft) {
+	volume = 0;
 	checkPoints();
 	computeArea();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
@@ -35,6 +37,7 @@ RectanglePeteW::RectanglePeteW(const RectanglePeteW &arg) :
 // Convert constructor
 RectanglePeteW::RectanglePeteW(const PointPeteW &arg) : 
 		upperRight(arg), lowerLeft(PointPeteW(0)) {
+	volume = 0;
 	checkPoints();
 	computeArea();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
@@ -44,6 +47,7 @@ RectanglePeteW::RectanglePeteW(const PointPeteW &arg) :
 RectanglePeteW::RectanglePeteW(const PointPeteW &left, 
 							   const PointPeteW &right) : 
 		lowerLeft(left), upperRight(right) {
+	volume = 0;
 	checkPoints();
 	computeArea();
 	cout << "\nCalling RectanglePeteW() on " << (*this);
