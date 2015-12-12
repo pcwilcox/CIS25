@@ -42,6 +42,7 @@ class CylinderPeteW : public CirclePeteW {
 	// Helpers
 	void computeArea(void) override;
 	void computeVolume(void) override;
+	void print(void) override;
 
 	private:
 	FractionPeteW h;
