@@ -45,6 +45,9 @@ class BoxPeteW : public RectanglePeteW {
 
 	void print(void) override;
 
+	// Operators
+	friend ostream& operator<<(ostream&, BoxPeteW&);
+
 	private:
 	FractionPeteW h;
 };

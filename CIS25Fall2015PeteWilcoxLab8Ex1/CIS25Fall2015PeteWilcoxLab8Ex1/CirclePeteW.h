@@ -19,7 +19,7 @@
 
 using namespace std;
 
-class CirclePeteW : public ShapePeteW {
+class CirclePeteW : public virtual ShapePeteW {
 	public:
 	// Default constructor
 	CirclePeteW();

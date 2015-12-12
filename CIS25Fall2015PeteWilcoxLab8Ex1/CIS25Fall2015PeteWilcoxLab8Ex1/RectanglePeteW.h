@@ -19,7 +19,7 @@
 
 using namespace std;
 
-class RectanglePeteW : public ShapePeteW {
+class RectanglePeteW : public virtual ShapePeteW {
 	public:
 	
 	// Default constructor

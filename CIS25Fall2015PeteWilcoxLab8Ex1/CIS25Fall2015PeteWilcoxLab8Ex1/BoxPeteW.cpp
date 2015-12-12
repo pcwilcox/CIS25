@@ -12,22 +12,36 @@ using namespace std;
 
 // Default constructor
 BoxPeteW::BoxPeteW() {
+	h = 0;
+	area = 0;
+	volume = 0;
+	cout << "\nCalling BoxPeteW() on " << *this;
 }
 
 // Convert constructor
-BoxPeteW::BoxPeteW(const RectanglePeteW &base) {
+BoxPeteW::BoxPeteW(const RectanglePeteW &base) : RectanglePeteW(base) {
+	h = 0;
+	volume = 0;
+	cout << "\nCalling BoxPeteW() on " << *this;
 }
 
 // Copy constructor
-BoxPeteW::BoxPeteW(const BoxPeteW &) {
+BoxPeteW::BoxPeteW(const BoxPeteW &other) : RectanglePeteW(other.lowerLeft, other.upperRight), h(other.h) {
+	area = other.area;
+	volume = other.volume;
+	cout << "\nCalling BoxPeteW() on " << *this;
 }
 
 // Detailed constructor
-BoxPeteW::BoxPeteW(const RectanglePeteW &base, const FractionPeteW &height) {
+BoxPeteW::BoxPeteW(const RectanglePeteW &base, const FractionPeteW &height) : RectanglePeteW(base), h(height) {
+	computeArea();
+	computeVolume();
+	cout << "\nCalling BoxPeteW() on " << *this;
 }
 
 // Destructor
 BoxPeteW::~BoxPeteW() {
+	cout << "\nCalling ~BoxPeteW() on " << *this;
 }
 
 // Getters
@@ -52,14 +66,11 @@ void BoxPeteW::setHeight(const FractionPeteW &height) {
 
 // Helpers
 void BoxPeteW::computeArea() {
-	(*this).area = 
-		((upperRight.getY() - lowerLeft.getY()) * 
-			(upperRight.getX() - lowerLeft.getX()) * 2) + 
-		((h * (upperRight.getX() - lowerLeft.getX())) * 2) + 
-		((h * (upperRight.getY() - lowerLeft.getY())) * 2); 
+	FractionPeteW x = upperRight.getX() - lowerLeft.getX();
+	FractionPeteW y = upperRight.getY() - lowerLeft.getY();
+	
+	(*this).area = ((x * y) + (x * h) + (h * y)) * 2;
 }
-
-// (*this).area = (upperRight.getY() - lowerLeft.getY()) * (upperRight.getX() - lowerLeft.getX());
 
 void BoxPeteW::computeVolume() {
 	(*this).volume = (upperRight.getY() - lowerLeft.getY()) *
@@ -73,4 +84,14 @@ void BoxPeteW::print() {
 		"\n  Height:		" << h <<
 		"\n  Area:			" << area <<
 		"\n  Volume:		" << volume;
+}
+
+ostream& operator<<(ostream& os, BoxPeteW& box) {
+	os << "\nBox:"
+		"\n  Lower left:	" << box.lowerLeft <<
+		"\n  Upper right:	" << box.upperRight <<
+		"\n  Height:		" << box.h <<
+		"\n  Area:			" << box.area <<
+		"\n  Volume:		" << box.volume;
+	return os;
 }
