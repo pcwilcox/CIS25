@@ -975,7 +975,7 @@ void compareArea(ShapePeteW **shapeOne,
 		cout << " is larger than ";
 		(*shapeOne)->print();
 	} else {
-		cout << "Both shapes are the same size.";
+		cout << "\n\nBoth shapes are the same size.";
 	}
 }
 

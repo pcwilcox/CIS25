@@ -293,7 +293,19 @@ bool FractionPeteW::operator>=(const FractionPeteW &arg) const {
 // Reduce() is called whenever other operations are performed
 void FractionPeteW::reduce() {
 	bool finished = false;
+	bool negative = false;
 	int n = 2;
+	
+	if (denom < 0) {
+		num = -num;
+		denom = -denom;
+	}
+
+	if (num < 0) {
+		negative = true;
+		num = -num;
+	}
+
 		
 	while (finished == false) {
 		if ((num <= n) || (denom <= n)) {
@@ -306,9 +318,8 @@ void FractionPeteW::reduce() {
 		}
 	}
 
-	if (denom < 0) {
+	if (negative) {
 		num = -num;
-		denom = -denom;
 	}
 }
 

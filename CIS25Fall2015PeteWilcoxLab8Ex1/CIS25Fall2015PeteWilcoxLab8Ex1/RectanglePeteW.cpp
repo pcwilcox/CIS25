@@ -151,8 +151,8 @@ void RectanglePeteW::checkPoints() {
 
 	if (lowerLeft.getY() > upperRight.getY()) {
 		temp = new FractionPeteW(lowerLeft.getY());
-		lowerLeft.setX(upperRight.getX());
-		upperRight.setX(*temp);
+		lowerLeft.setY(upperRight.getY());
+		upperRight.setY(*temp);
 		delete temp;
 	}
 }
