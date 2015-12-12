@@ -18,16 +18,16 @@
 using namespace std;
 
 int main() {
-	BoxPeteW** boxOne				= nullptr;
-	BoxPeteW** boxTwo				= nullptr;
-	CirclePeteW** circleOne			= nullptr;
-	CirclePeteW** circleTwo			= nullptr;
-	CylinderPeteW** cylinderOne		= nullptr;
-	CylinderPeteW** cylinderTwo		= nullptr;
-	RectanglePeteW** rectangleOne	= nullptr;
-	RectanglePeteW** rectangleTwo	= nullptr;
-	ShapePeteW** shapeOne			= nullptr;
-	ShapePeteW** shapeTwo			= nullptr;
+	BoxPeteW* boxOne				= nullptr;
+	BoxPeteW* boxTwo				= nullptr;
+	CirclePeteW* circleOne			= nullptr;
+	CirclePeteW* circleTwo			= nullptr;
+	CylinderPeteW* cylinderOne		= nullptr;
+	CylinderPeteW* cylinderTwo		= nullptr;
+	RectanglePeteW* rectangleOne	= nullptr;
+	RectanglePeteW* rectangleTwo	= nullptr;
+	ShapePeteW* shapeOne			= nullptr;
+	ShapePeteW* shapeTwo			= nullptr;
 
 	int menuChoice;
 
@@ -38,16 +38,16 @@ int main() {
 
 		switch (menuChoice) {
 		case 1:
-			createRectangles(rectangleOne, rectangleTwo);
+			createRectangles(&rectangleOne, &rectangleTwo);
 			break;
 		case 2:
-			createCircles(circleOne, circleTwo);
+			createCircles(&circleOne, &circleTwo);
 			break;
 		case 3:
-			createBoxes(boxOne, boxTwo);
+			createBoxes(&boxOne, &boxTwo);
 			break;
 		case 4:
-			createCylinders(cylinderOne, cylinderTwo);
+			createCylinders(&cylinderOne, &cylinderTwo);
 			break;
 		case 5:
 			do {
@@ -55,10 +55,10 @@ int main() {
 					"\n  Comparing by area - Select two objects"
 					" to compare --"
 					"\nPlease select the first object: ";
-				*shapeOne = compareMenu(rectangleOne, rectangleTwo, circleOne, circleTwo, boxOne, boxTwo, cylinderOne, cylinderTwo);
+				shapeOne = compareMenu(&rectangleOne, &rectangleTwo, &circleOne, &circleTwo, &boxOne, &boxTwo, &cylinderOne, &cylinderTwo);
 
 				cout << "\nPlease select the second object: ";
-				*shapeTwo = compareMenu(rectangleOne, rectangleTwo, circleOne, circleTwo, boxOne, boxTwo, cylinderOne, cylinderTwo);
+				shapeTwo = compareMenu(&rectangleOne, &rectangleTwo, &circleOne, &circleTwo, &boxOne, &boxTwo, &cylinderOne, &cylinderTwo);
 
 				if (shapeOne == shapeTwo) {
 					cout << "\nInvalid selection, you cannot "
@@ -66,7 +66,7 @@ int main() {
 				}
 			} while (shapeOne == shapeTwo);
 
-			compareArea(shapeOne, shapeTwo);
+			compareArea(&shapeOne, &shapeTwo);
 			break;
 		case 6:
 			do {
@@ -74,10 +74,10 @@ int main() {
 					"\n  Comparing by volume - Select two objects"
 					" to compare --"
 					"\nPlease select the first object: ";
-				*shapeOne = compareMenu(rectangleOne, rectangleTwo, circleOne, circleTwo, boxOne, boxTwo, cylinderOne, cylinderTwo);
+				shapeOne = compareMenu(&rectangleOne, &rectangleTwo, &circleOne, &circleTwo, &boxOne, &boxTwo, &cylinderOne, &cylinderTwo);
 
 				cout << "\nPlease select the second object: ";
-				*shapeTwo = compareMenu(rectangleOne, rectangleTwo, circleOne, circleTwo, boxOne, boxTwo, cylinderOne, cylinderTwo);
+				shapeTwo = compareMenu(&rectangleOne, &rectangleTwo, &circleOne, &circleTwo, &boxOne, &boxTwo, &cylinderOne, &cylinderTwo);
 
 				if (shapeOne == shapeTwo) {
 					cout << "\nInvalid selection, you cannot "
@@ -85,10 +85,10 @@ int main() {
 				}
 			} while (shapeOne == shapeTwo);
 
-			compareVolume(shapeOne, shapeTwo);
+			compareVolume(&shapeOne, &shapeTwo);
 			break;
 		case 7:
-			printMenu(rectangleOne, rectangleTwo, circleOne, circleTwo,	boxOne, boxTwo,	cylinderOne, cylinderTwo);
+			printMenu(&rectangleOne, &rectangleTwo, &circleOne, &circleTwo,	&boxOne, &boxTwo,	&cylinderOne, &cylinderTwo);
 			break;
 		case 8:
 			cout << "\n\n  Have fun!";
