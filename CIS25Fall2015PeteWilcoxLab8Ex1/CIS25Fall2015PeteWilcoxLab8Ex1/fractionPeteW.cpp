@@ -33,9 +33,9 @@ FractionPeteW::FractionPeteW(const FractionPeteW& input) :
 // Explicit constructor
 FractionPeteW::FractionPeteW(int inputNum, int inputDenom) :
 		num(inputNum), denom(inputDenom) {
-
-	cout << "\nCalling Fraction() on " << *this;
 	reduce();
+	cout << "\nCalling Fraction() on " << *this;
+	
 }
 
 // Destructor
@@ -294,20 +294,13 @@ bool FractionPeteW::operator>=(const FractionPeteW &arg) const {
 void FractionPeteW::reduce() {
 	bool finished = false;
 	int n = 2;
-	int workingNum;
-
-	if (num < 0) {
-		workingNum = -num;
-	} else {
-		workingNum = num;
-	}
-
+		
 	while (finished == false) {
-		if ((num % n == 0) && (denom % n == 0)) {
+		if ((num <= n) || (denom <= n)) {
+			finished = true;
+		} else if ((num % n == 0) && (denom % n == 0)) {
 			num /= n;
 			denom /= n;
-		} else if ((num <= n) || (denom <= n)) {
-			finished = true;
 		} else {
 			n++;
 		}

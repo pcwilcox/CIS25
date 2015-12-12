@@ -42,7 +42,7 @@ class BoxPeteW : public RectanglePeteW {
 	// Helpers
 	void computeArea(void) override;
 	void computeVolume(void) override;
-
+	void checkPoints(void) override;
 	void print(void) override;
 
 	// Operators
