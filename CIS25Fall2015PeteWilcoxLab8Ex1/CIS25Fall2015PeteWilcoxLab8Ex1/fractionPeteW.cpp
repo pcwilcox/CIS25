@@ -184,7 +184,7 @@ void FractionPeteW::divide(const FractionPeteW& arg) {
 }
 
 // Member overloads
-FractionPeteW FractionPeteW::operator-() {
+FractionPeteW FractionPeteW::operator-() const {
 	return FractionPeteW(-num, denom);
 }
 

@@ -44,6 +44,9 @@ class CylinderPeteW : public CirclePeteW {
 	void computeVolume(void) override;
 	void print(void) override;
 
+	// Operators
+	friend ostream& operator<<(ostream&, CylinderPeteW&);
+
 	private:
 	FractionPeteW h;
 };

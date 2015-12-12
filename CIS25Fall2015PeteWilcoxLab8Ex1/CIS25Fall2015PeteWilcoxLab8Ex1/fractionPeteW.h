@@ -57,7 +57,7 @@ class FractionPeteW {
 	void divide  (const FractionPeteW&);
 
 	// Operator overloads
-	FractionPeteW  operator-(void);
+	FractionPeteW  operator-() const;
 	FractionPeteW& operator=(const FractionPeteW&);
 	FractionPeteW  operator+(const FractionPeteW&) const;
 	FractionPeteW  operator-(const FractionPeteW&) const;

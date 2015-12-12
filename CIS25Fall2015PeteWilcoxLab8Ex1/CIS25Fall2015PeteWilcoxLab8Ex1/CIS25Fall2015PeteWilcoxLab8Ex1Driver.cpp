@@ -20,7 +20,7 @@ void displayHeader() {
 		"  Due Date:           2015/12/15\n";
 }
 
-int menuMain(void) {
+int menuMain() {
 	int menuChoice;
 	cout << "\nMENU"
 		"\n----"
@@ -399,23 +399,6 @@ void createCircles(CirclePeteW **circleOne, CirclePeteW **circleTwo) {
 			break;
 		}
 	} while (menuChoice != 3);
-}
-
-void compareArea(ShapePeteW** shapeOne, ShapePeteW** shapeTwo) {
-
-	cout << "\nComparing area -- \n    ";
-
-	if ((*shapeOne)->getArea() > (*shapeTwo)->getArea()) {
-		(*shapeOne)->print();
-		cout << " is larger than ";
-		(*shapeTwo)->print();
-	} else if ((*shapeOne)->getArea() < (*shapeTwo)->getArea()) {
-		(*shapeTwo)->print();
-		cout << " is larger than ";
-		(*shapeOne)->print();
-	} else {
-		cout << "Both shapes are the same size.";
-	}
 }
 
 void createBoxes(BoxPeteW **boxOne,	BoxPeteW **boxTwo) {
