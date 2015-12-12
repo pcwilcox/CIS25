@@ -50,10 +50,42 @@ int main() {
 			createCylinders(cylinderOne, cylinderTwo);
 			break;
 		case 5:
-			compareAreaMenu(rectangleOne, rectangleTwo,	circleOne, circleTwo, boxOne, boxTwo, cylinderOne, cylinderTwo);
+			do {
+				cout <<
+					"\n  Comparing by area - Select two objects"
+					" to compare --"
+					"\nPlease select the first object: ";
+				*shapeOne = compareMenu(rectangleOne, rectangleTwo, circleOne, circleTwo, boxOne, boxTwo, cylinderOne, cylinderTwo);
+
+				cout << "\nPlease select the second object: ";
+				*shapeTwo = compareMenu(rectangleOne, rectangleTwo, circleOne, circleTwo, boxOne, boxTwo, cylinderOne, cylinderTwo);
+
+				if (shapeOne == shapeTwo) {
+					cout << "\nInvalid selection, you cannot "
+						"compare an object with itself.";
+				}
+			} while (shapeOne == shapeTwo);
+
+			compareArea(shapeOne, shapeTwo);
 			break;
 		case 6:
-			compareVolumeMenu(boxOne, boxTwo, cylinderOne, cylinderTwo);
+			do {
+				cout <<
+					"\n  Comparing by volume - Select two objects"
+					" to compare --"
+					"\nPlease select the first object: ";
+				*shapeOne = compareMenu(rectangleOne, rectangleTwo, circleOne, circleTwo, boxOne, boxTwo, cylinderOne, cylinderTwo);
+
+				cout << "\nPlease select the second object: ";
+				*shapeTwo = compareMenu(rectangleOne, rectangleTwo, circleOne, circleTwo, boxOne, boxTwo, cylinderOne, cylinderTwo);
+
+				if (shapeOne == shapeTwo) {
+					cout << "\nInvalid selection, you cannot "
+						"compare an object with itself.";
+				}
+			} while (shapeOne == shapeTwo);
+
+			compareVolume(shapeOne, shapeTwo);
 			break;
 		case 7:
 			printMenu(rectangleOne, rectangleTwo, circleOne, circleTwo,	boxOne, boxTwo,	cylinderOne, cylinderTwo);

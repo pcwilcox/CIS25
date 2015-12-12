@@ -890,7 +890,7 @@ void createCylinders(CylinderPeteW **cylinderOne, CylinderPeteW **cylinderTwo) {
 	} while (menuChoice != 3);
 }
 
-void compareAreaMenu(RectanglePeteW** rectangleOne,
+ShapePeteW* compareMenu(RectanglePeteW** rectangleOne,
 	RectanglePeteW** rectangleTwo,
 	CirclePeteW** circleOne,
 	CirclePeteW** circleTwo,
@@ -898,12 +898,85 @@ void compareAreaMenu(RectanglePeteW** rectangleOne,
 	BoxPeteW **boxTwo,
 	CylinderPeteW **cylinderOne,
 	CylinderPeteW **cylinderTwo) {
-}
+	ShapePeteW* shape = nullptr;
 
-void compareVolumeMenu(BoxPeteW **boxOne,
-	BoxPeteW **boxTwo,
-	CylinderPeteW **cylinderOne,
-	CylinderPeteW **cylinderTwo) {
+	int menuChoice;
+	do {
+
+		cout <<
+			"\n  (1) Rectangle 1"
+			"\n  (2) Rectangle 2"
+			"\n  (3) Circle 1"
+			"\n  (4) Circle 2"
+			"\n  (5) Box 1"
+			"\n  (6) Box 2"
+			"\n  (7) Cylinder 1"
+			"\n  (8) Cylinder 2"
+			"\nPlease select your object (1 through 8): ";
+		cin >> menuChoice;
+		switch (menuChoice) {
+		case 1:
+			if (*rectangleOne == nullptr) {
+				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+			} else {
+				shape = *rectangleOne;
+			}
+			break;
+		case 2:
+			if (*rectangleTwo == nullptr) {
+				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+			} else {
+				shape = *rectangleTwo;
+			}
+			break;
+		case 3:
+			if (*circleOne == nullptr) {
+				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+			} else {
+				shape = *circleOne;
+			}
+			break;
+		case 4:
+			if (*circleTwo == nullptr) {
+				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+			} else {
+				shape = *circleTwo;
+			}
+			break;
+		case 5:
+			if (*boxOne == nullptr) {
+				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+			} else {
+				shape = *boxOne;
+			}
+			break;
+		case 6:
+			if (*boxTwo == nullptr) {
+				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+			} else {
+				shape = *boxTwo;
+			}
+			break;
+		case 7:
+			if (*cylinderOne == nullptr) {
+				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+			} else {
+				shape = *cylinderOne;
+			}
+			break;
+		case 8:
+			if (*cylinderTwo == nullptr) {
+				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+			} else {
+				shape = *cylinderTwo;
+			}
+			break;
+		default:
+			cout << "\nInvalid selection.";
+		}
+	} while (shape == nullptr);
+
+	return shape;
 }
 
 void compareArea(ShapePeteW **shapeOne,

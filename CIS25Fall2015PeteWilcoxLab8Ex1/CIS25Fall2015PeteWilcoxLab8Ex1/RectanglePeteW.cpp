@@ -74,6 +74,10 @@ FractionPeteW RectanglePeteW::getArea() const {
 	return area;
 }
 
+FractionPeteW RectanglePeteW::getVolume(void) const {
+	return volume;
+}
+
 // Setters
 void RectanglePeteW::setUpperRight(const PointPeteW &arg) {
 	upperRight = arg;
@@ -118,6 +122,10 @@ RectanglePeteW& RectanglePeteW::operator=(const
 void RectanglePeteW::computeArea() {
 	(*this).area = (upperRight.getY() - lowerLeft.getY()) *
 		(upperRight.getX() - lowerLeft.getX());
+}
+
+void RectanglePeteW::computeVolume(void) {
+	volume = 0;
 }
 
 void RectanglePeteW::print() {

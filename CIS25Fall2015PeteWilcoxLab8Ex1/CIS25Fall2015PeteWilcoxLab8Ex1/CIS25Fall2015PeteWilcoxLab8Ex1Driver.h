@@ -39,19 +39,14 @@ void createCylinders(CylinderPeteW**,
 					 CylinderPeteW**);
 
 // Compare objects
-void compareAreaMenu(RectanglePeteW**, 
-					 RectanglePeteW**,
-					 CirclePeteW**, 
-					 CirclePeteW**,
-					 BoxPeteW**, 
-					 BoxPeteW**, 
-					 CylinderPeteW**, 
-					 CylinderPeteW**);
-
-void compareVolumeMenu(BoxPeteW**, 
-					   BoxPeteW**, 
-					   CylinderPeteW**, 
-					   CylinderPeteW**);
+ShapePeteW* compareMenu(RectanglePeteW**, 
+						 RectanglePeteW**,
+						 CirclePeteW**, 
+						 CirclePeteW**,
+						 BoxPeteW**, 
+						 BoxPeteW**, 
+						 CylinderPeteW**, 
+						 CylinderPeteW**);
 
 void compareArea(ShapePeteW**,
 			     ShapePeteW**);

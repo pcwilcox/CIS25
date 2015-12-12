@@ -74,8 +74,16 @@ FractionPeteW CirclePeteW::getArea() const {
 	return area;
 }
 
+FractionPeteW CirclePeteW::getVolume(void) const {
+	return volume;
+}
+
 void CirclePeteW::computeArea() {
 	(*this).area = (radius * radius * FractionPeteW(157,50));
+}
+
+void CirclePeteW::computeVolume(void) {
+	volume = 0;
 }
 
 void CirclePeteW::print() {
