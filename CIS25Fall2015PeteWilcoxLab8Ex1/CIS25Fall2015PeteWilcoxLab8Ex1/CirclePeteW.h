@@ -39,9 +39,10 @@ class CirclePeteW : public ShapePeteW {
 	~CirclePeteW();
 
 	// Getters
-	PointPeteW    getCenter() const;
-	FractionPeteW getRadius() const;
-	virtual FractionPeteW getArea() const override;
+	PointPeteW    getCenter(void) const;
+	FractionPeteW getRadius(void) const;
+	virtual FractionPeteW getArea(void) const override;
+	virtual FractionPeteW getArea(void) const override;
 	
 	// Setters
 	void setCenter(const PointPeteW&);
@@ -49,8 +50,8 @@ class CirclePeteW : public ShapePeteW {
 	void setRadius(const int&);
 
 	// Helper function
-	virtual void computeArea() override;
-
+	virtual void computeArea(void) override;
+	virtual void computeVolume(void) override;
 	virtual void print(void) override;
 
 	// Operator overloads

@@ -41,6 +41,7 @@ class RectanglePeteW : public ShapePeteW {
 	FractionPeteW getLength(void) const;
 	FractionPeteW getWidth(void) const;
 	virtual FractionPeteW getArea(void) const override;
+	virtual FractionPeteW getVolume(void) const override;
 
 	// Setters
 	void setUpperRight(const PointPeteW&);
@@ -50,6 +51,7 @@ class RectanglePeteW : public ShapePeteW {
 
 	// Helper function
 	virtual void computeArea(void) override;
+	virtual void computeVolume(void) override;
 
 	void print(void) override;
 

@@ -34,18 +34,17 @@ class BoxPeteW : public RectanglePeteW {
 	// Getters
 	FractionPeteW getHeight(void) const;
 	FractionPeteW getArea(void) const override;
-	FractionPeteW getVolume(void) const;
+	FractionPeteW getVolume(void) const override;
 
 	// Setters
 	void setHeight(const FractionPeteW&);
 
 	// Helpers
 	void computeArea() override;
-	void computeVolume();
+	void computeVolume() override;
 
 	private:
 	FractionPeteW h;
-	FractionPeteW v;
 };
 
 #endif

@@ -40,12 +40,11 @@ class CylinderPeteW : public CirclePeteW {
 	void setHeight(const FractionPeteW&);
 
 	// Helpers
-	void computeArea() override;
-	void computeVolume();
+	void computeArea(void) override;
+	void computeVolume(void) override;
 
 	private:
 	FractionPeteW h;
-	FractionPeteW v;
 };
 
 #endif
