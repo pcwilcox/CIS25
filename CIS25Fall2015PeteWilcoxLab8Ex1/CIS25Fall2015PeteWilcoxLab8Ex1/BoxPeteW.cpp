@@ -19,7 +19,8 @@ BoxPeteW::BoxPeteW() {
 }
 
 // Convert constructor
-BoxPeteW::BoxPeteW(const RectanglePeteW &base) : RectanglePeteW(base) {
+BoxPeteW::BoxPeteW(const RectanglePeteW &base) : 
+		RectanglePeteW(base) {
 	checkPoints();
 	h = 0;
 	volume = 0;
@@ -27,7 +28,9 @@ BoxPeteW::BoxPeteW(const RectanglePeteW &base) : RectanglePeteW(base) {
 }
 
 // Copy constructor
-BoxPeteW::BoxPeteW(const BoxPeteW &other) : RectanglePeteW(other.lowerLeft, other.upperRight), h(other.h) {
+BoxPeteW::BoxPeteW(const BoxPeteW &other) : 
+		RectanglePeteW(other.lowerLeft, 
+						other.upperRight), h(other.h) {
 	checkPoints();
 	area = other.area;
 	volume = other.volume;
@@ -35,7 +38,9 @@ BoxPeteW::BoxPeteW(const BoxPeteW &other) : RectanglePeteW(other.lowerLeft, othe
 }
 
 // Detailed constructor
-BoxPeteW::BoxPeteW(const RectanglePeteW &base, const FractionPeteW &height) : RectanglePeteW(base), h(height) {
+BoxPeteW::BoxPeteW(const RectanglePeteW &base, 
+					const FractionPeteW &height) : 
+					RectanglePeteW(base), h(height) {
 	checkPoints();
 	computeArea();
 	computeVolume();
@@ -72,7 +77,8 @@ void BoxPeteW::computeArea() {
 	FractionPeteW length = upperRight.getX() - lowerLeft.getX();
 	FractionPeteW width = upperRight.getY() - lowerLeft.getY();
 	
-	(*this).area = length * width * 2 + length * h * 2 + width * h * 2;
+	(*this).area = length * width * 2 + 
+					length * h * 2 + width * h * 2;
 }
 
 void BoxPeteW::computeVolume() {
@@ -89,6 +95,7 @@ void BoxPeteW::checkPoints() {
 		upperRight.setX(*temp);
 		delete temp;
 	}
+
 	if (lowerLeft.getY() > upperRight.getY()) {
 		temp = new FractionPeteW(lowerLeft.getY());
 		lowerLeft.setY(upperRight.getY());

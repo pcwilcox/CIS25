@@ -38,7 +38,9 @@ int menuMain() {
 	return menuChoice;
 }
 
-void createRectangles(RectanglePeteW **rectangleOne, RectanglePeteW **rectangleTwo) {
+void createRectangles(RectanglePeteW **rectangleOne, 
+						RectanglePeteW **rectangleTwo) {
+
 	FractionPeteW* fracX	= nullptr;
 	FractionPeteW* fracY	= nullptr;
 	PointPeteW* lowerLeft	= nullptr;
@@ -134,6 +136,7 @@ void createRectangles(RectanglePeteW **rectangleOne, RectanglePeteW **rectangleT
 			delete lowerLeft;
 			delete upperRight;
 			break;
+
 		case 2:
 			cout << "\nCreating second rectangle -- "
 				"\n  Creating lower left point --"
@@ -197,7 +200,8 @@ void createRectangles(RectanglePeteW **rectangleOne, RectanglePeteW **rectangleT
 			upperRight = new PointPeteW(*fracX, *fracY);
 
 			if (*rectangleTwo == nullptr) {
-				*rectangleTwo = new RectanglePeteW(*lowerLeft, *upperRight);
+				*rectangleTwo = 
+					new RectanglePeteW(*lowerLeft, *upperRight);
 			} else {
 				(*rectangleTwo)->setLowerLeft(*lowerLeft);
 				(*rectangleTwo)->setUpperRight(*upperRight);
@@ -211,6 +215,7 @@ void createRectangles(RectanglePeteW **rectangleOne, RectanglePeteW **rectangleT
 			delete lowerLeft;
 			delete upperRight;
 			break;
+
 		case 3:
 			cout << "\nReturning to main menu.";
 			break;
@@ -221,7 +226,9 @@ void createRectangles(RectanglePeteW **rectangleOne, RectanglePeteW **rectangleT
 	} while (menuChoice != 3);
 }
 
-void createCircles(CirclePeteW **circleOne, CirclePeteW **circleTwo) {
+void createCircles(CirclePeteW **circleOne, 
+					CirclePeteW **circleTwo) {
+
 	FractionPeteW* centerX	= nullptr;
 	FractionPeteW* centerY	= nullptr;
 	FractionPeteW* radius	= nullptr;
@@ -501,7 +508,8 @@ void createBoxes(BoxPeteW **boxOne,	BoxPeteW **boxTwo) {
 			} while (denom == 0);
 
 			if (num * denom < 0) {
-				cout << "\nHeight cannot be negative, converting --";
+				cout << 
+					"\nHeight cannot be negative, converting --";
 				num = -num;
 			}
 
@@ -607,7 +615,8 @@ void createBoxes(BoxPeteW **boxOne,	BoxPeteW **boxTwo) {
 			} while (denom == 0);
 
 			if (num * denom < 0) {
-				cout << "\nHeight cannot be negative, converting --";
+				cout << 
+					"\nHeight cannot be negative, converting --";
 				num = -num;
 			}
 
@@ -643,7 +652,9 @@ void createBoxes(BoxPeteW **boxOne,	BoxPeteW **boxTwo) {
 	} while (menuChoice != 3);
 }
 
-void createCylinders(CylinderPeteW **cylinderOne, CylinderPeteW **cylinderTwo) {
+void createCylinders(CylinderPeteW **cylinderOne, 
+						CylinderPeteW **cylinderTwo) {
+
 	FractionPeteW* centerX	= nullptr;
 	FractionPeteW* centerY	= nullptr;
 	FractionPeteW* radius	= nullptr;
@@ -671,7 +682,8 @@ void createCylinders(CylinderPeteW **cylinderOne, CylinderPeteW **cylinderTwo) {
 			cin >> num;
 
 			do {
-				cout << "\n        Please enter the denominator: ";
+				cout << 
+					"\n        Please enter the denominator: ";
 				cin >> denom;
 				if (denom == 0) {
 					cout << "\nDenominator cannot be 0!";
@@ -685,7 +697,8 @@ void createCylinders(CylinderPeteW **cylinderOne, CylinderPeteW **cylinderTwo) {
 			cin >> num;
 
 			do {
-				cout << "\n        Please enter the denominator: ";
+				cout << 
+					"\n        Please enter the denominator: ";
 				cin >> denom;
 				if (denom == 0) {
 					cout << "\nDenominator cannot be 0!";
@@ -698,7 +711,8 @@ void createCylinders(CylinderPeteW **cylinderOne, CylinderPeteW **cylinderTwo) {
 			cout << "\n      Creating radius --";
 
 			do {
-				cout << "\n        Please enter the numerator: ";
+				cout << 
+					"\n        Please enter the numerator: ";
 				cin >> num;
 
 				do {
@@ -735,7 +749,8 @@ void createCylinders(CylinderPeteW **cylinderOne, CylinderPeteW **cylinderTwo) {
 			} while (denom == 0);
 
 			if (num * denom < 0) {
-				cout << "\nHeight cannot be negative, converting --";
+				cout << 
+					"\nHeight cannot be negative, converting --";
 				num = -num;
 			}
 
@@ -772,7 +787,8 @@ void createCylinders(CylinderPeteW **cylinderOne, CylinderPeteW **cylinderTwo) {
 			cin >> num;
 
 			do {
-				cout << "\n        Please enter the denominator: ";
+				cout << 
+					"\n        Please enter the denominator: ";
 				cin >> denom;
 				if (denom == 0) {
 					cout << "\nDenominator cannot be 0!";
@@ -786,7 +802,8 @@ void createCylinders(CylinderPeteW **cylinderOne, CylinderPeteW **cylinderTwo) {
 			cin >> num;
 
 			do {
-				cout << "\n        Please enter the denominator: ";
+				cout << 
+					"\n        Please enter the denominator: ";
 				cin >> denom;
 				if (denom == 0) {
 					cout << "\nDenominator cannot be 0!";
@@ -799,7 +816,8 @@ void createCylinders(CylinderPeteW **cylinderOne, CylinderPeteW **cylinderTwo) {
 			cout << "\n      Creating radius --";
 
 			do {
-				cout << "\n        Please enter the numerator: ";
+				cout << 
+					"\n        Please enter the numerator: ";
 				cin >> num;
 
 				do {
@@ -836,7 +854,8 @@ void createCylinders(CylinderPeteW **cylinderOne, CylinderPeteW **cylinderTwo) {
 			} while (denom == 0);
 
 			if (num * denom < 0) {
-				cout << "\nHeight cannot be negative, converting --";
+				cout << 
+					"\nHeight cannot be negative, converting --";
 				num = -num;
 			}
 
@@ -874,13 +893,14 @@ void createCylinders(CylinderPeteW **cylinderOne, CylinderPeteW **cylinderTwo) {
 }
 
 ShapePeteW* compareMenu(RectanglePeteW** rectangleOne,
-	RectanglePeteW** rectangleTwo,
-	CirclePeteW** circleOne,
-	CirclePeteW** circleTwo,
-	BoxPeteW **boxOne,
-	BoxPeteW **boxTwo,
-	CylinderPeteW **cylinderOne,
-	CylinderPeteW **cylinderTwo) {
+						RectanglePeteW** rectangleTwo,
+						CirclePeteW** circleOne,
+						CirclePeteW** circleTwo,
+						BoxPeteW **boxOne,
+						BoxPeteW **boxTwo,
+						CylinderPeteW **cylinderOne,
+						CylinderPeteW **cylinderTwo) {
+
 	ShapePeteW* shape = nullptr;
 
 	int menuChoice;
@@ -900,56 +920,64 @@ ShapePeteW* compareMenu(RectanglePeteW** rectangleOne,
 		switch (menuChoice) {
 		case 1:
 			if (*rectangleOne == nullptr) {
-				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+				cout << "\nInvalid option - this shape has not "
+					"been initialized yet!";
 			} else {
 				shape = *rectangleOne;
 			}
 			break;
 		case 2:
 			if (*rectangleTwo == nullptr) {
-				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+				cout << "\nInvalid option - this shape has not "
+					"been initiliazed yet!";
 			} else {
 				shape = *rectangleTwo;
 			}
 			break;
 		case 3:
 			if (*circleOne == nullptr) {
-				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+				cout << "\nInvalid option - this shape has not "
+					"been initiliazed yet!";
 			} else {
 				shape = *circleOne;
 			}
 			break;
 		case 4:
 			if (*circleTwo == nullptr) {
-				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+				cout << "\nInvalid option - this shape has not "
+					"been initiliazed yet!";
 			} else {
 				shape = *circleTwo;
 			}
 			break;
 		case 5:
 			if (*boxOne == nullptr) {
-				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+				cout << "\nInvalid option - this shape has not "
+					"been initiliazed yet!";
 			} else {
 				shape = *boxOne;
 			}
 			break;
 		case 6:
 			if (*boxTwo == nullptr) {
-				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+				cout << "\nInvalid option - this shape has not "
+					"been initiliazed yet!";
 			} else {
 				shape = *boxTwo;
 			}
 			break;
 		case 7:
 			if (*cylinderOne == nullptr) {
-				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+				cout << "\nInvalid option - this shape has not "
+					"been initiliazed yet!";
 			} else {
 				shape = *cylinderOne;
 			}
 			break;
 		case 8:
 			if (*cylinderTwo == nullptr) {
-				cout << "\nInvalid option - this shape has not been initiliazed yet!";
+				cout << "\nInvalid option - this shape has not "
+					"been initiliazed yet!";
 			} else {
 				shape = *cylinderTwo;
 			}

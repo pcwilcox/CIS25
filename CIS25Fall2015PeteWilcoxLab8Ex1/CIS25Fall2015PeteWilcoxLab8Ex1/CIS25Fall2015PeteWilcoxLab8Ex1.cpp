@@ -55,10 +55,24 @@ int main() {
 					"\n  Comparing by area - Select two objects"
 					" to compare --"
 					"\nPlease select the first object: ";
-				shapeOne = compareMenu(&rectangleOne, &rectangleTwo, &circleOne, &circleTwo, &boxOne, &boxTwo, &cylinderOne, &cylinderTwo);
+				shapeOne = compareMenu(&rectangleOne, 
+										&rectangleTwo, 
+										&circleOne, 
+										&circleTwo, 
+										&boxOne, 
+										&boxTwo, 
+										&cylinderOne, 
+										&cylinderTwo);
 
 				cout << "\nPlease select the second object: ";
-				shapeTwo = compareMenu(&rectangleOne, &rectangleTwo, &circleOne, &circleTwo, &boxOne, &boxTwo, &cylinderOne, &cylinderTwo);
+				shapeTwo = compareMenu(&rectangleOne, 
+										&rectangleTwo, 
+										&circleOne, 
+										&circleTwo, 
+										&boxOne, 
+										&boxTwo, 
+										&cylinderOne, 
+										&cylinderTwo);
 
 				if (shapeOne == shapeTwo) {
 					cout << "\nInvalid selection, you cannot "
@@ -74,10 +88,24 @@ int main() {
 					"\n  Comparing by volume - Select two objects"
 					" to compare --"
 					"\nPlease select the first object: ";
-				shapeOne = compareMenu(&rectangleOne, &rectangleTwo, &circleOne, &circleTwo, &boxOne, &boxTwo, &cylinderOne, &cylinderTwo);
+				shapeOne = compareMenu(&rectangleOne, 
+										&rectangleTwo, 
+										&circleOne, 
+										&circleTwo, 
+										&boxOne, 
+										&boxTwo, 
+										&cylinderOne, 
+										&cylinderTwo);
 
 				cout << "\nPlease select the second object: ";
-				shapeTwo = compareMenu(&rectangleOne, &rectangleTwo, &circleOne, &circleTwo, &boxOne, &boxTwo, &cylinderOne, &cylinderTwo);
+				shapeTwo = compareMenu(&rectangleOne, 
+										&rectangleTwo, 
+										&circleOne, 
+										&circleTwo, 
+										&boxOne, 
+										&boxTwo, 
+										&cylinderOne, 
+										&cylinderTwo);
 
 				if (shapeOne == shapeTwo) {
 					cout << "\nInvalid selection, you cannot "
@@ -88,7 +116,14 @@ int main() {
 			compareVolume(&shapeOne, &shapeTwo);
 			break;
 		case 7:
-			printMenu(&rectangleOne, &rectangleTwo, &circleOne, &circleTwo,	&boxOne, &boxTwo,	&cylinderOne, &cylinderTwo);
+			printMenu(&rectangleOne, 
+						&rectangleTwo, 
+						&circleOne, 
+						&circleTwo,	
+						&boxOne, 
+						&boxTwo,	
+						&cylinderOne, 
+						&cylinderTwo);
 			break;
 		case 8:
 			cout << "\n\n  Have fun!";
@@ -1801,4 +1836,14 @@ Calling ~Fraction() on -1/2
 Calling ~Fraction() on 2/1
 Calling ~Fraction() on 0/1
 Calling ~Fraction() on 9/2
+*/
+
+/* COMMENTS:
+2015/12/15:
+This is probably the best lab that I've seen from this course.
+It provided an opportunity to use everything we've covered - I
+only wish that we had been using this material sooner.
+
+Once again, there are many unnecessary lines of output in the
+code due to printing calls to the constructors and destructors.
 */

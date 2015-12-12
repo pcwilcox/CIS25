@@ -30,7 +30,9 @@ class RectanglePeteW : public virtual ShapePeteW {
 
 	// Other constructors
 	RectanglePeteW(const PointPeteW&);
-	RectanglePeteW(const PointPeteW&, const PointPeteW&);
+
+	RectanglePeteW(const PointPeteW&, 
+					const PointPeteW&);
 	
 	// Destructor
 	~RectanglePeteW();
@@ -40,14 +42,20 @@ class RectanglePeteW : public virtual ShapePeteW {
 	PointPeteW getLowerLeft(void) const;
 	FractionPeteW getLength(void) const;
 	FractionPeteW getWidth(void) const;
+
 	virtual FractionPeteW getArea(void) const override;
 	virtual FractionPeteW getVolume(void) const override;
 
 	// Setters
 	void setUpperRight(const PointPeteW&);
-	void setUpperRight(const FractionPeteW&, const FractionPeteW&);
+
+	void setUpperRight(const FractionPeteW&, 
+						const FractionPeteW&);
+
 	void setLowerLeft(const PointPeteW&);
-	void setLowerLeft(const FractionPeteW&, const FractionPeteW&);
+
+	void setLowerLeft(const FractionPeteW&, 
+						const FractionPeteW&);
 
 	// Helper function
 	virtual void computeArea(void) override;
@@ -64,9 +72,12 @@ class RectanglePeteW : public virtual ShapePeteW {
 	PointPeteW upperRight;
 	PointPeteW lowerLeft;
 
-	// Helper method to check that the points are in the right position
+	/* Helper function - checkPoints() is called whenever an
+	 * operation is performed on the member data points in
+	 * order to verify that the data are still valid. If the
+	 * data is invalid then the points are adjusted as needed.
+	 */
 	virtual void checkPoints();
 };
-
 
 #endif

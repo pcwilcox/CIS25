@@ -41,6 +41,7 @@ class CirclePeteW : public virtual ShapePeteW {
 	// Getters
 	PointPeteW    getCenter(void) const;
 	FractionPeteW getRadius(void) const;
+
 	virtual FractionPeteW getArea(void) const override;
 	virtual FractionPeteW getVolume(void) const override;
 	

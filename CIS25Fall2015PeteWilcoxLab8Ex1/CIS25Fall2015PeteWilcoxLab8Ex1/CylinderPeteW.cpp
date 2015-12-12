@@ -17,20 +17,24 @@ CylinderPeteW::CylinderPeteW() {
 }
 
 // Convert constructor
-CylinderPeteW::CylinderPeteW(const CirclePeteW &base) : CirclePeteW(base), h(0) {
+CylinderPeteW::CylinderPeteW(const CirclePeteW &base) : 
+		CirclePeteW(base), h(0) {
 	volume = 0;
 	cout << "\nCalling CylinderPeteW() on " << *this;
 }
 
 // Copy constructor
-CylinderPeteW::CylinderPeteW(const CylinderPeteW &other) : CirclePeteW(other.center, other.radius), h(other.h) {
+CylinderPeteW::CylinderPeteW(const CylinderPeteW &other) : 
+		CirclePeteW(other.center, other.radius), h(other.h) {
 	area = other.area;
 	volume = other.volume;
 	cout << "\nCalling CylinderPeteW() on " << *this;
 }
 
 // Detailed constructor
-CylinderPeteW::CylinderPeteW(const CirclePeteW &base, const FractionPeteW &height) : CirclePeteW(base), h(height) {
+CylinderPeteW::CylinderPeteW(const CirclePeteW &base, 
+								const FractionPeteW &height) : 
+								CirclePeteW(base), h(height) {
 	computeArea();
 	computeVolume();
 	cout << "\nCalling CylinderPeteW() on " << *this;
