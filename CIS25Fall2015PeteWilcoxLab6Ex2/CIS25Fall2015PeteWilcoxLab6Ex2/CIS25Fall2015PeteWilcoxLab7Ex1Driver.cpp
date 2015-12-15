@@ -27,8 +27,10 @@ void displayHeader() {
 		"  Due Date:           2015/12/15\n";
 }
 
-void userInterface(RectanglePeteW** recA, RectanglePeteW** recB,
-	CirclePeteW** cirA, CirclePeteW** cirB) {
+void userInterface(RectanglePeteW** recA, 
+				   RectanglePeteW** recB,
+				   CirclePeteW** cirA, 
+				   CirclePeteW** cirB) {
 	int menuChoice;
 	do {
 		cout << "\nMAIN MENU\n"
@@ -169,8 +171,10 @@ void circleTasks(CirclePeteW** cirA, CirclePeteW** cirB) {
 	} while (menuChoice != 5);
 }
 
-void mixedTasks(RectanglePeteW** recA, RectanglePeteW** recB,
-	CirclePeteW** cirA, CirclePeteW** cirB) {
+void mixedTasks(RectanglePeteW** recA, 
+				RectanglePeteW** recB,
+				CirclePeteW** cirA, 
+				CirclePeteW** cirB) {
 	ShapePeteW* shapeOne = nullptr;
 	ShapePeteW* shapeTwo = nullptr;
 	int menuChoice;
@@ -223,10 +227,10 @@ void mixedTasks(RectanglePeteW** recA, RectanglePeteW** recB,
 void createRectangles(RectanglePeteW** recA, 
 					  RectanglePeteW** recB) {
 	
-	FractionPeteW* fracX = nullptr;
-	FractionPeteW* fracY = nullptr;
-	PointPeteW* lowerLeft = nullptr;
-	PointPeteW* upperRight = nullptr;
+	FractionPeteW* fracX =		nullptr;
+	FractionPeteW* fracY =		nullptr;
+	PointPeteW* lowerLeft =		nullptr;
+	PointPeteW* upperRight =	nullptr;
 
 	int num, denom;
 	int menuChoice;
@@ -381,7 +385,8 @@ void createRectangles(RectanglePeteW** recA,
 			upperRight = new PointPeteW(*fracX, *fracY);
 
 			if (*recB == nullptr) {
-				*recB = new RectanglePeteW(*lowerLeft, *upperRight);
+				*recB = 
+					new RectanglePeteW(*lowerLeft, *upperRight);
 			} else {
 				(*recB)->setLowerLeft(*lowerLeft);
 				(*recB)->setUpperRight(*upperRight);
@@ -406,10 +411,10 @@ void createRectangles(RectanglePeteW** recA,
 }
 
 void createCircles(CirclePeteW** cirA, CirclePeteW** cirB) {
-	FractionPeteW* centerX = nullptr;
-	FractionPeteW* centerY = nullptr;
-	FractionPeteW* radius = nullptr;
-	PointPeteW* center = nullptr;
+	FractionPeteW* centerX =	nullptr;
+	FractionPeteW* centerY =	nullptr;
+	FractionPeteW* radius =		nullptr;
+	PointPeteW* center =		nullptr;
 
 	int num, denom, menuChoice;
 
