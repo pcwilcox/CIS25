@@ -15,12 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\fractionPeteW.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\PointPeteW.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RectanglePeteW.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -33,14 +27,14 @@
     <ClInclude Include="ShapePeteW.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="fractionPeteW.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PointPeteW.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\fractionPeteW.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\CIS25Fall2015PeteWilcoxLab6Ex1\CIS25Fall2015PeteWilcoxLab6Ex1\pointPeteW.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RectanglePeteW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -51,6 +45,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CIS25Fall2015PeteWilcoxLab7Ex1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fractionPeteW.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pointPeteW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
