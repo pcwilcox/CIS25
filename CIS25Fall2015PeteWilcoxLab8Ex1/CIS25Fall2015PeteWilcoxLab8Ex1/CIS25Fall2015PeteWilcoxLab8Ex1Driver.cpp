@@ -364,7 +364,8 @@ void createCircles(CirclePeteW **circleOne,
 				cin >> num;
 
 				do {
-					cout << "\n      Please enter the denominator: ";
+					cout << 
+						"\n      Please enter the denominator: ";
 					cin >> denom;
 
 					if (denom == 0) {
@@ -1015,7 +1016,8 @@ void compareVolume(ShapePeteW **shapeOne,
 		(*shapeOne)->print();
 		cout << " is larger than ";
 		(*shapeTwo)->print();
-	} else if ((*shapeOne)->getVolume() < (*shapeTwo)->getVolume()) {
+	} else if ((*shapeOne)->getVolume() < 
+			(*shapeTwo)->getVolume()) {
 		(*shapeTwo)->print();
 		cout << " is larger than ";
 		(*shapeOne)->print();
