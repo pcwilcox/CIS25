@@ -127,12 +127,7 @@ CirclePeteW& CirclePeteW::operator=(const CirclePeteW& arg) {
 	return *this;
 }
 CirclePeteW CirclePeteW::operator+(const CirclePeteW& arg) {
-	return CirclePeteW(
-		PointPeteW(
-			FractionPeteW(((*this).center.getX() +
-							   arg.center.getX()) / 2),
-			FractionPeteW(((*this).center.getY() +
-						       arg.center.getY()) / 2)),
+	return CirclePeteW((*this).center.midpoint(arg.center),
 		FractionPeteW(((*this).radius > arg.radius) ?
 					   (*this).radius : arg.radius));
 }

@@ -101,19 +101,10 @@ ostream& operator<<(ostream& os, CylinderPeteW &cyl) {
 
 CylinderPeteW CylinderPeteW::operator+(const CylinderPeteW& arg) {
 	return CylinderPeteW(
-				CirclePeteW(
-					PointPeteW(
-						FractionPeteW(
-							((*this).center.getX() + 
-								arg.center.getX()) / 2), 
-						FractionPeteW(
-							((*this).center.getY() +
-								arg.center.getY()) / 2)), 
-					FractionPeteW(
-						((*this).radius > arg.radius) ? 
-						(*this).radius : arg.radius)), 
-				FractionPeteW(
-					((*this).h > arg.h) ? (*this).h : arg.h));
+		CirclePeteW((*this).center.midpoint(arg.center),
+			FractionPeteW(((*this).radius > arg.radius) ? 
+						   (*this).radius : arg.radius)), 
+		FractionPeteW(((*this).h > arg.h) ? (*this).h : arg.h));
 }
 
 bool CylinderPeteW::operator==(const CylinderPeteW& arg) const {

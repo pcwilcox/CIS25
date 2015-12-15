@@ -202,12 +202,15 @@ bool RectanglePeteW::operator>=(const RectanglePeteW& arg) const {
 }
 RectanglePeteW RectanglePeteW::operator+(const RectanglePeteW& arg) {
 	return RectanglePeteW(
-		PointPeteW(
-			((arg.lowerLeft.getX() + (*this).lowerLeft.getX()) / 2),
-			((arg.lowerLeft.getY() + (*this).lowerLeft.getY()) / 2)),
-		PointPeteW(
-			(((*this).upperRight.getX() - (*this).lowerLeft.getX()) +
-				(arg.upperRight.getX() - arg.lowerLeft.getX()) / 2),
-			(((*this).upperRight.getY() - (*this).lowerLeft.getY() +
-				(arg.upperRight.getY() - arg.upperRight.getY())) / 2)));
+		(*this).lowerLeft.midpoint(arg.lowerLeft),
+
+		PointPeteW(((*this).upperRight.getX() - 
+				    (*this).lowerLeft.getX()) +
+					(arg.upperRight.getX() - 
+					 arg.lowerLeft.getX()) / 2,
+
+				   ((*this).upperRight.getY() - 
+					(*this).lowerLeft.getY() +
+					(arg.upperRight.getY() - 
+					 arg.upperRight.getY())) / 2));
 }

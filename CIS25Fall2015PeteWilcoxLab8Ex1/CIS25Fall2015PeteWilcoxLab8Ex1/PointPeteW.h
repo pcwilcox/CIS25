@@ -60,6 +60,10 @@ class PointPeteW {
 
 	void flipThroughOrigin();
 
+	// Helper - returns the midpoint between the calling object
+	// and the argument object.
+	PointPeteW midpoint(const PointPeteW&);
+
 	// Print
 	void print();
 

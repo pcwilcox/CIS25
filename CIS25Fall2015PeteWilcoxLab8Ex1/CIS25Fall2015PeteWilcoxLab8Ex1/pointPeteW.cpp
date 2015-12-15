@@ -116,6 +116,12 @@ void PointPeteW::print() {
 	cout << "\n(" << x << "," << y << ")";
 }
 
+// Helper
+PointPeteW PointPeteW::midpoint(const PointPeteW& arg) {
+	return PointPeteW(((*this).x + arg.x) / 2, 
+					  ((*this).y + arg.y) / 2);
+}
+
 // Overloads
 ostream& operator<<(ostream& os, const PointPeteW& point) {
 	os << "(" << point.x << "," << point.y << ")";

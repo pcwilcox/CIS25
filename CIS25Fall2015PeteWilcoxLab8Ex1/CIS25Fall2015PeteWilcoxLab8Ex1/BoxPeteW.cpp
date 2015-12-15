@@ -128,25 +128,22 @@ ostream& operator<<(ostream& os, BoxPeteW& box) {
 }
 
 BoxPeteW BoxPeteW::operator+(const BoxPeteW& arg) {
-	FractionPeteW llx(((*this).lowerLeft.getX() + 
-		arg.lowerLeft.getX()) / 2);
-
-	FractionPeteW lly(((*this).lowerLeft.getY() + 
-		arg.lowerLeft.getY()) / 2);
+	PointPeteW newLL((*this).lowerLeft.midpoint(arg.lowerLeft));
 
 	FractionPeteW urx(
 		(((*this).getBaseArea() > arg.getBaseArea()) ? 
 		((*this).upperRight.getX() - (*this).lowerLeft.getX()) : 
-		(arg.upperRight.getX() - arg.lowerLeft.getX())) + llx);
+		(arg.upperRight.getX() - arg.lowerLeft.getX())) 
+			+ newLL.getX());
 
 	FractionPeteW ury(
 		(((*this).getBaseArea() > arg.getBaseArea()) ? 
 		((*this).upperRight.getY() - (*this).lowerLeft.getY()) :
-		(arg.upperRight.getY() - arg.lowerLeft.getY())) + lly);
+		(arg.upperRight.getY() - arg.lowerLeft.getY())) 
+			+ newLL.getY());
 
 	return BoxPeteW(
-		RectanglePeteW(
-			PointPeteW(llx, lly), PointPeteW(urx, ury)), 
+		RectanglePeteW(newLL, PointPeteW(urx, ury)), 
 		FractionPeteW(((*this).h > arg.h) ? (*this).h : arg.h));
 }
 
