@@ -66,7 +66,21 @@ class RectanglePeteW : public virtual ShapePeteW {
 	// Operators
 	RectanglePeteW& operator=(const RectanglePeteW&);
 	
+	// Return true if the two rectangles have the same area
+	bool operator==(const RectanglePeteW&) const;
+
+	// Comparison is based on area
+	bool operator<(const RectanglePeteW&) const;
+	bool operator>(const RectanglePeteW&) const;
+
+	bool operator<=(const RectanglePeteW&) const;
+	bool operator>=(const RectanglePeteW&) const;
+
+	RectanglePeteW operator+(const RectanglePeteW&);
+	
 	friend ostream& operator<<(ostream&, const RectanglePeteW&);
+
+
 
 	protected:
 	PointPeteW upperRight;

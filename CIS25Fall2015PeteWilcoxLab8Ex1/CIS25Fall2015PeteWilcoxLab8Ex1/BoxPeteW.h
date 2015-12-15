@@ -44,9 +44,19 @@ class BoxPeteW : public RectanglePeteW {
 	void computeVolume(void) override;
 	void checkPoints(void) override;
 	void print(void) override;
+	FractionPeteW getBaseArea(void) const;
 
 	// Operators
 	friend ostream& operator<<(ostream&, BoxPeteW&);
+
+	BoxPeteW operator+(const BoxPeteW&);
+
+	// Comparisons based on volume
+	bool operator==(const BoxPeteW&) const;
+	bool operator<(const BoxPeteW&) const;
+	bool operator>(const BoxPeteW&) const;
+	bool operator<=(const BoxPeteW&) const;
+	bool operator>=(const BoxPeteW&) const;
 
 	private:
 	FractionPeteW h;

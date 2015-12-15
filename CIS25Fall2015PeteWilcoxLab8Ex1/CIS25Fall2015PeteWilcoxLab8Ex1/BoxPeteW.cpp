@@ -19,8 +19,8 @@ BoxPeteW::BoxPeteW() {
 }
 
 // Convert constructor
-BoxPeteW::BoxPeteW(const RectanglePeteW &base) : 
-		RectanglePeteW(base) {
+BoxPeteW::BoxPeteW(const RectanglePeteW &base) :
+	RectanglePeteW(base) {
 	checkPoints();
 	h = 0;
 	volume = 0;
@@ -28,9 +28,9 @@ BoxPeteW::BoxPeteW(const RectanglePeteW &base) :
 }
 
 // Copy constructor
-BoxPeteW::BoxPeteW(const BoxPeteW &other) : 
-		RectanglePeteW(other.lowerLeft, 
-						other.upperRight), h(other.h) {
+BoxPeteW::BoxPeteW(const BoxPeteW &other) :
+	RectanglePeteW(other.lowerLeft,
+		other.upperRight), h(other.h) {
 	checkPoints();
 	area = other.area;
 	volume = other.volume;
@@ -38,9 +38,9 @@ BoxPeteW::BoxPeteW(const BoxPeteW &other) :
 }
 
 // Detailed constructor
-BoxPeteW::BoxPeteW(const RectanglePeteW &base, 
-					const FractionPeteW &height) : 
-					RectanglePeteW(base), h(height) {
+BoxPeteW::BoxPeteW(const RectanglePeteW &base,
+	const FractionPeteW &height) :
+	RectanglePeteW(base), h(height) {
 	checkPoints();
 	computeArea();
 	computeVolume();
@@ -76,9 +76,9 @@ void BoxPeteW::setHeight(const FractionPeteW &height) {
 void BoxPeteW::computeArea() {
 	FractionPeteW length = upperRight.getX() - lowerLeft.getX();
 	FractionPeteW width = upperRight.getY() - lowerLeft.getY();
-	
-	(*this).area = length * width * 2 + 
-					length * h * 2 + width * h * 2;
+
+	(*this).area = length * width * 2 +
+		length * h * 2 + width * h * 2;
 }
 
 void BoxPeteW::computeVolume() {
@@ -113,6 +113,10 @@ void BoxPeteW::print() {
 		"\n  Volume:		" << volume;
 }
 
+FractionPeteW BoxPeteW::getBaseArea() const {
+	return RectanglePeteW::getArea();
+}
+
 ostream& operator<<(ostream& os, BoxPeteW& box) {
 	os << "\nBox:"
 		"\n  Lower left:	" << box.lowerLeft <<
@@ -121,4 +125,63 @@ ostream& operator<<(ostream& os, BoxPeteW& box) {
 		"\n  Area:			" << box.area <<
 		"\n  Volume:		" << box.volume;
 	return os;
+}
+
+BoxPeteW BoxPeteW::operator+(const BoxPeteW& arg) {
+	FractionPeteW llx(((*this).lowerLeft.getX() + 
+		arg.lowerLeft.getX()) / 2);
+
+	FractionPeteW lly(((*this).lowerLeft.getY() + 
+		arg.lowerLeft.getY()) / 2);
+
+	FractionPeteW urx(
+		(((*this).getBaseArea() > arg.getBaseArea()) ? 
+		((*this).upperRight.getX() - (*this).lowerLeft.getX()) : 
+		(arg.upperRight.getX() - arg.lowerLeft.getX())) + llx);
+
+	FractionPeteW ury(
+		(((*this).getBaseArea() > arg.getBaseArea()) ? 
+		((*this).upperRight.getY() - (*this).lowerLeft.getY()) :
+		(arg.upperRight.getY() - arg.lowerLeft.getY())) + lly);
+
+	return BoxPeteW(
+		RectanglePeteW(
+			PointPeteW(llx, lly), PointPeteW(urx, ury)), 
+		FractionPeteW(((*this).h > arg.h) ? (*this).h : arg.h));
+}
+
+// Comparisons based on volume
+bool BoxPeteW::operator==(const BoxPeteW& arg) const {
+	if ((*this).volume == arg.volume) {
+		return true;
+	}
+	return false;
+}
+
+bool BoxPeteW::operator<(const BoxPeteW& arg) const {
+	if ((*this).volume < arg.volume) {
+		return true;
+	}
+	return false;
+}
+
+bool BoxPeteW::operator>(const BoxPeteW& arg) const {
+	if ((*this).volume > arg.volume) {
+		return true;
+	}
+	return false;
+}
+
+bool BoxPeteW::operator<=(const BoxPeteW& arg) const {
+	if ((*this).volume <= arg.volume) {
+		return true;
+	}
+	return false;
+}
+
+bool BoxPeteW::operator>=(const BoxPeteW& arg) const {
+	if ((*this).volume >= arg.volume) {
+		return true;
+	}
+	return false;
 }

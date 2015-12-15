@@ -85,6 +85,10 @@ void CylinderPeteW::print() {
 		"\n  Volume:	" << volume << endl;
 }
 
+FractionPeteW CylinderPeteW::getBaseArea() const {
+	return CirclePeteW::getArea();
+}
+
 ostream& operator<<(ostream& os, CylinderPeteW &cyl) {
 	os << "\nCylinder: "
 		"\n  Center:	" << cyl.center <<
@@ -93,4 +97,56 @@ ostream& operator<<(ostream& os, CylinderPeteW &cyl) {
 		"\n  Area:		" << cyl.area <<
 		"\n  Volume:	" << cyl.volume << endl;
 	return os;
+}
+
+CylinderPeteW CylinderPeteW::operator+(const CylinderPeteW& arg) {
+	return CylinderPeteW(
+				CirclePeteW(
+					PointPeteW(
+						FractionPeteW(
+							((*this).center.getX() + 
+								arg.center.getX()) / 2), 
+						FractionPeteW(
+							((*this).center.getY() +
+								arg.center.getY()) / 2)), 
+					FractionPeteW(
+						((*this).radius > arg.radius) ? 
+						(*this).radius : arg.radius)), 
+				FractionPeteW(
+					((*this).h > arg.h) ? (*this).h : arg.h));
+}
+
+bool CylinderPeteW::operator==(const CylinderPeteW& arg) const {
+	if ((*this).volume == arg.volume) {
+		return true;
+	}
+	return false;
+}
+
+bool CylinderPeteW::operator<(const CylinderPeteW& arg) const {
+	if ((*this).volume < arg.volume) {
+		return true;
+	}
+	return false;
+}
+
+bool CylinderPeteW::operator>(const CylinderPeteW& arg) const {
+	if ((*this).volume > arg.volume) {
+		return true;
+	}
+	return false;
+}
+
+bool CylinderPeteW::operator<=(const CylinderPeteW& arg) const {
+	if ((*this).volume <= arg.volume) {
+		return true;
+	}
+	return false;
+}
+
+bool CylinderPeteW::operator>=(const CylinderPeteW& arg) const {
+	if ((*this).volume >= arg.volume) {
+		return true;
+	}
+	return false;
 }

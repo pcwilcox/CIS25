@@ -165,3 +165,49 @@ ostream& operator<<(ostream& os, const RectanglePeteW &arg) {
 		"\n  Area: " << arg.area << endl;
 	return os;
 }
+
+// Comparison operators
+bool RectanglePeteW::operator==(const RectanglePeteW& arg) const {
+	if ((*this).area == arg.area) {
+		return true;
+	}
+	return false;
+}
+
+bool RectanglePeteW::operator<(const RectanglePeteW& arg) const {
+	if ((*this).area < arg.area) {
+		return true;
+	}
+	return false;
+}
+bool RectanglePeteW::operator>(const RectanglePeteW& arg) const {
+	if ((*this).area > arg.area) {
+		return true;
+	}
+	return false;
+}
+
+bool RectanglePeteW::operator<=(const RectanglePeteW& arg) const {
+	if ((*this).area <= arg.area) {
+		return true;
+	}
+	return false;
+}
+
+bool RectanglePeteW::operator>=(const RectanglePeteW& arg) const {
+	if ((*this).area >= arg.area) {
+		return true;
+	}
+	return false;
+}
+RectanglePeteW RectanglePeteW::operator+(const RectanglePeteW& arg) {
+	return RectanglePeteW(
+		PointPeteW(
+			((arg.lowerLeft.getX() + (*this).lowerLeft.getX()) / 2),
+			((arg.lowerLeft.getY() + (*this).lowerLeft.getY()) / 2)),
+		PointPeteW(
+			(((*this).upperRight.getX() - (*this).lowerLeft.getX()) +
+				(arg.upperRight.getX() - arg.lowerLeft.getX()) / 2),
+			(((*this).upperRight.getY() - (*this).lowerLeft.getY() +
+				(arg.upperRight.getY() - arg.upperRight.getY())) / 2)));
+}

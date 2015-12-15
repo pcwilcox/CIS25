@@ -126,6 +126,52 @@ CirclePeteW& CirclePeteW::operator=(const CirclePeteW& arg) {
 	radius = arg.radius;
 	return *this;
 }
+CirclePeteW CirclePeteW::operator+(const CirclePeteW& arg) {
+	return CirclePeteW(
+		PointPeteW(
+			FractionPeteW(((*this).center.getX() +
+							   arg.center.getX()) / 2),
+			FractionPeteW(((*this).center.getY() +
+						       arg.center.getY()) / 2)),
+		FractionPeteW(((*this).radius > arg.radius) ?
+					   (*this).radius : arg.radius));
+}
+
+bool CirclePeteW::operator==(const CirclePeteW& arg) const {
+	if ((*this).area == arg.area) {
+		return true;
+	}
+
+	return false;
+}
+
+bool CirclePeteW::operator<(const CirclePeteW& arg) const {
+	if ((*this).area < arg.area) {
+		return true;
+	}
+	return false;
+}
+
+bool CirclePeteW::operator>(const CirclePeteW& arg) const {
+	if ((*this).area > arg.area) {
+		return true;
+	}
+	return false;
+}
+
+bool CirclePeteW::operator<=(const CirclePeteW& arg) const {
+	if ((*this).area <= arg.area) {
+		return true;
+	}
+	return false;
+}
+
+bool CirclePeteW::operator>=(const CirclePeteW& arg) const {
+	if ((*this).area >= arg.area) {
+		return true;
+	}
+	return false;
+}
 
 ostream& operator<<(ostream& os, const CirclePeteW& circle) {
 	os << "\nCircle:"

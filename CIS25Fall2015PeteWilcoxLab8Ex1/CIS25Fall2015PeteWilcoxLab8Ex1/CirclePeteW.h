@@ -58,6 +58,14 @@ class CirclePeteW : public virtual ShapePeteW {
 	// Operator overloads
 	CirclePeteW& operator=(const CirclePeteW&);
 
+	CirclePeteW operator+(const CirclePeteW&);
+
+	bool operator==(const CirclePeteW&) const;
+	bool operator<(const CirclePeteW&) const;
+	bool operator>(const CirclePeteW&) const;
+	bool operator<=(const CirclePeteW&) const;
+	bool operator>=(const CirclePeteW&) const;
+
 	friend ostream& operator<<(ostream&, const CirclePeteW&);
 
 	protected:

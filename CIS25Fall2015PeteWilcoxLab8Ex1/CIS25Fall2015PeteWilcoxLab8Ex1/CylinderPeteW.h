@@ -44,8 +44,18 @@ class CylinderPeteW : public CirclePeteW {
 	void computeVolume(void) override;
 	void print(void) override;
 
+	FractionPeteW getBaseArea(void) const;
+
 	// Operators
 	friend ostream& operator<<(ostream&, CylinderPeteW&);
+
+	CylinderPeteW operator+(const CylinderPeteW&);
+
+	bool operator==(const CylinderPeteW&) const;
+	bool operator<(const CylinderPeteW&) const;
+	bool operator>(const CylinderPeteW&) const;
+	bool operator<=(const CylinderPeteW&) const;
+	bool operator>=(const CylinderPeteW&) const;
 
 	private:
 	FractionPeteW h;
