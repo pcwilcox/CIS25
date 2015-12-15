@@ -308,7 +308,7 @@ void FractionPeteW::reduce() {
 
 		
 	while (finished == false) {
-		if ((num <= n) || (denom <= n)) {
+		if ((num < n) || (denom < n)) {
 			finished = true;
 		} else if ((num % n == 0) && (denom % n == 0)) {
 			num /= n;
