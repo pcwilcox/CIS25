@@ -255,6 +255,18 @@ FractionPeteW& FractionPeteW::operator/=(const FractionPeteW& arg) {
 	return *this;
 }
 
+FractionPeteW FractionPeteW::operator%(const FractionPeteW &arg) {
+	return FractionPeteW(
+		((*this).num * arg.denom) % 
+		((*this).denom * arg.num), 
+		((*this).denom * arg.denom));
+}
+
+FractionPeteW FractionPeteW::operator%(const int &arg) {
+	return FractionPeteW((*this).num % (arg * denom), 
+		(*this).denom * arg);
+}
+
 bool FractionPeteW::operator==(const FractionPeteW &arg) const {
 	if ((*this).num == arg.num && (*this).denom == arg.denom) {
 		return true;

@@ -67,6 +67,8 @@ class FractionPeteW {
 	FractionPeteW& operator-=(const FractionPeteW&);
 	FractionPeteW& operator*=(const FractionPeteW&);
 	FractionPeteW& operator/=(const FractionPeteW&);
+	FractionPeteW operator%(const FractionPeteW&);
+	FractionPeteW operator%(const int&);
 	bool operator==(const FractionPeteW&) const;
 	bool operator<(const FractionPeteW&) const;
 	bool operator>(const FractionPeteW&) const;
@@ -78,6 +80,7 @@ class FractionPeteW {
 	friend ostream& operator<<(ostream& os,
 		const FractionPeteW& f);
 
+	
 	private:
 	int num;
 	int denom;
